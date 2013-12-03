@@ -38,7 +38,7 @@ angular.module('TrainerApp')
                 obj[key] = "Lorem" + x;
             }
 
-            x++;
+            //x++;
         }
 
         return obj;
@@ -67,17 +67,15 @@ angular.module('TrainerApp')
 
     //}
 
-    //var User = function () {
-    //    this.firstName = "";
-    //    this.lastName = "";
-    //    this.pin = "0000";
-    //    this.status = "clockedout";
-    //    this.email = "";
-    //    this.phone = "";
-    //    this.accountId = -1;
-    //    this.userType = "";
+    var User = function () {
+        this.firstName = "";
+        this.lastName = "";
+        this.pin = "0000";
+        this.email = "";
+        this.phone = "";
+        this.trainerId = -1;
 
-    //}
+    }
 
     var Trainer = function () {
         this.firstName = "";
@@ -85,6 +83,8 @@ angular.module('TrainerApp')
         this.email = "";
         this.phone = "";
     }
+
+    
 
     function getModel(model) {
 
@@ -100,7 +100,7 @@ angular.module('TrainerApp')
         else {
             switch (model) {
                  case "trainer": return getDummyData(new Trainer());
-                // case "user": return getDummyData(new User());
+                 case "user": return getDummyData(new User());
                 // case "account": return getDummyData(new Account());
                // case "punch": return new Punch();
                 //case "job": return getDummyData(new Job());
@@ -112,7 +112,7 @@ angular.module('TrainerApp')
 
     return {
          Trainer: function () { return getModel("trainer"); },
-        // User: function () { return getModel("user"); },
+         User: function () { return getModel("user"); },
         //Account: function () { return getModel("account"); },
         //AccountType: AccountType,
         //Individual: function () { return getModel("individual"); },

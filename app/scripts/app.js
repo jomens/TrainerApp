@@ -20,6 +20,14 @@ angular.module('TrainerApp', [
         templateUrl: 'views/signup.html',
         controller: 'SignupCtrl'
       })
+      .when('/admin', {
+        templateUrl: 'views/admin.html',
+        controller: 'AdminCtrl'
+      })
+      .when('/addClient', {
+        templateUrl: 'views/addClient.html',
+        controller: 'AddclientCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       }); 

@@ -25,9 +25,9 @@ angular.module('TrainerApp')
         TrainerResource: function () {
             return getResource("trainers");
         },
-        //AccountResource: function () {
-        //    return getResource("accounts");
-        //},
+        UserResource: function () {
+            return getResource("users");
+        },
         getTable: function (tableName) {
             return azureClient.getTable(getTableByEnvironment(tableName));
         },

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
- .factory("Signup", function (Models, Azure, Notifier, $location) {
+ .factory("Signup", function (Models, Azure, Notifier, $location, LocalStorage) {
 
          return {
              saveTrainer: function (trainer) {
@@ -13,13 +13,22 @@ angular.module('TrainerApp')
 
                  
                  Azure.TrainerResource().save(trainer, function (savedTrainer) {
-
                     
                      Notifier.done("Success. Trainer created", true);
-                   
-                     $location.path("/");
+                     LocalStorage.setTrainer(savedTrainer);
+                     $location.path("/admin");
 
                  }, Notifier.errorHandler); 
+             },
+             saveClient: function (user) {
+                 user.trainerId = LocalStorage.getTrainer().id;
+
+                 Azure.UserResource().save(user, function (savedUser) {
+
+                     Notifier.done("Success. Client added", true);
+                     $location.path("/admin");
+
+                 }, Notifier.errorHandler);
              }
          }
      })
