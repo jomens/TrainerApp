@@ -3,7 +3,7 @@
 angular.module('TrainerApp')
 .factory("Azure", ["$resource", "Environment", "Notifier",
     function ($resource, Environment, Notifier) {
-        var azureClient = new WindowsAzure.MobileServiceClient('https://trainerapp.azure-mobile.net', 'MNrrNwDLswHBokqfjuZgRRYvCSIpmu44');
+        var azureClient = new WindowsAzure.MobileServiceClient('https://trainerapp.azure-mobile.net', 'zhlqVKKbFuYRyxvFatNOtEUpoCzmQQ84');
 
     function getTableByEnvironment(tb) {
 
@@ -22,11 +22,14 @@ angular.module('TrainerApp')
         return $resource(url.replace("tableName", tableName), { id: '@id' }, { "update": { method: "PATCH", isArray: false } });
     }
     return {
+        GymResource: function () {
+            return getResource("gyms");
+        },
         TrainerResource: function () {
             return getResource("trainers");
         },
-        UserResource: function () {
-            return getResource("users");
+        ClientResource: function () {
+            return getResource("clients");
         },
         getTable: function (tableName) {
             return azureClient.getTable(getTableByEnvironment(tableName));
@@ -54,8 +57,17 @@ angular.module('TrainerApp')
                 }
             }
         },
-        invokeApi: function (apiname) {
-            //azureClient.invokeApi("invitesapi"
+        invokeApi: function (options) {
+            Notifier.busy();
+            azureClient.invokeApi(options.api, { body: options.body || null, method: options.method || "get" })
+            .done(function (results) {
+                if (options.success) {
+                    options.success(results);
+                }
+              
+              Notifier.done("Data loaded");
+
+            }, Notifier.error);
         }
     };
 }]);

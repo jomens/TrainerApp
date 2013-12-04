@@ -3,7 +3,6 @@
 angular.module('TrainerApp')
 .factory("Models", ["Environment", function (Environment) {
 
-
     function getDummyData(obj) {
         var x = Math.floor((Math.random() * 50) + 1);
         for (var key in obj) {
@@ -44,14 +43,42 @@ angular.module('TrainerApp')
         return obj;
     }
 
+    var BodyParts = {
+        chest: "Chest",
+        abs: "Abs",
+        shoulders: "Shoulders",
+        biceps : "Biceps",
+        triceps: "Triceps",
+        back: "Back",
+        legs: "Legs",
+        core: "Core",
+        arms: "Arms"
+        };
+
+    var Tags = {
+        fw: "Free weights",
+        fm: "Free motion",
+        bb: "Bar bells",
+        mc: "Machine",
+        db: "Dumb bells",
+        cb: "Cables",
+        rb: "Resistance bands",
+        cardio: "Cardio"
+        };
+
     var AccountType = {
-        business: "business",
+        business: "gym",
+        trainer: "trainer",
         individual: "individual"
     };
 
-    var Account = function () {
+    var Gym = function () {
         this.name = "";
         this.accountType = "";
+        this.phone = "";
+        this.email = "";
+        this.mainContact = "";
+        this.mainContactEmail = "";
         // this.addressId = "";
         //this.mainContactId = "";
     }
@@ -67,14 +94,13 @@ angular.module('TrainerApp')
 
     //}
 
-    var User = function () {
+    var Client = function () {
         this.firstName = "";
         this.lastName = "";
         this.pin = "0000";
         this.email = "";
         this.phone = "";
         this.trainerId = -1;
-
     }
 
     var Trainer = function () {
@@ -84,36 +110,87 @@ angular.module('TrainerApp')
         this.phone = "";
     }
 
-    
+    var TrainingSession = function () {
+        this.date = "";
+        this.userId = -1;
+        this.trainerId = -1;
+        this.workouts = [];
+    }
+
+    var Exercise = function () {
+        this.name = "";
+        this.bodyPart = ""; //shoulders, abs, etc
+        this.category = ""; //cardio, free weights, cables, free-motion, body-weight,
+    }
+
+    var Set = function () {
+        this.weight = 0.00;
+        this.reps = -1;
+    }
+
+    var Workout = function () { //each workout consists of an exercise and the sets/reps
+        ths.trainingSessionId = -1;
+        this.exerciseId = -1;
+        this.exerciseName = "";
+        this.sets = [];
+    }
+
+    //TRAINING PLANNING
+    var TrainingTemplate = function () {
+        this.trainerId = -1;
+        this.templateName = ""; //Chest and tris?
+        this.exercises = [];
+        this.expectedSets = 3;
+    }
+
+    //i meet Joe, on Monday, we're doing template X. 
+    var TrainingPlan = function () {
+        this.trainerId = -1;
+        this.userId = -1;
+        this.date = -1;
+        this.templateId = -1;
+    }
+
+
+
+
+
+
+
 
     function getModel(model) {
 
         if (Environment == "PROD") {
             switch (model) {
-                 case "trainer": return new Trainer();
-                // case "user": return new User();
-                //case "account": return new Account();
-               // case "individual": return { firstName: "", lastName: "" };
+                case "trainer": return new Trainer();
+                case "client": return new Client();
+                case "gym": return new Gym();
+                case "exercise": return new Exercise();
+                case "template": return new TrainingTemplate();
+                    // case "individual": return { firstName: "", lastName: "" };
             }
 
         }
         else {
             switch (model) {
-                 case "trainer": return getDummyData(new Trainer());
-                 case "user": return getDummyData(new User());
-                // case "account": return getDummyData(new Account());
-               // case "punch": return new Punch();
-                //case "job": return getDummyData(new Job());
-              //  case "individual": return getDummyData({ firstName: "", lastName: "" });
+                case "trainer": return getDummyData(new Trainer());
+                case "client": return getDummyData(new Client());
+                case "gym": return getDummyData(new Gym());
+                case "exercise": return getDummyData(new Exercise());
+                case "template": return getDummyData(new TrainingTemplate());
+                    // case "punch": return new Punch();
+                    //case "job": return getDummyData(new Job());
+                    //  case "individual": return getDummyData({ firstName: "", lastName: "" });
 
             }
         }
     }
 
     return {
-         Trainer: function () { return getModel("trainer"); },
-         User: function () { return getModel("user"); },
-        //Account: function () { return getModel("account"); },
+        Trainer: function () { return getModel("trainer"); },
+        User: function () { return getModel("client"); },
+        TrainingTemplate: function () { return getModel("template"); },
+        Tags: Tags
         //AccountType: AccountType,
         //Individual: function () { return getModel("individual"); },
 

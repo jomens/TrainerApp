@@ -3,9 +3,9 @@
 angular.module('TrainerApp')
   .controller('AddclientCtrl', function ($scope, Signup, Models) {
 
-      $scope.user = Models.User();
+      $scope.client = Models.Client();
       $scope.addClient = function () {
-          Signup.saveClient($scope.user);
+          Signup.saveClient($scope.client);
 
       }
   });

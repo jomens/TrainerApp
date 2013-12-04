@@ -28,6 +28,10 @@ angular.module('TrainerApp', [
         templateUrl: 'views/addClient.html',
         controller: 'AddclientCtrl'
       })
+      .when('/superadmin', {
+        templateUrl: 'views/superadmin.html',
+        controller: 'SuperadminCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       }); 

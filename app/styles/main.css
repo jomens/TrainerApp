@@ -1,4 +1,12 @@
-﻿/* color */
+﻿[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+/* color */
 .blue,
 .primary {
   background: #0072c6;
@@ -33,4 +41,27 @@ body {
 }
 .toast-top-right {
   top: 70px;
+}
+.progress {
+  background-color: none;
+  height: 10px;
+  border: none;
+  padding: 0;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform: translate(0, -115%);
+  -moz-transform: translate(0, -115%);
+  -ms-transform: translate(0, -115%);
+  -o-transform: translate(0, -115%);
+  transform: translate(0, -115%);
+}
+.progress.show {
+  -webkit-transform: translate(0, 0%);
+  -moz-transform: translate(0, 0%);
+  -ms-transform: translate(0, 0%);
+  -o-transform: translate(0, 0%);
+  transform: translate(0, 0%);
 }
