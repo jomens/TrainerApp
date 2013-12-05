@@ -52,7 +52,8 @@ angular.module('TrainerApp')
         back: "Back",
         legs: "Legs",
         core: "Core",
-        arms: "Arms",        
+        arms: "Arms",
+        cardio: "Cardio"
         };
 
     var Tags = {
@@ -192,7 +193,8 @@ angular.module('TrainerApp')
         Trainer: function () { return getModel("trainer"); },
         User: function () { return getModel("client"); },
         TrainingRoutine: function () { return getModel("routine"); },
-        Tags: Tags
+        Tags: function(){ return Tags; },
+        BodyParts: function () { return BodyParts; },
         //AccountType: AccountType,
         //Individual: function () { return getModel("individual"); },
 

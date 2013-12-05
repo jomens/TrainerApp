@@ -15,12 +15,19 @@ angular.module('TrainerApp')
       getTrainer: function () {
           return trainer || amplify.store("trainer");
       },
-      setAllExercises: function (exs) {
-          amplify.store("allexercises", exs);
-          allExercises = exs;
+      //setAllExercises: function (exs) {
+      //    amplify.store("allexercises", exs);
+      //    allExercises = exs;
+      //},
+      //getAllExercises: function () {
+      //    return allExercises || amplify.store("allexercises");
+      //},
+      setExercises: function (bodyPart, exs) {
+          amplify.store(bodyPart + "-exercises", exs);
       },
-      getAllExercises: function () {
-          return allExercises || amplify.store("allexercises");
-      },
+      getExercises: function (bodyPart) {
+         return amplify.store(bodyPart + "-exercises");
+      }
+
     };
   });

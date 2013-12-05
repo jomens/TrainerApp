@@ -1,11 +1,6 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('TrainerCtrl', function ($scope) {
+  .controller('TrainerCtrl', function ($scope, ExerciseService) {
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
   });

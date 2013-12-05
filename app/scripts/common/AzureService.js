@@ -34,9 +34,9 @@ angular.module('TrainerApp')
         ExerciseResource: function () {
             return getResource("exercises");
         },
-        getTable: function (tableName) {
-            return azureClient.getTable(getTableByEnvironment(tableName));
-        },
+        //getTable: function (tableName) {
+        //    return azureClient.getTable(getTableByEnvironment(tableName));
+       // },
         table: function table(tableName){
             tableName = getTableByEnvironment(tableName);
             var azureTable = azureClient.getTable(tableName);
@@ -47,7 +47,12 @@ angular.module('TrainerApp')
 
                     var readPromise;
                     if (options.where) {
-                        readPromise = azureTable.where(options.where).read();
+                        if (options.where.fn) {
+                            readPromise = azureTable.where(options.where.fn, options.where.param).read();
+                        }
+                        else {
+                            readPromise = azureTable.where(options.where).read();
+                        }
                     }
                     else {
                         readPromise = azureTable.read();

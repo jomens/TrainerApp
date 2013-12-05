@@ -65,3 +65,9 @@ body {
   -o-transform: translate(0, 0%);
   transform: translate(0, 0%);
 }
+.padded {
+  margin: 2.5% 0;
+}
+.create-routine .inner-wrap {
+  min-height: 300px;
+}
