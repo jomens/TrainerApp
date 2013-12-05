@@ -1,0 +1,60 @@
+<div class="row page">
+    <h3 class="page-title">Create a new routine</h3>
+
+    <div class="page-content">
+        <div class="row">
+            <div class="small-6 columns">
+                <div class="panel">
+                    <h5>Step 1: Select exercises</h5>
+                </div>
+            </div>
+
+            <div class="small-6 columns">
+                <div class="panel">
+                    <h5>Step 2: Name your routine</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 columns">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="200">Body part</th>
+                            <th>Exercise</th>
+                            <th>Exercise category</th>
+                            <th width="150">Selected</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="exercise in exercises">
+                            <td>{{exercise.bodyPart}}</td>
+                            <td>{{exercise.name}}</td>
+                            <td>
+                                <span ng-repeat="tag in split(exercise.tags)">
+                                    <span class="label success">{{tag}}</span>
+
+                                </span>
+                            </td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <p </p>
+        </div>
+
+
+            <div class="row">
+                <div class="small-12 medium-4 columns">
+                    <a ng-href="#/createRoutine" class="button" ng-click="">Create a new routine</a>
+                </div>
+
+            </div>
+
+
+        </div>
+</div>

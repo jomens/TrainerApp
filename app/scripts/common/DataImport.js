@@ -5,6 +5,8 @@ angular.module('TrainerApp')
 
 
     var listOfExercises = [
+        { bodyPart: "Warmup", tags: "warmup", name: "Quick warm up" },
+
         { bodyPart: "Chest", tags: "fw, bb", name: "Flat bar bell bench press" },
         { bodyPart: "Chest", tags: "fw, db", name: "Flat dumb bell bench press" },
         { bodyPart: "Chest", tags: "fw, bb", name: "Incline bar bell bench press" },
@@ -88,7 +90,10 @@ angular.module('TrainerApp')
         { bodyPart: "Legs", tags: "fw, db", name: "Dumb bell lunges" },
         { bodyPart: "Legs", tags: "fw, bb", name: "Bar bell lunges" },
 
-        //cardio
+        { bodyPart: "Legs, Calfs", tags: "fw, bb", name: "Bar bell calf raises" },
+        { bodyPart: "Legs, Calfs", tags: "fw, bb", name: "Smith machine calf raises" },
+        { bodyPart: "Legs, Calfs", tags: "fw, mc", name: "Seated calf raises" },
+
         { bodyPart: "Cardio", tags: "cardio", name: "Treadmill" },
         { bodyPart: "Cardio", tags: "cardio", name: "Stair master" },
         { bodyPart: "Cardio", tags: "cardio", name: "stair stepper" },
@@ -102,6 +107,12 @@ angular.module('TrainerApp')
 
     ]
 
+    var trainingTemplates = [
+        {
+            trainerId: "all", name: "TeplateName", expectedSets: 3,
+            exercises: []
+        }
+    ]
     return {
         Exercises: listOfExercises,
     }

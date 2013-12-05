@@ -52,7 +52,7 @@ angular.module('TrainerApp')
         back: "Back",
         legs: "Legs",
         core: "Core",
-        arms: "Arms"
+        arms: "Arms",        
         };
 
     var Tags = {
@@ -63,7 +63,8 @@ angular.module('TrainerApp')
         db: "Dumb bells",
         cb: "Cables",
         rb: "Resistance bands",
-        cardio: "Cardio"
+        cardio: "Cardio",
+        warmup: "Warm up"
         };
 
     var AccountType = {
@@ -133,12 +134,13 @@ angular.module('TrainerApp')
         this.exerciseId = -1;
         this.exerciseName = "";
         this.sets = [];
+        this.notes = "";
     }
 
     //TRAINING PLANNING
-    var TrainingTemplate = function () {
+    var TrainingRoutine = function () {
         this.trainerId = -1;
-        this.templateName = ""; //Chest and tris?
+        this.name = ""; //Chest and tris?
         this.exercises = [];
         this.expectedSets = 3;
     }
@@ -148,7 +150,7 @@ angular.module('TrainerApp')
         this.trainerId = -1;
         this.userId = -1;
         this.date = -1;
-        this.templateId = -1;
+        this.routineId = -1;
     }
 
 
@@ -166,7 +168,7 @@ angular.module('TrainerApp')
                 case "client": return new Client();
                 case "gym": return new Gym();
                 case "exercise": return new Exercise();
-                case "template": return new TrainingTemplate();
+                case "routine": return new TrainingRoutine();
                     // case "individual": return { firstName: "", lastName: "" };
             }
 
@@ -177,7 +179,7 @@ angular.module('TrainerApp')
                 case "client": return getDummyData(new Client());
                 case "gym": return getDummyData(new Gym());
                 case "exercise": return getDummyData(new Exercise());
-                case "template": return getDummyData(new TrainingTemplate());
+                case "routine": return getDummyData(new TrainingRoutine());
                     // case "punch": return new Punch();
                     //case "job": return getDummyData(new Job());
                     //  case "individual": return getDummyData({ firstName: "", lastName: "" });
@@ -189,7 +191,7 @@ angular.module('TrainerApp')
     return {
         Trainer: function () { return getModel("trainer"); },
         User: function () { return getModel("client"); },
-        TrainingTemplate: function () { return getModel("template"); },
+        TrainingRoutine: function () { return getModel("routine"); },
         Tags: Tags
         //AccountType: AccountType,
         //Individual: function () { return getModel("individual"); },
