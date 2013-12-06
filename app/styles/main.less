@@ -105,6 +105,13 @@ body {
     letter-spacing: -1px;
 }
 
+button, .button {
+    padding: .8rem 1rem;
+}
+
+.block {
+    display: block;
+}
 //override toastrjs positioning
 .toast-top-right {
     top: 70px;
@@ -127,6 +134,40 @@ body {
     margin: 2.5% 0;
 }
 
-.create-routine .inner-wrap{
-    min-height: 300px;
+ul.off-canvas-list li:first-child label {
+    padding: 0.7rem 0.9375rem;
+}
+
+.create-routine {
+    .inner-wrap {
+        min-height: 300px;
+    }
+
+    table {
+        border: none;
+
+        td {
+            .add-to-routine, .exercise-selected {
+                margin: 0;
+                color: #333;
+                font-size: 1.5rem;
+                margin-left: 2rem;
+            }
+
+            .exercise-selected {
+                color: #7fba00;
+            }
+        }
+    }
+
+    a.fi-eye {
+        font-size: 2.3rem;
+        width: 2.8125rem;
+        height: 2.8125rem;
+        display: block;
+        padding: 0;
+        color: #fff;
+        position: relative;
+        text-align: center;
+    }
 }

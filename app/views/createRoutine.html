@@ -3,20 +3,6 @@
 
     <div class="page-content">
         <div class="row">
-            <div class="small-6 columns">
-                <div class="panel">
-                    <h5>Step 1: Select exercises</h5>
-                </div>
-            </div>
-
-            <div class="small-6 columns">
-                <div class="panel">
-                    <h5>Step 2: Name your routine</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
             <div class="small-12 medium-6 columns">
                 <div class="off-canvas-wrap create-routine">
                     <div class="inner-wrap">
@@ -30,6 +16,15 @@
                             </ul>
                         </aside>
 
+                        <aside class="right-off-canvas-menu">
+                            <ul class="off-canvas-list">
+                                <li><label>Your new routine ({{selectedExercises.length}})</label></li>
+                                <li ng-repeat="ex in selectedExercises"><a href="#">{{ex.name}}</a></li>
+                            </ul>
+
+                            <a ng-href="#/" ng-show="selectedExercises.length" class="button block" ng-click="">Save</a>
+                        </aside>
+
                         <!-- main content goes here -->
                         <nav class="tab-bar">
                             <section class="left-small">
@@ -39,28 +34,38 @@
                             <section class="right tab-bar-section">
                                 <h1 class="title">{{exTitle}}</h1>
                             </section>
-
+                            <section class="right-small">
+                                <a class="right-off-canvas-toggle fi-eye"><span></span></a>
+                            </section>
                         </nav>
                         <div class="row">
                             <div class="small-12 columns">
                                 <table>
+                                   
                                      <tbody>
                                         <tr ng-repeat="exercise in exercises">
                                             <td>{{exercise.name}}</td>
                                             <td>
                                                 <span ng-repeat="tag in split(exercise.tags)">
-                                                    <span class="label success">{{tag}}</span>
+                                                    <span class="label secondary">{{tag}}</span>
 
                                                 </span>
                                             </td>
-                                            <td></td>
+                                            <td>
+                                                <a class="add-to-routine" ng-click="addExercise(exercise)" ng-hide="exercise.selected">
+                                                    <i class="step fi-plus size-72"></i>
+                                                </a>
+                                                <a class="exercise-selected" ng-href="" ng-show="exercise.selected">
+                                                    <i class="step fi-check size-72"></i>
+                                                </a>
+
+                                            </td>
                                         </tr>
 
                                     </tbody>
                                 </table>
 
                             </div>
-                            <p</p>
                         </div>
 
                         <!-- close the off-canvas menu -->
@@ -69,13 +74,17 @@
                     </div>
                 </div>
             </div>
+
+            <div class="small-12 medium-6 columns">
+                
+            </div>
         </div>
 
 
         <section class="padded">
             <div class="row">
                 <div class="small-12 medium-4 columns">
-                    <a ng-href="#/createRoutine" class="button" ng-click="">Create a new routine</a>
+                   
                 </div>
 
             </div>

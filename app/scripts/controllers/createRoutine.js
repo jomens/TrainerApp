@@ -3,25 +3,44 @@
 angular.module('TrainerApp')
   .controller('CreateroutineCtrl', function ($scope, RoutineService, ExerciseService, Models, $timeout) {
 
-      var defaultBp = "Chest";
+      $scope.selectedExercises = [];
+      var exercises = {};
 
       init();
-
+      //TODO: SAVE ROUTINE. REMOVE SELECTED PROPERTY, SET TRAINER ID. DONE.
       $timeout(function () {
           angular.element(".create-routine").addClass("move-right");
-      }, 1000)
+      }, 500);
 
       function init() {
-          $scope.exTitle = defaultBp + " Exercises";
+         // $scope.exTitle = "nothing selected";
           $scope.bodyParts = ExerciseService.getBodyParts();
-          $scope.exercises = ExerciseService.getExercisesByBodyPart(defaultBp);
+          
+      } 
+
+      function getExercises(bp) {
+          if (exercises[bp]) {
+              return exercises[bp];
+          }
+          else {
+              exercises[bp] = ExerciseService.getExercisesByBodyPart(bp);
+              return exercises[bp];
+          }
+          
       }
 
       $scope.selectBodypart = function (bp) {
-          defaultBp = bp;
-          init();
+          $scope.exTitle = bp + " Exercises";
+
+          $scope.exercises = getExercises(bp);
+          angular.element(".create-routine").removeClass("move-right");
+
       }
      
+      $scope.addExercise = function (ex) {
+          ex.selected = true;
+          $scope.selectedExercises.push(ex);
+      }
 
       $scope.split = function (tags) {
           return tags.split(",").map(function (tag) {

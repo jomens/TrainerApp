@@ -39,6 +39,13 @@ body {
   line-height: 1;
   letter-spacing: -1px;
 }
+button,
+.button {
+  padding: .8rem 1rem;
+}
+.block {
+  display: block;
+}
 .toast-top-right {
   top: 70px;
 }
@@ -68,6 +75,32 @@ body {
 .padded {
   margin: 2.5% 0;
 }
+ul.off-canvas-list li:first-child label {
+  padding: 0.7rem 0.9375rem;
+}
 .create-routine .inner-wrap {
   min-height: 300px;
+}
+.create-routine table {
+  border: none;
+}
+.create-routine table td .add-to-routine,
+.create-routine table td .exercise-selected {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+}
+.create-routine table td .exercise-selected {
+  color: #7fba00;
+}
+.create-routine a.fi-eye {
+  font-size: 2.3rem;
+  width: 2.8125rem;
+  height: 2.8125rem;
+  display: block;
+  padding: 0;
+  color: #fff;
+  position: relative;
+  text-align: center;
 }
