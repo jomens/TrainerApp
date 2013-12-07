@@ -3,79 +3,82 @@
 
     <div class="page-content">
        
-                <div class="row">
-                    <div class="small-12 large-6 columns">
-                        <form>
-                            <div class="row collapse">
-                                <div class="small-3  columns">
-                                    <span class="prefix">Routine Name: </span>
-                                </div>
-
-                                <div class="small-9 columns">
-                                    <input type="text" placeholder="Enter routine name, required" ng-model="routineName">
-                                </div>
+        <section class="padded">
+            <div class="row">
+                <div class="small-12 large-6 columns">
+                    <form>
+                        <div class="row collapse">
+                            <div class="small-3  columns">
+                                <span class="prefix">Routine Name: </span>
                             </div>
-                        </form>
 
-                        <div class="off-canvas-wrap create-routine">
-                            <div class="inner-wrap">
-                                <!-- Off Canvas Menu -->
-                                <aside class="left-off-canvas-menu">
-                                    <!-- whatever you want goes here -->
-                                    <ul class="off-canvas-list">
-                                        <li><label>Select a body part</label></li>
-                                        <li ng-repeat="bp in bodyParts"><a href="" ng-click="selectBodypart(bp)">{{bp}}</a></li>
-                                    </ul>
-                                </aside>
-                                <aside class="right-off-canvas-menu">
-                                    <ul class="off-canvas-list">
-                                        <li><label>Your new routine ({{selectedExercises.length}})</label></li>
-                                        <li ng-repeat="ex in selectedExercises"><a href="">{{ex.name}}</a></li>
-                                    </ul>
-                                    <button ng-click="saveRoutine()" class="button block" ng-show="selectedExercises.length">Save</button>
-                                </aside>
-                                <!-- main content goes here -->
-                                <nav class="tab-bar">
-                                    <section class="left-small">
-                                        <a class="left-off-canvas-toggle menu-icon"><span></span></a>
-                                    </section>
-                                    <section class="right tab-bar-section">
-                                        <h1 class="title">{{exTitle}}</h1>
-                                    </section>
-                                    <section class="right-small">
-                                        <a class="right-off-canvas-toggle fi-eye"><span></span></a>
-                                    </section>
-                                </nav>
-                                <section class="padded">
-                                    <div class="row ex" ng-repeat="exercise in exercises">
-                                        <div class="small-6 columns"><p>{{exercise.name}}</p> </div>
-                                        <div class="small-4 columns">
-                                            <span ng-repeat="tag in split(exercise.tags)">
-                                                <span class="label secondary">{{tag}}</span>
-                                            </span>
-                                        </div>
-                                        <div class="small-2 columns">
-                                            <a class="add-to-routine" ng-click="addExercise(exercise)" ng-hide="exercise.selected">
-                                                <i class="step fi-plus size-72"></i>
-                                            </a>
-                                            <a class="exercise-selected" ng-href="" ng-show="exercise.selected">
-                                                <i class="step fi-check size-72"></i>
-                                            </a>
+                            <div class="small-9 columns">
+                                <input type="text" placeholder="Enter routine name, required" ng-model="routineName">
+                            </div>
+                        </div>
+                    </form>
 
-                                        </div>
-
+                    <div class="off-canvas-wrap create-routine">
+                        <div class="inner-wrap">
+                            <!-- Off Canvas Menu -->
+                            <aside class="left-off-canvas-menu">
+                                <!-- whatever you want goes here -->
+                                <ul class="off-canvas-list">
+                                    <li><label>Select a body part</label></li>
+                                    <li ng-repeat="bp in bodyParts"><a href="" ng-click="selectBodypart(bp)">{{bp}}</a></li>
+                                </ul>
+                            </aside>
+                            <aside class="right-off-canvas-menu">
+                                <ul class="off-canvas-list">
+                                    <li><label>Your new routine ({{selectedExercises.length}})</label></li>
+                                    <li ng-repeat="ex in selectedExercises"><a href="">{{ex.name}}</a></li>
+                                </ul>
+                                <button ng-click="saveRoutine()" class="button block" ng-show="selectedExercises.length">Save</button>
+                            </aside>
+                            <!-- main content goes here -->
+                            <nav class="tab-bar">
+                                <section class="left-small">
+                                    <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+                                </section>
+                                <section class="right tab-bar-section">
+                                    <h1 class="title">{{exTitle}}</h1>
+                                </section>
+                                <section class="right-small">
+                                    <a class="right-off-canvas-toggle fi-eye"><span></span></a>
+                                </section>
+                            </nav>
+                            <section class="padded">
+                                <div class="row ex" ng-repeat="exercise in exercises">
+                                    <div class="small-6 columns"><p>{{exercise.name}}</p> </div>
+                                    <div class="small-4 columns">
+                                        <span ng-repeat="tag in split(exercise.tags)">
+                                            <span class="label secondary">{{tag}}</span>
+                                        </span>
+                                    </div>
+                                    <div class="small-2 columns">
+                                        <a class="add-to-routine" ng-click="addExercise(exercise)" ng-hide="exercise.selected">
+                                            <i class="step fi-plus size-72"></i>
+                                        </a>
+                                        <a class="exercise-selected" ng-href="" ng-show="exercise.selected">
+                                            <i class="step fi-check size-72"></i>
+                                        </a>
 
                                     </div>
 
-                                </section>
 
-                                <!-- close the off-canvas menu -->
-                                <a class="exit-off-canvas"></a>
-                            </div>
+                                </div>
+
+                            </section>
+
+                            <!-- close the off-canvas menu -->
+                            <a class="exit-off-canvas"></a>
                         </div>
                     </div>
-
                 </div>
+
+            </div>
+
+        </section>
 
                 <section class="padded">
                     <form></form>
