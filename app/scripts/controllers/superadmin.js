@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('SuperadminCtrl', function ($scope, DataImport, Azure) {
+  .controller('SuperadminCtrl', function ($scope, DataImport, Azure, ExerciseService) {
     
       $scope.loadExercises = function () {
 
@@ -14,5 +14,9 @@ angular.module('TrainerApp')
                   console.log(results);
               }
           });
+      }
+
+      $scope.fetchAll = function () {
+          ExerciseService.fetchAllExercises(function (x) { });
       }
   });

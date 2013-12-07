@@ -139,7 +139,7 @@ angular.module('TrainerApp')
     }
 
     //TRAINING PLANNING
-    var TrainingRoutine = function () {
+    var Routine = function () {
         this.trainerId = -1;
         this.name = ""; //Chest and tris?
         this.exercises = [];
@@ -169,7 +169,7 @@ angular.module('TrainerApp')
                 case "client": return new Client();
                 case "gym": return new Gym();
                 case "exercise": return new Exercise();
-                case "routine": return new TrainingRoutine();
+                case "routine": return new Routine();
                     // case "individual": return { firstName: "", lastName: "" };
             }
 
@@ -180,7 +180,7 @@ angular.module('TrainerApp')
                 case "client": return getDummyData(new Client());
                 case "gym": return getDummyData(new Gym());
                 case "exercise": return getDummyData(new Exercise());
-                case "routine": return getDummyData(new TrainingRoutine());
+                case "routine": return getDummyData(new Routine());
                     // case "punch": return new Punch();
                     //case "job": return getDummyData(new Job());
                     //  case "individual": return getDummyData({ firstName: "", lastName: "" });
@@ -192,7 +192,7 @@ angular.module('TrainerApp')
     return {
         Trainer: function () { return getModel("trainer"); },
         User: function () { return getModel("client"); },
-        TrainingRoutine: function () { return getModel("routine"); },
+        Routine: function () { return getModel("routine"); },
         Tags: function(){ return Tags; },
         BodyParts: function () { return BodyParts; },
         //AccountType: AccountType,

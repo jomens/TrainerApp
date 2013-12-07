@@ -7,7 +7,6 @@ angular.module('TrainerApp')
       var exercises = {};
 
       init();
-      //TODO: SAVE ROUTINE. REMOVE SELECTED PROPERTY, SET TRAINER ID. DONE.
       $timeout(function () {
           angular.element(".create-routine").addClass("move-right");
       }, 500);
@@ -40,11 +39,23 @@ angular.module('TrainerApp')
       $scope.addExercise = function (ex) {
           ex.selected = true;
           $scope.selectedExercises.push(ex);
+          $scope.routineName = RoutineService.stringifyBodyParts($scope.selectedExercises);
       }
 
       $scope.split = function (tags) {
           return tags.split(",").map(function (tag) {
               return Models.Tags()[$.trim(tag)];
           })
+      }
+
+      $scope.saveRoutine = function () {
+          if (!$scope.routineName) return;
+
+          var routine = Models.Routine();
+          routine.name = $scope.routineName;
+          routine.expectedSets = 3;
+          routine.exercises = $scope.selectedExercises;
+
+          RoutineService.saveRoutine(routine);
       }
   });

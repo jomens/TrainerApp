@@ -45,6 +45,7 @@ button,
 }
 .block {
   display: block;
+  width: 100%;
 }
 .toast-top-right {
   top: 70px;
@@ -75,24 +76,29 @@ button,
 .padded {
   margin: 2.5% 0;
 }
+.container {
+  width: 96%;
+  max-width: 1180px;
+}
 ul.off-canvas-list li:first-child label {
   padding: 0.7rem 0.9375rem;
 }
 .create-routine .inner-wrap {
   min-height: 300px;
 }
-.create-routine table {
-  border: none;
-}
-.create-routine table td .add-to-routine,
-.create-routine table td .exercise-selected {
+.create-routine .add-to-routine,
+.create-routine .exercise-selected {
   margin: 0;
   color: #333;
   font-size: 1.5rem;
-  margin-left: 2rem;
+  /*margin-left: 2rem;*/
+
 }
-.create-routine table td .exercise-selected {
+.create-routine .exercise-selected {
   color: #7fba00;
+}
+.create-routine .ex {
+  margin-bottom: 5px;
 }
 .create-routine a.fi-eye {
   font-size: 2.3rem;

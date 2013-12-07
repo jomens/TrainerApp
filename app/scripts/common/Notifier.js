@@ -21,9 +21,9 @@ angular.module('TrainerApp')
             toastr.success(msg);
         }
 
-        if (enableSubmit) {
+       // if (enableSubmit) {
             this._enableButtons();
-        }
+        //}
     }
 
     this.error = function (msg, enableSubmit) {
@@ -33,9 +33,9 @@ angular.module('TrainerApp')
             toastr.error(msg);
         }
 
-        if (enableSubmit) {
+        //if (enableSubmit) {
             this._enableButtons();
-        }
+       // }
     }
 
     this.errorHandler = function (err) {
