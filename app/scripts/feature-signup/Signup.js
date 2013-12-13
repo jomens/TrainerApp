@@ -23,10 +23,10 @@ angular.module('TrainerApp')
              saveClient: function (user) {
                  user.trainerId = LocalStorage.getTrainer().id;
 
-                 Azure.UserResource().save(user, function (savedUser) {
+                 Azure.ClientResource().save(user, function (savedUser) {
 
                      Notifier.done("Success. Client added", true);
-                     $location.path("/admin");
+                     $location.path("/trainer");
 
                  }, Notifier.errorHandler);
              }

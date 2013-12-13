@@ -40,6 +40,10 @@ angular.module('TrainerApp', [
         templateUrl: 'views/createRoutine.html',
         controller: 'CreateroutineCtrl'
       })
+      .when('/myClients', {
+        templateUrl: 'views/myClients.html',
+        controller: 'MyclientsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       }); 

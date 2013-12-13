@@ -191,7 +191,7 @@ angular.module('TrainerApp')
 
     return {
         Trainer: function () { return getModel("trainer"); },
-        User: function () { return getModel("client"); },
+        Client: function () { return getModel("client"); },
         Routine: function () { return getModel("routine"); },
         Tags: function(){ return Tags; },
         BodyParts: function () { return BodyParts; },

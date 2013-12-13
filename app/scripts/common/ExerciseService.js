@@ -7,6 +7,9 @@ angular.module('TrainerApp')
           fetchAllExercises: function (callback) {
               
               var bodyParts = this.getBodyParts();
+              var numBodyParts = bodyParts.length;
+              var dataLoadCount = 0;
+              console.log("Fetching exercises");
 
               bodyParts.forEach(function(bp){
                   Azure.table("exercises").read({
@@ -18,6 +21,15 @@ angular.module('TrainerApp')
                       },
                       success: function (exercises) {
                           LocalStorage.setExercises(bp, exercises)
+                          dataLoadCount++;
+
+                          if (dataLoadCount === numBodyParts) {
+                              LocalStorage.setSettings({
+                                  dataLoaded: true,
+                                  dataLoadedDate: new Date()
+                              })
+
+                          }
                       }
                   })
             
