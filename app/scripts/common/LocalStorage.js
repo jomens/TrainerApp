@@ -14,7 +14,11 @@ angular.module('TrainerApp')
             trainer = tr;
         },
         getTrainer: function () {
-            return trainer || amplify.store("trainer");
+            if (!trainer) {
+                trainer = amplify.store("trainer");
+            }
+          
+            return trainer;
         },
         setSettings: function (st) {
             amplify.store("settings", st);

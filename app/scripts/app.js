@@ -40,7 +40,7 @@ angular.module('TrainerApp', [
         templateUrl: 'views/createRoutine.html',
         controller: 'CreateroutineCtrl'
       })
-      .when('/myClients', {
+      .when('/myClients/:id', {
         templateUrl: 'views/myClients.html',
         controller: 'MyclientsCtrl'
       })

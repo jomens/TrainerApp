@@ -1,10 +1,16 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MyclientsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MyclientsCtrl', function ($scope, $routeParams, TrainerService) {
+    
+      init();
+
+      function init() {
+          var trainerId = $routeParams.id;
+          TrainerService.getClients(function (clients) {
+              $scope.clients = clients;
+              $scope.$apply();
+          });
+          
+      }
   });
