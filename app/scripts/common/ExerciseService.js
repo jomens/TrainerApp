@@ -10,6 +10,7 @@ angular.module('TrainerApp')
               var numBodyParts = bodyParts.length;
               var dataLoadCount = 0;
               console.log("Fetching exercises");
+              console.log(new Date());
 
               bodyParts.forEach(function(bp){
                   Azure.table("exercises").read({

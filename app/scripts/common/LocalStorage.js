@@ -25,7 +25,7 @@ angular.module('TrainerApp')
             settings = st;
         },
         getSettings: function () {
-            return settings || amplify.store("settings");
+            return settings || amplify.store("settings"); 
 
         },
         //setAllExercises: function (exs) {
