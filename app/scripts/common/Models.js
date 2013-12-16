@@ -33,11 +33,22 @@ angular.module('TrainerApp')
             else if (key.toLowerCase().indexOf("name") != -1) {
                 obj[key] = "Company" + x;
             }
+            else if (key.toLowerCase().indexOf("imageurl") != -1) {
+                obj[key] = getImage();
+            }
             else {
                 obj[key] = "Lorem" + x;
             }
 
             //x++;
+        }
+
+        function getImage () {
+
+            var baseUrl = "http://api.randomuser.me/0.2/portraits/";
+            var gender = ["men", "women"];
+
+            return baseUrl + gender[Math.floor(Math.random() * 2)] + "/" + Math.ceil(Math.random() * 20) + ".jpg";
         }
 
         return obj;
@@ -103,6 +114,7 @@ angular.module('TrainerApp')
         this.email = "";
         this.phone = "";
         this.trainerId = -1;
+        this.imageUrl = "";
     }
 
     var Trainer = function () {

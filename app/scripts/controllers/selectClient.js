@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MyclientsCtrl', function ($scope, $routeParams, TrainerService) {
-    
+  .controller('SelectclientCtrl', function ($scope, $routeParams, TrainerService, $location) {
+
       init();
 
       function init() {
@@ -11,8 +11,14 @@ angular.module('TrainerApp')
               $scope.clients = clients;
               $scope.$apply();
           });
-          
+
       }
 
-     
+      $scope.clientSelected = function (client) {
+
+          TrainerService.setCurrentClient(client);
+          $location.path("/selectRoutine");
+
+      }
+
   });

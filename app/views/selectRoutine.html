@@ -1,0 +1,13 @@
+<div class="row page">
+    <h3 class="page-title">Select a routine</h3>
+
+    <div class="page-content">
+        <div class="row">
+            <div class="small-6 medium-4 columns" ng-repeat="routine in routines">
+                <a ng-click="routineSelected(routine)" class="block panel">{{routine.name}}</a>
+            </div>
+        </div>
+
+
+    </div>
+</div>

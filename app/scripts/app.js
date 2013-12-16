@@ -44,6 +44,22 @@ angular.module('TrainerApp', [
         templateUrl: 'views/myClients.html',
         controller: 'MyclientsCtrl'
       })
+      .when('/myRoutines/:id', {
+        templateUrl: 'views/myRoutines.html',
+        controller: 'MyroutinesCtrl'
+      })
+      .when('/selectClient', {
+        templateUrl: 'views/selectClient.html',
+        controller: 'SelectclientCtrl'
+      })
+      .when('/selectRoutine', {
+        templateUrl: 'views/selectRoutine.html',
+        controller: 'SelectroutineCtrl'
+      })
+      .when('/go', {
+        templateUrl: 'views/go.html',
+        controller: 'GoCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       }); 
