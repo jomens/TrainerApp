@@ -6,6 +6,7 @@ angular.module('TrainerApp')
       var trainer;
       var currentClient;
       var currentRoutine;
+      var session;
       var allExercises;
       var settings;
 
@@ -27,6 +28,7 @@ angular.module('TrainerApp')
               currentClient = currentClient || amplify.store("currentclient");
               return currentClient;
           },
+
           setCurrentRoutine: function (rtn) {
               amplify.store("currentroutine", rtn);
               currentRoutine = rtn;
@@ -35,6 +37,26 @@ angular.module('TrainerApp')
               currentRoutine = currentRoutine || amplify.store("currentroutine");
               return currentRoutine;
           },
+
+          getRoutineDetails: function () {
+                  return amplify.store("routineDetails");
+
+          },
+
+          setRoutineDetails: function(rtnDetails){
+              amplify.store("routineDetails", rtnDetails);
+
+          },
+
+          setTrainingSession: function (ts) {
+              amplify.store("session", ts);
+              session = ts;
+          },
+          getTrainingSession: function () {
+              session = session || amplify.store("session");
+              return session;
+          },
+
           setSettings: function (st) {
               amplify.store("settings", st);
               settings = st;
@@ -43,6 +65,7 @@ angular.module('TrainerApp')
               settings =  settings || amplify.store("settings");
               return settings;
           },
+
           //setAllExercises: function (exs) {
           //    amplify.store("allexercises", exs);
           //    allExercises = exs;

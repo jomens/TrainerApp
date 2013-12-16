@@ -126,9 +126,10 @@ angular.module('TrainerApp')
 
     var TrainingSession = function () {
         this.date = "";
-        this.userId = -1;
+        this.clientId = -1;
         this.trainerId = -1;
-        this.workouts = [];
+        this.routineId = -1;
+        //this.workouts = [];
     }
 
     var Exercise = function () {
@@ -207,6 +208,7 @@ angular.module('TrainerApp')
         Routine: function () { return getModel("routine"); },
         Tags: function(){ return Tags; },
         BodyParts: function () { return BodyParts; },
+        TrainingSession: function () { return new TrainingSession(); },
         //AccountType: AccountType,
         //Individual: function () { return getModel("individual"); },
 

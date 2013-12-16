@@ -59,6 +59,38 @@ angular.module('TrainerApp')
           },
           getExercisesByBodyPart: function (bp) {
               return LocalStorage.getExercises(bp);
+          },
+          getExerciseFromRoutine: function (routine) {
+              var cachedRoutines = LocalStorage.getRoutineDetails();
+              if (cachedRoutines) {
+                  console.log("getting from cache");
+                  return cachedRoutines;
+              }
+              console.log("no cache");
+              var rt_bodyParts = routine.bodyParts.split(",");
+              var rt_exercideIds = routine.exerciseIds.split(",");
+
+              var found = {};
+              var list = []; 
+
+              rt_bodyParts.forEach(function (bodypart) {
+                  var exs = LocalStorage.getExercises($.trim(bodypart)) || [];
+
+                  exs.forEach(function (ex) {
+                      if ($.inArray(ex.id, rt_exercideIds) != -1) {
+                          if(!found[ex.id]){
+                             list.push(ex);
+                          found[ex.id] = true;
+                        }
+                      
+                      }
+                  });
+
+              });
+
+              LocalStorage.setRoutineDetails(list);
+
+              return list;
           }
     };
   });

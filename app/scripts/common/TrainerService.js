@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .factory('TrainerService', function (Azure, Notifier, LocalStorage) {
+  .factory('TrainerService', function (Azure, Notifier, LocalStorage, Models) {
 
-    var trainer = LocalStorage.getTrainer();
+      var trainer = LocalStorage.getTrainer();
+      function routineDetails(rtn) {
+
+      }
 
     return {
         getClients: function (callback) {
@@ -47,11 +50,36 @@ angular.module('TrainerApp')
         setCurrentRoutine: function (routine) {
             //save to azure???
             LocalStorage.setCurrentRoutine(routine);
+
         },
         getCurrentRoutine: function () {
             //save to azure???
             return LocalStorage.getCurrentRoutine();
+        },
+        startTrainingSession: function () {
+            if (LocalStorage.getTrainingSession()) {
+                console.log("training in progress");
+                return;
+            }
+
+            var session = Models.TrainingSession();
+            session.date = new Date();
+            session.clientId = LocalStorage.getCurrentClient().id;
+            session.trainerId = LocalStorage.getTrainer().id;
+            session.routineId = LocalStorage.getCurrentRoutine().id;
+            console.log(session);
+
+            Azure.TrainingSessionResource().save(session, function (savedSession) {
+
+                LocalStorage.setTrainingSession(savedSession);
+                console.log("Saved " + savedSession);
+
+            }, Notifier.errorHandler);
+        },
+        endTrainingSession: function () {
+            //update session end date and set current session to null, set routine details to null
         }
+
     }
 
   });

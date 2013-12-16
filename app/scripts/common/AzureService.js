@@ -37,6 +37,9 @@ angular.module('TrainerApp')
         RoutineResource: function () {
             return getResource("routines");
         },
+        TrainingSessionResource: function () {
+            return getResource("trainingsession");
+        },
         //getTable: function (tableName) {
         //    return azureClient.getTable(getTableByEnvironment(tableName));
        // },
