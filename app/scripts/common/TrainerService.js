@@ -56,6 +56,33 @@ angular.module('TrainerApp')
             //save to azure???
             return LocalStorage.getCurrentRoutine();
         },
+        setCurrentWorkout: function (ex) {
+            var workout = Models.Workout();
+            workout.trainingSessionId = LocalStorage.getTrainingSession().id;
+            workout.exerciseId = ex.id;
+            workout.exerciseName = ex.name;
+
+            LocalStorage.setCurrentWorkout(workout);
+        },
+        getCurrentWorkout: function(){
+            return LocalStorage.getCurrentWorkout();
+        },
+        addSetToWorkout: function (set) {
+            var newSet = Models.Set();
+            newSet.weight = set.weight;
+            newSet.reps = set.reps;
+
+            var workout = LocalStorage.getCurrentWorkout();
+            workout.sets.push(newSet);
+
+            LocalStorage.setCurrentWorkout(workout);
+
+            return LocalStorage.getCurrentWorkout();
+
+        },
+        saveWorkout: function(workout){
+
+        },
         startTrainingSession: function () {
             if (LocalStorage.getTrainingSession()) {
                 console.log("training in progress");

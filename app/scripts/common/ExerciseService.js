@@ -91,6 +91,7 @@ angular.module('TrainerApp')
               LocalStorage.setRoutineDetails(list);
 
               return list;
-          }
+          },
+          
     };
   });

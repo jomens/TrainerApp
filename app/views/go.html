@@ -4,7 +4,7 @@
     <div class="page-content">
         <div class="row">
             <div class="small-12 medium-4 columns">
-                <a ng-href="" class="block-panel rtn" ng-repeat="ex in exercises">{{ex.name}}</a>
+                <a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn" ng-repeat="ex in exercises">{{ex.name}}</a>
             </div>
         </div>
 

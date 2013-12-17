@@ -6,6 +6,7 @@ angular.module('TrainerApp')
       var trainer;
       var currentClient;
       var currentRoutine;
+      var currentWorkout;
       var session;
       var allExercises;
       var settings;
@@ -36,6 +37,15 @@ angular.module('TrainerApp')
           getCurrentRoutine: function () {
               currentRoutine = currentRoutine || amplify.store("currentroutine");
               return currentRoutine;
+          },
+
+          setCurrentWorkout: function (wkt) {
+              amplify.store("currentworkout", wkt);
+              currentWorkout = wkt;
+          },
+          getCurrentWorkout: function () {
+              currentWorkout = currentWorkout || amplify.store("currentworkout");
+              return currentWorkout;
           },
 
           getRoutineDetails: function () {

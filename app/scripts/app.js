@@ -60,6 +60,10 @@ angular.module('TrainerApp', [
         templateUrl: 'views/go.html',
         controller: 'GoCtrl'
       })
+      .when('/workout', {
+        templateUrl: 'views/workout.html',
+        controller: 'WorkoutCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       }); 

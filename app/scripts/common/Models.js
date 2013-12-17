@@ -144,7 +144,7 @@ angular.module('TrainerApp')
     }
 
     var Workout = function () { //each workout consists of an exercise and the sets/reps
-        ths.trainingSessionId = -1;
+        this.trainingSessionId = -1;
         this.exerciseId = -1;
         this.exerciseName = "";
         this.sets = [];
@@ -166,12 +166,6 @@ angular.module('TrainerApp')
         this.date = -1;
         this.routineId = -1;
     }
-
-
-
-
-
-
 
 
     function getModel(model) {
@@ -209,6 +203,8 @@ angular.module('TrainerApp')
         Tags: function(){ return Tags; },
         BodyParts: function () { return BodyParts; },
         TrainingSession: function () { return new TrainingSession(); },
+        Workout: function () { return new Workout(); },
+        Set: function () { return new Set(); },
         //AccountType: AccountType,
         //Individual: function () { return getModel("individual"); },
 
