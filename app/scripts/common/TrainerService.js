@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .factory('TrainerService', function (Azure, Notifier, LocalStorage, Models) {
+  .factory('TrainerService', function (Azure, Notifier, LocalStorage, Models, $location) {
 
       var trainer = LocalStorage.getTrainer();
       function routineDetails(rtn) {
@@ -80,8 +80,14 @@ angular.module('TrainerApp')
             return LocalStorage.getCurrentWorkout();
 
         },
-        saveWorkout: function(workout){
+        saveWorkout: function (workout) {
+            Notifier.busy();
+            Azure.WorkoutResource().save(workout, function (savedWorkout) {
+                Notifier.done("Success. workout created", true);
+                LocalStorage.setCurrentWorkout(null);
+                $location.path("/go");
 
+            }, Notifier.errorHandler);
         },
         startTrainingSession: function () {
             if (LocalStorage.getTrainingSession()) {
@@ -99,7 +105,7 @@ angular.module('TrainerApp')
             Azure.TrainingSessionResource().save(session, function (savedSession) {
 
                 LocalStorage.setTrainingSession(savedSession);
-                console.log("Saved " + savedSession);
+                Notifier.done("Training session created", true);
 
             }, Notifier.errorHandler);
         },

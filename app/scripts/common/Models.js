@@ -139,6 +139,7 @@ angular.module('TrainerApp')
     }
 
     var Set = function () {
+        //workoutId
         this.weight = 0.00;
         this.reps = -1;
     }

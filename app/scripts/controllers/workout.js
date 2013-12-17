@@ -17,7 +17,12 @@ angular.module('TrainerApp')
       }
 
       $scope.endWorkout = function () {
+          if (!$scope.workout || $scope.workout.sets.length == 0) {
+              $location.path("/go");
+              return;
+          }
 
+          TrainerService.saveWorkout($scope.workout);
       }
       
   });

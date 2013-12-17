@@ -40,6 +40,9 @@ angular.module('TrainerApp')
         TrainingSessionResource: function () {
             return getResource("trainingsession");
         },
+        WorkoutResource: function () {
+            return getResource("workouts");
+        },
         //getTable: function (tableName) {
         //    return azureClient.getTable(getTableByEnvironment(tableName));
        // },
