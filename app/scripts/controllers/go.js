@@ -10,6 +10,7 @@ angular.module('TrainerApp')
           $scope.routine = routine;
           TrainerService.startTrainingSession();
           $scope.exercises = ExerciseService.getExerciseFromRoutine(routine).list;
+
       }
 
       $scope.selectExercise = function (ex) {

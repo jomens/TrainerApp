@@ -77,6 +77,8 @@ angular.module('TrainerApp')
                   var exs = LocalStorage.getExercises($.trim(bodypart)) || [];
 
                   exs.forEach(function (ex) {
+                      ex.completed = false; // to turn from red/green
+
                       if ($.inArray(ex.id, rt_exercideIds) != -1) {
                           if(!found[ex.id]){
                              list.push(ex);

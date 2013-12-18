@@ -94,9 +94,26 @@ angular.module('TrainerApp')
             Azure.WorkoutResource().save(workout, function (savedWorkout) {
                 Notifier.done("Success. workout created", true);
                 LocalStorage.setCurrentWorkout(null);
+
+                removeExerciseFromRoutineDetails(workout.exerciseId);
                 $location.path("/go");
 
             }, Notifier.errorHandler);
+
+            function removeExerciseFromRoutineDetails(exId) {
+                var rtnDetails = LocalStorage.getRoutineDetails();
+                var filtered = rtnDetails.list.map(function (ex) {
+                    if (ex.id == exId) {
+                        ex.completed = true;
+                    }
+
+                    return ex;
+                });
+
+                rtnDetails.list = filtered;
+
+                LocalStorage.setRoutineDetails(rtnDetails);
+            }
         },
         startTrainingSession: function () {
             if (LocalStorage.getTrainingSession()) {

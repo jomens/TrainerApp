@@ -155,3 +155,6 @@ ul.menu-list li a {
 .rtn {
   border-left: red solid 5px;
 }
+.rtn.completed {
+  border-left-color: #7fba00;
+}
