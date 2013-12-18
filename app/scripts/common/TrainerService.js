@@ -50,12 +50,10 @@ angular.module('TrainerApp')
         setCurrentRoutine: function (routine) {
             //save to azure???
             LocalStorage.setCurrentRoutine(routine);
-            console.log("///routine id: " + routine.id);
 
             var currentRoutineDetails = LocalStorage.getRoutineDetails();
 
             if (currentRoutineDetails){
-                console.log("///routine details id: " + currentRoutineDetails.routineId);
 
                 if (routine.id != currentRoutineDetails.routineId) {
                     LocalStorage.setRoutineDetails(null)

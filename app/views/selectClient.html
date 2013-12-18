@@ -3,23 +3,28 @@
 
     <div class="page-content">
         <div class="row">
-            <div class="small-12 medium-4 large-3 columns" ng-repeat="client in clients">
-                <a class="panel avatar" ng-href="" ng-click="clientSelected(client)">
-                    <div class="row">
-                        <div class="small-4 medium-5 columns">
-                            <div class="avatar-wrapper">
-                                <img ng-src="{{client.imageUrl}}" alt="" />
+            <div class="small-12 columns">
+                <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4" >
+                    <li ng-repeat="client in clients">
+                        <a class="panel avatar" ng-href="" ng-click="clientSelected(client)">
+                            <div class="row">
+                                <div class="small-4 medium-5 columns">
+                                    <div class="avatar-wrapper">
+                                        <img ng-src="{{client.imageUrl}}" alt="" />
+                                    </div>
+                                </div>
+
+                                <div class="small-8 medium-7 columns">
+                                    {{client.firstName}} {{client.lastName}}
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="small-8 medium-7 columns">
-                            {{client.firstName}} {{client.lastName}}
-                        </div>
-                    </div>
+                        </a>
+                    </li>
+                </ul>
 
-                </a>
-               
             </div>
+               
         </div>
 
 
