@@ -3,9 +3,13 @@
 
     <div class="page-content">
         <div class="row">
-            <div class="small-12 medium-4 columns">
-                <a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn" ng-repeat="ex in exercises">{{ex.name}}</a>
-            </div>
+            <!--<div class="small-12 medium-6  large-4 columns" ng-repeat="ex in exercises">
+                <a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn">{{ex.name}}</a>
+            </div>-->
+
+            <ul class="small-block-grid-3">
+                <li ng-repeat="ex in exercises"><a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn">{{ex.name}}</a></li>
+            </ul>
         </div>
 
 
