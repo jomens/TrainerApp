@@ -64,6 +64,10 @@ angular.module('TrainerApp', [
         templateUrl: 'views/workout.html',
         controller: 'WorkoutCtrl'
       })
+      .when('/summary', {
+        templateUrl: 'views/summary.html',
+        controller: 'SummaryCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       }); 

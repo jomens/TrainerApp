@@ -135,8 +135,27 @@ angular.module('TrainerApp')
 
             }, Notifier.errorHandler);
         },
-        endTrainingSession: function () {
+        endTrainingSession: function (callback) {
             //update session end date and set current session to null, set routine details to null
+            LocalStorage.setCurrentRoutine(null);
+            LocalStorage.setCurrentWorkout(null);
+            LocalStorage.setRoutineDetails(null);
+
+            var sessionId = LocalStorage.getTrainingSession().id;
+
+            Azure.table("workouts").read({
+                where: {
+                    fn: function (sessionId) {
+                        return this.trainingSessionId == sessionId;
+                    },
+                    param: sessionId
+                },
+                success: function (data) {
+                    callback(data);
+                    
+                }
+            })
+
         }
 
     }

@@ -152,6 +152,19 @@ angular.module('TrainerApp')
         this.notes = "";
     }
 
+    var CardioWorkout = function () { //TODO: add cardio
+        this.trainingSessionId = -1;
+        this.exerciseId = -1;
+        this.exerciseName = "";
+
+        this.mode = "";
+        this.intensity = "";
+        this.resistance = "";
+        this.speed = "";
+        this.reps = ""
+        this.notes = "";
+    }
+
     //TRAINING PLANNING
     var Routine = function () {
         this.trainerId = -1;

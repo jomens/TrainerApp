@@ -1,7 +1,7 @@
 <div class="row page">
     <div class="row">
         <div class="small-12 medium-8 columns">
-            <h3 class="page-title">Today's routine: {{routine.name}}</h3>
+            <h3 class="page-title">Workout Summary</h3>
 
         </div>
     </div>
@@ -12,9 +12,11 @@
                 <a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn">{{ex.name}}</a>
             </div>-->
             <div class="small-12 columns">
-                <ul class="small-block-grid-3">
-                    <li ng-repeat="ex in exercises"><a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn " ng-class="{true:'completed'} [ex.completed]">{{ex.name}}</a></li>
-                </ul>
+                <div class="panel" ng-repeat="summary in summaryItems">
+                    <h5>{{summary.id}}</h5>
+                    <p ng-repeat="set in summary.sets">Set #{{$index + 1}} Weight: {{set.weight}} Reps: {{set.reps}}</p>
+                </div>
+                
 
             </div>
         </div>
@@ -22,7 +24,7 @@
 
         <div class="row">
             <div class="small-12 medium-4 columns">
-                <a ng-href="#/summary" ng-click="" class="button block alert">End Training Session</a>
+                <a ng-href="#/summary" ng-click="" class="button block success">Trainer portal</a>
             </div>
 
         </div>
