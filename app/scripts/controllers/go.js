@@ -15,6 +15,11 @@ angular.module('TrainerApp')
 
       $scope.selectExercise = function (ex) {
           TrainerService.setCurrentWorkout(ex);
-          $location.path("/workout");
+
+          if (ex.tags.indexOf("cardio") != -1) {
+              $location.path("/cardio");
+          } else {
+              $location.path("/workout");
+          }
       }
   });

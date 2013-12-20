@@ -78,12 +78,25 @@ angular.module('TrainerApp')
         cardio: "Cardio",
         warmup: "Warm up"
         };
+    
+    var Account = function () { //you get an account only if you're independent
+        //id
+        this.name = ""; //24 HR Fitness? John Doe independent trainer
+        this.accountType = ""; //business, trainer, individual
+        
+    }
 
     var AccountType = {
         business: "gym",
         trainer: "trainer",
         individual: "individual"
     };
+
+    var UserType = { //a user can be trainer, a client or gymadmin
+        trainer: "trainer",
+        user: "client",
+        admin: "gymadmin"
+    }
 
     var Gym = function () {
         this.name = "";
@@ -107,7 +120,8 @@ angular.module('TrainerApp')
 
     //}
 
-    var Client = function () {
+    //should this be users? will have associated accountID's, trainerId?, usertype? trainer?
+    var Client = function () { //this holds both trainers and users...but will have a
         this.firstName = "";
         this.lastName = "";
         this.pin = "0000";
@@ -115,6 +129,8 @@ angular.module('TrainerApp')
         this.phone = "";
         this.trainerId = -1;
         this.imageUrl = "";
+
+        //added
     }
 
     var Trainer = function () {
@@ -152,16 +168,28 @@ angular.module('TrainerApp')
         this.notes = "";
     }
 
+    var CardioModes = {
+        aerobic: "Aerobic",
+        fatburner: "Fat Burner",
+        interval: "Interval",
+        manual: "Manual"
+    };
+
     var CardioWorkout = function () { //TODO: add cardio
         this.trainingSessionId = -1;
         this.exerciseId = -1;
         this.exerciseName = "";
+        this.workoutType = "cardio";
 
         this.mode = "";
         this.intensity = "";
         this.resistance = "";
         this.speed = "";
         this.reps = ""
+        this.heartRate = "";
+        this.duration = "";
+        //this.startTime = new Date();;
+        this.endTime = "";
         this.notes = "";
     }
 
@@ -216,8 +244,10 @@ angular.module('TrainerApp')
         Routine: function () { return getModel("routine"); },
         Tags: function(){ return Tags; },
         BodyParts: function () { return BodyParts; },
+        CardioModes: function () { return CardioModes; },
         TrainingSession: function () { return new TrainingSession(); },
         Workout: function () { return new Workout(); },
+        CardioWorkout: function () { return new CardioWorkout(); },
         Set: function () { return new Set(); },
         //AccountType: AccountType,
         //Individual: function () { return getModel("individual"); },

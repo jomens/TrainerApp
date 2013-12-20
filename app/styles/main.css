@@ -83,6 +83,13 @@ section.padded {
 .container {
   width: 96%;
   max-width: 1180px;
+  margin: 0 auto;
+}
+.row {
+  max-width: 1180px;
+}
+.top-bar .name h1 a {
+  padding-left: 0;
 }
 ul.off-canvas-list li:first-child label {
   padding: 0.7rem 0.9375rem;

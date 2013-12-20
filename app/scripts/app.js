@@ -68,6 +68,10 @@ angular.module('TrainerApp', [
         templateUrl: 'views/summary.html',
         controller: 'SummaryCtrl'
       })
+      .when('/cardio', {
+        templateUrl: 'views/cardio.html',
+        controller: 'CardioCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       }); 

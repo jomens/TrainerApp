@@ -91,10 +91,20 @@ angular.module('TrainerApp')
         },
         saveWorkout: function (workout) {
             Notifier.busy();
-            Azure.WorkoutResource().save(workout, function (savedWorkout) {
+            var resource = {};
+            if (workout.workoutType == "cardio") {
+                workout.endTime = new Date();
+                delete workout.workoutType;
+                resource = Azure.CardioWorkoutResource();
+            }
+            else {
+                resource = Azure.WorkoutResource();
+            }
+
+            resource.save(workout, function (savedWorkout) {
                 Notifier.done("Success. workout created", true);
                 LocalStorage.setCurrentWorkout(null);
-
+                console.log(savedWorkout);
                 removeExerciseFromRoutineDetails(workout.exerciseId);
                 $location.path("/go");
 

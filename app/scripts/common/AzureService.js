@@ -43,6 +43,9 @@ angular.module('TrainerApp')
         WorkoutResource: function () {
             return getResource("workouts");
         },
+        CardioWorkoutResource: function () {
+            return getResource("workouts_cardio");
+        },
         //getTable: function (tableName) {
         //    return azureClient.getTable(getTableByEnvironment(tableName));
        // },

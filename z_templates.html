@@ -50,3 +50,9 @@
         </div>
     </div>
 </form>
+
+<!-- select / dropdowns-->
+<select ng-model="cardio.mode">
+    <option value="{{mode.key}}" ng-repeat="mode in modes">{{mode.value}}</option>
+
+</select>

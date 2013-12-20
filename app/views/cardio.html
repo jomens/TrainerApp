@@ -1,0 +1,99 @@
+<div class="row page">
+
+    <div class="row">
+        <div class="small-12 medium-8 columns">
+            <h3 class="page-title">Cardio: {{cardio.exerciseName}}</h3>
+
+        </div>
+    </div>
+
+    <div class="page-content">
+         
+        <div class="row">
+            <div class="small-12 medium-6 columns">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 medium-6 columns">
+
+                <form ng-submit="addCardio()" ng-model="cardio">
+
+                    <div class="row">
+                        <div class="small-12 medium-6 columns">
+                            <div class="row collapse">
+                                <label for="mode">Mode:</label>
+                                <div class="small-12 columns">
+                                    <select ng-model="cardio.mode" >
+                                        <option value="{{mode.key}}" ng-repeat="mode in modes">{{mode.value}}</option>
+                                        
+                                    </select>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+
+                        <div class="small-12 medium-6 columns">
+                            <div class="row collapse">
+                                <label for="speed">Speed:</label>
+                                <div class="small-9 columns">
+                                    <input type="number" placeholder="0" ng-model="cardio.speed"  step="0.50" />
+                                </div>
+                                <div class="small-3 columns">
+                                    <span class="postfix">mph</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="small-12 medium-6 columns">
+                            <div class="row collapse">
+                                <label for="distance">Distance:</label>
+                                <div class="small-9 columns">
+                                    <input type="number" placeholder="0" ng-model="cardio.distance" step="0.50" />
+                                </div>
+                                <div class="small-3 columns">
+                                    <span class="postfix">miles</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="small-12 medium-6 columns">
+                            <div class="row collapse">
+                                <label for="rpms">RPMs:</label>
+                                <div class="small-9 columns">
+                                    <input type="number" placeholder="0" ng-model="cardio.rpms" step="0.50" />
+                                </div>
+                                <div class="small-3 columns">
+                                    <span class="postfix">rpms</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="small-12 medium-6 columns">
+                            <div class="row collapse">
+                                <label for="resistance">Resistance:</label>
+                                <div class="small-12 columns">
+                                    <input type="number" placeholder="0" ng-model="cardio.resistance" step="0.50" />
+                                </div>
+                            </div>
+                        </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <input class="button" type="submit" value="Submit" />
+                </div>
+            </div>
+            </form>
+        </div>
+        </div>
+
+
+
+
+    </div>
+</div>

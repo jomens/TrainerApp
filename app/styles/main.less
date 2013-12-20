@@ -1,73 +1,6 @@
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
+@import "__overrides.less";
+@import "_mixins.less";
 
-.animation (@name, @duration: 300ms, @delay: 0, @ease: ease, @directon: normal, @iteration: 1) {
-	-webkit-animation: @name @duration @delay @ease @directon @iteration;
-	-moz-animation:    @name @duration @delay @ease @directon @iteration;
-	-ms-animation:    @name @duration @delay @ease @directon @iteration;
-	animation:   @name @duration @delay @ease @directon @iteration;
- 
-}
-
-.transition (@transition) {
-	-webkit-transition: @transition;  
-	-moz-transition:    @transition;
-	-ms-transition:     @transition; 
-	-o-transition:      @transition;  
-    transition:      @transition; 
-}
-.transform(@string){
-	-webkit-transform: @string;
-	-moz-transform: 	 @string;
-	-ms-transform: 		 @string;
-	-o-transform: 		 @string;
-    transform: 		 @string;
-}
-.scale (@factor) {
-	-webkit-transform: scale(@factor);
-	-moz-transform: 	 scale(@factor);
-	-ms-transform: 		 scale(@factor);
-	-o-transform: 		 scale(@factor);
-    transform: 		 scale(@factor);
-}
-.rotate (@deg) {
-	-webkit-transform: rotate(@deg);
-	-moz-transform: 	 rotate(@deg);
-	-ms-transform: 		 rotate(@deg);
-	-o-transform: 		 rotate(@deg);
-    transform: 		 rotate(@deg);
-}
-.translate (@x, @y:0) {
-	-webkit-transform:       translate(@x, @y);
-	-moz-transform: 	 translate(@x, @y);
-	-ms-transform: 		 translate(@x, @y);
-	-o-transform: 		 translate(@x, @y);
-    transform: 		 translate(@x, @y);
-}
-.translate3d (@x, @y: 0, @z: 0) {
-	-webkit-transform:       translate3d(@x, @y, @z);
-	-moz-transform: 	 translate3d(@x, @y, @z);
-	-ms-transform: 		 translate3d(@x, @y, @z);
-	-o-transform: 		 translate3d(@x, @y, @z);
-    transform: 		 translate3d(@x, @y, @z);
-}
-.perspective (@value: 1000) {
-	-webkit-perspective: 	@value;
-	-moz-perspective: 	@value;
-	-ms-perspective: 	@value;
-	perspective: 		@value;
-}
-.transform-origin (@x:center, @y:center) {
-	-webkit-transform-origin: @x @y;
-	-moz-transform-origin:    @x @y;
-	-ms-transform-origin:     @x @y;
-	-o-transform-origin:      @x @y;
-    transform-origin:      @x @y;
-}
-.o(@color: red) {
-    outline: @color solid 1px;
-}
 
 
 /* color */
@@ -76,7 +9,7 @@
 }
 
 .green, .success {
-    background: #7fba00;
+    background: #7fba00; 
 }
 .orange, .warning {
     background: #ff8c00;
@@ -142,6 +75,14 @@ section.padded {
 .container {
     width: 96%;
     max-width: 1180px;
+    margin: 0 auto;
+}
+.row{
+    max-width: 1180px; 
+}
+
+.top-bar .name h1 a {
+    padding-left: 0;
 }
 
 ul.off-canvas-list li:first-child label {

@@ -17,6 +17,6 @@ angular.module('TrainerApp')
       }
 
       $scope.fetchAll = function () {
-          ExerciseService.fetchAllExercises(function (x) { });
+          ExerciseService.fetchAllExercises(function () { });
       }
   });
