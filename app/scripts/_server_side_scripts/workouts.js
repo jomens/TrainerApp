@@ -65,3 +65,33 @@ function insert(item, user, request) {
     });
 
 }
+
+
+//training session read
+function read(query, user, request) {
+
+    var setsTable = tables.getTable("sets");
+    var exercisesTable = tables.getTable("exercises");
+
+    request.execute({
+        success: function (workouts) {
+            var numWorkouts = workouts.length;
+            var counter = 0;
+            //grab the sets for each workout
+            workouts.forEach(function (wkt) {
+                setsTable.where({ workoutId: wkt.id }).read({
+                    success: function (sets) {
+                        wkt.sets = sets;
+
+                        counter++;
+
+                        if (counter == numWorkouts) {
+                            request.respond();
+                        }
+                    }
+                });
+            });
+        }
+    });
+
+}

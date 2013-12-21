@@ -153,19 +153,26 @@ angular.module('TrainerApp')
 
             var sessionId = LocalStorage.getTrainingSession().id;
 
-            Azure.table("workouts").read({
-                where: {
-                    fn: function (sessionId) {
-                        return this.trainingSessionId == sessionId;
-                    },
-                    param: sessionId
-                },
-                success: function (data) {
-                    callback(data);
+            //Azure.table("workouts").read({
+            //    where: {
+            //        fn: function (sessionId) {
+            //            return this.trainingSessionId == sessionId;
+            //        },
+            //        param: sessionId
+            //    },
+            //    success: function (data) {
+            //        callback(data);
                     
-                }
-            })
+            //    }
+            //})
 
+            Azure.invokeApi({
+                api: "getworkoutsummary?sessionId=" + sessionId,
+                //body: { sessionId: sessionId },
+                success: function (results) {
+                    callback(JSON.parse(results.response));
+                }
+            });
         }
 
     }

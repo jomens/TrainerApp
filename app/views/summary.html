@@ -12,12 +12,22 @@
                 <a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn">{{ex.name}}</a>
             </div>-->
             <div class="small-12 columns">
-               
-                        <div class="panel" ng-repeat="summary in summaryItems">
-                            <h5>{{summary.id}}</h5>
-                            <p ng-repeat="set in summary.sets">Set #{{$index + 1}} Weight: {{set.weight}} Reps: {{set.reps}}</p>
+                        <h4>Weights</h4>
+                        <div class="panel" ng-repeat="weight in summary.weights">
+                            <h5>{{weight.id}}</h5>
+                            <p ng-repeat="set in weight.sets">Set #{{$index + 1}} Weight: {{set.weight}} Reps: {{set.reps}}</p>
                         </div>
                                
+
+                <h4>Cardio</h4>
+                <div class="panel" ng-repeat="card in summary.cardio">
+                    <h5>{{card.exerciseName}}</h5>
+                    <p>{{card.mode}}</p>
+                    <p>{{card.resistance}}</p>
+                    <p>{{card.heartRate}}</p>
+                    <p>{{card.speed}}</p>
+                    <p>{{card.rpms}}</p>
+                </div>
 
             </div>
         </div>

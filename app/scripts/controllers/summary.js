@@ -6,7 +6,8 @@ angular.module('TrainerApp')
 
       function init() {
           TrainerService.endTrainingSession(function (data) {
-              $scope.summaryItems = data;
+              $scope.summary = data;
+              //console.log(data);
               $scope.$apply();
           });
       }

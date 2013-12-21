@@ -57,7 +57,7 @@ angular.module('TrainerApp')
                 read: function (options) {
                     Notifier.busy();
 
-                    var readPromise;
+                    var readPromise; 
                     if (options.where) {
                         if (options.where.fn) {
                             readPromise = azureTable.where(options.where.fn, options.where.param).read();
