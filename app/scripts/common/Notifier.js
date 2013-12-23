@@ -3,7 +3,7 @@
 angular.module('TrainerApp')
 .service("Notifier", function () {
 
-    this._progressBar = angular.element(".progress");
+    this._progressBar = angular.element(".progress-bar");
     this._buttons = angular.element("button[type=submit], .btn, .button");
 
     this.busy = function (disableSubmit) {

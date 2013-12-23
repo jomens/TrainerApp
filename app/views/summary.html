@@ -14,7 +14,7 @@
             <div class="small-12 columns">
                         <h4>Weights</h4>
                         <div class="panel" ng-repeat="weight in summary.weights">
-                            <h5>{{weight.id}}</h5>
+                            <h5>{{weight.exercise.name}}</h5>
                             <p ng-repeat="set in weight.sets">Set #{{$index + 1}} Weight: {{set.weight}} Reps: {{set.reps}}</p>
                         </div>
                                

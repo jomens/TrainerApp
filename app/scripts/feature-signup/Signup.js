@@ -4,32 +4,23 @@ angular.module('TrainerApp')
  .factory("Signup", function (Models, Azure, Notifier, $location, LocalStorage) {
 
          return {
-             saveTrainer: function (trainer) {
+             addUser: function (user) {
 
-                //Notifier.busy(true); 
-
-                 //account.timestamp = new Date();
-                 //admin.timestamp = new Date();
-
+                Notifier.busy(true); 
                  
-                 Azure.TrainerResource().save(trainer, function (savedTrainer) {
+                 Azure.UserResource().save(user, function (savedUser) {
                     
-                     Notifier.done("Success. Trainer created", true);
-                     LocalStorage.setTrainer(savedTrainer);
-                     $location.path("/admin");
+                     Notifier.done("Success. User created", true);
+                     if (savedUser.userType == "trainer") {
+                         LocalStorage.setTrainer(savedUser);
+                         $location.path("/trainer");
+                     }
+                     else {
+                         $location.path("/");
+                     }
 
                  }, Notifier.errorHandler); 
              },
-             saveClient: function (user) {
-                 user.trainerId = LocalStorage.getTrainer().id;
-
-                 Azure.ClientResource().save(user, function (savedUser) {
-
-                     Notifier.done("Success. Client added", true);
-                     $location.path("/trainer");
-
-                 }, Notifier.errorHandler);
-             }
          }
      })
 

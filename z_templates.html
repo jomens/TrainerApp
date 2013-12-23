@@ -56,3 +56,25 @@
     <option value="{{mode.key}}" ng-repeat="mode in modes">{{mode.value}}</option>
 
 </select>
+
+<!-- block grid -->
+<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+    <li ng-repeat="client in clients">
+        <div class="panel">
+            <div class="row">
+                <div class="small-4 medium-5 columns">
+                    <div class="avatar-wrapper">
+                        <img ng-src="{{client.imageUrl}}" alt="" />
+                    </div>
+                </div>
+
+                <div class="small-8 medium-7 columns">
+                    {{client.firstName}} {{client.lastName}}
+                </div>
+            </div>
+
+        </div>
+
+    </li>
+
+</ul>

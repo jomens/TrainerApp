@@ -12,7 +12,7 @@ angular.module('TrainerApp')
       $scope.addSet = function () {
           $scope.workout = TrainerService.addSetToWorkout($scope.set);
 
-          console.log($scope.workout);
+          //console.log($scope.workout);
           $scope.set = { weight: "", reps: "" };    
       }
 

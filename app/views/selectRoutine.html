@@ -3,9 +3,14 @@
 
     <div class="page-content">
         <div class="row">
-            <div class="small-6 medium-4 columns" ng-repeat="routine in routines">
-                <a ng-click="routineSelected(routine)" class="block panel">{{routine.name}}</a>
-            </div>
+
+
+            <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                <li ng-repeat="routine in routines">
+                    <a ng-click="routineSelected(routine)" class="block panel">{{routine.name}}</a>
+                </li>
+            </ul>
+
         </div>
 
 

@@ -1,35 +1,52 @@
 <div class="row page">
-    <h3 class="page-title">Trainer Sign up page</h3>
+    <h3 class="page-title">Sign up page</h3>
 
     <div class="page-content">
 
-        <form data-abide ng-submit="addTrainer()" ng-model="trainer">
+        <form data-abide ng-submit="addUser()" ng-model="user">
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label>Select account type</label>
+                    <select ng-model="user.userType" required>
+                        <option value="{{type.key}}" ng-repeat="type in userTypes">{{type.value}}</option>
+                    </select>
+                </div>
+
+            </div>
+       
+
             <div class="row">
                 <div class="small-12 medium-6 columns">
                     <label>First Name:</label>
-                    <input type="text" placeholder="First Name" ng-model="trainer.firstName" required />
+                    <input type="text" placeholder="First Name" ng-model="user.firstName" required />
                 </div>
             </div>
             <div class="row">
                 <div class="small-12 medium-6 columns">
                     <label>Last Name:</label>
-                    <input type="text" placeholder="Last Name" ng-model="trainer.lastName" required />
+                    <input type="text" placeholder="Last Name" ng-model="user.lastName" required />
                 </div>
             </div>
             <div class="row">
                 <div class="small-12 medium-6 columns">
                     <label>Email</label>
-                    <input type="email" placeholder="Email" ng-model="trainer.email" required />
+                    <input type="email" placeholder="Email" ng-model="user.email" required />
                 </div>
 
             </div>
 
             <div class="row">
                 <div class="small-12 medium-6 columns">
-                    <label>Phone:</label>
-                    <input type="tel" placeholder="Phone" ng-model="trainer.phone" required />
+                    <label>Cell Phone:</label>
+                    <input type="tel" placeholder="Phone" ng-model="user.phone" />
                 </div>
+            </div>
 
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label>PIN Number:</label>
+                    <input type="text" placeholder="1234" ng-model="user.pin" required maxlength="4"/>
+                </div>
             </div>
 
             <div class="row">

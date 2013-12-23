@@ -1,4 +1,7 @@
-﻿[ng\:cloak],
+﻿.panel {
+  padding: .8rem;
+}
+[ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
 [x-ng-cloak],
@@ -54,28 +57,13 @@ button,
   text-transform: uppercase;
   margin-top: 2.5%;
 }
-.progress {
-  background-color: none;
-  height: 10px;
-  border: none;
-  padding: 0;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-  transition: transform 0.5s;
-  -webkit-transform: translate(0, -115%);
-  -moz-transform: translate(0, -115%);
-  -ms-transform: translate(0, -115%);
-  -o-transform: translate(0, -115%);
-  transform: translate(0, -115%);
+.progress-bar {
+  display: none;
+  position: relative;
+  top: 15px;
 }
-.progress.show {
-  -webkit-transform: translate(0, 0%);
-  -moz-transform: translate(0, 0%);
-  -ms-transform: translate(0, 0%);
-  -o-transform: translate(0, 0%);
-  transform: translate(0, 0%);
+.progress-bar.show {
+  display: block;
 }
 section.padded {
   margin: 2.5% 0;
@@ -152,16 +140,121 @@ ul.menu-list li a {
   border-radius: 100px;
   overflow: hidden;
 }
+.page {
+  margin-top: 10px;
+}
 .block-panel {
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: .8rem;
   background: #f2f2f2;
   display: block;
   color: #333;
+}
+a.panel {
+  color: #333;
+}
+.small-block-grid-1 .panel,
+.small-block-grid-2 .panel,
+.small-block-grid-1 .block-panel,
+.small-block-grid-2 .block-panel {
+  margin-bottom: 0;
 }
 .rtn {
   border-left: red solid 5px;
 }
 .rtn.completed {
   border-left-color: #7fba00;
+}
+#outer-barG {
+  height: 15px;
+  width: 69px;
+  border: 1px solid #1C88DB;
+  overflow: hidden;
+}
+.bar-lineG {
+  background-color: #1C88DB;
+  float: left;
+  width: 10px;
+  height: 65px;
+  margin-right: 13px;
+  margin-top: -15px;
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.bar-animationG {
+  margin-left: 91px;
+  width: 91px;
+  -moz-animation-name: bar-animationG;
+  -moz-animation-duration: 2.4s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: linear;
+  -webkit-animation-name: bar-animationG;
+  -webkit-animation-duration: 2.4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: linear;
+  -ms-animation-name: bar-animationG;
+  -ms-animation-duration: 2.4s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-direction: linear;
+  -o-animation-name: bar-animationG;
+  -o-animation-duration: 2.4s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: linear;
+  animation-name: bar-animationG;
+  animation-duration: 2.4s;
+  animation-iteration-count: infinite;
+  animation-direction: linear;
+}
+@-moz-keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
+}
+@-webkit-keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
+}
+@-ms-keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
+}
+@-o-keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
+}
+@keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
 }

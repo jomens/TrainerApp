@@ -1,7 +1,7 @@
 <div class="row page">
     <div class="row">
         <div class="small-12 medium-8 columns">
-            <h3 class="page-title">Today's routine: {{routine.name}}</h3>
+            <h3 class="page-title">Routine: {{routine.name}}</h3>
 
         </div>
     </div>
@@ -12,7 +12,7 @@
                 <a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn">{{ex.name}}</a>
             </div>-->
             <div class="small-12 columns">
-                <ul class="small-block-grid-3">
+                <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
                     <li ng-repeat="ex in exercises"><a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn " ng-class="{true:'completed'} [ex.completed]">{{ex.name}}</a></li>
                 </ul>
 

@@ -6,7 +6,7 @@ angular.module('TrainerApp')
     function getDummyData(obj) {
         var x = Math.floor((Math.random() * 50) + 1);
         for (var key in obj) {
-            if (key == "id" || key == "status" || key == "pin" || key.toLowerCase().indexOf("usertype") != -1 || key.toLowerCase().indexOf("id") != -1) {
+            if (key == "id" || key == "status" || key == "pin" || key == "isAdmin" || key.toLowerCase().indexOf("usertype") != -1 || key.toLowerCase().indexOf("id") != -1) {
                 continue;
             }
             else if (key.toLowerCase().indexOf("email") != -1) {
@@ -87,15 +87,15 @@ angular.module('TrainerApp')
     }
 
     var AccountType = {
-        business: "gym",
-        trainer: "trainer",
-        individual: "individual"
+        //business: "Fitness Center",
+        trainer: "Personal Trainer",
+        individual: "Individual"
     };
 
     var UserType = { //a user can be trainer, a client or gymadmin
-        trainer: "trainer",
-        user: "client",
-        admin: "gymadmin"
+        trainer: "Personal Trainer",
+        user: "A regular user",
+        //admin: "gymadmin"
     }
 
     var Gym = function () {
@@ -121,25 +121,21 @@ angular.module('TrainerApp')
     //}
 
     //should this be users? will have associated accountID's, trainerId?, usertype? trainer?
-    var Client = function () { //this holds both trainers and users...but will have a
+    var User = function () { //this holds both trainers and users...but will have a
         this.firstName = "";
         this.lastName = "";
         this.pin = "0000";
         this.email = "";
         this.phone = "";
-        this.trainerId = -1;
+        this.userType = ""
+        this.trainerId = "-1";
+        this.fitnessCenterId = "-1";
+        this.isAdmin = false;
         this.imageUrl = "";
 
         //added
     }
-
-    var Trainer = function () {
-        this.firstName = "";
-        this.lastName = "";
-        this.email = "";
-        this.phone = "";
-    }
-
+    
     var TrainingSession = function () {
         this.date = "";
         this.clientId = -1;
@@ -214,8 +210,7 @@ angular.module('TrainerApp')
 
         if (Environment == "PROD") {
             switch (model) {
-                case "trainer": return new Trainer();
-                case "client": return new Client();
+                case "user": return new User();
                 case "gym": return new Gym();
                 case "exercise": return new Exercise();
                 case "routine": return new Routine();
@@ -225,8 +220,7 @@ angular.module('TrainerApp')
         }
         else {
             switch (model) {
-                case "trainer": return getDummyData(new Trainer());
-                case "client": return getDummyData(new Client());
+                case "user": return getDummyData(new User());
                 case "gym": return getDummyData(new Gym());
                 case "exercise": return getDummyData(new Exercise());
                 case "routine": return getDummyData(new Routine());
@@ -239,8 +233,7 @@ angular.module('TrainerApp')
     }
 
     return {
-        Trainer: function () { return getModel("trainer"); },
-        Client: function () { return getModel("client"); },
+        User: function () { return getModel("user"); },
         Routine: function () { return getModel("routine"); },
         Tags: function(){ return Tags; },
         BodyParts: function () { return BodyParts; },
@@ -249,7 +242,7 @@ angular.module('TrainerApp')
         Workout: function () { return new Workout(); },
         CardioWorkout: function () { return new CardioWorkout(); },
         Set: function () { return new Set(); },
-        //AccountType: AccountType,
+        UserType: function () { return UserType; },
         //Individual: function () { return getModel("individual"); },
 
     }

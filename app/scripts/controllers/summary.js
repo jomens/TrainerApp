@@ -8,7 +8,7 @@ angular.module('TrainerApp')
           TrainerService.endTrainingSession(function (data) {
               $scope.summary = data;
               //console.log(data);
-              $scope.$apply();
+              $scope.$apply(); 
           });
       }
   });

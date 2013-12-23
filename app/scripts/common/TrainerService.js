@@ -12,7 +12,7 @@ angular.module('TrainerApp')
         getClients: function (callback) {
             Notifier.busy();
 
-            Azure.table("clients").read({
+            Azure.table("users").read({
                 where: {
                     fn: function (trId) {
                         return this.trainerId == trId;
@@ -136,21 +136,17 @@ angular.module('TrainerApp')
             session.clientId = LocalStorage.getCurrentClient().id;
             session.trainerId = LocalStorage.getTrainer().id;
             session.routineId = LocalStorage.getCurrentRoutine().id;
-            console.log(session);
 
             Azure.TrainingSessionResource().save(session, function (savedSession) {
 
                 LocalStorage.setTrainingSession(savedSession);
-                Notifier.done("Training session created", true);
+               // Notifier.done("Training session created", true);
 
             }, Notifier.errorHandler);
         },
         endTrainingSession: function (callback) {
             //update session end date and set current session to null, set routine details to null
-            LocalStorage.setCurrentRoutine(null);
-            LocalStorage.setCurrentWorkout(null);
-            LocalStorage.setRoutineDetails(null);
-
+            var that = this;
             var sessionId = LocalStorage.getTrainingSession().id;
 
             //Azure.table("workouts").read({
@@ -170,10 +166,21 @@ angular.module('TrainerApp')
                 api: "getworkoutsummary?sessionId=" + sessionId,
                 //body: { sessionId: sessionId },
                 success: function (results) {
-                    callback(JSON.parse(results.response));
+                    var jsonResult = JSON.parse(results.response);
+                    callback(jsonResult);
+
+                    that.resetTrainingInfo();
+                    //console.log(jsonResult);
                 }
             });
+        },
+        resetTrainingInfo: function () {
+            LocalStorage.setCurrentRoutine(null);
+            LocalStorage.setCurrentWorkout(null);
+            LocalStorage.setRoutineDetails(null);
+            LocalStorage.setTrainingSession(null);
         }
+
 
     }
 

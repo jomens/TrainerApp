@@ -3,11 +3,14 @@
 
     <div class="page-content">
         <div class="row">
-            <div class="small-6 medium-4 columns" ng-repeat="routine in routines">
-                <div class="panel">{{routine.name}}</div>
-            </div>
-        </div>
+            <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+                <li ng-repeat="routine in routines">
+                    <div class="panel">{{routine.name}}</div>
 
+                </li>
+
+            </ul>
+        </div>
 
     </div>
 </div>

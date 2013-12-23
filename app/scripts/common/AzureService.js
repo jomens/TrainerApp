@@ -25,11 +25,8 @@ angular.module('TrainerApp')
         GymResource: function () {
             return getResource("gyms");
         },
-        TrainerResource: function () {
-            return getResource("trainers");
-        },
-        ClientResource: function () {
-            return getResource("clients");
+        UserResource: function () {
+            return getResource("users");
         },
         ExerciseResource: function () {
             return getResource("exercises");
