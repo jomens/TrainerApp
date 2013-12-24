@@ -1,21 +1,21 @@
 <div class="row page">
-    <h3 class="page-title">Select a client</h3>
+    <!--<h3 class="page-title">Select a client</h3>-->
 
     <div class="page-content">
         <div class="row">
             <div class="small-12 columns">
-                <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4" >
+                <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
                     <li ng-repeat="client in clients">
                         <a class="panel avatar" ng-href="" ng-click="clientSelected(client)">
                             <div class="row">
-                                <div class="small-4 medium-5 columns">
+                                <div class="small-4 medium-5 large-4 columns">
                                     <div class="avatar-wrapper">
                                         <img ng-src="{{client.imageUrl}}" alt="" />
                                     </div>
                                 </div>
 
-                                <div class="small-8 medium-7 columns">
-                                    {{client.firstName}} {{client.lastName}}
+                                <div class="small-8 medium-7 large-8 columns client-info">
+                                    <h3 class="name"><small><span>{{client.firstName}}</span> <span class="show-for-large-up">{{client.lastName}}</span></small></h3>
                                 </div>
                             </div>
 

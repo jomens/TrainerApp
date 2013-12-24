@@ -41,7 +41,7 @@ angular.module('TrainerApp', [
         controller: 'CreateroutineCtrl'
       })
       .when('/myClients/:id', {
-        templateUrl: 'views/myClients.html',
+          templateUrl: 'scripts/feature-acct-mgmt/v-myClients.html',
         controller: 'MyclientsCtrl'
       })
       .when('/myRoutines/:id', {

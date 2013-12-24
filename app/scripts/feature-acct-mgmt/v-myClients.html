@@ -1,0 +1,119 @@
+<div class="row page">
+    <!--<div class="row">
+        <div class="small-12 medium-8 columns">
+            <h3 class="page-title">My clients</h3>
+        </div>
+    </div>-->
+    <div class="page-content">
+        <div class="row">
+            <div class="small-12 columns">
+                <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+                    <!-- dummy data -->
+                    <li>
+                        <div class="panel">
+                            <div class="row">
+                                <div class="small-4 medium-5 large-4 columns">
+                                    <div class="avatar-wrapper">
+                                        <img ng-src="http://api.randomuser.me/0.2/portraits/women/20.jpg" alt="" src="http://api.randomuser.me/0.2/portraits/women/14.jpg">
+                                    </div>
+                                </div>
+
+                                <div class="small-8 medium-7 large-8 columns client-info">
+                                    <h3 class="name"><small><span class="ng-binding">Jenn</span> <span class="show-for-large-up ng-binding">Sparks</span></small></h3>
+                                    <h4 class="package"><small>Package: <span>8 sessions</span></small></h4>
+                                    <span class="label warning">BODYFAT DUE</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="panel">
+                            <div class="row">
+                                <div class="small-4 medium-5 large-4 columns">
+                                    <div class="avatar-wrapper">
+                                        <img ng-src="http://api.randomuser.me/0.2/portraits/men/4.jpg" alt="" src="http://api.randomuser.me/0.2/portraits/women/14.jpg">
+                                    </div>
+                                </div>
+
+                                <div class="small-8 medium-7 large-8 columns client-info">
+                                    <h3 class="name"><small><span class="ng-binding">Kwame</span> <span class="show-for-large-up ng-binding">Poku</span></small></h3>
+                                    <h4 class="package"><small>Package: <span>4 sessions</span></small></h4>
+                                    <span class="label warning">DAY 30 PHOTOS</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="panel">
+                            <div class="row">
+                                <div class="small-4 medium-5 large-4 columns">
+                                    <div class="avatar-wrapper">
+                                        <img ng-src="http://api.randomuser.me/0.2/portraits/men/20.jpg" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="small-8 medium-7 large-8 columns client-info">
+                                    <h3 class="name"><small><span class="ng-binding">Noah</span> <span class="show-for-large-up ng-binding">Smith</span></small></h3>
+                                    <h4 class="package"><small>Package: <span>2 sessions</span></small></h4>
+                                    <span class="label alert">PIZZA AT NOON !!!</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="panel">
+                            <div class="row">
+                                <div class="small-4 medium-5 large-4 columns">
+                                    <div class="avatar-wrapper">
+                                        <img ng-src="http://api.randomuser.me/0.2/portraits/women/15.jpg" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="small-8 medium-7 large-8 columns client-info">
+                                    <h3 class="name"><small><span class="ng-binding">Kim</span> <span class="show-for-large-up ng-binding">Kardash</span></small></h3>
+                                    <h4 class="package"><small>Package: <span>1 sessions</span></small></h4>
+                                    <span class="label warning">RENEW</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <!-- end dummy data -->
+                    <li ng-repeat="client in clients">
+                        <div class="panel">
+                            <div class="row">
+                                <div class="small-4 medium-5 large-4 columns">
+                                    <div class="avatar-wrapper">
+                                        <img ng-src="{{client.imageUrl}}" alt="" />
+                                    </div>
+                                </div>
+
+                                <div class="small-8 medium-7 large-8 columns client-info">
+                                    <h3 class="name"><small><span>{{client.firstName}}</span> <span class="show-for-large-up">{{client.lastName}}</span></small></h3> 
+                                    <h4 class="package"><small>Package: <span>5 sessions</span></small></h4>
+
+                                </div>
+                            </div> 
+
+                        </div>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

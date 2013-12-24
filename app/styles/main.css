@@ -1,6 +1,13 @@
 ﻿.panel {
   padding: .8rem;
 }
+.off-canvas-list .button {
+  margin-bottom: 0;
+}
+section.tab-bar-section.middle {
+  left: 1%;
+  text-align: left;
+}
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -13,6 +20,9 @@
 .blue,
 .primary {
   background: #0072c6;
+}
+.metro {
+  color: #187dc7;
 }
 .green,
 .success {
@@ -60,7 +70,7 @@ button,
 .progress-bar {
   display: none;
   position: relative;
-  top: 15px;
+  top: -15px;
 }
 .progress-bar.show {
   display: block;
@@ -140,7 +150,8 @@ ul.menu-list li a {
   border-radius: 100px;
   overflow: hidden;
 }
-.page {
+.page,
+.page-content {
   margin-top: 10px;
 }
 .block-panel {
@@ -167,8 +178,7 @@ a.panel {
 }
 #outer-barG {
   height: 15px;
-  width: 69px;
-  border: 1px solid #1C88DB;
+  width: 139px;
   overflow: hidden;
 }
 .bar-lineG {
@@ -257,4 +267,17 @@ a.panel {
     margin-left: -69px;
     margin-top: -10px;
   }
+}
+.tab-bar-section .title {
+  text-transform: uppercase;
+}
+.client-info .name {
+  margin-bottom: 0;
+}
+.client-info .name small {
+  text-transform: uppercase;
+  color: #333;
+}
+.client-info .package {
+  margin-bottom: 0;
 }
