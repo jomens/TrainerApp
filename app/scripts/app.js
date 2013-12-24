@@ -33,11 +33,11 @@ angular.module('TrainerApp', [
         controller: 'SuperadminCtrl'
       })
       .when('/trainer', {
-        templateUrl: 'views/trainer.html',
+        templateUrl: 'scripts/feature-training/v-trainer.html',
         controller: 'TrainerCtrl'
       })
       .when('/createRoutine', {
-        templateUrl: 'views/createRoutine.html',
+          templateUrl: 'scripts/feature-training/v-createRoutine.html',
         controller: 'CreateroutineCtrl'
       })
       .when('/myClients/:id', {
@@ -45,32 +45,40 @@ angular.module('TrainerApp', [
         controller: 'MyclientsCtrl'
       })
       .when('/myRoutines/:id', {
-        templateUrl: 'views/myRoutines.html',
+          templateUrl: 'scripts/feature-training/v-myRoutines.html',
         controller: 'MyroutinesCtrl'
       })
       .when('/selectClient', {
-        templateUrl: 'views/selectClient.html',
+          templateUrl: 'scripts/feature-training/v-selectClient.html',
         controller: 'SelectclientCtrl'
       })
       .when('/selectRoutine', {
-        templateUrl: 'views/selectRoutine.html',
+          templateUrl: 'scripts/feature-training/v-selectRoutine.html',
         controller: 'SelectroutineCtrl'
       })
       .when('/go', {
-        templateUrl: 'views/go.html',
+          templateUrl: 'scripts/feature-training/v-go.html',
         controller: 'GoCtrl'
       })
       .when('/workout', {
-        templateUrl: 'views/workout.html',
+          templateUrl: 'scripts/feature-training/v-workout.html',
         controller: 'WorkoutCtrl'
       })
       .when('/summary', {
-        templateUrl: 'views/summary.html',
+          templateUrl: 'scripts/feature-training/v-summary.html',
         controller: 'SummaryCtrl'
       })
       .when('/cardio', {
-        templateUrl: 'views/cardio.html',
+          templateUrl: 'scripts/feature-training/v-cardio.html',
         controller: 'CardioCtrl'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/pinreset', {
+        templateUrl: 'views/pinreset.html',
+        controller: 'PinresetCtrl'
       })
       .otherwise({
         redirectTo: '/'
