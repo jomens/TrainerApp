@@ -110,14 +110,14 @@ padding: 0;
 color: #fff;
 position: relative;
 
-font-size: 195%;
+font-size: 165%;
 text-align: center;
 }
 
 .notify{
     position: absolute;
     bottom: 3px;
-    right: 3px;
+    left: 3px;
     padding: 0.2rem 0.3rem 0.2rem;
 }
 .create-routine {
@@ -342,3 +342,15 @@ margin-top:-10px}
     }
 }
 
+//height fixer
+html, body, .off-canvas-wrap, .inner-wrap{
+    height: 100%;
+}
+
+.off-canvas-wrap {
+overflow: hidden;
+overflow-y: scroll;
+}
+.off-canvas-wrap.move-left {
+overflow-y: hidden;
+}
