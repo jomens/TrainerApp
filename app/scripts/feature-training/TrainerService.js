@@ -47,6 +47,14 @@ angular.module('TrainerApp')
             //save to azure???
             return LocalStorage.getCurrentClient();
         },
+        setCurrentTrainer: function (trainer) {
+            //save to azure???
+            LocalStorage.setTrainer(trainer);
+        },
+        getCurrentTrainer: function () {
+            //save to azure???
+            return LocalStorage.getTrainer();
+        },
         setCurrentRoutine: function (routine) {
             //save to azure???
             LocalStorage.setCurrentRoutine(routine);

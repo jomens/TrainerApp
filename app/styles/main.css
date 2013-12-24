@@ -92,6 +92,31 @@ section.padded {
 ul.off-canvas-list li:first-child label {
   padding: 0.7rem 0.9375rem;
 }
+section.right-small.top-a {
+  right: 2.8125rem;
+}
+section.right-small.top-b {
+  right: 5.625rem;
+}
+section.right-small.top-c {
+  right: 8.4375rem;
+}
+a.nav-icon {
+  width: 2.8125rem;
+  height: 2.8125rem;
+  display: block;
+  padding: 0;
+  color: #fff;
+  position: relative;
+  font-size: 195%;
+  text-align: center;
+}
+.notify {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  padding: 0.2rem 0.3rem 0.2rem;
+}
 .create-routine .inner-wrap {
   min-height: 300px;
 }

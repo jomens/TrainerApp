@@ -1,0 +1,32 @@
+<div class="row page">
+
+    <div class="page-content">
+
+        <form data-abide ng-submit="login()" ng-model="user">
+                        
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label>Email</label>
+                    <input type="email" placeholder="Email" ng-model="user.email" required />
+                </div>
+
+            </div>
+
+        
+
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label>PIN Number:</label>
+                    <input type="tel" placeholder="1234" ng-model="user.pin" required maxlength="4" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <input class="button" type="submit" value="Login" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

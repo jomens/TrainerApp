@@ -73,11 +73,11 @@ angular.module('TrainerApp', [
         controller: 'CardioCtrl'
       })
       .when('/login', {
-        templateUrl: 'views/login.html',
+          templateUrl: 'scripts/feature-acct-mgmt/v-login.html',
         controller: 'LoginCtrl'
       })
       .when('/pinreset', {
-        templateUrl: 'views/pinreset.html',
+          templateUrl: 'scripts/feature-acct-mgmt/v-pinreset.html',
         controller: 'PinresetCtrl'
       })
       .otherwise({

@@ -1,10 +1,13 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('LoginCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LoginCtrl', function ($scope, $rootScope) {
+
+      init();
+
+      function init() {
+          $rootScope.title = "Login";
+          $rootScope.subTitle = "";
+
+      }
   });

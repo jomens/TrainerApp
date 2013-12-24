@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MyclientsCtrl', function ($scope, $routeParams, TrainerService, $rootScope) {
+  .controller('MyclientsCtrl', function ($scope, TrainerService, $rootScope) {
 
       init();
 
@@ -9,7 +9,7 @@ angular.module('TrainerApp')
           $rootScope.title = "my clients";
           $rootScope.subTitle = "";
 
-          var trainerId = $routeParams.id;
+         // var trainerId = TrainerService.getCurrentTrainer().id;
           TrainerService.getClients(function (clients) {
               $scope.clients = clients;
               $scope.$apply();
