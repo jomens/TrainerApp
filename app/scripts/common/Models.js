@@ -86,6 +86,23 @@ angular.module('TrainerApp')
         
     }
 
+    var FitnessChain = function () {
+        //this.id
+        this.name = "";
+        this.email = "";
+        this.addressId = "";        
+        //this.gyms = [];
+    }
+
+    var FitnessCenter = function () {
+        //this.id
+        this.fitnessChainId = "";
+        this.name = "";
+        this.location = "";
+        this.addressId = "";
+        //this.users = []; //trainers and users
+    }
+
     var AccountType = {
         //business: "Fitness Center",
         trainer: "Personal Trainer",
@@ -95,19 +112,20 @@ angular.module('TrainerApp')
     var UserType = { //a user can be trainer, a client or gymadmin
         trainer: "Personal Trainer",
         user: "A regular user",
+       // fitnesschainadmin: "Fitness Chain Admin",
         //admin: "gymadmin"
     }
 
-    var Gym = function () {
-        this.name = "";
-        this.accountType = "";
-        this.phone = "";
-        this.email = "";
-        this.mainContact = "";
-        this.mainContactEmail = "";
-        // this.addressId = "";
-        //this.mainContactId = "";
-    }
+    //var Gym = function () {
+    //    this.name = "";
+    //    this.accountType = "";
+    //    this.phone = "";
+    //    this.email = "";
+    //    this.mainContact = "";
+    //    this.mainContactEmail = "";
+    //    // this.addressId = "";
+    //    //this.mainContactId = "";
+    //}
 
     //var Address = function () {
     //    this.address = "";
@@ -116,8 +134,6 @@ angular.module('TrainerApp')
     //    this.state = "";
     //    this.zip = "";
     //    this.phone = "";
-    //    this.accountId = "";
-
     //}
 
     //should this be users? will have associated accountID's, trainerId?, usertype? trainer?
@@ -130,6 +146,7 @@ angular.module('TrainerApp')
         this.userType = ""
         this.trainerId = "-1";
         this.fitnessCenterId = "-1";
+        this.fitnessChainId = "-1";
         this.isAdmin = false;
         this.imageUrl = "";
 
@@ -211,9 +228,11 @@ angular.module('TrainerApp')
         if (Environment == "PROD") {
             switch (model) {
                 case "user": return new User();
-                case "gym": return new Gym();
+                case "fitnesscenter": return new FitnessCenter();
                 case "exercise": return new Exercise();
                 case "routine": return new Routine();
+                case "fitnesschain": return new FitnessChain();
+                case "gym": return new Gym();
                     // case "individual": return { firstName: "", lastName: "" };
             }
 
@@ -221,9 +240,11 @@ angular.module('TrainerApp')
         else {
             switch (model) {
                 case "user": return getDummyData(new User());
-                case "gym": return getDummyData(new Gym());
+                case "fitnesscenter": return getDummyData(new FitnessCenter());
                 case "exercise": return getDummyData(new Exercise());
                 case "routine": return getDummyData(new Routine());
+                case "fitnesschain": return getDummyData(new FitnessChain());
+                case "gym": return getDummyData(new Gym());
                     // case "punch": return new Punch();
                     //case "job": return getDummyData(new Job());
                     //  case "individual": return getDummyData({ firstName: "", lastName: "" });
@@ -235,7 +256,9 @@ angular.module('TrainerApp')
     return {
         User: function () { return getModel("user"); },
         Routine: function () { return getModel("routine"); },
-        Tags: function(){ return Tags; },
+        FitnessChain: function () { return getModel("fitnesschain"); },
+        FitnessCenter: function () { return getModel("fitnesscenter"); },
+        Tags: function () { return Tags; },
         BodyParts: function () { return BodyParts; },
         CardioModes: function () { return CardioModes; },
         TrainingSession: function () { return new TrainingSession(); },

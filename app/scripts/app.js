@@ -17,7 +17,7 @@ angular.module('TrainerApp', [
         controller: 'MainCtrl'
       })
       .when('/signup', {
-        templateUrl: 'views/signup.html',
+          templateUrl: 'scripts/feature-acct-mgmt/v-signup.html',
         controller: 'SignupCtrl'
       })
       .when('/admin', {
@@ -79,6 +79,14 @@ angular.module('TrainerApp', [
       .when('/pinreset', {
           templateUrl: 'scripts/feature-acct-mgmt/v-pinreset.html',
         controller: 'PinresetCtrl'
+      })
+      .when('/addFitnessChain', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-addFitnessChain.html',
+        controller: 'AddfitnesschainCtrl'
+      })
+      .when('/addGym', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-addGym.html',
+        controller: 'AddgymCtrl'
       })
       .otherwise({
         redirectTo: '/'

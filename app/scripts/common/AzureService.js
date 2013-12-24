@@ -22,8 +22,8 @@ angular.module('TrainerApp')
         return $resource(url.replace("tableName", tableName), { id: '@id' }, { "update": { method: "PATCH", isArray: false } });
     }
     return {
-        GymResource: function () {
-            return getResource("gyms");
+        FitnessChainResource: function () {
+            return getResource("fitnesschains");
         },
         UserResource: function () {
             return getResource("users");
