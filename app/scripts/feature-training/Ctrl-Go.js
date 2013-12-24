@@ -1,13 +1,18 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('GoCtrl', function ($scope, TrainerService, ExerciseService, $location) {
-   //routines do not match selected
+  .controller('GoCtrl', function ($scope, TrainerService, ExerciseService, $location, $rootScope) {
+
       init();
 
       function init() {
+
           var routine = TrainerService.getCurrentRoutine();
           $scope.routine = routine;
+
+          $rootScope.title = routine.name;
+          $rootScope.subTitle = "";
+
           TrainerService.startTrainingSession();
           $scope.exercises = ExerciseService.getExerciseFromRoutine(routine).list;
 

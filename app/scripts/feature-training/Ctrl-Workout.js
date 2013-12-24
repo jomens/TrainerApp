@@ -1,13 +1,17 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('WorkoutCtrl', function ($scope, TrainerService, $location) {
-      //add workout notes
+  .controller('WorkoutCtrl', function ($scope, TrainerService, $location, $rootScope) {
+
       init();
 
       function init() {
+
           $scope.workout = TrainerService.getCurrentWorkout();
-      }
+
+          $rootScope.title = $scope.workout.exerciseName;
+          $rootScope.subTitle = "";
+     }
 
       $scope.addSet = function () {
           $scope.workout = TrainerService.addSetToWorkout($scope.set);

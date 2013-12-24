@@ -102,9 +102,9 @@ angular.module('TrainerApp')
             }
 
             resource.save(workout, function (savedWorkout) {
-                Notifier.done("Success. workout created", true);
+                Notifier.done();
                 LocalStorage.setCurrentWorkout(null);
-                console.log(savedWorkout);
+                //console.log(savedWorkout);
                 removeExerciseFromRoutineDetails(workout.exerciseId);
                 $location.path("/go");
 
