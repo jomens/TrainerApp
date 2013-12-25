@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-.factory('Identity', function (Azure, Notifier, $location, LocalStorage, $rootScope) {
+.factory('Identity', function (Azure, Notifier, LocalStorage, $rootScope) {
 
     //var activeUser;
     //this.accountInfo;
@@ -55,23 +55,29 @@ angular.module('TrainerApp')
     //Login logout
 
     return {
-        gotoUserPortal: function(){
-            var user = LocalStorage.getLoggedInUser();
-
+        setPermissions: function (user) {
             switch (user.userType) {
                 case "trainer":
-                    $location.path("/trainer");
+                    user.isTrainer = true;
                     break;
                 case "fitnesschainadmin":
-                    $location.path("/fitnessChainPortal");
+                    user.isFitnessChainAdmin = true;
                     break;
                 case "fitnesscenteradmin":
-                    $location.path("/fitnessCenterPortal");
+                    user.isFitnessCenterAdmin = true;
                     break;
                 case "user":
-                    $location.path("/userPortal");
+                    user.isUser = true;
                     break;
             }
+        },
+        getLoggedInUser: function () {
+            var user = LocalStorage.getLoggedInUser();
+
+            if (user) {
+                $rootScope.loggedInUser = user;
+            }
+            return user;
         },
         login: function (loginModel, callback) {
             var that = this;
@@ -85,10 +91,10 @@ angular.module('TrainerApp')
                         var userObject = results[0];
 
                         Notifier.done("logged in");
+                        that.setPermissions(userObject);
                         LocalStorage.setLoggedInUser(userObject);
                         $rootScope.loggedInUser = userObject;
-
-                        that.gotoUserPortal();
+                       
                         callback();
 
                     } else {

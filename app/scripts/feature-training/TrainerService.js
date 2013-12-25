@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .factory('TrainerService', function (Azure, Notifier, LocalStorage, Models, $location) {
-
-      var trainer = LocalStorage.getTrainer();
+  .factory('TrainerService', function (Azure, Notifier, LocalStorage, Models, $location, Identity) {
+      //getLoggedInUser
+      //var trainer = LocalStorage.getTrainer();
+      var trainer = Identity.getLoggedInUser();
       function routineDetails(rtn) {
 
       }
@@ -46,14 +47,6 @@ angular.module('TrainerApp')
         getCurrentClient: function () {
             //save to azure???
             return LocalStorage.getCurrentClient();
-        },
-        setCurrentTrainer: function (trainer) {
-            //save to azure???
-            LocalStorage.setTrainer(trainer);
-        },
-        getCurrentTrainer: function () {
-            //save to azure???
-            return LocalStorage.getTrainer();
         },
         setCurrentRoutine: function (routine) {
             //save to azure???
@@ -142,7 +135,7 @@ angular.module('TrainerApp')
             var session = Models.TrainingSession();
             session.date = new Date();
             session.clientId = LocalStorage.getCurrentClient().id;
-            session.trainerId = LocalStorage.getTrainer().id;
+            session.trainerId = Identity.getLoggedInUser().id;
             session.routineId = LocalStorage.getCurrentRoutine().id;
 
             Azure.TrainingSessionResource().save(session, function (savedSession) {
@@ -177,12 +170,13 @@ angular.module('TrainerApp')
                     var jsonResult = JSON.parse(results.response);
                     callback(jsonResult);
 
-                    that.resetTrainingInfo();
+                   // that.resetTrainingInfo();
                     //console.log(jsonResult);
                 }
             });
         },
         resetTrainingInfo: function () {
+            LocalStorage.setCurrentClient(null);
             LocalStorage.setCurrentRoutine(null);
             LocalStorage.setCurrentWorkout(null);
             LocalStorage.setRoutineDetails(null);

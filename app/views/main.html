@@ -1,9 +1,10 @@
 <div class="row page">
-    <h3 class="page-title">Welcome, {{trainer.firstName}}</h3>
+    <h3 class="page-title">Welcome, {{loggedInUser.firstName}} {{loggedInUser.lastName}}</h3>
 
     <div class="page-content">
-        <a href="#/signup" ng-hide="trainer" class="button warning">Sign Up</a>
-        <a href="#/selectClient" class="button primary">Start a training session</a>
+        <!--<a href="#/signup" ng-hide="trainer" class="button warning">Sign Up</a>-->
+        <a href="#/selectClient" class="button success" ng-show="loggedInUser.isTrainer">Start a training session</a>
+        <button class="button primary" ng-click="gotoUserPortal()">My Portal</button>
        
     </div>
 </div>

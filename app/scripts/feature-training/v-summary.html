@@ -12,12 +12,12 @@
                 <a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn">{{ex.name}}</a>
             </div>-->
             <div class="small-12 columns">
-                        <h4>Weights</h4>
-                        <div class="panel" ng-repeat="weight in summary.weights">
-                            <h5>{{weight.exercise.name}}</h5>
-                            <p ng-repeat="set in weight.sets">Set #{{$index + 1}} Weight: {{set.weight}} Reps: {{set.reps}}</p>
-                        </div>
-                               
+                <h4>Weights</h4>
+                <div class="panel" ng-repeat="weight in summary.weights">
+                    <h5>{{weight.exercise.name}}</h5>
+                    <p ng-repeat="set in weight.sets">Set #{{$index + 1}} Weight: {{set.weight}} Reps: {{set.reps}}</p>
+                </div>
+
 
                 <h4>Cardio</h4>
                 <div class="panel" ng-repeat="card in summary.cardio">
@@ -35,9 +35,27 @@
 
         <div class="row">
             <div class="small-12 medium-4 columns">
-                <a ng-href="#/trainer" ng-click="" class="button block success">Trainer portal</a>
+                <a ng-href="" data-reveal-id="myModal" ng-click="" class="button block alert">End Training Session</a>
             </div>
 
         </div>
+
+        <div id="myModal" class="reveal-modal" data-reveal>
+            <div class="row">
+                <div class="small-12 columns">
+                    <h4>Confirm End of Session</h4>
+                    <p>This will clear the workout information for this session</p>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 large-4 columns">
+                    <a ng-href="" ng-click="confirmEndofSession()" class="button block alert">End Training Session</a>
+                </div>
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
+
+        </div>
+
     </div>
 </div>

@@ -11,13 +11,13 @@ angular.module('TrainerApp')
                  Azure.UserResource().save(user, function (savedUser) {
 
                      Notifier.done("Success. account created", true);
-                     if (savedUser.userType == "trainer") {
-                         LocalStorage.setTrainer(savedUser);
-                         $location.path("/trainer");
-                     }
-                     else {
+                    // if (savedUser.userType == "trainer") {
+                     //    LocalStorage.setTrainer(savedUser);
+                    //     $location.path("/trainer");
+                    // }
+                    /// else {
                          $location.path("/");
-                     }
+                    // }
 
                  }, Notifier.errorHandler);
              },

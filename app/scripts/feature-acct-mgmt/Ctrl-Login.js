@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('LoginCtrl', function ($scope, $rootScope, Identity) {
+  .controller('LoginCtrl', function ($scope, $rootScope, Identity, $location) {
 
       init();
 
@@ -13,7 +13,7 @@ angular.module('TrainerApp')
 
       $scope.login = function () {
           Identity.login($scope.login, function () {
-              console.log("inside callback");
+              $location.path("/");
               $scope.$apply();
           });
       }
