@@ -4,7 +4,7 @@ angular.module('TrainerApp')
   .factory('TrainerService', function (Azure, Notifier, LocalStorage, Models, $location, Identity) {
       //getLoggedInUser
       //var trainer = LocalStorage.getTrainer();
-      var trainer = Identity.getLoggedInUser();
+      var loggedInUser = Identity.getLoggedInUser();
       function routineDetails(rtn) {
 
       }
@@ -18,10 +18,23 @@ angular.module('TrainerApp')
                     fn: function (trId) {
                         return this.trainerId == trId;
                     },
-                    param: trainer.id
+                    param: loggedInUser.id
                 },
                 success: function (clients) {
                     callback(clients);
+                }
+            })
+        },
+        getTrainers: function (callback) {
+            Notifier.busy();
+
+            Azure.table("users").read({
+                where: {
+                    fitnessCenterId: loggedInUser.fitnessCenterId,
+                    userType : "trainer"
+                },
+                success: function (trainers) {
+                    callback(trainers);
                 }
             })
         },
@@ -33,7 +46,7 @@ angular.module('TrainerApp')
                     fn: function (trId) {
                         return this.trainerId == trId;
                     },
-                    param: trainer.id
+                    param: loggedInUser.id
                 },
                 success: function (routines) {
                     callback(routines);

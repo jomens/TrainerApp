@@ -4,14 +4,15 @@ angular.module('TrainerApp')
  .factory("Signup", function (Models, Azure, Notifier, $location, LocalStorage, Identity) {
 
          return {
-             addUser: function (user) {
+             addUser: function (user, callback) {
 
                  Notifier.busy(true);
 
                  Azure.UserResource().save(user, function (savedUser) {
 
                      Notifier.done("Success. account created", true);
-                         $location.path("/");
+                     $location.path("/");
+                   
 
                  }, Notifier.errorHandler);
              },

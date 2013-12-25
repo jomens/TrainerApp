@@ -25,8 +25,12 @@ angular.module('TrainerApp', [
         controller: 'AdminCtrl'
       })
       .when('/addClient', {
-        templateUrl: 'views/addClient.html',
-        controller: 'AddclientCtrl'
+          templateUrl: 'scripts/feature-acct-mgmt/v-addClient.html',
+          controller: 'AddclientCtrl'
+      })
+      .when('/addTrainer', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-addTrainer.html',
+          controller: 'AddTrainerCtrl'
       })
       .when('/superadmin', {
         templateUrl: 'views/superadmin.html',
@@ -42,7 +46,11 @@ angular.module('TrainerApp', [
       })
       .when('/myClients/:id', {
           templateUrl: 'scripts/feature-acct-mgmt/v-myClients.html',
-        controller: 'MyclientsCtrl'
+          controller: 'MyclientsCtrl'
+      })
+      .when('/myTrainers/:id', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-myTrainers.html',
+          controller: 'MyTrainersCtrl'
       })
       .when('/myRoutines/:id', {
           templateUrl: 'scripts/feature-training/v-myRoutines.html',

@@ -1,0 +1,39 @@
+<div class="row page">
+    <!--<h3 class="page-title">Add a new trainer</h3>-->
+
+    <div class="page-content">
+
+        <form ng-submit="addTrainer()" ng-model="trainer">
+
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" placeholder="firstName" ng-model="trainer.firstName" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" placeholder="lastName" ng-model="trainer.lastName" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label for="email">Email:</label>
+                    <input type="text" placeholder="email" ng-model="trainer.email" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label for="phone">Phone:</label>
+                    <input type="text" placeholder="phone" ng-model="trainer.phone" required />
+                </div>
+            </div>
+
+            <div class="row"><div class="small-12 columns"><input class="button" type="submit" value="Submit" /></div></div>
+        </form>
+    </div>
+</div>
