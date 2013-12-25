@@ -65,14 +65,14 @@
                     </div>
                 </section>
 
-                <section class="right-small top-a">
+                <!--<section class="right-small top-a">
                     <a class="fi-flag nav-icon" href="#/">
                         <span></span>
 
                         <span class="label alert notify">3</span>
                     </a>
 
-                </section>
+                </section>-->
                 <!--<section class="right-small top-a">
                     <a class="fi-torsos-male-female nav-icon" href="#/trainer/"><span></span></a>
                 </section>-->
@@ -91,8 +91,11 @@
 
             <aside class="right-off-canvas-menu">
                 <ul class="off-canvas-list">
+                    <li>
+                        <a ng-href="#/login" ng-click="login()" class="button success" ng-hide="loggedInUser">LOG IN</a>
+                        <a ng-href="" ng-click="logout()" class="button alert" ng-show="loggedInUser">LOG OUT</a>
+                    </li>
                     <li><label>MENU</label></li>
-                    <li><a ng-href="#/" class="">Home</a></li>
                     <li><a ng-href="#/myRoutines/" class="">My Routines</a></li>
                     <li><a ng-href="#/myClients/" class="">My Clients</a></li>
                     <li><a ng-href="#/trainer" class="">Trainer portal</a></li>

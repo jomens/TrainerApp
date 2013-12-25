@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
- .factory("Signup", function (Models, Azure, Notifier, $location, LocalStorage) {
+ .factory("Signup", function (Models, Azure, Notifier, $location, LocalStorage, Identity) {
 
          return {
              addUser: function (user) {
@@ -11,13 +11,7 @@ angular.module('TrainerApp')
                  Azure.UserResource().save(user, function (savedUser) {
 
                      Notifier.done("Success. account created", true);
-                    // if (savedUser.userType == "trainer") {
-                     //    LocalStorage.setTrainer(savedUser);
-                    //     $location.path("/trainer");
-                    // }
-                    /// else {
                          $location.path("/");
-                    // }
 
                  }, Notifier.errorHandler);
              },
@@ -42,7 +36,7 @@ angular.module('TrainerApp')
                  Notifier.busy(true); 
                  admin.isAdmin = true;
                  admin.userType = "fitnesscenteradmin";
-                 fitnessCenter.fitnessChainId = "E9FB6D15-0558-41AC-BFB8-01411E63B329";
+                 fitnessCenter.fitnessChainId = Identity.getLoggedInUser().fitnessChainId;
 
                  Azure.FitnessCenterResource().save(fitnessCenter, function (savedGym) {
                      admin.fitnessCenterId = savedGym.id;

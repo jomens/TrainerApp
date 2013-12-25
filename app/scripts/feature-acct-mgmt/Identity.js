@@ -7,21 +7,7 @@ angular.module('TrainerApp')
     //this.accountInfo;
     //this._accountResource = Azure.AccountResource();
 
-    //this.setActiveUser = function (user) {
-    //    amplify.store("activeuser", user);
-    //    activeUser = user;
-    //}
-    //this.getActiveUser = function () {
-    //    if (!activeUser) {
-    //        activeUser = amplify.store("activeuser");
-    //    }
-    //    return activeUser;
-
-    //}
-    //this.clearActiveUser = function () {
-    //    this.setActiveUser(null);
-    //    this.setAccountInfo(null);
-    //}
+ 
     //this.isAdministrator = function () {
     //    return this.getActiveUser() && this.getActiveUser().userType == "admin";
     //}
@@ -78,6 +64,15 @@ angular.module('TrainerApp')
                 $rootScope.loggedInUser = user;
             }
             return user;
+        },
+        logout: function () {
+            LocalStorage.setCurrentClient(null);
+            LocalStorage.setCurrentRoutine(null);
+            LocalStorage.setCurrentWorkout(null);
+            LocalStorage.setRoutineDetails(null);
+            LocalStorage.setTrainingSession(null);
+            LocalStorage.setLoggedInUser(null);
+            $rootScope.loggedInUser = null;
         },
         login: function (loginModel, callback) {
             var that = this;

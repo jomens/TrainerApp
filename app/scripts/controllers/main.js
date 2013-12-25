@@ -10,6 +10,11 @@ angular.module('TrainerApp')
 
           Identity.getLoggedInUser();
       }
+           
+      $rootScope.logout = function () {
+          Identity.logout();
+          $location.path("/");
+      }
 
       $scope.gotoUserPortal = function () {
          
