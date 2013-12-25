@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('LoginCtrl', function ($scope, $rootScope) {
+  .controller('LoginCtrl', function ($scope, $rootScope, Identity) {
 
       init();
 
@@ -9,5 +9,12 @@ angular.module('TrainerApp')
           $rootScope.title = "Login";
           $rootScope.subTitle = "";
 
+      }
+
+      $scope.login = function () {
+          Identity.login($scope.login, function () {
+              console.log("inside callback");
+              $scope.$apply();
+          });
       }
   });

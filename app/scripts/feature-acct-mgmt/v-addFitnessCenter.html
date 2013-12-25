@@ -1,0 +1,74 @@
+<div class="row page">
+
+    <div class="page-content">
+
+        <form data-abide ng-submit="addFitnessCenter()">
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <h3>Fitness Center Info</h3>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label>Fitness Chain Name</label>
+                    <input type="text" placeholder="Name" ng-model="gym.name" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label>Location</label>
+                    <input type="text" placeholder="Downtown Seattle Branch" ng-model="gym.location" required />
+                </div>
+            </div>
+
+            <!--<div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label>General Email</label>
+                    <input type="email" placeholder="Email" ng-model="gym.email" required />
+                </div>
+
+            </div>-->
+
+            <section class="padded">
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <h3>Setup Admin Account</h3>
+                        <div class="panel">
+                            <p>The admin will have permissions to add personal trainers, users, clients, etc</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Admin First Name</label>
+                        <input type="text" placeholder="First Name" ng-model="admin.firstName" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Admin Last Name</label>
+                        <input type="text" placeholder="Last Name" ng-model="admin.lastName" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Admin Email</label>
+                        <input type="email" placeholder="Email" ng-model="admin.email" required />
+                    </div>
+                </div>
+
+            </section>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <input class="button" type="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

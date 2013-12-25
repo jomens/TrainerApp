@@ -84,9 +84,21 @@ angular.module('TrainerApp', [
           templateUrl: 'scripts/feature-acct-mgmt/v-addFitnessChain.html',
         controller: 'AddfitnesschainCtrl'
       })
-      .when('/addGym', {
-          templateUrl: 'scripts/feature-acct-mgmt/v-addGym.html',
-        controller: 'AddgymCtrl'
+      .when('/addFitnessCenter', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-addFitnessCenter.html',
+          controller: 'AddFitnessCenterCtrl'
+      })
+      .when('/userPortal', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-userPortal.html',
+        controller: 'UserportalCtrl'
+      })
+      .when('/fitnessChainPortal', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-fitnessChainPortal.html',
+        controller: 'FitnesschainportalCtrl'
+      })
+      .when('/fitnessCenterPortal', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-fitnessCenterPortal.html',
+        controller: 'FitnesscenterportalCtrl'
       })
       .otherwise({
         redirectTo: '/'

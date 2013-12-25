@@ -25,6 +25,9 @@ angular.module('TrainerApp')
         FitnessChainResource: function () {
             return getResource("fitnesschains");
         },
+        FitnessCenterResource: function () {
+            return getResource("fitnesscenters");
+        },
         UserResource: function () {
             return getResource("users");
         },

@@ -4,6 +4,7 @@ angular.module('TrainerApp')
   .factory('LocalStorage', function () {
 
       var trainer;
+      var loggedInUser;
       var currentClient;
       var currentRoutine;
       var currentWorkout;
@@ -13,6 +14,14 @@ angular.module('TrainerApp')
 
       // Public API here
       return {
+          setLoggedInUser: function (user) {
+              amplify.store("loggedInUser", user);
+              loggedInUser = user;
+          },
+          getLoggedInUser: function () {
+              loggedInUser = loggedInUser || amplify.store("loggedInUser");
+              return loggedInUser;
+          },
           setTrainer: function (tr) {
               amplify.store("trainer", tr);
               trainer = tr;

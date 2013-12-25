@@ -10,8 +10,6 @@ angular.module('TrainerApp')
           $rootScope.subTitle = "";
           $scope.chain = Models.FitnessChain();
           var admin = Models.User();
-            admin.isAdmin = true;
-            admin.userType = "fitnesschainadmin";
 
             $scope.admin = admin;
           //$scope.userTypes = Utils.parseObject(Models.UserType());
