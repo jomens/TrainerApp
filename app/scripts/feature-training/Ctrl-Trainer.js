@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('TrainerCtrl', function ($scope, Settings, LocalStorage, $rootScope) {
+  .controller('TrainerCtrl', function ($scope, Settings, Identity, $rootScope) {
 
       init();
 
@@ -10,7 +10,7 @@ angular.module('TrainerApp')
           $rootScope.subTitle = "";
 
           Settings.init();
-          $scope.trainer = LocalStorage.getTrainer();
+          $scope.trainer = Identity.getLoggedInUser();
       }
 
   });

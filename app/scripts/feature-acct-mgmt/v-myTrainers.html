@@ -10,7 +10,7 @@
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
 
                     <li ng-repeat="trainer in trainers">
-                        <div class="panel">
+                        <div class="panel trainer-card">
                             <div class="row">
                                 <div class="small-4 medium-5 large-4 columns">
                                     <div class="avatar-wrapper">
@@ -20,7 +20,7 @@
 
                                 <div class="small-8 medium-7 large-8 columns client-info">
                                     <h3 class="name"><small><span>{{trainer.firstName}}</span> <span class="show-for-large-up">{{trainer.lastName}}</span></small></h3>
-                                    <!--<h4 class="package"><small>ISSA: <span>CERTIFIED</span></small></h4>-->
+                                    <!--<p class="package">EXP: <span>3 years</span></p>-->
                                     <span class="label warning">ISSA CERTIFIED</span>
                                 </div>
                             </div>
@@ -34,7 +34,11 @@
 
             </div>
         </div>
-
+        <div class="row">
+            <div class="small-12 columns">
+                <a ng-href="#/fitnessCenterPortal" class="button primary">Back to Portal</a>
+            </div>
+        </div>
 
     </div>
 

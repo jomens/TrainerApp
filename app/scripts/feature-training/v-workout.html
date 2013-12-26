@@ -18,13 +18,14 @@
                         <div class="small-12 columns">
                             <h4>Exercise Details</h4>
                         </div>
+
                         <div class="small-12 columns">
                             <div ng-repeat="set in workout.sets">
-                                <div class="small-4 columns"><p>Set #{{$index + 1}}</p></div>
+                                <div class="small-4 columns"><h6>Set #{{$index + 1}}</h6></div>
 
-                                <div class="small-4 columns"><p>{{set.weight}} lbs</p></div>
+                                <div class="small-4 columns"><h6>{{set.weight}} lbs</h6></div>
 
-                                <div class="small-4 columns"><p>{{set.reps}} reps</p></div>
+                                <div class="small-4 columns"><h6>{{set.reps}} reps</h6></div>
                             </div>
 
                         </div>
@@ -38,7 +39,7 @@
 
         <div class="row">
             <div class="small-12 medium-6 columns">
-                
+                <h4>Enter set info</h4>
             </div>
         </div>
 

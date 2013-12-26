@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('AddclientCtrl', function ($scope, Signup, Models, LocalStorage, $rootScope) {
+  .controller('AddclientCtrl', function ($scope, Signup, Models, Identity, $rootScope) {
 
       init();
 
@@ -13,7 +13,7 @@ angular.module('TrainerApp')
       }
 
       $scope.addClient = function () {
-              $scope.client.trainerId = LocalStorage.getTrainer().id;
+          $scope.client.trainerId = Identity.getLoggedInUser().id;
               $scope.client.userType = "user";
 
               Signup.addUser($scope.client);

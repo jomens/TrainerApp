@@ -2,8 +2,6 @@
 
 angular.module('TrainerApp')
   .factory('TrainerService', function (Azure, Notifier, LocalStorage, Models, $location, Identity) {
-      //getLoggedInUser
-      //var trainer = LocalStorage.getTrainer();
       var loggedInUser = Identity.getLoggedInUser();
       function routineDetails(rtn) {
 

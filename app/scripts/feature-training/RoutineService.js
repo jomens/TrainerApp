@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .factory('RoutineService', function (Azure, LocalStorage, Notifier, $location) {
+  .factory('RoutineService', function (Azure, Identity, Notifier, $location) {
 
 
     
       return {
           saveRoutine: function (routine) {
-              routine.trainerId = LocalStorage.getTrainer().id;
+              routine.trainerId = Identity.getLoggedInUser().id;
 
               routine.bodyParts = this.stringifyBodyParts(routine.exercises);
               routine.exerciseIds = this.stringifyExerciseIds(routine.exercises);

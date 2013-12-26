@@ -14,19 +14,19 @@
             <div class="small-12 columns">
                 <h4>Weights</h4>
                 <div class="panel" ng-repeat="weight in summary.weights">
-                    <h5>{{weight.exercise.name}}</h5>
-                    <p ng-repeat="set in weight.sets">Set #{{$index + 1}} Weight: {{set.weight}} Reps: {{set.reps}}</p>
+                    <h4>{{weight.exercise.name}}</h4>
+                    <h6 ng-repeat="set in weight.sets">Set #{{$index + 1}} Weight: {{set.weight}} Reps: {{set.reps}}</h6>
                 </div>
 
 
-                <h4>Cardio</h4>
+                <h4 ng-show="summary.cardio.length">Cardio</h4>
                 <div class="panel" ng-repeat="card in summary.cardio">
-                    <h5>{{card.exerciseName}}</h5>
-                    <p>{{card.mode}}</p>
-                    <p>{{card.resistance}}</p>
-                    <p>{{card.heartRate}}</p>
-                    <p>{{card.speed}}</p>
-                    <p>{{card.rpms}}</p>
+                    <h4>{{card.exerciseName}}</h4>
+                    <h6>Mode: {{card.mode}}</h6>
+                    <h6>Resistance: {{card.resistance}}</h6>
+                    <h6>Heart rate: {{card.heartRate}}</h6>
+                    <h6>Speed: {{card.speed}}</h6>
+                    <h6>RPMS: {{card.rpms}}</h6>
                 </div>
 
             </div>
@@ -35,7 +35,7 @@
 
         <div class="row">
             <div class="small-12 medium-4 columns">
-                <a ng-href="" data-reveal-id="myModal" ng-click="" class="button block alert">End Training Session</a>
+                <a ng-href="" data-reveal-id="myModal" ng-click="" class="button alert">End Training Session</a>
             </div>
 
         </div>

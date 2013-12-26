@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('SuperadminCtrl', function ($scope, DataImport, Azure, ExerciseService) {
+  .controller('SuperadminCtrl', function ($scope, DataImport, Azure, ExerciseService, LocalStorage) {
     
       $scope.loadExercises = function () {
 
@@ -18,5 +18,9 @@ angular.module('TrainerApp')
 
       $scope.fetchAll = function () {
           ExerciseService.fetchAllExercises(function () { });
+      }
+
+      $scope.clearData = function () {
+          LocalStorage.setSettings(null);
       }
   });

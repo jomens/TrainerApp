@@ -22,14 +22,6 @@ angular.module('TrainerApp')
               loggedInUser = loggedInUser || amplify.store("loggedInUser");
               return loggedInUser;
           },
-          setTrainer: function (tr) {
-              amplify.store("trainer", tr);
-              trainer = tr;
-          },
-          getTrainer: function () {
-              trainer = trainer || amplify.store("trainer");
-              return trainer;
-          },
           setCurrentClient: function (cc) {
               amplify.store("currentclient", cc);
               currentClient = cc;
