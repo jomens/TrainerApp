@@ -39,7 +39,7 @@ angular.module('TrainerApp')
       $scope.addExercise = function (ex) {
           ex.selected = true;
           $scope.selectedExercises.push(ex);
-          $scope.routineName = RoutineService.stringifyBodyParts($scope.selectedExercises);
+          //$scope.routineName = RoutineService.stringifyBodyParts($scope.selectedExercises);
       }
 
       $scope.split = function (tags) {
@@ -49,7 +49,10 @@ angular.module('TrainerApp')
       }
 
       $scope.saveRoutine = function () {
-          if (!$scope.routineName) return;
+          if (!$scope.routineName) {
+              toastr.error("Routine name required");
+              return;
+          }
 
           var routine = Models.Routine();
           routine.name = $scope.routineName;

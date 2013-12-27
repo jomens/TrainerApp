@@ -10,7 +10,7 @@ angular.module('TrainerApp')
     return {
         getClients: function (callback) {
             Notifier.busy();
-
+            loggedInUser = Identity.getLoggedInUser();
             Azure.table("users").read({
                 where: {
                     fn: function (trId) {
@@ -25,7 +25,7 @@ angular.module('TrainerApp')
         },
         getTrainers: function (callback) {
             Notifier.busy();
-
+            loggedInUser = Identity.getLoggedInUser();
             Azure.table("users").read({
                 where: {
                     fitnessCenterId: loggedInUser.fitnessCenterId,
@@ -38,7 +38,7 @@ angular.module('TrainerApp')
         },
         getRoutines: function (callback) {
             Notifier.busy();
-
+            loggedInUser = Identity.getLoggedInUser();
             Azure.table("routines").read({
                 where: {
                     fn: function (trId) {

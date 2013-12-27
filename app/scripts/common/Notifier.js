@@ -39,6 +39,7 @@ angular.module('TrainerApp')
     }
 
     this.errorHandler = function (err) {
+        this._progressBar.removeClass("show");
         toastr.error("Cloud operation failed");
         console.log(err);
     }

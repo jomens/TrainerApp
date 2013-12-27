@@ -1,19 +1,32 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location) {
+  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route) {
       init();
 
       function init() {
           $rootScope.title = "TRAINER";
           $rootScope.subTitle = "METRO";
+          
 
-          Identity.getLoggedInUser();
+         var user =  Identity.getLoggedInUser();
+         if (user) {
+            TrainerService.getClients(function (clients) {
+              $scope.clients = clients;
+              $scope.$apply();
+          });
+         }
+         else {
+             $location.path("/login");
+            
+         }
+      
       }
            
       $rootScope.logout = function () {
           Identity.logout();
           $location.path("/");
+          $route.reload();
       }
 
       $scope.gotoUserPortal = function () {

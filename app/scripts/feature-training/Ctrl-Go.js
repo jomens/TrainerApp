@@ -10,7 +10,7 @@ angular.module('TrainerApp')
           var routine = TrainerService.getCurrentRoutine();
           $scope.routine = routine;
 
-          $rootScope.title = routine.name;
+          $rootScope.title = "Routine: " + routine.name;
           $rootScope.subTitle = "";
 
           TrainerService.startTrainingSession();

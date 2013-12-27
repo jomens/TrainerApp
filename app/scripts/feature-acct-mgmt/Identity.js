@@ -3,42 +3,6 @@
 angular.module('TrainerApp')
 .factory('Identity', function (Azure, Notifier, LocalStorage, $rootScope) {
 
-    //var activeUser;
-    //this.accountInfo;
-    //this._accountResource = Azure.AccountResource();
-
- 
-    //this.isAdministrator = function () {
-    //    return this.getActiveUser() && this.getActiveUser().userType == "admin";
-    //}
-
-    ////account info
-    //this.getAccountInfo = function () {
-    //    return this.accountInfo || amplify.store("account");
-    //}
-
-    //this.setAccountInfo = function (account) {
-    //    if (account) {
-    //        delete account.admin;
-    //    }
-    //    amplify.store("account", account);
-    //    this.accountInfo = account;
-    //}
-
-    //this.isBusinessAccount = function () {
-    //    return this.getAccountInfo().accountType == "business";
-    //}
-
-    //this.fetchAccountInfo = function (accountId) {
-    //    var that = this;
-    //    this._accountResource.get({ id: accountId }, function (data) {
-    //        that.setAccountInfo(data);
-    //    }, function () {
-    //        Notifier.error("unable to account info");
-    //    });
-    //}
-
-    //Login logout
 
     return {
         setPermissions: function (user) {

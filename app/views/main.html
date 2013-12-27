@@ -2,7 +2,53 @@
     <h3 class="page-title">Welcome, {{loggedInUser.firstName}} {{loggedInUser.lastName}}</h3>
 
     <div class="page-content">
-        <a href="#/signup" ng-hide="trainer" class="button warning">Sign Up</a>
+        <div class="row" ng-show="loggedInUser.isTrainer">
+            <div class="small-12 columns">
+                <h2><i class="step fi-calendar size-72"></i> <span>TODAY AT A GLANCE</span></h2>
+
+            </div>
+        </div>
+
+        <section class="padded">
+            <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+
+                <li ng-repeat="client in clients">
+                    <div class="card">
+                        <div class="row">
+                            <div class="small-3 columns">
+                                <h2 class="appt-time">
+                                    <span class="main">{{$index + 1}}</span><sup class="am-pm">PM</sup>
+                                </h2>
+                               
+                            </div>
+                            <div class="small-3 columns">
+                                <div class="avatar-wrapper">
+                                    <img ng-src="{{client.imageUrl}}" alt="" />
+                                </div>
+                            </div>
+
+                            <div class="small-6 columns">
+                                <h3 class="subheader"><span>{{client.firstName | uppercase}}</span></h3>
+                                <h3><small>Package: <span>5 sessions</span></small></h3>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+            </ul>
+
+        </section>
+
+
+
+
+        <!--<a href="#/signup" ng-hide="trainer" class="button warning">Sign Up</a>-->
         <a href="#/selectClient" class="button success" ng-show="loggedInUser.isTrainer">Start a training session</a>
         <button class="button primary" ng-click="gotoUserPortal()" ng-show="loggedInUser">My Portal</button>
        
