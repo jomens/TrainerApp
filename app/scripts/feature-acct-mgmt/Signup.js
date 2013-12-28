@@ -11,8 +11,12 @@ angular.module('TrainerApp')
                  Azure.UserResource().save(user, function (savedUser) {
 
                      Notifier.done("Success. account created", true);
-                     $location.path("/");
+
+                     if (callback) {
+                         callback(savedUser);
+                     }
                    
+                     $location.path("/");
 
                  }, Notifier.errorHandler);
              },

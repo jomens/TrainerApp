@@ -5,8 +5,8 @@ angular.module('TrainerApp')
       init();
 
       function init() {
-          $rootScope.title = "TRAINER";
-          $rootScope.subTitle = "METRO";
+          $rootScope.title = "GYM";
+          $rootScope.subTitle = "RABBIT";
           
 
          var user =  Identity.getLoggedInUser();
@@ -29,9 +29,17 @@ angular.module('TrainerApp')
           $route.reload();
       }
 
+      $scope.clientSelected = function (client) {
+
+          TrainerService.setCurrentClient(client);
+          $location.path("/selectRoutine");
+
+      }
+
       $scope.gotoUserPortal = function () {
          
           var user = $scope.loggedInUser;
+
           switch (user.userType) {
               case "trainer":
                   $location.path("/trainer");

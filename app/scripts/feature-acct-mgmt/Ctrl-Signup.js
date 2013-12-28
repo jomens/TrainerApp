@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('SignupCtrl', function ($scope, Signup, Models, Utils, $rootScope) {
+  .controller('SignupCtrl', function ($scope, Signup, Models, Utils, $rootScope, Identity) {
 
       init();
 
@@ -15,7 +15,9 @@ angular.module('TrainerApp')
       //create a function that your form submission will data bind to
       $scope.addUser = function () {
 
-          Signup.addUser($scope.user);
+          Signup.addUser($scope.user, function (savedUser) {
+              Identity.setLoggedInUser(savedUser);
+          });
 
       }
   });

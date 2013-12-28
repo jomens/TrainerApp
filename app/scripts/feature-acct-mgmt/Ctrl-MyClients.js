@@ -16,5 +16,10 @@ angular.module('TrainerApp')
           
       }
 
-     
+      $scope.clientSelected = function (client) {
+
+          TrainerService.setCurrentClient(client);
+          $location.path("/clientProfile");
+
+      }
   });

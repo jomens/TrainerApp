@@ -29,6 +29,11 @@ angular.module('TrainerApp')
             }
             return user;
         },
+        setLoggedInUser: function(user){
+            this.setPermissions(user);
+            LocalStorage.setLoggedInUser(user);
+            $rootScope.loggedInUser = user;
+        },
         logout: function () {
             LocalStorage.setCurrentClient(null);
             LocalStorage.setCurrentRoutine(null);
@@ -49,10 +54,7 @@ angular.module('TrainerApp')
                     if (results && results[0]) {
                         var userObject = results[0];
 
-                        Notifier.done("logged in");
-                        that.setPermissions(userObject);
-                        LocalStorage.setLoggedInUser(userObject);
-                        $rootScope.loggedInUser = userObject;
+                        that.setLoggedInUser(userObject);
                        
                         callback();
 
