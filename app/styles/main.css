@@ -47,6 +47,13 @@ button.alert:focus,
 .warning {
   background: #ff8c00;
 }
+.o {
+  outline: red solid 1px;
+}
+.block-center {
+  display: block;
+  text-align: center;
+}
 body {
   background: #fafafa;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -171,6 +178,14 @@ a.nav-icon {
   color: #fff;
   position: relative;
   text-align: center;
+}
+.create-routine section.right-small {
+  width: 5.8125rem;
+}
+.create-routine section.right-small a {
+  display: block;
+  text-align: center;
+  color: #7fba00;
 }
 ul.menu-list {
   list-style-type: none;
