@@ -29,8 +29,9 @@ background-color: #f04124;
 
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family:"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+font-style: normal;
 }
 
 .hero-unit {
@@ -64,9 +65,27 @@ button, .button {
     top: 70px;
 }
 
-.page-title { 
-    text-transform: uppercase;
+.page-header { 
+ 
     margin-top: 2.5%;
+
+    .icon-link{
+           text-align: right;
+           color: #008cba;
+               font-size: 1.3rem;
+               padding: 0;
+        font-weight: 100;
+    line-height: 1.4;
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem;
+
+    }
+
+  
+}
+
+.page-title{
+       text-transform: uppercase;
 }
 .progress-bar {
    display: none;
@@ -387,3 +406,21 @@ font-size: 22px;
     max-width: 80px;
 }
 }
+
+.icon-link{
+    display: block;
+    padding: 0.333rem;
+    padding-left: 0;
+     color: #222;
+
+    i {
+    padding: 0;
+    position: relative;
+    text-align: center;
+    margin-right: .7rem;
+  
+
+    }
+}
+
+

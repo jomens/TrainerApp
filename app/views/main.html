@@ -1,13 +1,28 @@
 <div class="row page">
-    <h3 class="page-title">Welcome, {{loggedInUser.firstName}} {{loggedInUser.lastName}}</h3>
-
-    <div class="page-content">
-        <div class="row" ng-show="loggedInUser.isTrainer">
-            <div class="small-12 columns">
-                <h2><i class="step fi-calendar size-72"></i> <span>TODAY AT A GLANCE</span></h2>
+    <div class="page-header">
+        <div class="row">
+            <div class="small-7 medium-8 columns">
+                <!--<h3 class="page-title">Hello, {{loggedInUser.firstName}} {{loggedInUser.lastName}}</h3>-->
+                <h2><i class="step fi-calendar size-72"></i> <span>My Appointments</span></h2>
 
             </div>
+
+            <div class="small-5 medium-4 columns">
+                <a href="" class="icon-link" ng-click="gotoUserPortal()" ng-show="loggedInUser"><i class="fi-torso-business size-72" style="font-size: 1.7rem"></i><span>My Portal</span></a>
+            </div>
         </div>
+
+    </div>
+
+    <div class="page-content">
+        <!--<div class="row" ng-show="loggedInUser.isTrainer">
+            <div class="small-6 medium-8 columns">
+                <h2><i class="step fi-calendar size-72"></i> <span>My Appointments</span></h2>
+
+            </div>
+
+          
+        </div>-->
 
         <section class="padded">
             <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
@@ -44,12 +59,5 @@
             </ul>
 
         </section>
-
-
-
-
-        <!--<a href="#/signup" ng-hide="trainer" class="button warning">Sign Up</a>-->
-        <button class="button primary" ng-click="gotoUserPortal()" ng-show="loggedInUser">My Portal</button>
-       
     </div>
 </div>
