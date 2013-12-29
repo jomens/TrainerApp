@@ -20,6 +20,8 @@ angular.module('TrainerApp')
               var lastWkt;
               if (result && result[0]) {
                   lastWkt = result[0];
+
+                  $scope.lastWorkoutDate = moment(lastWkt.__createdAt).fromNow();
                   getSets(lastWkt);
 
               }
@@ -28,8 +30,7 @@ angular.module('TrainerApp')
 
       function getSets(wkt) {
           TrainerService.getWorkoutSets(wkt, function (results) {
-              console.log(results);
-
+              
               $scope.lastSets = results;
               $scope.$apply();
           });

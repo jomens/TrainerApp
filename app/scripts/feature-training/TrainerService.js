@@ -113,7 +113,7 @@ angular.module('TrainerApp')
                 where: {
                     workoutId: wkt.id,
                 },
-                orderByDescending: "__createdAt",
+                orderBy: "__createdAt",
                 success: function (result) {
                     callback(result);
                 },
