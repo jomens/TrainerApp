@@ -1,34 +1,39 @@
 <div class="row page">
 
-  
-            <div class="small-12 medium-8 columns">
-                <h3 class="page-title">Enter your numbers</h3>
 
-        </div>
-         
-        <div class="small-12 medium-4 columns">
-            <a href="" ng-click="endWorkout()" class="button  success">Continue to next exercise</a>
-        </div>
+    <div class="small-12 medium-8 columns">
+        <h3 class="page-title">Enter your numbers</h3>
+
     </div>
-      
+
+    <div class="small-12 medium-4 columns">
+        <a href="" ng-click="endWorkout()" class="button  success">Continue to next exercise</a>
+    </div>
+</div>
 
 
-    <div class="page-content">
-        <div class="row">
-            <div class="small-12 medium-6 columns">
-                <div class="panel">
-                    <div class="row">
-                        <div class="small-12 columns">
-                            <h4>Exercise Details</h4>
-                        </div>
 
-                        <div class="small-12 columns">
-                            <div ng-repeat="set in workout.sets">
-                                <div class="small-4 columns"><h6>Set #{{$index + 1}}</h6></div>
+<div class="page-content">
 
-                                <div class="small-4 columns"><h6>{{set.weight}} lbs</h6></div>
+    <div class="row">
+        <div class="small-12 medium-6 columns">
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="panel">
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <h4>Exercise Details</h4>
+                            </div>
 
-                                <div class="small-4 columns"><h6>{{set.reps}} reps</h6></div>
+                            <div class="small-12 columns">
+                                <div ng-repeat="set in workout.sets">
+                                    <div class="small-4 columns"><h6>Set #{{$index + 1}}</h6></div>
+
+                                    <div class="small-4 columns"><h6>{{set.weight}} lbs</h6></div>
+
+                                    <div class="small-4 columns"><h6>{{set.reps}} reps</h6></div>
+                                </div>
+
                             </div>
 
                         </div>
@@ -37,53 +42,76 @@
 
                 </div>
 
+
+
             </div>
-       </div>
 
- 
+            <div class="row">
+                <div class="small-12 columns">
 
-        <div class="row">
-            <div class="small-12 medium-6 columns">
+                    <form ng-submit="addSet()" ng-model="set">
 
-                <form ng-submit="addSet()" ng-model="set">
-
-                    <div class="row">
-                        <div class="small-12 medium-6 columns">
-                            <div class="row collapse">
-                                <label for="weight">Weight:</label>
-                                <div class="small-9 columns">
-                                    <input type="number" placeholder="0.00" ng-model="set.weight" step="0.50" required />
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <div class="row collapse">
+                                    <label for="weight">Weight:</label>
+                                    <div class="small-9 columns">
+                                        <input type="number" placeholder="0.00" ng-model="set.weight" step="0.50" required />
+                                    </div>
+                                    <div class="small-3 columns">
+                                        <span class="postfix">lbs</span>
+                                    </div>
                                 </div>
-                                <div class="small-3 columns">
-                                    <span class="postfix">lbs</span>
+                            </div>
+
+                            <div class="small-12 columns">
+                                <div class="row collapse">
+                                    <label for="reps">Reps:</label>
+                                    <div class="small-9 columns">
+                                        <input type="number" placeholder="0" ng-model="set.reps" required />
+                                    </div>
+                                    <div class="small-3 columns">
+                                        <span class="postfix">reps</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="small-12 medium-6 columns">
-                            <div class="row collapse">
-                                <label for="reps">Reps:</label>
-                                <div class="small-9 columns">
-                                    <input type="number" placeholder="0" ng-model="set.reps" required />
-                                </div>
-                                <div class="small-3 columns">
-                                    <span class="postfix">reps</span>
-                                </div>
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <input class="button" type="submit" value="Add set" />
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="small-12 columns">
-                            <input class="button" type="submit" value="Add set" />
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
+
         </div>
 
 
+        <div class="small-12 medium-4 columns">
+            <div class="panel">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h4>What you did last time</h4>
+                    </div>
 
+                    <div class="small-12 columns">
+                        <div ng-repeat="set in lastSets">
+                            <div class="small-4 columns"><h6>Set #{{$index + 1}}</h6></div>
 
-    </div>
+                            <div class="small-4 columns"><h6>{{set.weight}} lbs</h6></div>
+
+                            <div class="small-4 columns"><h6>{{set.reps}} reps</h6></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+   </div>
+
 </div>

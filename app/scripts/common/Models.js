@@ -155,7 +155,7 @@ angular.module('TrainerApp')
     
     var TrainingSession = function () {
         this.date = "";
-        this.clientId = -1;
+        this.userId = -1;
         this.trainerId = -1;
         this.routineId = -1;
         //this.workouts = [];
@@ -176,6 +176,7 @@ angular.module('TrainerApp')
     var Workout = function () { //each workout consists of an exercise and the sets/reps
         this.trainingSessionId = -1;
         this.exerciseId = -1;
+        this.userId = "";
         this.exerciseName = "";
         this.sets = [];
         this.notes = "";
@@ -190,6 +191,7 @@ angular.module('TrainerApp')
 
     var CardioWorkout = function () { //TODO: add cardio
         this.trainingSessionId = -1;
+        this.userId = "";
         this.exerciseId = -1;
         this.exerciseName = "";
         this.workoutType = "cardio";

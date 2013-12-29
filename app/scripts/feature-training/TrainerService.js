@@ -79,7 +79,10 @@ angular.module('TrainerApp')
         },
         setCurrentWorkout: function (ex) {
             var workout = Models.Workout();
-            workout.trainingSessionId = LocalStorage.getTrainingSession().id;
+
+            var trainingSession = LocalStorage.getTrainingSession();
+            workout.trainingSessionId = trainingSession.id;
+            workout.userId = trainingSession.userId;
             workout.exerciseId = ex.id;
             workout.exerciseName = ex.name;
 
@@ -87,6 +90,35 @@ angular.module('TrainerApp')
         },
         getCurrentWorkout: function(){
             return LocalStorage.getCurrentWorkout();
+        },
+        getLastWorkout: function (callback) {
+            var currentWorkout = this.getCurrentWorkout();
+
+            Azure.table("workouts").read({
+                where: {
+                    exerciseId: currentWorkout.exerciseId,
+                    userId: currentWorkout.userId
+                },
+                take: 1,
+                orderByDescending: "__createdAt",
+                success: function (result) {
+                    callback(result);
+                },
+                error: Notifier.errorHandler
+            });
+               
+        },
+        getWorkoutSets: function(wkt, callback){
+            Azure.table("sets").read({
+                where: {
+                    workoutId: wkt.id,
+                },
+                orderByDescending: "__createdAt",
+                success: function (result) {
+                    callback(result);
+                },
+                error: Notifier.errorHandler
+            });
         },
         addSetToWorkout: function (set) {
             var newSet = Models.Set();
@@ -145,7 +177,7 @@ angular.module('TrainerApp')
 
             var session = Models.TrainingSession();
             session.date = new Date();
-            session.clientId = LocalStorage.getCurrentClient().id;
+            session.userId = LocalStorage.getCurrentClient().id;
             session.trainerId = Identity.getLoggedInUser().id;
             session.routineId = LocalStorage.getCurrentRoutine().id;
 

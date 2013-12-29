@@ -57,20 +57,29 @@ angular.module('TrainerApp')
                 read: function (options) {
                     Notifier.busy();
 
-                    var readPromise; 
+                    var query; 
                     if (options.where) {
                         if (options.where.fn) {
-                            readPromise = azureTable.where(options.where.fn, options.where.param).read();
+                            query = azureTable.where(options.where.fn, options.where.param);
                         }
                         else {
-                            readPromise = azureTable.where(options.where).read();
+                            query = azureTable.where(options.where);
                         }
                     }
                     else {
-                        readPromise = azureTable.read();
+                        query = azureTable;
                     }
 
-                    readPromise.done(function (data) {
+                    if (options.take) {
+                        query.take(options.take);
+                    }
+                    if (options.orderBy) {
+                        query.orderBy(options.orderBy);
+                    }
+                    if (options.orderByDescending) {
+                        query.orderByDescending(options.orderByDescending);
+                    }
+                    query.read().done(function (data) {
                         Notifier.done(options.msg);
                         options.success(data);
                     }, options.error || Notifier.errorHandler)

@@ -8,15 +8,35 @@ angular.module('TrainerApp')
       function init() {
 
           $scope.workout = TrainerService.getCurrentWorkout();
-
+        
           $rootScope.title = $scope.workout.exerciseName;
           $rootScope.subTitle = "";
+
+          getLastWorkout();
      }
+
+      function getLastWorkout() {
+          TrainerService.getLastWorkout(function (result) {
+              var lastWkt;
+              if (result && result[0]) {
+                  lastWkt = result[0];
+                  getSets(lastWkt);
+
+              }
+          });
+      }
+
+      function getSets(wkt) {
+          TrainerService.getWorkoutSets(wkt, function (results) {
+              console.log(results);
+
+              $scope.lastSets = results;
+              $scope.$apply();
+          });
+      }
 
       $scope.addSet = function () {
           $scope.workout = TrainerService.addSetToWorkout($scope.set);
-
-          //console.log($scope.workout);
           $scope.set = { weight: "", reps: "" };    
       }
 
