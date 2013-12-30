@@ -12,6 +12,9 @@ button,
 .button {
   padding: .7rem 1rem;
 }
+p {
+  margin-bottom: .5rem;
+}
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -229,6 +232,9 @@ ul.menu-list li a {
   display: block;
   color: #333;
 }
+a.block-panel:hover {
+  background-color: #d2d2d2;
+}
 a.panel {
   color: #333;
 }
@@ -402,4 +408,16 @@ body,
 }
 .italics {
   font-style: italic;
+}
+.workout-partners .avatar-wrapper {
+  max-width: 70px;
+  margin: auto;
+}
+.workout-partners p {
+  text-align: center;
+}
+.user-profile .icon-link {
+  font-size: 190%;
+  padding: 0;
+  margin: 0;
 }

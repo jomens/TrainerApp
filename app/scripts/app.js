@@ -108,6 +108,10 @@ angular.module('TrainerApp', [
           templateUrl: 'scripts/feature-acct-mgmt/v-fitnessCenterPortal.html',
         controller: 'FitnesscenterportalCtrl'
       })
+      .when('/userProfile', {
+          templateUrl: 'scripts/feature-user-profiles/v-userProfile.html',
+        controller: 'UserprofileCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       }); 
