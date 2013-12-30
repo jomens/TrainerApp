@@ -15,6 +15,98 @@ button,
 p {
   margin-bottom: .5rem;
 }
+#outer-barG {
+  height: 15px;
+  width: 139px;
+  overflow: hidden;
+}
+.bar-lineG {
+  background-color: #1C88DB;
+  float: left;
+  width: 10px;
+  height: 65px;
+  margin-right: 13px;
+  margin-top: -15px;
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.bar-animationG {
+  margin-left: 91px;
+  width: 91px;
+  -moz-animation-name: bar-animationG;
+  -moz-animation-duration: 2.4s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: linear;
+  -webkit-animation-name: bar-animationG;
+  -webkit-animation-duration: 2.4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: linear;
+  -ms-animation-name: bar-animationG;
+  -ms-animation-duration: 2.4s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-direction: linear;
+  -o-animation-name: bar-animationG;
+  -o-animation-duration: 2.4s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: linear;
+  animation-name: bar-animationG;
+  animation-duration: 2.4s;
+  animation-iteration-count: infinite;
+  animation-direction: linear;
+}
+@-moz-keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
+}
+@-webkit-keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
+}
+@-ms-keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
+}
+@-o-keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
+}
+@keyframes bar-animationG {
+  0% {
+    margin-left: 84px;
+    margin-top: -10px;
+  }
+  100% {
+    margin-left: -69px;
+    margin-top: -10px;
+  }
+}
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -94,8 +186,9 @@ body {
 }
 .page-header .icon-link {
   text-align: right;
-  color: #008cba;
-  font-size: 1.3rem;
+  /*color: #008cba;
+               font-size: 1.3rem;*/
+
   padding: 0;
   font-weight: 100;
   line-height: 1.4;
@@ -250,98 +343,6 @@ a.panel {
 .rtn.completed {
   border-left-color: #7fba00;
 }
-#outer-barG {
-  height: 15px;
-  width: 139px;
-  overflow: hidden;
-}
-.bar-lineG {
-  background-color: #1C88DB;
-  float: left;
-  width: 10px;
-  height: 65px;
-  margin-right: 13px;
-  margin-top: -15px;
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.bar-animationG {
-  margin-left: 91px;
-  width: 91px;
-  -moz-animation-name: bar-animationG;
-  -moz-animation-duration: 2.4s;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-direction: linear;
-  -webkit-animation-name: bar-animationG;
-  -webkit-animation-duration: 2.4s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-direction: linear;
-  -ms-animation-name: bar-animationG;
-  -ms-animation-duration: 2.4s;
-  -ms-animation-iteration-count: infinite;
-  -ms-animation-direction: linear;
-  -o-animation-name: bar-animationG;
-  -o-animation-duration: 2.4s;
-  -o-animation-iteration-count: infinite;
-  -o-animation-direction: linear;
-  animation-name: bar-animationG;
-  animation-duration: 2.4s;
-  animation-iteration-count: infinite;
-  animation-direction: linear;
-}
-@-moz-keyframes bar-animationG {
-  0% {
-    margin-left: 84px;
-    margin-top: -10px;
-  }
-  100% {
-    margin-left: -69px;
-    margin-top: -10px;
-  }
-}
-@-webkit-keyframes bar-animationG {
-  0% {
-    margin-left: 84px;
-    margin-top: -10px;
-  }
-  100% {
-    margin-left: -69px;
-    margin-top: -10px;
-  }
-}
-@-ms-keyframes bar-animationG {
-  0% {
-    margin-left: 84px;
-    margin-top: -10px;
-  }
-  100% {
-    margin-left: -69px;
-    margin-top: -10px;
-  }
-}
-@-o-keyframes bar-animationG {
-  0% {
-    margin-left: 84px;
-    margin-top: -10px;
-  }
-  100% {
-    margin-left: -69px;
-    margin-top: -10px;
-  }
-}
-@keyframes bar-animationG {
-  0% {
-    margin-left: 84px;
-    margin-top: -10px;
-  }
-  100% {
-    margin-left: -69px;
-    margin-top: -10px;
-  }
-}
 .tab-bar-section .title {
   text-transform: uppercase;
 }
@@ -423,8 +424,7 @@ body,
   font-size: 190%;
   padding: 0;
   margin: 0;
-  /*color: #187dc7;*/
-
+  color: #6f6f6f;
 }
 .twenty-20 {
   font-size: .8rem;

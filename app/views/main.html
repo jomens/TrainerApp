@@ -3,7 +3,7 @@
         <div class="row">
             <div class="small-7 medium-8 columns">
                 <!--<h3 class="page-title">Hello, {{loggedInUser.firstName}} {{loggedInUser.lastName}}</h3>-->
-                <h2><i class="step fi-calendar size-72"></i> <span>My Appointments</span></h2>
+                <h3><i class="step fi-calendar size-72"></i> <span>My appointments</span></h3>
 
             </div>
 
@@ -30,21 +30,36 @@
                 <li ng-repeat="client in clients">
                     <a href="" ng-click="clientSelected(client)" class="card">
                         <div class="row">
-                            <div class="small-3 columns">
-                                <h2 class="appt-time">
-                                    <span class="main">{{$index + 1}}</span><sup class="am-pm">PM</sup>
-                                </h2>
+                            <!--<div class="small-3 columns">
+                        <h2 class="appt-time">
+                            <span class="main">{{$index + 1}}</span><sup class="am-pm">PM</sup>
+                        </h2>
 
-                            </div>
+                    </div>-->
                             <div class="small-3 columns">
                                 <div class="avatar-wrapper">
                                     <img ng-src="{{client.imageUrl}}" alt="" />
                                 </div>
                             </div>
 
-                            <div class="small-6 columns">
-                                <h3 class="subheader"><span>{{client.firstName | uppercase}}</span></h3>
-                                <p class="package">Package: <span>5 sessions</span></p>
+                            <div class="small-9 columns">
+                                <div class="row">
+                                    <div class="small-6 columns">
+                                        <h4><span>{{client.firstName | uppercase}}</span> </h4>
+                                    </div>
+
+                                    <div class="small-6 columns">
+                                        <h5 class="subheader"><i class="fi-clock size-72"> </i><span>5:30PM</span></h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="small-12 columns">
+                                        <!--<h5><span class="subheader"></span><i class="fi-clock size-72"> </i><span>5:30PM</span></h5>-->
+                                        <h5 class="subheader">ROUTINE: Cardio & Abs</h5>
+                                    </div>
+                                </div>
+
+
                                 <!--<span class="label warning">BODYFAT DUE</span>-->
                             </div>
 

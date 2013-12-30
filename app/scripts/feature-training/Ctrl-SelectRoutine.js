@@ -1,13 +1,11 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('SelectroutineCtrl', function ($scope, $routeParams, $location, TrainerService, $rootScope) {
+  .controller('SelectroutineCtrl', function ($scope, $routeParams, $location, TrainerService) {
 
       init();
 
       function init() {
-          $rootScope.title = "select a routine";
-          $rootScope.subTitle = "";
 
           var trainerId = $routeParams.id;
           TrainerService.getRoutines(function (routines) {

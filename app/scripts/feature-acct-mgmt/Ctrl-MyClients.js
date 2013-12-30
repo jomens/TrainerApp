@@ -6,8 +6,6 @@ angular.module('TrainerApp')
       init();
 
       function init() {
-          $rootScope.title = "my clients";
-          $rootScope.subTitle = "";
 
           TrainerService.getClients(function (clients) {
               $scope.clients = clients;
