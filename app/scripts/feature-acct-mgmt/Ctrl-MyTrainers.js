@@ -1,13 +1,11 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MyTrainersCtrl', function ($scope, TrainerService, $rootScope) {
+  .controller('MyTrainersCtrl', function ($scope, TrainerService) {
 
       init();
 
       function init() {
-          $rootScope.title = "personal trainers";
-          $rootScope.subTitle = "";
 
           TrainerService.getTrainers(function (trainers) {
               $scope.trainers = trainers;

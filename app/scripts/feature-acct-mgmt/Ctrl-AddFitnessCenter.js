@@ -1,14 +1,11 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('AddFitnessCenterCtrl', function ($scope, Signup, Models, $rootScope) {
+  .controller('AddFitnessCenterCtrl', function ($scope, Signup, Models) {
 
       init();
 
       function init() {
-          $rootScope.title = "add Fitness Center";
-          $rootScope.subTitle = "";
-
           $scope.gym = Models.FitnessCenter();
           var admin = Models.User();
 

@@ -1,13 +1,11 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MyroutinesCtrl', function ($scope, TrainerService, $rootScope) {
+  .controller('MyroutinesCtrl', function ($scope, TrainerService) {
 
       init();
 
       function init() {
-          $rootScope.title = "my routines";
-          $rootScope.subTitle = "";
 
           TrainerService.getRoutines(function (routines) {
               $scope.routines = routines;

@@ -1,12 +1,10 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('FitnesscenterportalCtrl', function ($scope, $rootScope) {
+  .controller('FitnesscenterportalCtrl', function ($scope) {
 
       init();
 
       function init() {
-          $rootScope.title = "Fitness Center portal";
-          $rootScope.subTitle = "";
       }
   });

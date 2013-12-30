@@ -1,13 +1,11 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('SummaryCtrl', function ($scope, TrainerService, $rootScope, $location) {
+  .controller('SummaryCtrl', function ($scope, TrainerService, $location) {
 
       init();
 
       function init() {
-          $rootScope.title = "workout summary";
-          $rootScope.subTitle = "";
 
           $(document).foundation();
 

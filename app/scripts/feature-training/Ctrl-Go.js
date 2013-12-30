@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('GoCtrl', function ($scope, TrainerService, ExerciseService, $location, $rootScope) {
+  .controller('GoCtrl', function ($scope, TrainerService, ExerciseService, $location) {
 
       init();
 
@@ -10,8 +10,6 @@ angular.module('TrainerApp')
           var routine = TrainerService.getCurrentRoutine();
           $scope.routine = routine;
 
-          $rootScope.title = "Routine: " + routine.name;
-          $rootScope.subTitle = "";
 
           TrainerService.startTrainingSession();
           $scope.exercises = ExerciseService.getExerciseFromRoutine(routine).list;
