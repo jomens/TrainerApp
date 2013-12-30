@@ -19,14 +19,16 @@
                 <div class="row">
                     <div class="small-3 medium-3 columns">
                         <div class="avatar-wrapper">
-                            <img ng-src="http://api.randomuser.me/0.2/portraits/women/20.jpg" alt="" src="http://api.randomuser.me/0.2/portraits/women/14.jpg">
+                            <img ng-src="{{user.imageUrl}}" alt="">
                         </div>
+                    
                     </div>
 
                     <div class="small-9 medium-9 columns">
-                        <h3 class="name">JENN SPARKS, <small>Bellevue, WA</small></h3>
-                        <!--<h5 class="subheader">GRAPHIC DESIGNER</h5>-->
-                        <p>"I love running, hiking, cycling and lifting weights"</p>
+                        <h3><span class="name">{{user.firstName}} {{user.lastName}},</span> <small>Bellevue, WA</small> <!--<span class="twenty-20">20/20</span>--></h3>
+                        <h5 class="subheader">LIFESTYLE 20/20 PREMIUM <span class="twenty-20">20/20</span></h5>
+
+                        <p><span class="subheader">INTERESTS: Tennis, Running, Cycling, Weight lifting</span></p>
                         <div class="row">
                             <div class="small-12 columns">
                                 <ul class="small-block-grid-4">
@@ -46,9 +48,10 @@
                 <h4 class="">LIFESTYLE 20/20 ACTIVITIES</h4>
                 <div class="row">
                     <div class="small-12 columns">
-                        <p>TODAY:<span class="subheader"> Upper body and Cardio</span></p>
-                        <p>TOMORROW:<span class="subheader"> Cycling class </span> Instructor:<span class="subheader"> Tom Brown</span></p>
-                        <p>FRIDAY:<span class="subheader"> 6-PACK ABS </span> Workout Partner:<span class="subheader"> Giselle</span></p>
+                        <p>Last gym visit:<span class="subheader"> Yesterday at </span><i class="fi-clock size-72"> </i><span>5:30PM</span></p>
+                        <p>TODAY:<span class="subheader"> Upper body and Cardio </span><i class="fi-clock size-72"> </i><span>5:30PM</span></p>
+                        <p>TOMORROW:<span class="subheader"> Cycling class </span> <i class="fi-clock size-72"> </i><span>6:00PM</span></p>
+                        <p>FRIDAY:<span class="subheader"> 6-Pack Extreme & Lower body </span> PARTNER:<span class="subheader"> Giselle</span> <i class="fi-clock size-72"> </i><span>5.30PM</span></p>
                     </div>
 
                     <div class="small-9 columns">
@@ -84,7 +87,7 @@
 
                         <div class="small-3 columns">
                             <div class="avatar-wrapper">
-                                <img alt="" src="http://api.randomuser.me/0.2/portraits/women/12.jpg">
+                                <img alt="" src="http://api.randomuser.me/0.2/portraits/women/25.jpg">
                             </div>
                             <p class="subheader">MARIA</p>
 
@@ -92,22 +95,27 @@
 
                         <div class="small-3 columns">
                             <div class="avatar-wrapper">
-                                <img alt="" src="http://api.randomuser.me/0.2/portraits/women/13.jpg">
+                                <img alt="" src="http://api.randomuser.me/0.2/portraits/men/66.jpg">
                             </div>
-                            <p class="subheader">ALEXIS</p>
+                            <p class="subheader">KOJO</p>
 
                         </div>
 
                         <div class="small-3 columns">
                             <div class="avatar-wrapper">
-                                <img  alt="" src="http://api.randomuser.me/0.2/portraits/men/6.jpg">
+                                <img alt="" src="http://api.randomuser.me/0.2/portraits/men/61.jpg">
                             </div>
                             <p class="subheader">JOHN</p>
 
                         </div>
 
-                    </div>
 
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <a href="#/" class="icon-link"><i class="fi-torso size-72"></i><span>Partner request</span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -123,10 +131,9 @@
                 </div>
 
                 <div class="small-12 medium-6 columns">
-                    <h4 class="">FITNESS GOALS</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum.
-                    </p>
+                    <h4 class="">JENN's GROUPS @ PRO CLUB</h4>
+                    <p>Cycling Club, Microsoft Tennis, Rainier Climbers, Wine Fridays @ Redmond</p>
+                    <a href="#/" class="icon-link"><i class="fi-plus size-72"></i><span>Join a group</span></a>
                 </div>
             </div>
 
