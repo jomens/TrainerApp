@@ -8,6 +8,10 @@ section.tab-bar-section.middle {
   left: 1%;
   text-align: left;
 }
+button,
+.button {
+  padding: .7rem 1rem;
+}
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -74,10 +78,6 @@ body {
   font-size: 60px;
   line-height: 1;
   letter-spacing: -1px;
-}
-button,
-.button {
-  padding: .8rem 1rem;
 }
 .block {
   display: block;
@@ -384,6 +384,10 @@ body,
 .card .avatar-wrapper {
   max-width: 80px;
 }
+.card .package {
+  color: #6f6f6f;
+  margin-bottom: 0;
+}
 .icon-link {
   display: block;
   padding: 0.333rem;
@@ -395,4 +399,7 @@ body,
   position: relative;
   text-align: center;
   margin-right: .7rem;
+}
+.italics {
+  font-style: italic;
 }

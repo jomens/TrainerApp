@@ -171,7 +171,7 @@ angular.module('TrainerApp')
         },
         startTrainingSession: function () {
             if (LocalStorage.getTrainingSession()) {
-                console.log("training in progress");
+               // console.log("training in progress");
                 return;
             }
 

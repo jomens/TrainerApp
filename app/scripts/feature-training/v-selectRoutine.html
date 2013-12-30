@@ -1,15 +1,30 @@
 <div class="row page">
-    <h3 class="page-title">Select a routine</h3>
+
+    <div class="page-header">
+        <div class="row">
+            <div class="small-6 medium-8 columns">
+                <h3 class="page-title">Select a routine</h3>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+                <a href="#/" class="icon-link"><i class="fi-arrow-left size-72"></i><span>back</span></a>
+            </div>
+        </div>
+    </div>
+
 
     <div class="page-content">
         <div class="row">
 
+            <div class="small-12 columns">
+                <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                    <li ng-repeat="routine in routines">
+                        <a ng-click="routineSelected(routine)" class="block panel">{{routine.name}}</a>
+                    </li>
+                </ul>
 
-            <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-                <li ng-repeat="routine in routines">
-                    <a ng-click="routineSelected(routine)" class="block panel">{{routine.name}}</a>
-                </li>
-            </ul>
+            </div>
 
         </div>
 
