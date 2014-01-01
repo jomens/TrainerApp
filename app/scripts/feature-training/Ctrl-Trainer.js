@@ -8,6 +8,8 @@ angular.module('TrainerApp')
       function init() {
           Settings.init();
           $scope.trainer = Identity.getLoggedInUser();
+
+         // $(document).foundation();
       }
 
   });

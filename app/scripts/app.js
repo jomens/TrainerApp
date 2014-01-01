@@ -44,6 +44,10 @@ angular.module('TrainerApp', [
           templateUrl: 'scripts/feature-training/v-createRoutine.html',
           controller: 'CreateroutineCtrl'
       })
+      .when('/createRoutineAssignments', {
+          templateUrl: 'scripts/feature-training/v-createRoutineAssignments.html',
+          controller: 'CreateRoutineAssignmentCtrl'
+      })
       .when('/myClients/:id', {
           templateUrl: 'scripts/feature-acct-mgmt/v-myClients.html',
           controller: 'MyclientsCtrl'

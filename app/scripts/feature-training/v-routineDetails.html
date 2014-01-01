@@ -20,6 +20,20 @@
                     <h3><small>You have no routines created. <a href="#/createRoutine" ng-href="#/createRoutine">Create a routine</a></small></h3>
                 </div>
             </div>
+
+            <div class="small-12  columns" ng-show="routineDetails.routine.description">
+                <ul class="small-block-grid-1 large-block-grid-2">
+                    <li>
+                        <div class="panel callout radius">
+                            <h5 class="icon-link"><i class="fi-comments size-72"></i><span>Notes</span></h5>
+                            <p class="italics">"{{routineDetails.routine.description}}"</p>
+                        </div>
+                    </li>
+           
+                </ul>
+
+            </div>
+
             <div class="small-12 columns">
 
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">

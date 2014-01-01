@@ -146,8 +146,61 @@ button.alert:focus,
 .warning {
   background: #ff8c00;
 }
+.panel.blue {
+  border: none;
+  background: #0072c6;
+  color: #fff;
+}
+.panel.blue p,
+.panel.blue h1,
+.panel.blue h2,
+.panel.blue h3,
+.panel.blue h4,
+.panel.blue h5,
+.panel.blue h6,
+.panel.blue i {
+  color: #fff;
+}
+.panel.babyblue {
+  border: none;
+  background: #00bcf2;
+  color: #fff;
+}
+.panel.babyblue p,
+.panel.babyblue h1,
+.panel.babyblue h2,
+.panel.babyblue h3,
+.panel.babyblue h4,
+.panel.babyblue h5,
+.panel.babyblue h6,
+.panel.babyblue i {
+  color: #fff;
+}
+.panel.metroblue {
+  border: none;
+  background: #187dc7;
+  color: #fff;
+}
+.panel.metroblue p,
+.panel.metroblue h1,
+.panel.metroblue h2,
+.panel.metroblue h3,
+.panel.metroblue h4,
+.panel.metroblue h5,
+.panel.metroblue h6,
+.panel.metroblue i {
+  color: #fff;
+}
 .o {
   outline: red solid 1px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #505050;
 }
 .block-center {
   display: block;
@@ -160,14 +213,6 @@ body {
 
   color: #666666;
   font-style: normal;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #505050;
 }
 .block {
   display: block;

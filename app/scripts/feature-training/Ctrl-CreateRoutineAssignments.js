@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('CreateroutineCtrl', function ($scope, RoutineService, ExerciseService, Models, $timeout) {
+  .controller('CreateRoutineAssignmentCtrl', function ($scope, RoutineService, ExerciseService, Models, $timeout) {
 
       $scope.selectedExercises = [];
       var exercises = {};
