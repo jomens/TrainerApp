@@ -37,6 +37,9 @@ angular.module('TrainerApp')
         RoutineResource: function () {
             return getResource("routines");
         },
+        Routine_Exercise_Resource: function () {
+            return getResource("routine_exercises");
+        },
         TrainingSessionResource: function () {
             return getResource("trainingsession");
         },

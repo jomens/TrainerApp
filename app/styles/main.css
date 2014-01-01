@@ -156,23 +156,18 @@ button.alert:focus,
 body {
   background: #fafafa;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  /*color: #333;*/
+
+  color: #666666;
   font-style: normal;
 }
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-}
-.hero-unit h1 {
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #505050;
 }
 .block {
   display: block;
@@ -186,14 +181,17 @@ body {
 }
 .page-header .icon-link {
   text-align: right;
-  /*color: #008cba;
+  /*  color: #008cba;
                font-size: 1.3rem;*/
 
   padding: 0;
   font-weight: 100;
   line-height: 1.4;
   margin-bottom: 0.2rem;
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
+}
+.page-header .icon-link i {
+  font-size: 1.2rem;
 }
 .page-title {
   text-transform: uppercase;
@@ -254,7 +252,7 @@ a.nav-icon {
 .create-routine .add-to-routine,
 .create-routine .exercise-selected {
   margin: 0;
-  color: #333;
+  color: #666666;
   font-size: 1.5rem;
   /*margin-left: 2rem;*/
 
@@ -304,7 +302,7 @@ ul.menu-list li a {
   padding: 0.333rem;
   padding: 0;
   padding-left: 0;
-  color: #222;
+  color: #666666;
   border-bottom: #d9d9d9;
 }
 .avatar {
@@ -323,13 +321,13 @@ ul.menu-list li a {
   padding: .8rem;
   background: #f2f2f2;
   display: block;
-  color: #333;
+  color: #666666;
 }
 a.block-panel:hover {
   background-color: #d2d2d2;
 }
 a.panel {
-  color: #333;
+  color: #666666;
 }
 .small-block-grid-1 .panel,
 .small-block-grid-2 .panel,
@@ -351,7 +349,7 @@ a.panel {
 }
 .client-info .name small {
   text-transform: uppercase;
-  color: #333;
+  color: #666666;
 }
 .client-info .package {
   margin-bottom: 0;
@@ -399,7 +397,7 @@ body,
   display: block;
   padding: 0.333rem;
   padding-left: 0;
-  color: #222;
+  color: #666666;
 }
 .icon-link i {
   padding: 0;
@@ -424,7 +422,6 @@ body,
   font-size: 190%;
   padding: 0;
   margin: 0;
-  color: #6f6f6f;
 }
 .twenty-20 {
   font-size: .8rem;

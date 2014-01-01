@@ -1,0 +1,15 @@
+﻿
+//REDESIGN ROUTINE
+-Rotine table needs createdBy field. could be createdBy a user or a trainer
+-descriptions/notes field?
+
+-Routine_Exercises Table -- one routine many exercises
+routineId & exerciseIds
+
+//ROUTINE ASSIGNMENTS
+-Routine_Users Table
+routineId & assignedTo (user), assignmentDate? routineCompleted?
+
+//Trainer sees client workout status? whether user is currently working out on a certain routine?
+//CLIENT STATUSES?
+-User currently

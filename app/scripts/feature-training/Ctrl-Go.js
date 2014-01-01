@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('GoCtrl', function ($scope, TrainerService, ExerciseService, $location) {
+  .controller('GoCtrl', function ($scope, TrainerService, RoutineService, ExerciseService, $location, $routeParams) {
 
       init();
 
@@ -12,8 +12,17 @@ angular.module('TrainerApp')
 
 
           TrainerService.startTrainingSession();
-          $scope.exercises = ExerciseService.getExerciseFromRoutine(routine).list;
 
+          var routineId = $routeParams.id || routine.id;
+
+          RoutineService.getRoutineExercises(routineId, function (routineDetails, cached) {
+              $scope.routineDetails = routineDetails;
+
+              if (!cached) {
+              $scope.$apply();
+
+              }
+          });
       }
 
       $scope.selectExercise = function (ex) {

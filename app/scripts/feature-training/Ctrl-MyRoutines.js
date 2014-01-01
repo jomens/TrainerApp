@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MyroutinesCtrl', function ($scope, TrainerService) {
+  .controller('MyroutinesCtrl', function ($scope, TrainerService, $location) {
 
       init();
 
@@ -11,6 +11,12 @@ angular.module('TrainerApp')
               $scope.routines = routines;
               $scope.$apply();
           });
+
+      }
+
+      $scope.routineSelected = function (routine) {
+          TrainerService.setCurrentRoutine(routine);
+          $location.path("/routineDetails/" + routine.id);
 
       }
   });

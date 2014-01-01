@@ -40,12 +40,7 @@ angular.module('TrainerApp')
             Notifier.busy();
             loggedInUser = Identity.getLoggedInUser();
             Azure.table("routines").read({
-                where: {
-                    fn: function (trId) {
-                        return this.trainerId == trId;
-                    },
-                    param: loggedInUser.id
-                },
+                where: { createdBy : loggedInUser.id },
                 success: function (routines) {
                     callback(routines);
                 }
@@ -150,13 +145,13 @@ angular.module('TrainerApp')
                 LocalStorage.setCurrentWorkout(null);
                 //console.log(savedWorkout);
                 removeExerciseFromRoutineDetails(workout.exerciseId);
-                $location.path("/go");
+                $location.path("/go/");
 
             }, Notifier.errorHandler);
 
             function removeExerciseFromRoutineDetails(exId) {
                 var rtnDetails = LocalStorage.getRoutineDetails();
-                var filtered = rtnDetails.list.map(function (ex) {
+                var filtered = rtnDetails.associatedExercises.map(function (ex) {
                     if (ex.id == exId) {
                         ex.completed = true;
                     }
@@ -164,7 +159,7 @@ angular.module('TrainerApp')
                     return ex;
                 });
 
-                rtnDetails.list = filtered;
+                rtnDetails.associatedExercises = filtered;
 
                 LocalStorage.setRoutineDetails(rtnDetails);
             }

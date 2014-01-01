@@ -13,7 +13,7 @@
             </div>-->
             <div class="small-12 columns">
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-                    <li ng-repeat="ex in exercises"><a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn " ng-class="{true:'completed'} [ex.completed]">{{ex.name}}</a></li>
+                    <li ng-repeat="ex in routineDetails.associatedExercises"><a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn " ng-class="{true:'completed'} [ex.completed]">{{ex.name}}</a></li>
                 </ul>
 
             </div>

@@ -12,10 +12,10 @@ angular.module('TrainerApp')
       }, 500);
 
       function init() {
-         // $scope.exTitle = "nothing selected";
+          // $scope.exTitle = "nothing selected";
           $scope.bodyParts = ExerciseService.getBodyParts();
-          
-      } 
+
+      }
 
       function getExercises(bp) {
           if (exercises[bp]) {
@@ -25,7 +25,7 @@ angular.module('TrainerApp')
               exercises[bp] = ExerciseService.getExercisesByBodyPart(bp);
               return exercises[bp];
           }
-          
+
       }
 
       $scope.selectBodypart = function (bp) {
@@ -35,7 +35,7 @@ angular.module('TrainerApp')
           angular.element(".create-routine").removeClass("move-right");
 
       }
-     
+
       $scope.addExercise = function (ex) {
           ex.selected = true;
           $scope.selectedExercises.push(ex);
@@ -57,8 +57,8 @@ angular.module('TrainerApp')
           var routine = Models.Routine();
           routine.name = $scope.routineName;
           routine.expectedSets = 3;
-          routine.exercises = $scope.selectedExercises;
+          //routine.exercises = $scope.selectedExercises;
 
-          RoutineService.saveRoutine(routine);
+          RoutineService.saveRoutine(routine, $scope.selectedExercises);
       }
   });

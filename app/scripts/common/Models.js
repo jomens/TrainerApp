@@ -211,8 +211,9 @@ angular.module('TrainerApp')
     //TRAINING PLANNING
     var Routine = function () {
         this.trainerId = -1;
+        this.createdBy = "";
         this.name = ""; //Chest and tris?
-        this.exercises = [];
+       // this.exercises = [];
         this.expectedSets = 3;
     }
 

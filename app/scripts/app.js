@@ -42,7 +42,7 @@ angular.module('TrainerApp', [
       })
       .when('/createRoutine', {
           templateUrl: 'scripts/feature-training/v-createRoutine.html',
-        controller: 'CreateroutineCtrl'
+          controller: 'CreateroutineCtrl'
       })
       .when('/myClients/:id', {
           templateUrl: 'scripts/feature-acct-mgmt/v-myClients.html',
@@ -54,7 +54,11 @@ angular.module('TrainerApp', [
       })
       .when('/myRoutines/:id', {
           templateUrl: 'scripts/feature-training/v-myRoutines.html',
-        controller: 'MyroutinesCtrl'
+          controller: 'MyroutinesCtrl'
+      })
+      .when('/routineDetails/:id', {
+          templateUrl: 'scripts/feature-training/v-routineDetails.html',
+          controller: 'RoutineDetailsCtrl'
       })
       .when('/selectClient', {
           templateUrl: 'scripts/feature-training/v-selectClient.html',
@@ -64,7 +68,7 @@ angular.module('TrainerApp', [
           templateUrl: 'scripts/feature-training/v-selectRoutine.html',
         controller: 'SelectroutineCtrl'
       })
-      .when('/go', {
+      .when('/go/:id', {
           templateUrl: 'scripts/feature-training/v-go.html',
         controller: 'GoCtrl'
       })

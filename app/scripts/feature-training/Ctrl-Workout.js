@@ -41,13 +41,13 @@ angular.module('TrainerApp')
       }
 
       $scope.addSet = function () {
-          $scope.workout = TrainerService.addSetToWorkout($scope.set);
+          $scope.workout = TrainerService.addSetToWorkout($scope.set); 
           $scope.set = { weight: "", reps: "" };    
       }
 
       $scope.endWorkout = function () {
           if (!$scope.workout || $scope.workout.sets.length == 0) {
-              $location.path("/go");
+              $location.path("/go/");
               return;
           }
 

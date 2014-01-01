@@ -2,7 +2,7 @@
 @import "_mixins.less";
 
 
-
+@bodyColor: #666;
 /* color */
 .blue, .primary {
     background: #0072c6;
@@ -37,27 +37,14 @@ background-color: #f04124;
 body {
     background: #fafafa;
     font-family:"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+    /*color: #333;*/
+    color: @bodyColor;
 font-style: normal;
 }
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
+h1, h2, h3, h4, h5, h6{
+    color: #505050;
 }
-
-.hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-}
-
 
 
 .block {
@@ -70,23 +57,23 @@ font-style: normal;
     top: 70px;
 }
 
-.page-header { 
- 
+.page-header {
     margin-top: 2.5%;
 
-    .icon-link{
-           text-align: right;
-           /*color: #008cba;
+    .icon-link {
+        text-align: right;
+      /*  color: #008cba;
                font-size: 1.3rem;*/
-               padding: 0;
+        padding: 0;
         font-weight: 100;
-    line-height: 1.4;
-    margin-bottom: 0.2rem;
-    margin-top: 0.5rem;
+        line-height: 1.4;
+        margin-bottom: 0.2rem;
+        margin-top: 0.7rem;
 
+        i {
+            font-size: 1.2rem;
+        }
     }
-
-  
 }
 
 .page-title{
@@ -160,7 +147,7 @@ text-align: center;
    
             .add-to-routine, .exercise-selected {
                 margin: 0;
-                color: #333;
+                color: @bodyColor;
                 font-size: 1.5rem;
                 /*margin-left: 2rem;*/
             }
@@ -220,7 +207,7 @@ ul.menu-list {
             padding: 0.333rem;
             padding: 0;
             padding-left: 0;
-            color: #222;
+            color: @bodyColor;
             border-bottom: #d9d9d9;
         }
     }
@@ -242,13 +229,13 @@ margin-bottom: 1rem;
 padding: .8rem;
 background: #f2f2f2;
 display: block;
-color: #333;
+color: @bodyColor;
 }
 a.block-panel:hover{
     background-color: #d2d2d2;
 }
 a.panel {
-color: #333; 
+color: @bodyColor; 
 }
 .small-block-grid-1 .panel, .small-block-grid-2 .panel,
 .small-block-grid-1 .block-panel, .small-block-grid-2 .block-panel {
@@ -273,7 +260,7 @@ color: #333;
     }
     .name small { 
         text-transform: uppercase;
-        color: #333;
+        color: @bodyColor;
     }
     .package{
         margin-bottom: 0;
@@ -327,7 +314,7 @@ font-size: 22px;
     display: block;
     padding: 0.333rem;
     padding-left: 0;
-     color: #222;
+     color: @bodyColor;
 
     i {
     padding: 0;
@@ -359,7 +346,7 @@ font-size: 22px;
         font-size: 190%;
         padding: 0;
         margin: 0;
-        color: #6f6f6f;
+       // color: #6f6f6f;
     }
 }
 .twenty-20{

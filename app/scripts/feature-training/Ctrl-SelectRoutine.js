@@ -17,7 +17,7 @@ angular.module('TrainerApp')
 
       $scope.routineSelected = function (routine) {
           TrainerService.setCurrentRoutine(routine);
-          $location.path("/go");
+          $location.path("/go/" + routine.id);
 
       }
   });
