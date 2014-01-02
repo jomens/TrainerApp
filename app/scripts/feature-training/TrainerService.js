@@ -165,20 +165,25 @@ angular.module('TrainerApp')
             }
         },
         startTrainingSession: function () {
+            var that = this;
             if (LocalStorage.getTrainingSession()) {
                // console.log("training in progress");
                 return;
             }
+            var user = LocalStorage.getCurrentClient();
+            var trainer = Identity.getLoggedInUser();
 
             var session = Models.TrainingSession();
             session.date = new Date();
-            session.userId = LocalStorage.getCurrentClient().id;
-            session.trainerId = Identity.getLoggedInUser().id;
+            session.userId = user.id;
+            session.trainerId = trainer.id;
             session.routineId = LocalStorage.getCurrentRoutine().id;
 
             Azure.TrainingSessionResource().save(session, function (savedSession) {
 
                 LocalStorage.setTrainingSession(savedSession);
+                that.updateTrainingStatus(true);
+               
                // Notifier.done("Training session created", true);
 
             }, Notifier.errorHandler);
@@ -207,6 +212,7 @@ angular.module('TrainerApp')
                 success: function (results) {
                     var jsonResult = JSON.parse(results.response);
                     callback(jsonResult);
+                    that.updateTrainingStatus(false);
 
                    // that.resetTrainingInfo();
                     //console.log(jsonResult);
@@ -219,6 +225,32 @@ angular.module('TrainerApp')
             LocalStorage.setCurrentWorkout(null);
             LocalStorage.setRoutineDetails(null);
             LocalStorage.setTrainingSession(null);
+        },
+        updateTrainingStatus: function (val) {
+            var that = this;
+
+            var user = LocalStorage.getCurrentClient();
+            var trainer = Identity.getLoggedInUser();
+
+            user.training = val;
+            that.updateUser(user);
+
+            if (user.id != trainer.id) {
+                trainer.training = val;
+                that.updateUser(trainer);
+            }
+         
+        },
+        updateUser: function (user, callback) {
+            delete user.routine;
+            delete user.rta;
+            Azure.UserResource().update(user, function (user) {
+
+                if (callback) {
+                    callback(user);
+                }
+
+            }, Notifier.errorHandler); 
         }
 
 

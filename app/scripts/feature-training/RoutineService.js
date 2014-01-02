@@ -131,7 +131,7 @@ angular.module('TrainerApp')
                           }
 
                           if (counter == numUsers) {
-                              Notifier.done("success", true);
+                              Notifier.done("", true);
 
                               //if (!foundRoutine) {
                                  // callback();

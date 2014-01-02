@@ -68,7 +68,7 @@ angular.module('TrainerApp')
           }
 
       }
-
+   
       $scope.gotoUserPortal = function () {
          
           var user = $scope.loggedInUser;

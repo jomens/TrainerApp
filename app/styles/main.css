@@ -357,6 +357,9 @@ ul.menu-list li a {
   border-radius: 100px;
   overflow: hidden;
 }
+.avatar-wrapper.training {
+  border: #7fba00 solid 3px;
+}
 .page,
 .page-content {
   margin-top: 10px;
