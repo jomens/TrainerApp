@@ -1,19 +1,21 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route) {
+  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService) {
       init();
 
       function init() {
-          $rootScope.title = "GYM";
-          $rootScope.subTitle = "RABBIT";
+         // $rootScope.title = "GYM";
+         // $rootScope.subTitle = "RABBIT";
           
 
          var user =  Identity.getLoggedInUser();
-         if (user) {
+         if (user && user.isTrainer) {
             TrainerService.getClients(function (clients) {
               $scope.clients = clients;
               $scope.$apply();
+
+              getUserRoutines($scope.clients);
           });
          }
          else {
@@ -21,6 +23,16 @@ angular.module('TrainerApp')
             
          }
       
+      }
+
+      function getUserRoutines(clients) {
+          RoutineService.getRoutineAssignments(clients, function (data) {
+              //if (data) {
+                  $scope.$apply();
+              //}
+              //console.log("from scope");
+              //console.log(clients);
+          })
       }
            
       $rootScope.logout = function () {

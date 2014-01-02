@@ -40,6 +40,9 @@ angular.module('TrainerApp')
         Routine_Exercise_Resource: function () {
             return getResource("routine_exercises");
         },
+        Routine_Assignments_Resource: function () {
+            return getResource("routine_assignments");
+        },
         TrainingSessionResource: function () {
             return getResource("trainingsession");
         },

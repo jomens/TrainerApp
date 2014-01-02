@@ -55,7 +55,8 @@
                                 <div class="row">
                                     <div class="small-12 columns">
                                         <!--<h5><span class="subheader"></span><i class="fi-clock size-72"> </i><span>5:30PM</span></h5>-->
-                                        <h5 class="subheader">ROUTINE: Cardio & Abs</h5>
+                                        <h5 ng-show="client.routine">{{client.routine.name}}</h5>
+                                        <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>
                                     </div>
                                 </div>
 

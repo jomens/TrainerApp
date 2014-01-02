@@ -1,65 +1,101 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('CreateRoutineAssignmentCtrl', function ($scope, RoutineService, ExerciseService, Models, $timeout) {
+  .controller('CreateRoutineAssignmentCtrl', function ($scope, TrainerService, RoutineService) {
 
-      $scope.selectedExercises = [];
-      var exercises = {};
+   
 
       init();
-      $timeout(function () {
-          angular.element(".create-routine").addClass("move-right");
-      }, 500);
 
       function init() {
-          // $scope.exTitle = "nothing selected";
-          $scope.bodyParts = ExerciseService.getBodyParts();
+      
+          $scope.step1 = true;
+          $scope.selectedClients = [];
 
-      }
+          TrainerService.getClients(function (clients) {
+              $scope.clients = clients;
+              $scope.$apply();
+          });
 
-      function getExercises(bp) {
-          if (exercises[bp]) {
-              return exercises[bp];
-          }
-          else {
-              exercises[bp] = ExerciseService.getExercisesByBodyPart(bp);
-              return exercises[bp];
-          }
+          TrainerService.getRoutines(function (routines) {
+              $scope.routines = routines;
+              $scope.$apply();
+          });
 
-      }
-
-      $scope.selectBodypart = function (bp) {
-          $scope.exTitle = bp + " Exercises";
-
-          $scope.exercises = getExercises(bp);
-          angular.element(".create-routine").removeClass("move-right");
-
-      }
-
-      $scope.addExercise = function (ex) {
-          ex.selected = true;
-          $scope.selectedExercises.push(ex);
-          //$scope.routineName = RoutineService.stringifyBodyParts($scope.selectedExercises);
-      }
-
-      $scope.split = function (tags) {
-          return tags.split(",").map(function (tag) {
-              return Models.Tags()[$.trim(tag)];
+          $("#datepicker").datepicker({
+              inline: true,
+              onSelect: function (date, picker) {
+                  $scope.date = date;
+                  $scope.$apply();
+              }
           })
       }
 
-      $scope.saveRoutine = function () {
-          if (!$scope.routineName) {
-              toastr.error("Routine name required");
+      function reset(){
+          $scope.step1 = true;
+          $scope.step2 = false;
+          $scope.step3 = false;
+          $scope.date = null;
+          $scope.selectedClients = [];
+      }
+
+      $scope.clickme = function () {
+          if (loc.dest) {
+              $location.path("/" + loc.dest);
+          }
+      }
+
+      $scope.clientSelected = function (client) {
+          if (client.selected) {
               return;
           }
 
-          var routine = Models.Routine();
-          routine.name = $scope.routineName;
-          routine.description = $scope.description;
-          routine.expectedSets = 3;
-          //routine.exercises = $scope.selectedExercises;
+          client.selected = true;
+          $scope.selectedClients.push(client);
+         // TrainerService.setCurrentClient(client);
+         // $location.path("/selectRoutine");
 
-          RoutineService.saveRoutine(routine, $scope.selectedExercises);
+      }
+
+      $scope.removeClient = function (client) {
+
+          var index = $scope.selectedClients.indexOf(client)
+          $scope.selectedClients.splice(index, 1);
+
+          client.selected = false;
+
+          //$scope.selectedClients.push(client);
+          // TrainerService.setCurrentClient(client);
+          // $location.path("/selectRoutine");
+
+      }
+
+
+      $scope.routineSelected = function (routine) {
+          $scope.routine = routine;
+          //TrainerService.setCurrentRoutine(routine);
+          //$location.path("/routineDetails/" + routine.id);
+
+      }
+
+      $scope.showStep2 = function () {
+          $scope.step1 = false;
+          $scope.step2 = true;
+      }
+
+      $scope.showStep3 = function () {
+          $scope.step2 = false;
+          $scope.step3 = true;
+      }
+
+      $scope.submit = function () {
+          RoutineService.createRoutineAssignments({
+              users: $scope.selectedClients,
+              routine: $scope.routine,
+              date: $scope.date,
+              callback: function () {
+                  reset();
+              }
+          })
       }
   });

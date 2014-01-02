@@ -217,6 +217,17 @@ angular.module('TrainerApp')
         this.expectedSets = 3;
     }
 
+    //ROUTINE ASSIGNMENTS
+    //routineId & assignedTo (user), assignedBy, assignmentDate? routineCompleted?
+
+    var RoutineAssignment = function () {
+        this.routineId = "";
+        this.assignedTo = "";
+        this.assignedBy = "";
+        this.date = "";
+        this.completed = false;
+    }
+
     //i meet Joe, on Monday, we're doing template X. 
     var TrainingPlan = function () {
         this.trainerId = -1;
@@ -269,6 +280,7 @@ angular.module('TrainerApp')
         CardioWorkout: function () { return new CardioWorkout(); },
         Set: function () { return new Set(); },
         UserType: function () { return UserType; },
+        RoutineAssignment: function () { return new RoutineAssignment();}
         //Individual: function () { return getModel("individual"); },
 
     }

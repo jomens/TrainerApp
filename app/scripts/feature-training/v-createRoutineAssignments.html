@@ -1,115 +1,150 @@
 <section class="row page">
-    <h3 class="page-title">Create Routine Assignments</h3>
-
-    <div class="page-content">
-       
-        <section class="padded">
-            <div class="row">
-                <div class="small-12 medium-6 columns">
-                    <form>
-                        <div class="row collapse">
-                            <div class="small-3  columns">
-                                <span class="prefix">Routine Name: </span>
-                            </div>
-
-                            <div class="small-9 columns">
-                                <input type="text" placeholder="Enter routine name, required" ng-model="routineName" autofocus>
-                            </div>
-                        </div>
-                        <div class="row collapse">
-                            <div class="small-3  columns">
-                                <span class="prefix">Description: </span>
-                            </div>
-
-                            <div class="small-9 columns">
-                                <input type="text" placeholder="notes, instructions, etc" ng-model="description">
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <div class="page-header">
+        <div class="row">
+            <div class="small-12 large-6 columns">
+                <h3 class="page-title">Create Routine Assignments</h3>
             </div>
-            <div class="row">
-                <div class="small-12 large-6 columns">
-                
 
-                    <div class="off-canvas-wrap create-routine">
-                        <div class="inner-wrap">
-                            <!-- Off Canvas Menu -->
-                            <aside class="left-off-canvas-menu">
-                                <!-- whatever you want goes here -->
-                                <ul class="off-canvas-list">
-                                    <li><label>Select muscle group</label></li>
-                                    <li ng-repeat="bp in bodyParts"><a href="" ng-click="selectBodypart(bp)">{{bp}}</a></li>
-                                </ul>
-                            </aside>
+            <div class="small-12 large-6 columns" ng-show="selectedClients.length">
+                <ul class="small-block-grid-6 medium-block-grid-10 large-block-grid-8">
 
-                            <aside class="right-off-canvas-menu">
-                                <ul class="off-canvas-list">
-                                    <li><label>Your new routine ({{selectedExercises.length}})</label></li>
-                                    <li ng-repeat="ex in selectedExercises"><a href="">{{ex.name}}</a></li>
-                                </ul>
-                                <button ng-click="saveRoutine()" class="button block" ng-show="selectedExercises.length">Save</button>
-                            </aside>
-
-                            <!-- main content goes here -->
-                            <nav class="tab-bar">
-                                <section class="left-small">
-                                    <a class="left-off-canvas-toggle menu-icon"><span></span></a>
-                                </section>
-                                <section class="right tab-bar-section">
-                                    <h1 class="title">{{exTitle}}</h1>
-                                </section>
-                                <section class="right-small  hide-for-large-up" ng-show="selectedExercises.length">
-                                    <!--<a class="right-off-canvas-toggle fi-eye"><span></span></a>-->
-                                    <a href="" class="right-off-canvas-toggle ">Preview</a>
-                                </section>
-                            </nav>
-
-                            <section class="padded">
-                                <div class="row ex" ng-repeat="exercise in exercises">
-                                    <div class="small-6 columns"><p>{{exercise.name}}</p> </div>
-                                    <!--<div class="small-4 columns">
-                                        <span ng-repeat="tag in split(exercise.tags)">
-                                            <span class="label secondary">{{tag}}</span>
-                                        </span>
-                                    </div>-->
-                                    <div class="small-3 columns">
-                                        <a class="add-to-routine block-center" ng-click="addExercise(exercise)" ng-hide="exercise.selected">
-                                            <i class="step fi-plus size-72"></i>
-                                        </a>
-                                        <a class="exercise-selected block-center" ng-href=""  ng-show="exercise.selected" >
-                                            <i class="step fi-check size-72"></i>
-                                        </a>
-
+                    <li ng-repeat="client in selectedClients">
+                        <a ng-click="removeClient(client)" class="">
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <div class="avatar-wrapper">
+                                        <img ng-src="{{client.imageUrl}}" alt="" />
                                     </div>
-
-
                                 </div>
 
-                            </section>
+                            </div>
 
-                            <!-- close the off-canvas menu -->
-                            <a class="exit-off-canvas"></a>
+                        </a>
+
+                    </li>
+
+
+                </ul>
+                <h5>Routine: {{routine.name}}</h5>
+                <h5>Date: {{date}}</h5>
+            </div>
+
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="step1" ng-show="step1">
+            <div class="row">
+                <div class="small-9 columns">
+                    <h4>Step 1: Select clients</h4>
+                </div>
+                <div class="small-3 columns">
+                    <a href="" class="icon-link r" ng-click="showStep2()" ng-show="selectedClients.length"><span>Next</span> <i class="fi-arrow-right size-72"></i></a>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <ul class="small-block-grid-3 medium-block-grid-6 large-block-grid-8">
+                        <li ng-repeat="client in clients">
+                            <a ng-click="clientSelected(client)" class="panel block-panel">
+                                <div class="row">
+                                    <div class="small-12 columns">
+                                        <div class="avatar-wrapper">
+                                            <img ng-src="{{client.imageUrl}}" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="small-12 columns client-info">
+                                        <h3 class="name"><small><span>{{client.firstName}}</span> <span class="show-for-large-up">{{client.lastName}}</span></small></h3>
+
+                                    </div>
+                                </div>
+
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="step2" ng-show="step2">
+            <div class="row">
+                <div class="small-9 columns">
+                    <h4>Step 2: Select a routine</h4>
+                </div>
+                <div class="small-3 columns">
+                    <a href="" class="icon-link r" ng-click="showStep3()" ng-show="routine"><span>Next</span> <i class="fi-arrow-right size-72"></i></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="row">
+                        <div class="small-12 columns" ng-hide="routines.length">
+                            <div class="panel">
+                                <h3><small>You have no routines created. <a href="#/createRoutine" ng-href="#/createRoutine">Create a routine</a></small></h3>
+                            </div>
+                        </div>
+                        <div class="small-12 columns">
+                            <ul class="small-block-grid-1 medium-block-grid-3">
+                                <li ng-repeat="routine in routines">
+                                    <a class="block-panel" ng-click="routineSelected(routine)">{{routine.name}}</a>
+
+                                </li>
+
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="large-6 columns show-for-large-up">
-                    <div class="panel">
-                        <h3>Routine Details</h3>
-                        <p ng-hide="selectedExercises.length">You have no exercises added to your routine</p>
-                        <p ng-repeat="ex in selectedExercises">{{ex.name}}</p>
-                        <button ng-click="saveRoutine()" class="button" ng-show="selectedExercises.length">Save</button>
+            </div>
+        </div>
+
+        <div class="step3" ng-show="step3">
+            <div class="row">
+                <div class="small-10 columns">
+                    <h4>Step 3: Select routine date </h4>
+                </div>
+                <div class="small-2 columns">
+                    <!--<a href="" class="icon-link r" ng-click=""><span>next</span> <i class="fi-arrow-right size-72"></i></a>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12  columns">
+                    <div class="row">
+                        <div class="small-12 columns" ng-hide="routines.length">
+                            <div class="panel">
+                                <h3><small>You have no routines created. <a href="#/createRoutine" ng-href="#/createRoutine">Create a routine</a></small></h3>
+                            </div>
+                        </div>
+                        <div class="small-12 columns">
+
+                            <div id="datepicker"></div>
+                        </div>
                     </div>
+
+                    <section class="padded">
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <button ng-click="submit()">Submit</button>
+                            </div>
+                        </div>
+
+                    </section>
+
                 </div>
             </div>
 
-        </section>
 
-                <section class="padded">
-                    <form></form>
+        </div>
 
-                </section>
 
-            </div>
+    </div>
 </section>

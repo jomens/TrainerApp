@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .factory('RoutineService', function (Azure, Identity, Notifier, $location, LocalStorage) {
+  .factory('RoutineService', function (Azure, Identity, Notifier, $location, LocalStorage, Models) {
 
 
     
@@ -30,7 +30,7 @@ angular.module('TrainerApp')
 
 
               var that = this;
-              Notifier.busy();
+              Notifier.busy(true);
               Azure.table("routine_exercises").read({
                   where: {
                       routineId: routineId},
@@ -75,7 +75,84 @@ angular.module('TrainerApp')
 
               return routineDetails;
           },
+          createRoutineAssignments: function (options) {
+              Notifier.busy(true);
 
+              var numUsers = options.users.length;
+              var counter = 0;
+              options.users.forEach(function (user) {
+                  var assignment = Models.RoutineAssignment();
+                  assignment.routineId = options.routine.id;
+                  assignment.assignedTo = user.id;
+                  assignment.assignedBy = Identity.getLoggedInUser().id;
+                  assignment.date = moment(options.date).format("L");
+                  //completed is false by default;
+
+                  Azure.Routine_Assignments_Resource().save(assignment, function (rtna) {
+                      counter++;
+
+                      if (counter == numUsers) {
+                          Notifier.done("success", true);
+                          options.callback();
+                      }
+
+                  }, Notifier.errorHandler)
+
+
+              })
+
+             
+          },
+          getRoutineAssignments: function (users, callback) { //whereOptions so callers can tell this routine they want . easier fo reuse?
+              var that = this;
+
+              var numUsers = users.length;
+              var counter = 0;
+              var foundRoutine = 0;
+              var routineCount = 0;
+              users.forEach(function (user) {
+                  Azure.table("routine_assignments").read({
+                      where: {
+                          assignedTo: user.id,
+                          date: moment().format("L")
+                      },
+                      success: function (rta) {
+                        
+                          counter++;
+
+                          if (rta && rta[0]) {
+                              foundRoutine++;
+                              user.rta = rta[0];
+                              that.getRoutineById(user.rta.routineId, function (rtn) {
+                                  user.routine = rtn;
+
+                                 // callback(user);
+                              })
+                          }
+
+                          if (counter == numUsers) {
+                              Notifier.done("success", true);
+
+                              //if (!foundRoutine) {
+                                 // callback();
+                                  //return;
+                              //}
+                              //that.getRoutineById(user.rou)
+                          }
+                          
+                      },
+                      error: function (err) {
+                          console.log(err);
+                      }
+                  })
+              })
+          },
+          getRoutineById: function(id, callback){
+              Azure.RoutineResource().get({ id: id }, function (rtn) {
+                  callback(rtn);
+
+              }, Notifier.errorHandler)
+          },
           addExerciseToRoutine: function(savedRoutine, exercises){
               exercises.forEach(function (ex) {
                   var rtx = { routineId: savedRoutine.id, exerciseId: ex.id };

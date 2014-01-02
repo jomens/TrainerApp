@@ -8,7 +8,7 @@ routineId & exerciseIds
 
 //ROUTINE ASSIGNMENTS
 -Routine_Users Table
-routineId & assignedTo (user), assignmentDate? routineCompleted?
+routineId & assignedTo (user), assignedBy, assignmentDate? routineCompleted?
 
 //Trainer sees client workout status? whether user is currently working out on a certain routine?
 //CLIENT STATUSES?
@@ -20,4 +20,4 @@ routineId & assignedTo (user), assignmentDate? routineCompleted?
 -When does it end?
 -how long will it go for?
 -how many days a week should i work out?
--What needs to be done each week
+-What needs to be done each week 
