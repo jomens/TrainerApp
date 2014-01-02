@@ -2,8 +2,8 @@
     <div class="page-header">
         <div class="row">
             <div class="small-7 medium-8 columns">
-                <!--<h3 class="page-title">Hello, {{loggedInUser.firstName}} {{loggedInUser.lastName}}</h3>-->
-                <h3><i class="step fi-calendar size-72"></i> <span>My appointments</span></h3>
+                <h3 ng-show="loggedInUser.isUser"><i class="step fi-calendar size-72"></i> <span>Today's workout routine</span></h3>
+                <h3 ng-show="loggedInUser.isTrainer"><i class="step fi-calendar size-72"></i> <span>My appointments</span></h3>
 
             </div>
 

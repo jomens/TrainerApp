@@ -1,29 +1,44 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService) {
+  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService, Azure) {
       init();
-
+      var user;
       function init() {
          // $rootScope.title = "GYM";
          // $rootScope.subTitle = "RABBIT";
           
 
-         var user =  Identity.getLoggedInUser();
-         if (user && user.isTrainer) {
-            TrainerService.getClients(function (clients) {
+         user =  Identity.getLoggedInUser();
+         if (user) {
+             if (user.isTrainer) {
+                 loadTrainerData();
+             }
+             if (user.isUser) {
+                 loadUserData();
+             }
+         }
+         else {
+             $location.path("/login");
+
+         }
+      
+      }
+
+      function loadTrainerData() {
+          TrainerService.getClients(function (clients) {
               $scope.clients = clients;
               $scope.$apply();
 
               getUserRoutines($scope.clients);
           });
-         }
-         else {
-             $location.path("/login");
-            
-         }
-      
       }
+
+      function loadUserData() {
+          $scope.clients = [user];
+          getUserRoutines($scope.clients);
+      }
+
 
       function getUserRoutines(clients) {
           RoutineService.getRoutineAssignments(clients, function (data) {
@@ -44,7 +59,13 @@ angular.module('TrainerApp')
       $scope.clientSelected = function (client) {
 
           TrainerService.setCurrentClient(client);
-          $location.path("/selectRoutine");
+      
+          if (client.routine) {
+              TrainerService.setCurrentRoutine(client.routine);
+              $location.path("/go/" + client.routine.id);
+          } else {
+              $location.path("/selectRoutine");
+          }
 
       }
 
