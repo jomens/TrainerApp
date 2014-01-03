@@ -9,8 +9,8 @@ angular.module('TrainerApp')
 
           $scope.workout = TrainerService.getCurrentWorkout();
         
-          $rootScope.title = $scope.workout.exerciseName;
-          $rootScope.subTitle = "";
+          //$rootScope.title = $scope.workout.exerciseName;
+          //$rootScope.subTitle = "";
 
           getLastWorkout();
      }
@@ -52,6 +52,13 @@ angular.module('TrainerApp')
           }
 
           TrainerService.saveWorkout($scope.workout);
+      }
+
+      $scope.addNotes = function () {
+          $scope.showNotes = true;
+      }
+      $scope.hideNotes = function () {
+          $scope.showNotes = false;
       }
       
   });

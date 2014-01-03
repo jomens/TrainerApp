@@ -3,17 +3,18 @@
 angular.module('TrainerApp')
   .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService, Azure, Settings) {
       init();
-      var user;
+      
       function init() {
          // $rootScope.title = "GYM";
-         // $rootScope.subTitle = "RABBIT";
+          // $rootScope.subTitle = "RABBIT";
           Settings.init();
 
-         user =  Identity.getLoggedInUser();
+       var  user =  Identity.getLoggedInUser();
          if (user) {
              if (user.isTrainer) {
                  loadTrainerData();
              }
+
              if (user.isUser) {
                  loadUserData();
              }
@@ -27,6 +28,7 @@ angular.module('TrainerApp')
 
       function loadTrainerData() {
           TrainerService.getClients(function (clients) {
+
               $scope.clients = clients;
               $scope.$apply();
 
@@ -35,6 +37,7 @@ angular.module('TrainerApp')
       }
 
       function loadUserData() {
+          var user = Identity.getLoggedInUser();
           $scope.clients = [user];
           getUserRoutines($scope.clients, function () {
               //get rid of green ring
@@ -46,6 +49,7 @@ angular.module('TrainerApp')
       function getUserRoutines(clients) {
           RoutineService.getRoutineAssignments(clients, function (data) {
               //if (data) {
+
                   $scope.$apply();
               //}
               //console.log("from scope");
