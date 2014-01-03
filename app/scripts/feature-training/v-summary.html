@@ -11,17 +11,29 @@
             <!--<div class="small-12 medium-6  large-4 columns" ng-repeat="ex in exercises">
                 <a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn">{{ex.name}}</a>
             </div>-->
-            <div class="small-12 columns">
+            <div class="small-12 medium-6 columns">
+               
                 <h4>Weights</h4>
+                <div class="panel" ng-hide="summary.weights.length">
+                    <h3><small>You did not do weights today.</small></h3>
+                </div>
                 <div class="panel" ng-repeat="weight in summary.weights">
                     <h4>{{weight.exercise.name}}</h4>
                     <h6 ng-repeat="set in weight.sets">Set #{{$index + 1}} Weight: {{set.weight}} Reps: {{set.reps}}</h6>
                 </div>
+            </div>
 
+            <div class="small-12 medium-6  columns">
 
-                <h4 ng-show="summary.cardio.length">Cardio</h4>
+                <h4>Cardio</h4>
+
+             
+                    <div class="panel" ng-hide="cardio.length">
+                        <h3><small>You did not do cardio today.</small></h3>
+                    </div>
+              
                 <div class="panel" ng-repeat="card in summary.cardio">
-                    <h4>{{card.exerciseName}}</h4>
+                    <h4>{{cardio.exerciseName}}</h4>
                     <h6>Mode: {{card.mode}}</h6>
                     <h6>Resistance: {{card.resistance}}</h6>
                     <h6>Heart rate: {{card.heartRate}}</h6>
@@ -30,6 +42,7 @@
                 </div>
 
             </div>
+
         </div>
 
 

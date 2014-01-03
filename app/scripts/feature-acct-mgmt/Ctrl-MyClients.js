@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MyclientsCtrl', function ($scope, TrainerService, $rootScope) {
+  .controller('MyclientsCtrl', function ($scope, TrainerService, $rootScope, $location) {
 
       init();
 
       function init() {
-
+          console.log($location.search());
           TrainerService.getClients(function (clients) {
               $scope.clients = clients;
               $scope.$apply();

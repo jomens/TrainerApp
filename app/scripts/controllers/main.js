@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService, Azure) {
+  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService, Azure, Settings) {
       init();
       var user;
       function init() {
          // $rootScope.title = "GYM";
          // $rootScope.subTitle = "RABBIT";
-          
+          Settings.init();
 
          user =  Identity.getLoggedInUser();
          if (user) {
@@ -36,7 +36,10 @@ angular.module('TrainerApp')
 
       function loadUserData() {
           $scope.clients = [user];
-          getUserRoutines($scope.clients);
+          getUserRoutines($scope.clients, function () {
+              //get rid of green ring
+              $scope.clients[0].training = false;
+          });
       }
 
 

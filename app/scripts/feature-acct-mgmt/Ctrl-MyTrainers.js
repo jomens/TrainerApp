@@ -6,7 +6,7 @@ angular.module('TrainerApp')
       init();
 
       function init() {
-
+          
           TrainerService.getTrainers(function (trainers) {
               $scope.trainers = trainers;
               $scope.$apply();

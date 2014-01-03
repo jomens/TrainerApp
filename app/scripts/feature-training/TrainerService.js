@@ -192,34 +192,134 @@ angular.module('TrainerApp')
             //update session end date and set current session to null, set routine details to null
             var that = this;
             var sessionId = LocalStorage.getTrainingSession().id;
+            var results = {};
+            var checker = {};
+            var errorCount = 0;
 
-            //Azure.table("workouts").read({
-            //    where: {
-            //        fn: function (sessionId) {
-            //            return this.trainingSessionId == sessionId;
-            //        },
-            //        param: sessionId
-            //    },
-            //    success: function (data) {
-            //        callback(data);
-                    
+            Notifier.busy();
+
+            getWorkouts();
+            getCardio();
+
+            //Azure.invokeApi({
+            //    api: "getworkoutsummary?sessionId=" + sessionId,
+            //    //body: { sessionId: sessionId },
+            //    success: function (results) {
+            //        var jsonResult = JSON.parse(results.response);
+            //        callback(jsonResult);
+            //        that.updateTrainingStatus(false);
+
             //    }
-            //})
-
-            Azure.invokeApi({
-                api: "getworkoutsummary?sessionId=" + sessionId,
-                //body: { sessionId: sessionId },
-                success: function (results) {
-                    var jsonResult = JSON.parse(results.response);
-                    callback(jsonResult);
-                    that.updateTrainingStatus(false);
-
-                   // that.resetTrainingInfo();
-                    //console.log(jsonResult);
+            //});
+            function done() {
+                if (checker.weights && checker.sets && checker.exercises && checker.cardio) {
+                    Notifier.done();
+                    callback(results);
                 }
-            });
+
+                if (errorCount > 0) {
+                    Notifier.done();
+                }
+            }
+
+            function error(err) {
+                console.log(err);
+                errorCount++;
+            }
+
+            function getWorkouts() {
+
+                Azure.table("workouts").read({
+                    where: { trainingSessionId: sessionId },
+                    success: function (wkts) {
+                        checker.weights = true;
+                        results.weights = wkts;
+                        getSets(results.weights);
+                        getExercises(results.weights);
+
+                    },
+                    error: error
+                })
+            }
+            function getSets(wkts) {
+
+                var numWkts = wkts.length;
+                var counter = 0;
+                
+                if (!numWkts) {
+                    checker.sets = true;
+                    done();
+                    return;
+                }
+
+                wkts.forEach(function (wkt) {
+
+                    Azure.table("sets").read({
+                    where: { workoutId: wkt.id },
+                    success: function (sets) {
+
+                        counter++;
+                        wkt.sets = sets;
+
+                        if (counter == numWkts) {
+                            checker.sets = true;
+                            done();
+                        }
+
+                    },
+                    error: error
+                })
+
+                })
+            }
+            function getExercises(wkts) {
+
+                var numWkts = wkts.length;
+                var counter = 0;
+
+                if (!numWkts) {
+                    checker.exercises = true;
+                    done();
+                    return;
+                }
+
+                wkts.forEach(function (wkt) {
+
+                    Azure.table("exercises").read({
+                        where: { id: wkt.exerciseId },
+                        success: function (exs) {
+
+                            counter++;
+                            wkt.exercise = exs[0];
+
+                            if (counter == numWkts) {
+                                checker.exercises = true;
+                                done();
+                            }
+
+                        },
+                        error: error
+                    })
+
+                })
+            }
+
+            function getCardio() {
+                Azure.table("workouts_cardio").read({
+                    where: { trainingSessionId: sessionId },
+                    success: function (cardioList) {
+                        checker.cardio = true;
+                        results.cardio = cardioList;
+                        done();
+
+                    },
+                    error: error
+                })
+            }
         },
         resetTrainingInfo: function () {
+            this.updateTrainingStatus(false);
+
             LocalStorage.setCurrentClient(null);
             LocalStorage.setCurrentRoutine(null);
             LocalStorage.setCurrentWorkout(null);
@@ -232,18 +332,32 @@ angular.module('TrainerApp')
             var user = LocalStorage.getCurrentClient();
             var trainer = Identity.getLoggedInUser();
 
+            if (user) {
             user.training = val;
             that.updateUser(user);
 
-            if (user.id != trainer.id) {
-                trainer.training = val;
-                that.updateUser(trainer);
+                    if (trainer && user.id == trainer.id) {
+                        trainer.training = val;
+                        Identity.setLoggedInUser(trainer);
+                        return;
+                    }
             }
+
+            if (trainer) {
+                trainer.training = val;
+                that.updateUser(trainer, function (tr) {
+                    Identity.setLoggedInUser(tr);                    
+                    
+                });
+            }
+       
          
         },
         updateUser: function (user, callback) {
             delete user.routine;
             delete user.rta;
+            delete user.isUser;
+            delete user.isTrainer;
             Azure.UserResource().update(user, function (user) {
 
                 if (callback) {
