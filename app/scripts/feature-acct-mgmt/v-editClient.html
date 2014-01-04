@@ -2,7 +2,7 @@
     <div class="page-header">
         <div class="row">
             <div class="small-6 medium-8 columns">
-                <h3 class="page-title">Add a new client</h3>
+                <h3 class="page-title">Edit client</h3>
 
             </div>
 
@@ -16,11 +16,11 @@
 
     <div class="page-content">
 
-        <form ng-submit="addClient()" ng-model="client">
+        <form ng-submit="update()" ng-model="client">
             <div ng-include="'scripts/partials/userinfo.html'">
             </div>
 
-            <div class="row"><div class="small-12 columns"><input class="button" type="submit" value="Submit" /></div></div>
+            <div class="row"><div class="small-12 columns"><input class="button" type="submit" value="Save" /></div></div>
         </form>
     </div>
 </div>

@@ -23,6 +23,33 @@ angular.module('TrainerApp')
                 }
             })
         },
+        getNonRemoteClients: function (callback) {
+            Notifier.busy();
+            loggedInUser = Identity.getLoggedInUser();
+
+            Azure.table("users").read({
+                where: {
+                trainerId: loggedInUser.id,
+                isRemote: false
+                },
+                success: function (clients) {
+                    callback(clients);
+                }
+            })
+        },
+        getRemoteClients: function (callback) {
+            Notifier.busy();
+            loggedInUser = Identity.getLoggedInUser();
+            Azure.table("users").read({
+                where: {
+                    trainerId: loggedInUser.id,
+                    isRemote: true
+                },
+                success: function (clients) {
+                    callback(clients);
+                }
+            })
+        },
         getTrainers: function (callback) {
             Notifier.busy();
             loggedInUser = Identity.getLoggedInUser();

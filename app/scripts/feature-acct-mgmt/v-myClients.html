@@ -97,7 +97,7 @@
 
                     <!-- end dummy data -->
                     <li ng-repeat="client in clients">
-                        <a ng-href="#/userProfile/{{client.id}}" class="panel block-panel">
+                        <a ng-click="clientSelected(client)" class="panel block-panel">
                             <div class="row">
                                 <div class="small-4 medium-5 large-4 columns">
                                     <div class="avatar-wrapper">

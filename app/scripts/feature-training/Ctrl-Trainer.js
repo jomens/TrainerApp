@@ -14,7 +14,7 @@ angular.module('TrainerApp')
 
       $scope.editUser = function () {
           //$location.path('/myClients/').search("dest", "boom");
-          $location.path('/myClients/').search({ dest: "editClient" });
+          $location.path('/myClients/').search({ dest: "editClient", param: "id" });
       }
 
   });

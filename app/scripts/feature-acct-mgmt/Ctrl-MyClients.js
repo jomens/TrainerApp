@@ -6,7 +6,6 @@ angular.module('TrainerApp')
       init();
 
       function init() {
-          console.log($location.search());
           TrainerService.getClients(function (clients) {
               $scope.clients = clients;
               $scope.$apply();
@@ -15,9 +14,15 @@ angular.module('TrainerApp')
       }
 
       $scope.clientSelected = function (client) {
+          var locationParams = $location.search();
 
-          TrainerService.setCurrentClient(client);
-          $location.path("/clientProfile");
+          if (locationParams && locationParams.dest) {
+              $location.path("/" + locationParams.dest + "/" + client[locationParams.param]).search({});
+          } else {
+              //TrainerService.setCurrentClient(client);
+              $location.path("/userProfile/" + client.id);
+
+          }
 
       }
   });

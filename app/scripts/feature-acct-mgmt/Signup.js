@@ -15,7 +15,7 @@ angular.module('TrainerApp')
                      if (callback) {
                          callback(savedUser);
                      }
-                   
+
                      $location.path("/");
 
                  }, Notifier.errorHandler);

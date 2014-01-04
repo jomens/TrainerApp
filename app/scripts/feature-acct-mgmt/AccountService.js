@@ -13,11 +13,25 @@ angular.module('TrainerApp')
 
                      if (callback) {
                          callback(savedUser);
-                     }
-                  
+                     }                  
 
                  }, Notifier.errorHandler);
-             }
+             },
+             updateUser: function (user, callback) {
+
+             Notifier.busy(true);
+
+             Azure.UserResource().update(user, function (savedUser) {
+
+                 Notifier.done("", true);
+
+                 if (callback) {
+                     callback(savedUser);
+                 }
+
+             }, Notifier.errorHandler);
+         },
+
          }
      })
 

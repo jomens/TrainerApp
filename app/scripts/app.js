@@ -28,6 +28,10 @@ angular.module('TrainerApp', [
           templateUrl: 'scripts/feature-acct-mgmt/v-addClient.html',
           controller: 'AddclientCtrl'
       })
+      .when('/editClient/:id', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-editClient.html',
+          controller: 'EditClientCtrl'
+      })
       .when('/addTrainer', {
           templateUrl: 'scripts/feature-acct-mgmt/v-addTrainer.html',
           controller: 'AddTrainerCtrl'

@@ -148,6 +148,7 @@ angular.module('TrainerApp')
         this.fitnessCenterId = "-1";
         this.fitnessChainId = "-1";
         this.isAdmin = false;
+        this.isRemote = false;
         this.imageUrl = "";
 
         //added

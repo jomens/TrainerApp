@@ -27,12 +27,16 @@ angular.module('TrainerApp')
       }
 
       function loadTrainerData() {
-          TrainerService.getClients(function (clients) {
-
+          TrainerService.getNonRemoteClients(function (clients) {
               $scope.clients = clients;
               $scope.$apply();
-
               getUserRoutines($scope.clients);
+          });
+
+          TrainerService.getRemoteClients(function (remoteClients) {
+              $scope.remoteClients = remoteClients;
+              $scope.$apply();
+              getUserRoutines($scope.remoteClients);
           });
       }
 
