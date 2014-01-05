@@ -441,6 +441,23 @@ body,
   color: #6f6f6f;
   margin-bottom: 0;
 }
+.card p {
+  color: #505050;
+}
+.card i {
+  color: #333;
+}
+.card .main-content {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.card .top-right {
+  margin-top: .5rem;
+}
+.card .fi-flag {
+  color: red;
+}
 .icon-link {
   display: block;
   padding: 0.333rem;

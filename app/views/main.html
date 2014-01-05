@@ -48,32 +48,39 @@
 
                                     <div class="small-9 columns">
                                         <div class="row">
-                                            <div class="small-6 columns">
+                                            <div class="small-8 columns">
                                                 <h4><span>{{client.firstName | uppercase}}</span> </h4>
                                             </div>
 
-                                            <div class="small-6 columns">
-                                                <h5 class="subheader"><i class="fi-clock size-72"> </i><span>{{$index + 1}}PM</span></h5>
+                                            <div class="small-4 columns">
+                                                <p class="top-right"><i class="fi-clock size-72"> </i><span>{{$index + 1}}PM</span></p>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="small-12 columns">
                                                 <!--<h5><span class="subheader"></span><i class="fi-clock size-72"> </i><span>5:30PM</span></h5>-->
-                                                <h5 ng-show="client.routine">{{client.routine.name}}</h5>
-                                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>
+                                                <p class="main-content" ng-show="client.routine">{{client.routine.name}}</p>
+                                                <p class="main-content" ng-hide="client.routine">no routine assigned today</p>
+
+                                                <!--<h5 ng-show="client.routine">{{client.routine.name}}</h5>
+                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>-->
                                             </div>
                                         </div>
 
-                                        <!--<div class="row">
-                                            <div class="small-6 columns">
-                                                <span class="label warning">BODYFAT DUE</span>
+                                        <div class="row">
+                                            <div class="small-8 columns">
+                                                <div class="bottom-left"></div>
                                             </div>
 
-                                            <div class="small-6 columns">
-                                                <p><i class="fi-marker size-72"> </i><span>Atlanta, GA</span></p>
+                                            <div class="small-4 columns">
+                                                <div class="bottom-right">
+                                                    <!--<span class="label warning">BODYFAT DUE</span>-->
+                                                    <!--<i class="fi-flag size-72"></i>-->
+
+                                                </div>
                                             </div>
-                                        </div>-->
+                                        </div>
 
                                         <!--<span class="label warning">BODYFAT DUE</span>-->
                                     </div>
@@ -93,7 +100,7 @@
                 <!--remote clients-->
                 <div class="small-12 medium-6 large-8 columns">
                     <h3 ng-show="loggedInUser.isTrainer"><i class="step fi-map size-72"></i> <span>Remote clients</span></h3>
-                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+                    <ul class="small-block-grid-1 large-block-grid-2">
 
                         <li ng-repeat="client in remoteClients">
                             <a href="" ng-click="clientSelected(client)" class="card">
@@ -117,27 +124,32 @@
                                             </div>
 
                                             <div class="small-6 columns">
-                                                <h5 class="subheader"><i class="fi-marker size-72"> </i><span>Seattle, WA</span></h5>
+                                                <p class="top-right"><i class="fi-marker size-72"> </i><span>{{getCity($index)}}</span></p>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="small-12 columns">
                                                 <!--<h5><span class="subheader"></span><i class="fi-clock size-72"> </i><span>5:30PM</span></h5>-->
-                                                <h5 ng-show="client.routine">{{client.routine.name}}</h5>
-                                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>
+                                                <p class="main-content" ng-show="client.routine">{{client.routine.name}}</p>
+                                                <p class="main-content" ng-hide="client.routine">no routine assigned today</p>
+                                                <!--<h5 ng-show="client.routine">{{client.routine.name}}</h5>
+                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>-->
                                             </div>
                                         </div>
 
-                                        <!--<div class="row">
+                                        <div class="row">
                                             <div class="small-6 columns">
-                                                <span class="label warning">BODYFAT DUE</span>
+                                                <div class="bottom-left"></div>
                                             </div>
 
                                             <div class="small-6 columns">
-                                                <p><i class="fi-marker size-72"> </i><span>Atlanta, GA</span></p>
+                                                <div class="bottom-right">
+                                                    <!--<span class="label warning">BODYFAT DUE</span>-->
+                                                </div>
                                             </div>
-                                        </div>-->
+                                        </div>
+
 
                                     </div>
 

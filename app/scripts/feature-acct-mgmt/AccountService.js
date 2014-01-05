@@ -28,6 +28,9 @@ angular.module('TrainerApp')
                  if (callback) {
                      callback(savedUser);
                  }
+                 else {
+                     $location.path("/");
+                 }
 
              }, Notifier.errorHandler);
          },
