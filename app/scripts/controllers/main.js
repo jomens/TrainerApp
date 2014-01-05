@@ -104,4 +104,17 @@ angular.module('TrainerApp')
           var cities = ["San Diego", "Seattle", "Bellevue", "Ballard", "New York", "Atlanta", "Kent", "Renton", "Redmond", "Las Vegas", "Redmond", "Bellevue", "Kent"];
           return cities[index];
       }
+
+      $scope.reveal = function (client) {
+          $scope.revealClient = client;
+          $('#myModal').foundation('reveal', "open");
+      }
+
+      $scope.closeReveal = function (client) {
+          $('#myModal').foundation('reveal', "close");
+      }
+
+      $scope.sendNote = function () {
+          $('#myModal').foundation('reveal', "close");
+      }
   });

@@ -458,6 +458,12 @@ body,
 .card .fi-flag {
   color: red;
 }
+.card .send-note {
+  color: #0072c6;
+}
+.card .send-note i {
+  color: #0072c6;
+}
 .icon-link {
   display: block;
   padding: 0.333rem;

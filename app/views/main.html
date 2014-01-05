@@ -103,7 +103,7 @@
                     <ul class="small-block-grid-1 large-block-grid-2">
 
                         <li ng-repeat="client in remoteClients">
-                            <a href="" ng-click="clientSelected(client)" class="card">
+                            <div ng-click="" class="card">
                                 <div class="row">
                                     <!--<div class="small-3 columns">
                         <h2 class="appt-time">
@@ -120,9 +120,8 @@
                                     <div class="small-9 columns">
                                         <div class="row">
                                             <div class="small-6 columns">
-                                                <h4><span>{{client.firstName | uppercase}}</span> </h4>
+                                                <h4><span>{{client.firstName | uppercase}}</span> <span><a href="" ng-click="reveal(client)" class="send-note" ng-show="client.training"><i class="fi-comment size-72"> </i></a></span></h4>
                                             </div>
-
                                             <div class="small-6 columns">
                                                 <p class="top-right"><i class="fi-marker size-72"> </i><span>{{getCity($index)}}</span></p>
                                             </div>
@@ -156,7 +155,7 @@
 
                                 </div>
 
-                            </a>
+                            </div>
 
                         </li>
 
@@ -169,5 +168,30 @@
 
 
         </section>
+
+
+        <div id="myModal" class="reveal-modal tiny" data-reveal>
+            <h4>Send a quick note.</h4>
+            <div class="row">
+                <div class="small-3 columns">
+                    <div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">
+                        <img ng-src="{{revealClient.imageUrl}}" alt="" />
+                    </div>
+                </div>
+
+                <div class="small-9 columns">
+                    <textarea rows="5" placeholder="Enter notes">Hi {{revealClient.firstName}}, Great job! Keep up the good work!</textarea>
+                    <button ng-click="sendNote()">Send note</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12">
+                   
+
+                </div>
+            </div>
+            <a class="close-reveal-modal" ng-click="closeReveal()">&#215;</a>
+        </div>
     </div>
 </div>
