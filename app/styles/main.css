@@ -234,8 +234,9 @@ body {
   padding: 0;
   font-weight: 100;
   line-height: 1.4;
-  margin-bottom: 0.2rem;
-  margin-top: 0.7rem;
+  /*margin-bottom: 0.2rem;    
+        margin-top: 0.7rem;*/
+
 }
 .page-header .icon-link i {
   font-size: 1.2rem;
@@ -404,20 +405,17 @@ a.panel {
 .client-info .package {
   margin-bottom: 0;
 }
-html,
-body,
-.off-canvas-wrap,
-.inner-wrap {
-  height: 100%;
+/*html, body, .off-canvas-wrap, .inner-wrap{
+    height: 100%;
 }
+
 .off-canvas-wrap {
-  overflow: hidden;
-  overflow-y: scroll;
+overflow: hidden;
+overflow-y: scroll;
 }
 .off-canvas-wrap.move-left {
-  overflow-y: hidden;
-}
-.card {
+overflow-y: hidden;
+}*/.card {
   margin-bottom: 0;
   padding: .8rem;
   background: #f2f2f2;

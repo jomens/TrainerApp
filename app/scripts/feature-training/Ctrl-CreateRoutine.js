@@ -29,7 +29,7 @@ angular.module('TrainerApp')
       }
 
       $scope.selectBodypart = function (bp) {
-          $scope.exTitle = bp + " Exercises";
+          $scope.exTitle = bp;// + " Exercises";
 
           $scope.exercises = getExercises(bp);
           angular.element(".create-routine").removeClass("move-right");

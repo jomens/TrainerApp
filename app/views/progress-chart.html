@@ -1,0 +1,85 @@
+<!--<style type="text/css">
+    [ng-cloak] {
+        display: none;
+    }
+
+    body {
+        padding: 20px;
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    table td.number {
+        text-align: right;
+    }
+
+    .navbar-fixed-top {
+        z-index: 1111;
+    }
+
+    .inputs-list li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    .inputs-list > li input[type="checkbox"] {
+        margin: 0;
+    }
+</style>-->
+
+
+
+
+
+<div class="row page">
+    <div class="page-header">
+        <div class="row">
+            <div class="small-12 medium-8 columns">
+                <h3><i class="step fi-graph-bar size-72"></i> <span>Progress Report</span></h3>
+
+            </div>
+
+            <!--<div class="small-5 medium-4 columns">
+                <a href="" class="icon-link" ng-click="gotoUserPortal()" ng-show="loggedInUser"><i class="fi-torso-business size-72"></i><span>my portal</span></a>
+            </div>-->
+        </div>
+
+    </div>
+
+    <div class="page-content">
+
+        <section class="padded">
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="container-fuild">
+                        <div class="row-fluid">
+                           
+                            <div class="span8">
+                                <!--<form class="form-horizontal">
+                               
+                                    <div class="row-fluid" ng-show="chart.type=='Table'">
+                                        <label class="control-label" for="chartType">Format</label>
+                                        <div class="input controls">
+                                            <ul class="inputs-list">
+                                                <li ng-repeat="format in formatCollection">
+                                                    <button class="btn primary" ng-click="toggleFormat(format)">{{format.name}}</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>-->
+                                <div google-chart chart="chart" style="{{chart.cssStyle}}" on-ready="chartReady()" />
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        </section>
+    </div>
+</div>

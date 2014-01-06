@@ -3,7 +3,8 @@
 angular.module('TrainerApp', [
   'ngCookies',
   'ngResource',
-  'ngSanitize'
+  'ngSanitize',
+  'googlechart'
 ])
     .config(['$httpProvider', function ($httpProvider) {
         $httpProvider.defaults.headers.common['X-ZUMO-APPLICATION'] = 'zhlqVKKbFuYRyxvFatNOtEUpoCzmQQ84';
@@ -122,7 +123,11 @@ angular.module('TrainerApp', [
       })
       .when('/userProfile/:id', {
           templateUrl: 'scripts/feature-user-profiles/v-userProfile.html',
-        controller: 'UserprofileCtrl'
+          controller: 'UserprofileCtrl'
+      })
+      .when('/progress', {
+          templateUrl: 'views/progress-chart.html',
+          controller: 'ProgressChartCtrl'
       })
       .otherwise({
         redirectTo: '/'
