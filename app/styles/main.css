@@ -115,13 +115,15 @@ p {
 .x-ng-cloak {
   display: none !important;
 }
+/*@blue: #0072c6;*/
+/*@metroblue: #187dc7;*/
 /* color */
 .blue,
 .primary {
-  background: #0072c6;
+  background: #00bcf2;
 }
 .metro {
-  color: #187dc7;
+  color: #00bcf2;
 }
 .green,
 .success,
@@ -148,7 +150,7 @@ button.alert:focus,
 }
 .panel.blue {
   border: none;
-  background: #0072c6;
+  background: #00bcf2;
   color: #fff;
 }
 .panel.blue p,
@@ -178,7 +180,7 @@ button.alert:focus,
 }
 .panel.metroblue {
   border: none;
-  background: #187dc7;
+  background: #00bcf2;
   color: #fff;
 }
 .panel.metroblue p,
@@ -459,10 +461,10 @@ body,
   color: red;
 }
 .card .send-note {
-  color: #0072c6;
+  color: #00bcf2;
 }
 .card .send-note i {
-  color: #0072c6;
+  color: #00bcf2;
 }
 .icon-link {
   display: block;

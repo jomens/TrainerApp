@@ -101,7 +101,7 @@ angular.module('TrainerApp')
       };
 
       $scope.getCity = function (index) {
-          var cities = ["San Diego", "Seattle", "Bellevue", "Ballard", "New York", "Atlanta", "Kent", "Renton", "Redmond", "Las Vegas", "Redmond", "Bellevue", "Kent"];
+          var cities = ["San Diego", "Seattle", "Bellevue", "Ballard", "New York", "Atlanta", "Kent", "Redmond", "Las Vegas", "Redmond", "Bellevue", "Kent"];
           return cities[index];
       }
 
