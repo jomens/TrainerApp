@@ -13,5 +13,17 @@ angular.module('TrainerApp')
               $location.path("/");
               $scope.$apply();
           });
+
+      
       }
+
+      //Facebook, Google, etc
+      //$scope.login = function () {
+     
+      //    Identity.login(function (u) {
+      //        console.log(u);
+      //    }, function (e) {
+      //        console.log(e);
+      //    })
+      //}
   });

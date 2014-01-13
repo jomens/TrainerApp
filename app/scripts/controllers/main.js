@@ -5,17 +5,18 @@ angular.module('TrainerApp')
       init();
       
       function init() {
+
          // $rootScope.title = "GYM";
           // $rootScope.subTitle = "RABBIT";
           Settings.init();
 
        var  user =  Identity.getLoggedInUser();
-         if (user) {
-             if (user.isTrainer) {
+       if (user) {
+           if (user.isTrainer) {
                  loadTrainerData();
              }
 
-             if (user.isUser) {
+           if (user.isUser) {
                  loadUserData();
              }
          }
@@ -41,6 +42,8 @@ angular.module('TrainerApp')
       }
 
       function loadUserData() {
+          console.log("xxx load user data()");
+
           var user = Identity.getLoggedInUser();
           $scope.clients = [user];
           getUserRoutines($scope.clients, function () {

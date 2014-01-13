@@ -65,6 +65,14 @@ angular.module('TrainerApp')
             });
 
         },
+        //login: function (success, error) { //facebook, google etc
+        //    //Azure.Client().login("microsoftaccount").then(function () {
+        //    //Azure.Client().login("google").then(function () {
+        //    //Azure.Client().login("twitter").then(function () {
+        //        Azure.Client().login("facebook").then(function () {
+        //            success(Azure.Client().currentUser);
+        //    }, error);
+        //}
     }
 
     ////PIN

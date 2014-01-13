@@ -173,14 +173,14 @@
         <div id="myModal" class="reveal-modal tiny" data-reveal>
             <h4>Send a quick note.</h4>
             <div class="row">
-                <div class="small-3 columns">
+                <div class="small-5 medium-3 columns">
                     <div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">
                         <img ng-src="{{revealClient.imageUrl}}" alt="" />
                     </div>
                 </div>
 
-                <div class="small-9 columns">
-                    <textarea rows="5" placeholder="Enter notes">Hi {{revealClient.firstName}}, Great job! Keep up the good work!</textarea>
+                <div class="small-12 medium-9 columns">
+                    <textarea style="display: block; height: auto;" rows="3" placeholder="Enter notes">Hi {{revealClient.firstName}}, Great job! Keep up the good work!</textarea>
                     <button ng-click="sendNote()">Send note</button>
                 </div>
             </div>

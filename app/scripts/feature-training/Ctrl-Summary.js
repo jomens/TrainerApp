@@ -21,9 +21,11 @@ angular.module('TrainerApp')
           $(document).on('closed', '[data-reveal]', function () {
               var modal = $(this);
 
-              TrainerService.resetTrainingInfo();
-              $location.path("/");
-              $scope.$apply();
+              TrainerService.resetTrainingInfo(function () {
+                  $location.path("/");
+                  //$scope.$apply();
+              });
+             
           });
       }
   });

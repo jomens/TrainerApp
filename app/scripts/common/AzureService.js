@@ -52,6 +52,9 @@ angular.module('TrainerApp')
         CardioWorkoutResource: function () {
             return getResource("workouts_cardio");
         },
+        PersonalBestResource: function () {
+            return getResource("personal_best");
+        },
         //getTable: function (tableName) {
         //    return azureClient.getTable(getTableByEnvironment(tableName));
        // },
@@ -103,6 +106,9 @@ angular.module('TrainerApp')
               Notifier.done("Data loaded");
 
             }, Notifier.error);
+        },
+        Client: function () {
+            return azureClient;
         }
     };
 }]);

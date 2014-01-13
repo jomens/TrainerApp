@@ -17,6 +17,26 @@
         <div class="row">
             <div class="small-12 columns">
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                 
+                    <li ng-repeat="client in clients">
+                        <a ng-click="clientSelected(client)" class="panel block-panel">
+                            <div class="row">
+                                <div class="small-4 medium-5 large-4 columns">
+                                    <div class="avatar-wrapper">
+                                        <img ng-src="{{client.imageUrl}}" alt="" />
+                                    </div>
+                                </div>
+
+                                <div class="small-8 medium-7 large-8 columns client-info">
+                                    <h3 class="name"><small><span>{{client.firstName}}</span> <span class="show-for-large-up">{{client.lastName}}</span></small></h3> 
+                                    <h4 class="package"><small>Package: <span>5 sessions</span></small></h4>
+
+                                </div>
+                            </div> 
+
+                        </a>
+
+                    </li>
                     <!-- dummy data -->
                     <li>
                         <div class="panel">
@@ -96,26 +116,6 @@
                     </li>
 
                     <!-- end dummy data -->
-                    <li ng-repeat="client in clients">
-                        <a ng-click="clientSelected(client)" class="panel block-panel">
-                            <div class="row">
-                                <div class="small-4 medium-5 large-4 columns">
-                                    <div class="avatar-wrapper">
-                                        <img ng-src="{{client.imageUrl}}" alt="" />
-                                    </div>
-                                </div>
-
-                                <div class="small-8 medium-7 large-8 columns client-info">
-                                    <h3 class="name"><small><span>{{client.firstName}}</span> <span class="show-for-large-up">{{client.lastName}}</span></small></h3> 
-                                    <h4 class="package"><small>Package: <span>5 sessions</span></small></h4>
-
-                                </div>
-                            </div> 
-
-                        </a>
-
-                    </li>
-
 
                 </ul>
 

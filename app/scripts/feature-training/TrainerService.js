@@ -344,8 +344,8 @@ angular.module('TrainerApp')
                 })
             }
         },
-        resetTrainingInfo: function () {
-            this.updateTrainingStatus(false);
+        resetTrainingInfo: function (callback) {
+            this.updateTrainingStatus(false, callback);
 
             LocalStorage.setCurrentClient(null);
             LocalStorage.setCurrentRoutine(null);
@@ -353,7 +353,7 @@ angular.module('TrainerApp')
             LocalStorage.setRoutineDetails(null);
             LocalStorage.setTrainingSession(null);
         },
-        updateTrainingStatus: function (val) {
+        updateTrainingStatus: function (val, callback) {
             var that = this;
 
             var user = LocalStorage.getCurrentClient();
@@ -366,6 +366,10 @@ angular.module('TrainerApp')
                     if (trainer && user.id == trainer.id) {
                         trainer.training = val;
                         Identity.setLoggedInUser(trainer);
+                        
+                        if (callback) {
+                            callback();
+                        }
                         return;
                     }
             }
@@ -374,7 +378,9 @@ angular.module('TrainerApp')
                 trainer.training = val;
                 that.updateUser(trainer, function (tr) {
                     Identity.setLoggedInUser(tr);                    
-                    
+                    if (callback) {
+                        callback();
+                    }
                 });
             }
        
