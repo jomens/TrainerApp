@@ -11,10 +11,11 @@ angular.module('TrainerApp')
         
           //$rootScope.title = $scope.workout.exerciseName;
           //$rootScope.subTitle = "";
-
+          //checkDisabled();
           getLastWorkout();
      }
 
+    
       function getLastWorkout() {
           TrainerService.getLastWorkout(function (result) {
               var lastWkt;
@@ -41,6 +42,10 @@ angular.module('TrainerApp')
       }
 
       $scope.addSet = function () {
+          //if (!$scope.set.weight && !$scope.set.reps) {
+          //    return;
+          //}
+          
           $scope.workout = TrainerService.addSetToWorkout($scope.set); 
           $scope.set = { weight: "", reps: "" };    
       }

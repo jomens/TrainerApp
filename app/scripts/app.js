@@ -2,11 +2,12 @@
 
 angular.module('TrainerApp', [
   'ngCookies',
+  'ngRoute',
   'ngResource',
   'ngSanitize',
+  'ngAnimate',
   'googlechart'
-])
-    .config(['$httpProvider', function ($httpProvider) {
+]).config(['$httpProvider', function ($httpProvider) {
         $httpProvider.defaults.headers.common['X-ZUMO-APPLICATION'] = 'zhlqVKKbFuYRyxvFatNOtEUpoCzmQQ84';
     $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
 }
@@ -57,11 +58,19 @@ angular.module('TrainerApp', [
           templateUrl: 'scripts/feature-acct-mgmt/v-myClients.html',
           controller: 'MyclientsCtrl'
       })
+      .when('/myClients', {
+          templateUrl: 'scripts/feature-acct-mgmt/v-myClients.html',
+          controller: 'MyclientsCtrl'
+      })
       .when('/myTrainers/:id', {
           templateUrl: 'scripts/feature-acct-mgmt/v-myTrainers.html',
           controller: 'MyTrainersCtrl'
       })
       .when('/myRoutines/:id', {
+          templateUrl: 'scripts/feature-training/v-myRoutines.html',
+          controller: 'MyroutinesCtrl'
+      })
+      .when('/myRoutines', {
           templateUrl: 'scripts/feature-training/v-myRoutines.html',
           controller: 'MyroutinesCtrl'
       })
@@ -79,7 +88,11 @@ angular.module('TrainerApp', [
       })
       .when('/go/:id', {
           templateUrl: 'scripts/feature-training/v-go.html',
-        controller: 'GoCtrl'
+          controller: 'GoCtrl'
+      })
+      .when('/go', {
+          templateUrl: 'scripts/feature-training/v-go.html',
+          controller: 'GoCtrl'
       })
       .when('/workout', {
           templateUrl: 'scripts/feature-training/v-workout.html',

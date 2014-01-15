@@ -5,16 +5,37 @@
 .block-center{
     display: block;
     text-align: center;
-}
+} 
 body {
     background: #fafafa;
     font-family:"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     /*color: #333;*/
+
     color: @bodyColor;
 font-style: normal;
+} 
+
+.xxboom {
+    .transition(.6s transform);
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
+.xxboom.ng-enter {  
+         .scale(0);  
+  opacity: 0;
+}
+.xxboom.ng-enter-stagger {  
+         //.delay(.3s); 
+          // .duration(0); 
 
-
+}
+.xxboom.ng-enter.ng-enter-active {
+    .scale(1);    
+    opacity: 1;
+}
 
 .block {
     display: block;
@@ -324,6 +345,7 @@ display: block;
 
     }
 }
+.icon-link.link{color: @foundation-blue;}
 
 .italics{
     font-style: italic; 

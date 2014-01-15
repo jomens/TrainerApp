@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService, Azure, Settings) {
+  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService, Azure, Settings, $timeout) {
       init();
       
       function init() {
@@ -31,12 +31,15 @@ angular.module('TrainerApp')
           TrainerService.getNonRemoteClients(function (clients) {
               $scope.clients = clients;
               $scope.$apply();
-              getUserRoutines($scope.clients);
+              
+                  getUserRoutines($scope.clients);
+
           });
 
           TrainerService.getRemoteClients(function (remoteClients) {
               $scope.remoteClients = remoteClients;
               $scope.$apply();
+              
               getUserRoutines($scope.remoteClients);
           });
       }

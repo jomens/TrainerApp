@@ -10,7 +10,10 @@
             <div class="small-6 medium-4 columns">
                 <!--<a href="" ng-click="endWorkout()" class="button  success">Continue to next exercise</a>-->
 
-                <!--<a href="" ng-click="endWorkout()" class="icon-link"><i class="fi-arrow-left size-72"></i><span>back to exercises</span></a>-->
+<!--                <a href="" ng-click="endWorkout()" class="icon-link"><i class="fi-arrow-left size-72"></i><span>back to exercises</span></a>-->
+            
+          <a href="" class="button warning" ng-click="endWorkout()">Continue to next workout <i class="fi-arrow-right size-72"></i></a>
+
             </div>
         </div>
     </div>
@@ -23,9 +26,65 @@
 
         <div class="row">
             <div class="small-12 medium-6 columns">
+
                 <div class="row">
                     <div class="small-12 columns">
-                        <h6>Enter your sets</h6>
+
+                        <form ng-submit="addSet()" ng-model="set">
+                            <div class="row">
+                                <div class="small-12 columns">
+                                                                    <h5>Enter your sets</h5>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-6 columns">
+
+                                    <div class="row collapse">
+                                        <label for="weight">Weight:</label>
+                                        <div class="small-9 columns">
+                                            <input type="number" placeholder="0.00" ng-model="set.weight" required />
+                                        </div>
+                                        <div class="small-3 columns">
+                                            <span class="postfix">lbs</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="small-6 columns">
+                                    <div class="row collapse">
+                                        <label for="reps">Reps:</label>
+                                        <div class="small-9 columns">
+                                            <input type="number" placeholder="0" ng-model="set.reps" required />
+                                        </div>
+                                        <div class="small-3 columns">
+                                            <span class="postfix">reps</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <div class="button-bar">
+                                        <ul class="button-group">
+                                            <li><input class="button" type="submit" value="Save set"/></li>
+                                            <!--<li><a href="#" class="small button">Button 2</a></li>-->
+                                        </ul>
+                                        <ul class="button-group">
+                                            <!--<li><a href="#" class="small button">Button 1</a></li>-->
+<!--                                            <li><a href="" class="button warning" ng-click="endWorkout()">Next workout <i class="fi-arrow-right size-72"></i></a></li>-->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            
+                     <div class="row">
+                    <div class="small-12 columns">
                         <div class="panel">
                             <div class="row">
                                 <div class="small-12 columns">
@@ -67,56 +126,7 @@
 
 
                 </div>
-
-                <div class="row">
-                    <div class="small-12 columns">
-
-                        <form ng-submit="addSet()" ng-model="set">
-
-                            <div class="row">
-                                <div class="small-6 columns">
-                                    <div class="row collapse">
-                                        <label for="weight">Weight:</label>
-                                        <div class="small-9 columns">
-                                            <input type="number" placeholder="0.00" ng-model="set.weight" required />
-                                        </div>
-                                        <div class="small-3 columns">
-                                            <span class="postfix">lbs</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="small-6 columns">
-                                    <div class="row collapse">
-                                        <label for="reps">Reps:</label>
-                                        <div class="small-9 columns">
-                                            <input type="number" placeholder="0" ng-model="set.reps" required />
-                                        </div>
-                                        <div class="small-3 columns">
-                                            <span class="postfix">reps</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="small-12 columns">
-                                    <div class="button-bar">
-                                        <ul class="button-group">
-                                            <li><input class="button" type="submit" value="Save set" /></li>
-                                            <!--<li><a href="#" class="small button">Button 2</a></li>-->
-                                        </ul>
-                                        <ul class="button-group">
-                                            <!--<li><a href="#" class="small button">Button 1</a></li>-->
-                                            <li><a href="" class="button warning" ng-click="endWorkout()">Next workout <i class="fi-arrow-right size-72"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
+       
             </div>
 
 

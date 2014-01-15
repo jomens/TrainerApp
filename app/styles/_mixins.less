@@ -17,6 +17,20 @@
 	-o-transition:      @transition;  
     transition:      @transition; 
 }
+.delay (@delay) {
+	-webkit-transition-delay: @delay;  
+	-moz-transition-delay:    @delay;
+	-ms-transition-delay:     @delay; 
+	-o-transition-delay:      @delay;  
+    transition-delay:      @delay; 
+}
+.duration (@duration) {
+	-webkit-transition-duration: @duration;  
+	-moz-transition-duration:    @duration;
+	-ms-transition-duration:     @duration; 
+	-o-transition-duration:      @duration;  
+    transition-duration:      @duration; 
+}
 .transform(@string){
 	-webkit-transform: @string;
 	-moz-transform: 	 @string;

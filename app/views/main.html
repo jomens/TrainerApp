@@ -8,7 +8,7 @@
             </div>
 
             <div class="small-5 medium-4 columns">
-                <a href="" class="icon-link" ng-click="gotoUserPortal()" ng-show="loggedInUser"><i class="fi-torso-business size-72"></i><span>my portal</span></a>
+                <a href="" class="icon-link link" ng-click="gotoUserPortal()" ng-show="loggedInUser"><i class="fi-torso-business size-72"></i><span>Trainer portal</span></a>
             </div>
         </div>
 
@@ -21,24 +21,24 @@
 
             </div>
 
-          
+
         </div>-->
 
         <section class="padded">
             <div class="row">
                 <div class="small-12 medium-6 large-4 columns">
-                    <h3 ng-show="loggedInUser.isTrainer"><i class="step fi-calendar size-72"></i> <span>My appointments</span> <span> | <small><a href="">See all</a></small></span></h3>
+                    <h3 ng-show="loggedInUser.isTrainer"><i class="step fi-calendar size-72"></i> <span>My appointments</span> <span> | <small><a href="#/myClients">See all</a></small></span></h3>
 
                     <ul class="small-block-grid-1 medium-block-grid-1">
 
-                        <li ng-repeat="client in clients">
+                        <li ng-repeat="client in clients" class="xxboom">
                             <a href="" ng-click="clientSelected(client)" class="card">
                                 <div class="row">
                                     <!--<div class="small-3 columns">
-                        <h2 class="appt-time">
-                            <span class="main">{{$index + 1}}</span><sup class="am-pm">PM</sup>
-                        </h2>
-                    </div>-->
+                                        <h2 class="appt-time">
+                                            <span class="main">{{$index + 1}}</span><sup class="am-pm">PM</sup>
+                                        </h2>
+                                    </div>-->
 
                                     <div class="small-3 columns">
                                         <div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">
@@ -64,7 +64,7 @@
                                                 <p class="main-content" ng-hide="client.routine">no routine assigned today</p>
 
                                                 <!--<h5 ng-show="client.routine">{{client.routine.name}}</h5>
-                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>-->
+                                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>-->
                                             </div>
                                         </div>
 
@@ -99,17 +99,17 @@
 
                 <!--remote clients-->
                 <div class="small-12 medium-6 large-8 columns">
-                    <h3 ng-show="loggedInUser.isTrainer"><i class="step fi-map size-72"></i> <span>Remote clients</span> <span>| <small><a href="">See all</a></small></span></h3>
+                    <h3 ng-show="loggedInUser.isTrainer"><i class="step fi-map size-72"></i> <span>Remote clients</span> <span>| <small><a href="#/myClients">See all</a></small></span></h3>
                     <ul class="small-block-grid-1 large-block-grid-2">
 
-                        <li ng-repeat="client in remoteClients">
+                        <li ng-repeat="client in remoteClients" class="xxboom">
                             <div ng-click="" class="card">
                                 <div class="row">
                                     <!--<div class="small-3 columns">
-                        <h2 class="appt-time">
-                            <span class="main">{{$index + 1}}</span><sup class="am-pm">PM</sup>
-                        </h2>
-                    </div>-->
+                                        <h2 class="appt-time">
+                                            <span class="main">{{$index + 1}}</span><sup class="am-pm">PM</sup>
+                                        </h2>
+                                    </div>-->
 
                                     <div class="small-3 columns">
                                         <div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">
@@ -133,7 +133,7 @@
                                                 <p class="main-content" ng-show="client.routine">{{client.routine.name}}</p>
                                                 <p class="main-content" ng-hide="client.routine">no routine assigned today</p>
                                                 <!--<h5 ng-show="client.routine">{{client.routine.name}}</h5>
-                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>-->
+                                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>-->
                                             </div>
                                         </div>
 
@@ -187,11 +187,13 @@
 
             <div class="row">
                 <div class="small-12">
-                   
+
 
                 </div>
             </div>
             <a class="close-reveal-modal" ng-click="closeReveal()">&#215;</a>
         </div>
+
+
     </div>
 </div>

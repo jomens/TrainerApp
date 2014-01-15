@@ -1,27 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.20827.3
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TrainerApp", "http://localhost:8436", "{54193CE2-D43A-42D3-A59C-236F7BB9F38E}"
+# Visual Studio 2012
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TrainerApp", ".", "{54193CE2-D43A-42D3-A59C-236F7BB9F38E}"
 	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
+		Frontpage = "false"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_8436"
+		Debug.AspNetCompiler.VirtualPath = "/TrainerApp"
 		Debug.AspNetCompiler.PhysicalPath = "..\TrainerApp\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_8436\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\TrainerApp\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_8436"
+		Release.AspNetCompiler.VirtualPath = "/TrainerApp"
 		Release.AspNetCompiler.PhysicalPath = "..\TrainerApp\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_8436\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\TrainerApp\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "..\TrainerApp\"
+		VWDPort = "1408"
 	EndProjectSection
 EndProject
 Global
