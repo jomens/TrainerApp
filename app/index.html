@@ -107,6 +107,30 @@
             </aside>
 
             <section class="main-section">
+                <div class="big-hero" ng-show="heroOn">
+<!--                <img src="images/fio1.jpg" alt="" class="big-hero-img">-->
+                <img class="big-hero-img" data-interchange="[images/fio1.jpg, (default)], [images/fio1_phone.jpg, (small)],  [images/fio1_tablet.jpg, (medium)], [images/fio1.jpg, (large)]">
+                
+                    <div class="row-wrapper">
+                    <div class="row">
+                        <div class="hero-text">
+                            <div class="row">
+                                <div class="small-12 large-8 columns">
+                                    <h1>Welcome, Steve</h1>
+                                    <h4>"{{quote.quote}}" <span class="subheader"> {{quote.author}}</span></h4>
+<!--                                    <a href="#/" class="button">Lets go!</a>-->
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+                
+                
                 <div class="container" ng-view=""></div>
             </section>
 
@@ -212,6 +236,7 @@
     <script src="scripts/feature-user-profiles\Ctrl-UserProfile.js"></script>
     <script src="vendor/ng-google-chart.js"></script>
     <script src="scripts/controllers/progress-chart.js"></script>
+    <script src="scripts/controllers\welcome.js"></script>
     <!-- endbuild -->
 </body>
 </html>

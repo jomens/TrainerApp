@@ -142,6 +142,10 @@ angular.module('TrainerApp', [
           templateUrl: 'views/progress-chart.html',
           controller: 'ProgressChartCtrl'
       })
+      .when('/welcome', {
+        templateUrl: 'views/welcome.html',
+        controller: 'WelcomeCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       }); 
