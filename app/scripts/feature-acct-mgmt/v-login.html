@@ -4,7 +4,7 @@
 
         <form data-abide ng-submit="login()" ng-model="login">
                         
-            <div class="row">
+            <!--<div class="row">
                 <div class="small-12 medium-6 columns">
                     <label>Email</label>
                     <input type="email" placeholder="Email" ng-model="login.email" required />
@@ -12,18 +12,31 @@
 
             </div>
 
-        
-
             <div class="row">
                 <div class="small-12 medium-6 columns">
                     <label>PIN Number:</label>
                     <input type="password" placeholder="1234" ng-model="login.pin" required maxlength="4" />
                 </div>
+            </div>-->
+
+            <!--<div class="row">
+                <div class="small-12 columns">
+                    <input class="button" type="submit" value="Login" />
+                </div>
+            </div>-->
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <a class="button" ng-click="login('facebook')">Login in with Facebook</a>
+                    <a class="button" ng-click="login('google')">Login in with Google</a>
+                    <a class="button" ng-click="login('microsoftaccount')">Login in with Microsoft Account</a>
+                    <a class="button" ng-click="login('twitter')">Login in with Twitter</a>
+                </div>
             </div>
 
             <div class="row">
                 <div class="small-12 columns">
-                    <input class="button" type="submit" value="Login" />
+                    <a class="button danger" ng-click="logout()">***LOGOUT***</a>
                 </div>
             </div>
         </form>

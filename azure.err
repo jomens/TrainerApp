@@ -1,0 +1,31 @@
+Sat Feb 08 2014 21:06:30 GMT-0800 (Pacific Standard Time):
+{ [Error: No account information found. Please import credentials using "azure account import <file>".]
+  stack: [Getter/Setter],
+  __frame: 
+   { name: 'promptServiceNameIfNotGiven',
+     line: 33,
+     file: 'C:\\Users\\noahaddy\\AppData\\Roaming\\npm\\node_modules\\azure-cli\\lib\\commands\\mobile._js',
+     prev: 
+      { name: '__27',
+        line: 3173,
+        file: 'C:\\Users\\noahaddy\\AppData\\Roaming\\npm\\node_modules\\azure-cli\\lib\\commands\\mobile._js',
+        prev: undefined,
+        active: false,
+        offset: 1,
+        col: 32 },
+     active: false,
+     offset: 1,
+     col: 17 },
+  rawStack: [Getter] }
+Error: No account information found. Please import credentials using "azure account import <file>".
+    at Object.readFromFile (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\util\keyFiles.js:32:11)
+    at AccountClient.__.extend.managementCertificate (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\core\subscriptionclient.js:356:21)
+    at AccountClient.__.extend.getCurrentSubscription (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\core\subscriptionclient.js:48:35)
+    at AzureCli.account.getCurrentSubscription (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\account._js:99:26)
+    at getBaseChannel (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\mobile._js:77:55)
+    at getMobileChannel (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\mobile._js:96:19)
+    at AzureCli.mobile.listServices (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\mobile._js:125:19)
+    at promptServiceNameIfNotGiven.cli.interaction.chooseIfNotGiven.result (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\mobile._js:36:16)
+    at promptServiceNameIfNotGiven (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\mobile._js:34:17)
+    at __27 (C:\Users\noahaddy\AppData\Roaming\npm\node_modules\azure-cli\lib\commands\mobile._js:3174:32)
+

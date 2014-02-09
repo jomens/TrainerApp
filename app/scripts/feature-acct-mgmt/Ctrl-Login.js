@@ -8,22 +8,27 @@ angular.module('TrainerApp')
       function init() {
       }
 
-      $scope.login = function () {
-          Identity.login($scope.login, function () {
-              $location.path("/");
-              $scope.$apply();
-          });
+      //$scope.login = function () {
+      //    Identity.login($scope.login, function () {
+      //        $location.path("/");
+      //        $scope.$apply();
+      //    });
 
       
-      }
+      //}
 
       //Facebook, Google, etc
-      //$scope.login = function () {
+      $scope.login = function (authService) {
      
-      //    Identity.login(function (u) {
-      //        console.log(u);
-      //    }, function (e) {
-      //        console.log(e);
-      //    })
-      //}
+          Identity.login(authService, function (u) {
+              Identity.userLoggedIn = true;
+              //$location.path("/");
+              //$scope.$apply();
+              console.log(u);
+          }, function (e) {
+              console.log(e);
+          })
+      }
+
+      $scope.logout = Identity.logout;
   });

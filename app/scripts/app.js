@@ -8,23 +8,23 @@ angular.module('TrainerApp', [
   'ngAnimate',
   //'googlechart'
 ]).config(['$httpProvider', function ($httpProvider) {
-        $httpProvider.defaults.headers.common['X-ZUMO-APPLICATION'] = 'zhlqVKKbFuYRyxvFatNOtEUpoCzmQQ84';
+    $httpProvider.defaults.headers.common['X-ZUMO-APPLICATION'] = 'zhlqVKKbFuYRyxvFatNOtEUpoCzmQQ84';
     $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
 }
 ])
 .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+          templateUrl: 'views/main.html',
+          controller: 'MainCtrl'
       })
       .when('/signup', {
           templateUrl: 'scripts/feature-acct-mgmt/v-signup.html',
-        controller: 'SignupCtrl'
+          controller: 'SignupCtrl'
       })
       .when('/admin', {
-        templateUrl: 'views/admin.html',
-        controller: 'AdminCtrl'
+          templateUrl: 'views/admin.html',
+          controller: 'AdminCtrl'
       })
       .when('/addClient', {
           templateUrl: 'scripts/feature-acct-mgmt/v-addClient.html',
@@ -39,12 +39,12 @@ angular.module('TrainerApp', [
           controller: 'AddTrainerCtrl'
       })
       .when('/superadmin', {
-        templateUrl: 'views/superadmin.html',
-        controller: 'SuperadminCtrl'
+          templateUrl: 'views/superadmin.html',
+          controller: 'SuperadminCtrl'
       })
       .when('/trainer', {
-        templateUrl: 'scripts/feature-training/v-trainer.html',
-        controller: 'TrainerCtrl'
+          templateUrl: 'scripts/feature-training/v-trainer.html',
+          controller: 'TrainerCtrl'
       })
       .when('/createRoutine', {
           templateUrl: 'scripts/feature-training/v-createRoutine.html',
@@ -80,11 +80,11 @@ angular.module('TrainerApp', [
       })
       .when('/selectClient', {
           templateUrl: 'scripts/feature-training/v-selectClient.html',
-        controller: 'SelectclientCtrl'
+          controller: 'SelectclientCtrl'
       })
       .when('/selectRoutine', {
           templateUrl: 'scripts/feature-training/v-selectRoutine.html',
-        controller: 'SelectroutineCtrl'
+          controller: 'SelectroutineCtrl'
       })
       .when('/go/:id', {
           templateUrl: 'scripts/feature-training/v-go.html',
@@ -96,27 +96,27 @@ angular.module('TrainerApp', [
       })
       .when('/workout', {
           templateUrl: 'scripts/feature-training/v-workout.html',
-        controller: 'WorkoutCtrl'
+          controller: 'WorkoutCtrl'
       })
       .when('/summary', {
           templateUrl: 'scripts/feature-training/v-summary.html',
-        controller: 'SummaryCtrl'
+          controller: 'SummaryCtrl'
       })
       .when('/cardio', {
           templateUrl: 'scripts/feature-training/v-cardio.html',
-        controller: 'CardioCtrl'
+          controller: 'CardioCtrl'
       })
       .when('/login', {
           templateUrl: 'scripts/feature-acct-mgmt/v-login.html',
-        controller: 'LoginCtrl'
+          controller: 'LoginCtrl'
       })
       .when('/pinreset', {
           templateUrl: 'scripts/feature-acct-mgmt/v-pinreset.html',
-        controller: 'PinresetCtrl'
+          controller: 'PinresetCtrl'
       })
       .when('/addFitnessChain', {
           templateUrl: 'scripts/feature-acct-mgmt/v-addFitnessChain.html',
-        controller: 'AddfitnesschainCtrl'
+          controller: 'AddfitnesschainCtrl'
       })
       .when('/addFitnessCenter', {
           templateUrl: 'scripts/feature-acct-mgmt/v-addFitnessCenter.html',
@@ -124,15 +124,15 @@ angular.module('TrainerApp', [
       })
       .when('/userPortal', {
           templateUrl: 'scripts/feature-acct-mgmt/v-userPortal.html',
-        controller: 'UserportalCtrl'
+          controller: 'UserportalCtrl'
       })
       .when('/fitnessChainPortal', {
           templateUrl: 'scripts/feature-acct-mgmt/v-fitnessChainPortal.html',
-        controller: 'FitnesschainportalCtrl'
+          controller: 'FitnesschainportalCtrl'
       })
       .when('/fitnessCenterPortal', {
           templateUrl: 'scripts/feature-acct-mgmt/v-fitnessCenterPortal.html',
-        controller: 'FitnesscenterportalCtrl'
+          controller: 'FitnesscenterportalCtrl'
       })
       .when('/userProfile/:id', {
           templateUrl: 'scripts/feature-user-profiles/v-userProfile.html',
@@ -143,6 +143,18 @@ angular.module('TrainerApp', [
           controller: 'ProgressChartCtrl'
       })
       .otherwise({
-        redirectTo: '/'
-      }); 
-  });
+          redirectTo: '/'
+      });
+})
+.run(function ($rootScope, $location, Identity) {
+
+    $rootScope.$on('$routeChangeStart', function (evt, next, current) {
+        if (!Identity.userLoggedIn) {
+            if (next.templateUrl === "login.html") {
+
+            } else {
+                $location.path("/login");
+            }
+        }
+    });
+});
