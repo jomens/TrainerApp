@@ -5,7 +5,6 @@ angular.module('TrainerApp')
       init();
       
       function init() {
-
          // $rootScope.title = "GYM";
           // $rootScope.subTitle = "RABBIT";
           Settings.init();

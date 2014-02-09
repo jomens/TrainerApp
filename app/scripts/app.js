@@ -6,7 +6,7 @@ angular.module('TrainerApp', [
   'ngResource',
   'ngSanitize',
   'ngAnimate',
-  'googlechart'
+  //'googlechart'
 ]).config(['$httpProvider', function ($httpProvider) {
         $httpProvider.defaults.headers.common['X-ZUMO-APPLICATION'] = 'zhlqVKKbFuYRyxvFatNOtEUpoCzmQQ84';
     $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
