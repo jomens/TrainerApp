@@ -532,3 +532,28 @@ overflow-y: hidden;
   padding: .3rem;
   border-radius: 100%;
 }
+.big-hero {
+  overflow: hidden;
+  position: relative;
+}
+.big-hero .row-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.big-hero .row-wrapper .row {
+  position: relative;
+}
+.big-hero .row-wrapper .hero-text {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+}
+.big-hero .row-wrapper .hero-text h1,
+.big-hero .row-wrapper .hero-text h4,
+.big-hero .row-wrapper .hero-text .subheader {
+  color: #fff;
+}
+.big-hero .row-wrapper .hero-text .subheader {
+  font-style: italic;
+}
