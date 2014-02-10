@@ -8,24 +8,18 @@ angular.module('TrainerApp')
       function init() {
       }
 
-      //$scope.login = function () {
-      //    Identity.login($scope.login, function () {
-      //        $location.path("/");
-      //        $scope.$apply();
-      //    });
-
       
-      //}
-
       //Facebook, Google, etc
       $scope.login = function (authService) {
      
           Identity.login(authService, function (u) {
-              Identity.userLoggedIn = true;
-              //$location.path("/");
-              //$scope.$apply();
-              console.log(u);
+              $location.path("/");
+              $scope.$apply();
           }, function (e) {
+              console.log("error block called?");
+
+              $location.path("/signup");
+              $scope.$apply();
               console.log(e);
           })
       }

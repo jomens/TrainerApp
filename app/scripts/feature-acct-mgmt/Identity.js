@@ -5,7 +5,6 @@ angular.module('TrainerApp')
 
 
     return {
-        userLoggedIn: false,
         setPermissions: function (user) {
             switch (user.userType) {
                 case "trainer":
@@ -23,6 +22,11 @@ angular.module('TrainerApp')
             }
         },
         getLoggedInUser: function () {
+
+            if ($rootScope.loggedInUser) {
+                return $rootScope.loggedInUser;
+            }
+
             var user = LocalStorage.getLoggedInUser();
 
             if (user) {
@@ -35,55 +39,89 @@ angular.module('TrainerApp')
             LocalStorage.setLoggedInUser(user);
             $rootScope.loggedInUser = user;
         },
-        //logout: function () {
-        //    LocalStorage.setCurrentClient(null);
-        //    LocalStorage.setCurrentRoutine(null);
-        //    LocalStorage.setCurrentWorkout(null);
-        //    LocalStorage.setRoutineDetails(null);
-        //    LocalStorage.setTrainingSession(null);
-        //    LocalStorage.setLoggedInUser(null);
-        //    $rootScope.loggedInUser = null;
-        //},
-        //login: function (loginModel, callback) {
-        //    var that = this;
-        //    Azure.table("users").read({
-        //        where: {
-        //            email: loginModel.email,
-        //            pin: loginModel.pin
-        //        },
-        //        success: function (results) {
-        //            if (results && results[0]) {
-        //                var userObject = results[0];
-
-        //                that.setLoggedInUser(userObject);
-                       
-        //                callback();
-
-        //            } else {
-        //                Notifier.error("User  not found", true);
-        //            }
-        //        }
-        //    });
-
-        //},
         logout: function () {
             Azure.Client().logout();
+            LocalStorage.setCurrentClient(null);
+            LocalStorage.setCurrentRoutine(null);
+            LocalStorage.setCurrentWorkout(null);
+            LocalStorage.setRoutineDetails(null);
+            LocalStorage.setTrainingSession(null);
+            LocalStorage.setLoggedInUser(null);
+            $rootScope.loggedInUser = null;
         },
-        login: function (authService, success, error) { //facebook, google etc
-            //Azure.Client().login("microsoftaccount").then(function () {
-            //Azure.Client().login("google").then(function () {
-            //Azure.Client().login("twitter").then(function () {
-            Azure.Client().login(authService).then(function () {
-                
-                success(Azure.Client().currentUser);
+  
+        login: function (authService, success, error) { 
 
-                console.log("getting more user data...");
-                Azure.invokeApi({
-                    api: "getuser", success: function (data) {
-                        console.log(data);
+                var that = this;
+
+            Azure.Client().login(authService).then(function () {               
+
+                    Azure.table("users").read({
+                        where: {
+                            auth_userId: Azure.Client().currentUser.userId
+                        },
+                        success: function (results) {
+                            if (results && results[0]) {
+                                var userObject = results[0];
+
+                                that.setLoggedInUser(userObject);
+
+                                success(Azure.Client().currentUser);
+
+                            } else {
+                                Notifier.error("User  not found", true);
+                                error();
+                            }
+                        }
+                    });
+                
+
+            }, Notifier.error);
+        },
+        getAuthServiceData: function (success) {
+            Azure.invokeApi({
+                api: "getuser", success: function (data) {
+                    success(parseUserObject(data.result.myresult));
+                }
+            });
+
+            function parseUserObject(obj) {
+                if (obj.google) {
+                    return {
+                        auth_userId: obj.google.userId,
+                        firstName: obj.google.given_name,
+                        lastName: obj.google.family_name,
+                        gender: ""
                     }
-                })
-            }, error);
+                }
+
+                if (obj.facebook) {
+                    return {
+                        auth_userId: obj.facebook.userId,
+                        firstName: obj.facebook.first_name,
+                        lastName: obj.facebook.last_name,
+                        gender: ""
+                    }
+                }
+
+                if (obj.microsoft) {
+                    return {
+                        auth_userId: obj.microsoft.userId,
+                        firstName: obj.microsoft.first_name,
+                        lastName: obj.microsoft.last_name,
+                        gender: ""
+                    }
+                }
+
+                if (obj.twitter) {
+                    return {
+                        auth_userId: obj.twitter.userId,
+                        firstName: "",
+                        lastName: "",
+                        gender: ""
+                    }
+                }
+            }
         }
     }
 

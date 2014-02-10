@@ -138,9 +138,9 @@ angular.module('TrainerApp')
 
     //should this be users? will have associated accountID's, trainerId?, usertype? trainer?
     var User = function () { //this holds both trainers and users...but will have a
+        this.auth_userId = "";
         this.firstName = "";
         this.lastName = "";
-        this.pin = "0000";
         this.email = "";
         this.phone = "";
         this.userType = ""
@@ -269,10 +269,10 @@ angular.module('TrainerApp')
     }
 
     return {
-        User: function () { return getModel("user"); },
-        Routine: function () { return getModel("routine"); },
-        FitnessChain: function () { return getModel("fitnesschain"); },
-        FitnessCenter: function () { return getModel("fitnesscenter"); },
+        User: function () { return new User(); },
+        Routine: function () { return new Routine(); },
+        FitnessChain: function () { return new FitnessChain(); },
+        FitnessCenter: function () { return new FitnessCenter(); },
         Tags: function () { return Tags; },
         BodyParts: function () { return BodyParts; },
         CardioModes: function () { return CardioModes; },

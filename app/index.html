@@ -105,7 +105,7 @@
 
             <aside class="right-off-canvas-menu">
                 <ul class="off-canvas-list">
-                    <li>
+                    <li ng-controller="LoginCtrl">
                         <a ng-href="#/login" ng-click="login()" class="button success" ng-hide="loggedInUser">LOG IN</a>
                         <a ng-href="" ng-click="logout()" class="button alert" ng-show="loggedInUser">LOG OUT</a>
                     </li>
@@ -133,7 +133,7 @@
                         <div class="hero-text">
                             <div class="row">
                                 <div class="small-12 large-8 columns">
-                                    <h1>Welcome, Steve</h1>
+                                    <h1 ng-show="loggedInUser">Welcome, {{loggedInUser.firstName}}</h1>
                                     <h4>"{{quote.quote}}" <span class="subheader"> {{quote.author}}</span></h4>
 <!--                                    <a href="#/" class="button">Lets go!</a>-->
                                 </div>

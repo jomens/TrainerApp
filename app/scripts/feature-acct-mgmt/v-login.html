@@ -1,5 +1,12 @@
 <div class="row page">
 
+    <div class="row">
+        <div class="small-12 medium-8 columns">
+            <h3 class="page-title">Log in</h3>
+
+        </div>
+    </div>
+
     <div class="page-content">
 
         <form data-abide ng-submit="login()" ng-model="login">
@@ -25,20 +32,29 @@
                 </div>
             </div>-->
 
-            <div class="row">
-                <div class="small-12 columns">
-                    <a class="button" ng-click="login('facebook')">Login in with Facebook</a>
-                    <a class="button" ng-click="login('google')">Login in with Google</a>
-                    <a class="button" ng-click="login('microsoftaccount')">Login in with Microsoft Account</a>
-                    <a class="button" ng-click="login('twitter')">Login in with Twitter</a>
+            <div class="row log-in-btns" ng-hide="user">
+                <div class="small-12 medium-6 columns">
+                    <p>Log in with Facebook, Google, Microsoft or Twitter</p>
+                    <ul class="small-block-grid-4">
+                        <li>
+                            <a class="button" ng-click="login('facebook')"><span class="fi-social-facebook"></span></a>
+                        </li>
+                        <li>
+                            <a class="button warning" ng-click="login('google')"><span class="fi-social-google-plus"></span></a>
+                        </li>
+                        <li>
+                            <a class="ms-glyph" ng-click="login('microsoftaccount')">
+                                <!--<span class="fi-social-windows"></span>-->
+                                <img class="ad_glyph" src="https://secure.aadcdn.microsoftonline-p.com/aad/18.0.18781/images/MSA_Glyph.png" alt="Icon for Microsoft account">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="button" ng-click="login('twitter')"><span class="fi-social-twitter"></span></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="small-12 columns">
-                    <a class="button danger" ng-click="logout()">***LOGOUT***</a>
-                </div>
-            </div>
         </form>
 
     </div>

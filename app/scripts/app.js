@@ -82,15 +82,19 @@ angular.module('TrainerApp', [
           redirectTo: '/'
       });
 })
-.run(function ($rootScope, $location, Identity) {
+.run(function ($rootScope, $location, Identity, $timeout) {
 
-    //$rootScope.$on('$routeChangeStart', function (evt, next, current) {
-    //    if (!Identity.userLoggedIn) {
-    //        if (next.templateUrl === "login.html") {
+    $rootScope.$on('$routeChangeStart', function (evt, next, current) {
 
-    //        } else {
-    //            $location.path("/login");
-    //        }
-    //    }
-    //});
+        var user = Identity.getLoggedInUser();
+
+        if (!(user && user.auth_userId)) {
+            if (next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-signup.html") {
+
+            } else {
+                $location.path("/login");
+            }
+        }
+    });
+
 });
