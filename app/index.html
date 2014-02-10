@@ -13,13 +13,16 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.2/css/normalize.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.2/css/foundation.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/css/normalize.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/css/foundation.min.css" />
     <link href="foundation-icons/foundation-icons.css" rel="stylesheet" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css">
     <link href="jquery-ui-1.10.3.custom/css/custom-theme/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="styles/css/main.css"> 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.2/js/modernizr.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/main.min.css"> 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/js/vendor/modernizr.min.js"></script>
+
+
     <!-- endbuild -->
 </head>
 <body ng-app="TrainerApp">
@@ -44,22 +47,36 @@
 
                 <section class="middle tab-bar-section">
                     <a href="#/">
-                        <h1 class="title" ng-hide="title">FIO<span class="metro">TRAINER</span></h1>
-                        <h1 class="title" ng-show="title">{{title}}<span class="metro">{{subTitle}}</span></h1>
+                        <h1 class="title" ng-hide="title">
+                            FIO<span class="metro">TRAINER</span><span>
+                                <div class="progress-bar">
+                                    <div id="circularG">
+                                        <div id="circularG_1" class="circularG">
+                                        </div>
+                                        <div id="circularG_2" class="circularG">
+                                        </div>
+                                        <div id="circularG_3" class="circularG">
+                                        </div>
+                                        <div id="circularG_4" class="circularG">
+                                        </div>
+                                        <div id="circularG_5" class="circularG">
+                                        </div>
+                                        <div id="circularG_6" class="circularG">
+                                        </div>
+                                        <div id="circularG_7" class="circularG">
+                                        </div>
+                                        <div id="circularG_8" class="circularG">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </span>
+                        </h1>
+                        <h1 class="title" ng-show="title">
+                            {{title}}<span class="metro">{{subTitle}}</span> 
+                        </h1>
                     </a>
 
-                    <div class="progress-bar">
-                        <div id="outer-barG">
-                            <div id="front-barG" class="bar-animationG">
-                                <div id="barG_1" class="bar-lineG">
-                                </div>
-                                <div id="barG_2" class="bar-lineG">
-                                </div>
-                                <div id="barG_3" class="bar-lineG">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
               <section class="right-small top-a">
@@ -153,8 +170,8 @@
         ga('send', 'pageview');
     </script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.2/js/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.2/js/foundation.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/js/vendor/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/js/foundation.min.js"></script>
 
     <!--<script src="foundation-5.0.2/js/jquery.js"></script>
     <script src="foundation-5.0.2/js/foundation.min.js"></script>-->
@@ -192,8 +209,8 @@
     
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers\main.js"></script>
+    <script src="scripts/controllers\dashboard.js"></script>
     <script src="scripts/common\AzureService.js"></script>
     <script src="scripts/common\Notifier.js"></script>
     <script src="scripts/common\Environment.js"></script>

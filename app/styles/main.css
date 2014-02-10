@@ -1,4 +1,4 @@
-﻿.panel {
+.panel {
   padding: .8rem;
 }
 .off-canvas-list .button {
@@ -15,96 +15,152 @@ button,
 p {
   margin-bottom: .5rem;
 }
-#outer-barG {
-  height: 15px;
-  width: 139px;
-  overflow: hidden;
+#circularG {
+  position: relative;
+  width: 30px;
+  height: 30px;
 }
-.bar-lineG {
-  background-color: #1C88DB;
-  float: left;
-  width: 10px;
-  height: 65px;
-  margin-right: 13px;
-  margin-top: -15px;
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.bar-animationG {
-  margin-left: 91px;
-  width: 91px;
-  -moz-animation-name: bar-animationG;
-  -moz-animation-duration: 2.4s;
+.circularG {
+  position: absolute;
+  background-color: #00bcf2;
+  width: 7px;
+  height: 7px;
+  -moz-border-radius: 5px;
+  -moz-animation-name: bounce_circularG;
+  -moz-animation-duration: 1.2s;
   -moz-animation-iteration-count: infinite;
   -moz-animation-direction: linear;
-  -webkit-animation-name: bar-animationG;
-  -webkit-animation-duration: 2.4s;
+  -webkit-border-radius: 5px;
+  -webkit-animation-name: bounce_circularG;
+  -webkit-animation-duration: 1.2s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-direction: linear;
-  -ms-animation-name: bar-animationG;
-  -ms-animation-duration: 2.4s;
+  -ms-border-radius: 5px;
+  -ms-animation-name: bounce_circularG;
+  -ms-animation-duration: 1.2s;
   -ms-animation-iteration-count: infinite;
   -ms-animation-direction: linear;
-  -o-animation-name: bar-animationG;
-  -o-animation-duration: 2.4s;
+  -o-border-radius: 5px;
+  -o-animation-name: bounce_circularG;
+  -o-animation-duration: 1.2s;
   -o-animation-iteration-count: infinite;
   -o-animation-direction: linear;
-  animation-name: bar-animationG;
-  animation-duration: 2.4s;
+  border-radius: 5px;
+  animation-name: bounce_circularG;
+  animation-duration: 1.2s;
   animation-iteration-count: infinite;
   animation-direction: linear;
 }
-@-moz-keyframes bar-animationG {
+#circularG_1 {
+  left: 0;
+  top: 12px;
+  -moz-animation-delay: 0.45s;
+  -webkit-animation-delay: 0.45s;
+  -ms-animation-delay: 0.45s;
+  -o-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+#circularG_2 {
+  left: 3px;
+  top: 3px;
+  -moz-animation-delay: 0.6s;
+  -webkit-animation-delay: 0.6s;
+  -ms-animation-delay: 0.6s;
+  -o-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+#circularG_3 {
+  top: 0;
+  left: 12px;
+  -moz-animation-delay: 0.75s;
+  -webkit-animation-delay: 0.75s;
+  -ms-animation-delay: 0.75s;
+  -o-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
+#circularG_4 {
+  right: 3px;
+  top: 3px;
+  -moz-animation-delay: 0.9s;
+  -webkit-animation-delay: 0.9s;
+  -ms-animation-delay: 0.9s;
+  -o-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+#circularG_5 {
+  right: 0;
+  top: 12px;
+  -moz-animation-delay: 1.05s;
+  -webkit-animation-delay: 1.05s;
+  -ms-animation-delay: 1.05s;
+  -o-animation-delay: 1.05s;
+  animation-delay: 1.05s;
+}
+#circularG_6 {
+  right: 3px;
+  bottom: 3px;
+  -moz-animation-delay: 1.2s;
+  -webkit-animation-delay: 1.2s;
+  -ms-animation-delay: 1.2s;
+  -o-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+#circularG_7 {
+  left: 12px;
+  bottom: 0;
+  -moz-animation-delay: 1.35s;
+  -webkit-animation-delay: 1.35s;
+  -ms-animation-delay: 1.35s;
+  -o-animation-delay: 1.35s;
+  animation-delay: 1.35s;
+}
+#circularG_8 {
+  left: 3px;
+  bottom: 3px;
+  -moz-animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+  -ms-animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+@-moz-keyframes bounce_circularG {
   0% {
-    margin-left: 84px;
-    margin-top: -10px;
+    -moz-transform: scale(1);
   }
   100% {
-    margin-left: -69px;
-    margin-top: -10px;
+    -moz-transform: scale(0.3);
   }
 }
-@-webkit-keyframes bar-animationG {
+@-webkit-keyframes bounce_circularG {
   0% {
-    margin-left: 84px;
-    margin-top: -10px;
+    -webkit-transform: scale(1);
   }
   100% {
-    margin-left: -69px;
-    margin-top: -10px;
+    -webkit-transform: scale(0.3);
   }
 }
-@-ms-keyframes bar-animationG {
+@-ms-keyframes bounce_circularG {
   0% {
-    margin-left: 84px;
-    margin-top: -10px;
+    -ms-transform: scale(1);
   }
   100% {
-    margin-left: -69px;
-    margin-top: -10px;
+    -ms-transform: scale(0.3);
   }
 }
-@-o-keyframes bar-animationG {
+@-o-keyframes bounce_circularG {
   0% {
-    margin-left: 84px;
-    margin-top: -10px;
+    -o-transform: scale(1);
   }
   100% {
-    margin-left: -69px;
-    margin-top: -10px;
+    -o-transform: scale(0.3);
   }
 }
-@keyframes bar-animationG {
+@keyframes bounce_circularG {
   0% {
-    margin-left: 84px;
-    margin-top: -10px;
+    transform: scale(1);
   }
   100% {
-    margin-left: -69px;
-    margin-top: -10px;
+    transform: scale(0.3);
   }
 }
 [ng\:cloak],
@@ -212,9 +268,20 @@ body {
   background: #fafafa;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   /*color: #333;*/
-
   color: #666666;
   font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+nav.tab-bar h1 {
+  font-weight: normal;
 }
 .xxboom {
   -webkit-transition: 0.6s transform;
@@ -258,13 +325,11 @@ body {
   text-align: right;
   /*  color: #008cba;
                font-size: 1.3rem;*/
-
   padding: 0;
   font-weight: 100;
   line-height: 1.4;
   /*margin-bottom: 0.2rem;    
         margin-top: 0.7rem;*/
-
 }
 .page-header .icon-link i {
   font-size: 1.2rem;
@@ -273,12 +338,14 @@ body {
   text-transform: uppercase;
 }
 .progress-bar {
-  display: none;
+  display: inline-block;
   position: relative;
-  top: -15px;
+  top: 7px;
+  left: 5px;
+  visibility: hidden;
 }
 .progress-bar.show {
-  display: block;
+  visibility: visible;
 }
 section.padded {
   margin: 2.5% 0;
@@ -331,7 +398,6 @@ a.nav-icon {
   color: #666666;
   font-size: 1.5rem;
   /*margin-left: 2rem;*/
-
 }
 .create-routine .exercise-selected {
   color: #7fba00;
@@ -443,7 +509,8 @@ overflow-y: scroll;
 }
 .off-canvas-wrap.move-left {
 overflow-y: hidden;
-}*/.card {
+}*/
+.card {
   margin-bottom: 0;
   padding: .8rem;
   background: #f2f2f2;
@@ -532,3 +599,29 @@ overflow-y: hidden;
   padding: .3rem;
   border-radius: 100%;
 }
+.big-hero {
+  overflow: hidden;
+  position: relative;
+}
+.big-hero .row-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.big-hero .row-wrapper .row {
+  position: relative;
+}
+.big-hero .row-wrapper .hero-text {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+}
+.big-hero .row-wrapper .hero-text h1,
+.big-hero .row-wrapper .hero-text h4,
+.big-hero .row-wrapper .hero-text .subheader {
+  color: #fff;
+}
+.big-hero .row-wrapper .hero-text .subheader {
+  font-style: italic;
+}
+/*# sourceMappingURL=main.css.map */

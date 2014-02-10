@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('CreateRoutineAssignmentCtrl', function ($scope, TrainerService, RoutineService) {
+  .controller('CreateRoutineAssignmentsCtrl', function ($scope, TrainerService, RoutineService) {
 
    
 

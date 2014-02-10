@@ -1,18 +1,5 @@
 <div class="row page">
-  <!--  <div class="page-header">
-        <div class="row">
-            <div class="small-7 medium-8 columns">
-                <h3 ng-show="loggedInUser.isUser"><i class="step fi-calendar size-72"></i> <span>Today's workout routine</span></h3>
-                <h5 ng-show="loggedInUser.isTrainer"><span>Welcome {{loggedInUser.firstName}}</span></h5>
 
-            </div>
-
-            <div class="small-5 medium-4 columns">
-                <a href="" class="icon-link link" ng-click="gotoUserPortal()" ng-show="loggedInUser"><i class="fi-torso-business size-72"></i><span>Trainer portal</span></a>
-            </div>
-        </div>
-
-    </div>-->
 
     <div class="page-content">
         <!--<div class="row" ng-show="loggedInUser.isTrainer">
@@ -27,173 +14,19 @@
         <section class="padded">
             <div class="row">
                 <div class="small-12 medium-6 large-4 columns">
-                    <h3 ng-show="loggedInUser.isTrainer"><i class="step fi-calendar size-72"></i> <span>My appointments</span> <span> | <small><a href="#/myClients">See all</a></small></span></h3>
 
-                    <ul class="small-block-grid-1 medium-block-grid-1">
-
-                        <li ng-repeat="client in clients" class="xxboom">
-                            <a href="" ng-click="clientSelected(client)" class="card">
-                                <div class="row">
-                                    <!--<div class="small-3 columns">
-                                        <h2 class="appt-time">
-                                            <span class="main">{{$index + 1}}</span><sup class="am-pm">PM</sup>
-                                        </h2>
-                                    </div>-->
-
-                                    <div class="small-3 columns">
-                                        <div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">
-                                            <img ng-src="{{client.imageUrl}}" alt="" />
-                                        </div>
-                                    </div>
-
-                                    <div class="small-9 columns">
-                                        <div class="row">
-                                            <div class="small-8 columns">
-                                                <h4><span>{{client.firstName | uppercase}}</span> </h4>
-                                            </div>
-
-                                            <div class="small-4 columns">
-                                                <p class="top-right"><i class="fi-clock size-72"> </i><span>{{$index + 1}}PM</span></p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="small-12 columns">
-                                                <!--<h5><span class="subheader"></span><i class="fi-clock size-72"> </i><span>5:30PM</span></h5>-->
-                                                <p class="main-content" ng-show="client.routine">{{client.routine.name}}</p>
-                                                <p class="main-content" ng-hide="client.routine">no routine assigned today</p>
-
-                                                <!--<h5 ng-show="client.routine">{{client.routine.name}}</h5>
-                                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>-->
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="small-8 columns">
-                                                <div class="bottom-left"></div>
-                                            </div>
-
-                                            <div class="small-4 columns">
-                                                <div class="bottom-right">
-                                                    <!--<span class="label warning">BODYFAT DUE</span>-->
-                                                    <!--<i class="fi-flag size-72"></i>-->
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--<span class="label warning">BODYFAT DUE</span>-->
-                                    </div>
-
-
-                                </div>
-
-                            </a>
-
-                        </li>
-
-
-                    </ul>
-
+                    <a class="button" ng-href="#/dashboard">Get started</a>
+                    <a class="button warning" ng-href="#/signup">Sign up</a>
                 </div>
 
-                <!--remote clients-->
-                <div class="small-12 medium-6 large-8 columns">
+                <!--<div class="small-12 medium-6 large-8 columns">
                     <h3 ng-show="loggedInUser.isTrainer"><i class="step fi-map size-72"></i> <span>Remote clients</span> <span>| <small><a href="#/myClients">See all</a></small></span></h3>
-                    <ul class="small-block-grid-1 large-block-grid-2">
 
-                        <li ng-repeat="client in remoteClients" class="xxboom">
-                            <div ng-click="" class="card">
-                                <div class="row">
-                                    <!--<div class="small-3 columns">
-                                        <h2 class="appt-time">
-                                            <span class="main">{{$index + 1}}</span><sup class="am-pm">PM</sup>
-                                        </h2>
-                                    </div>-->
-
-                                    <div class="small-3 columns">
-                                        <div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">
-                                            <img ng-src="{{client.imageUrl}}" alt="" />
-                                        </div>
-                                    </div>
-
-                                    <div class="small-9 columns">
-                                        <div class="row">
-                                            <div class="small-6 columns">
-                                                <h4><span>{{client.firstName | uppercase}}</span> <span><a href="" ng-click="reveal(client)" class="send-note" ng-show="client.training"><i class="fi-comment size-72"> </i></a></span></h4>
-                                            </div>
-                                            <div class="small-6 columns">
-                                                <p class="top-right"><i class="fi-marker size-72"> </i><span>{{getCity($index)}}</span></p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="small-12 columns">
-                                                <!--<h5><span class="subheader"></span><i class="fi-clock size-72"> </i><span>5:30PM</span></h5>-->
-                                                <p class="main-content" ng-show="client.routine">{{client.routine.name}}</p>
-                                                <p class="main-content" ng-hide="client.routine">no routine assigned today</p>
-                                                <!--<h5 ng-show="client.routine">{{client.routine.name}}</h5>
-                                                <h5 class="subheader" ng-hide="client.routine">no routine assigned today</h5>-->
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="small-6 columns">
-                                                <div class="bottom-left"></div>
-                                            </div>
-
-                                            <div class="small-6 columns">
-                                                <div class="bottom-right">
-                                                    <!--<span class="label warning">BODYFAT DUE</span>-->
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-
-                        </li>
-
-
-                    </ul>
-
-                </div>
+                </div>-->
             </div>
 
 
 
         </section>
-
-
-        <div id="myModal" class="reveal-modal tiny" data-reveal>
-            <h4>Send a quick note.</h4>
-            <div class="row">
-                <div class="small-5 medium-3 columns">
-                    <div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">
-                        <img ng-src="{{revealClient.imageUrl}}" alt="" />
-                    </div>
-                </div>
-
-                <div class="small-12 medium-9 columns">
-                    <textarea style="display: block; height: auto;" rows="3" placeholder="Enter notes">Hi {{revealClient.firstName}}, Great job! Keep up the good work!</textarea>
-                    <button ng-click="sendNote()">Send note</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="small-12">
-
-
-                </div>
-            </div>
-            <a class="close-reveal-modal" ng-click="closeReveal()">&#215;</a>
-        </div>
-
-
-    </div>
+ </div>
 </div>
