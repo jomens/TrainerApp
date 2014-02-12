@@ -55,7 +55,6 @@ angular.module('TrainerApp')
                 var that = this;
 
             Azure.Client().login(authService).then(function () {               
-
                     Azure.table("users").read({
                         where: {
                             auth_userId: Azure.Client().currentUser.userId
@@ -63,6 +62,7 @@ angular.module('TrainerApp')
                         success: function (results) {
                             if (results && results[0]) {
                                 var userObject = results[0];
+                                console.log("user found");
 
                                 that.setLoggedInUser(userObject);
 

@@ -1,7 +1,9 @@
 'use strict';
 
+
+
 angular.module('TrainerApp')
-  .controller('DashboardCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService, Azure, Settings, $timeout) {
+  .controller('DashboardCtrl', function ($scope, Identity, $location, TrainerService, RoutineService, Settings) {
       init();
       
       function init() {
@@ -43,7 +45,6 @@ angular.module('TrainerApp')
       }
 
       function loadUserData() {
-          console.log("xxx load user data()");
 
           var user = Identity.getLoggedInUser();
           $scope.clients = [user];
@@ -65,12 +66,7 @@ angular.module('TrainerApp')
           })
       }
            
-      $rootScope.logout = function () {
-          Identity.logout();
-          $location.path("/");
-          $route.reload();
-      }
-
+    
       $scope.clientSelected = function (client) {
 
           TrainerService.setCurrentClient(client);

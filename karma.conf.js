@@ -11,6 +11,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        'https://trainerapp.azure-mobile.net/client/MobileServices.Web-1.0.3.min.js',
+      'app/bower_components/jquery/jquery.js',
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-animate/angular-animate.js',

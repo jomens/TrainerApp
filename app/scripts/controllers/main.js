@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MainCtrl', function ($scope, $rootScope, Identity, $location, TrainerService, $route, RoutineService, Azure, Settings, $timeout) {
+  .controller('MainCtrl', function ($scope, $rootScope) {
       init();
       
       function init() {
-
           setupQuote();
+        
                
       }
       

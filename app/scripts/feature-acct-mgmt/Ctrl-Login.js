@@ -13,7 +13,7 @@ angular.module('TrainerApp')
       $scope.login = function (authService) {
      
           Identity.login(authService, function (u) {
-              $location.path("/");
+              $location.path("/dashboard");
               $scope.$apply();
           }, function (e) {
               console.log("error block called?");

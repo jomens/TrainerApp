@@ -22,7 +22,7 @@ angular.module('TrainerApp')
               var modal = $(this);
 
               TrainerService.resetTrainingInfo(function () {
-                  $location.path("/");
+                  $location.path("/dashboard");
                   //$scope.$apply();
               });
              

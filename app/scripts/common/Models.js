@@ -10,7 +10,7 @@ angular.module('TrainerApp')
                 continue;
             }
             else if (key.toLowerCase().indexOf("email") != -1) {
-                obj[key] = "email" + x + "@email.com";
+                //obj[key] = "email" + x + "@email.com";
             }
             else if (key.toLowerCase().indexOf("state") != -1) {
                 obj[key] = "WA";
@@ -25,10 +25,10 @@ angular.module('TrainerApp')
                 obj[key] = "555555555";
             }
             else if (key.toLowerCase().indexOf("firstname") != -1) {
-                obj[key] = "John" + x;
+               // obj[key] = "John" + x;
             }
             else if (key.toLowerCase().indexOf("lastname") != -1) {
-                obj[key] = "Doe" + x;
+                //obj[key] = "Doe" + x;
             }
             else if (key.toLowerCase().indexOf("name") != -1) {
                 obj[key] = "Company" + x;

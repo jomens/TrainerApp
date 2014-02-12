@@ -5,18 +5,20 @@ describe('Controller: MainCtrl', function () {
   // load the controller's module
   beforeEach(module('TrainerApp'));
 
-  var MainCtrl,
-    scope;
+  var MainCtrl;
+  var scope;
+  var rootScope = {};
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     MainCtrl = $controller('MainCtrl', {
-      $scope: scope
+        $scope: scope,
+        $rootScope: rootScope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(5);
+  it('should set hero on to true on rootScope', function () {
+    expect(rootScope.heroOn).toBe(true);
   });
 });

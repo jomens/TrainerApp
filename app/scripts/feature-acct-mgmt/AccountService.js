@@ -29,7 +29,7 @@ angular.module('TrainerApp')
                      callback(savedUser);
                  }
                  else {
-                     $location.path("/");
+                     $location.path("/dashboard");
                  }
 
              }, Notifier.errorHandler);
