@@ -20,8 +20,12 @@ angular.module('TrainerApp', [
                 simpleRoutes: ["Admin", "Superadmin", "Welcome", "Dashboard"]
             },
             {
+                name: "feature-signup",
+                simpleRoutes: ["Signup"],
+            },
+            {
                 name: "feature-acct-mgmt",
-                simpleRoutes: ["Signup", "Addclient", "AddTrainer", "Myclients", "Login", "Addfitnesschain",
+                simpleRoutes: ["Addclient", "AddTrainer", "Myclients", "Login", "Addfitnesschain",
                 "AddFitnessCenter", "Pinreset", "Userportal", "Fitnesschainportal", "Fitnesscenterportal"],
                 routesWithIds: ["EditClient", "Myclients", "MyTrainers"]
             },
@@ -77,7 +81,11 @@ angular.module('TrainerApp', [
       .when('/', {
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
-      })        
+      })
+      .when('/trainer-signup', {
+          templateUrl: 'scripts/feature-signup/v-trainer-signup.html',
+          controller: 'SignupCtrl'
+      })
       .otherwise({
           redirectTo: '/'
       });
@@ -97,4 +105,7 @@ angular.module('TrainerApp', [
         }
     });
 
+    $rootScope.$on('$viewContentLoaded', function () {
+        $(document).foundation();
+    });
 });

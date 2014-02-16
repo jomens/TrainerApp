@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('AddFitnessCenterCtrl', function ($scope, Signup, Models) {
+  .controller('AddFitnessCenterCtrl', function ($scope, SignupService, Models) {
 
       init();
 
@@ -13,7 +13,7 @@ angular.module('TrainerApp')
       }
 
       $scope.addFitnessCenter = function () {
-          Signup.addFitnessCenter($scope.gym, $scope.admin);
+          SignupService.addFitnessCenter($scope.gym, $scope.admin);
          // console.log($scope.gym)
           //console.log($scope.admin)
       }

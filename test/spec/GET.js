@@ -1,4 +1,9 @@
 ﻿var Get = {
+    Models: {
+        User: function(){
+            return {};
+        }
+    },
     mock: function (spyName) {
         return jasmine.createSpy( spyName || "mock-service")
     },

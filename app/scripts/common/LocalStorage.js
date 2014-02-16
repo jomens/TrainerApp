@@ -1,8 +1,11 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .factory('LocalStorage', function () {
-
+  .factory("Amplify", function () {
+      //var amplify =  amplify || {};
+      return amplify;
+  })
+  .factory('LocalStorage', function (Amplify) {
       var trainer;
       var loggedInUser;
       var currentClient;
@@ -12,83 +15,104 @@ angular.module('TrainerApp')
       var allExercises;
       var settings;
 
+      var StorageItem = function (key) {
+          this.key = key;
+          this.value = null;
+
+          this.set = function (data) {
+              Amplify.store(key, data);
+              this.value = data;
+          }
+
+          this.get = function () {
+              this.value = this.value || Amplify.store(this.key);
+              return this.value;
+          }
+      }
+
+      function setupStorageItem(item, key) {
+          item = item || new StorageItem(key);
+          return item;
+      }
+
       // Public API here
       return {
+          loggedInUser: function () { return setupStorageItem(loggedInUser, "loggedInUser"); },
           setLoggedInUser: function (user) {
-              amplify.store("loggedInUser", user);
+              Amplify.store("loggedInUser", user); 
               loggedInUser = user;
           },
           getLoggedInUser: function () {
-              loggedInUser = loggedInUser || amplify.store("loggedInUser");
+              loggedInUser = loggedInUser || Amplify.store("loggedInUser");
               return loggedInUser;
           },
           setCurrentClient: function (cc) {
-              amplify.store("currentclient", cc);
+              Amplify.store("currentclient", cc);
               currentClient = cc;
           },
           getCurrentClient: function () {
-              currentClient = currentClient || amplify.store("currentclient");
+              currentClient = currentClient || Amplify.store("currentclient");
               return currentClient;
           },
 
           setCurrentRoutine: function (rtn) {
-              amplify.store("currentroutine", rtn);
+              Amplify.store("currentroutine", rtn);
               currentRoutine = rtn;
           },
           getCurrentRoutine: function () {
-              currentRoutine = currentRoutine || amplify.store("currentroutine");
+              currentRoutine = currentRoutine || Amplify.store("currentroutine");
               return currentRoutine;
           },
 
           setCurrentWorkout: function (wkt) {
-              amplify.store("currentworkout", wkt);
+              Amplify.store("currentworkout", wkt);
               currentWorkout = wkt;
           },
           getCurrentWorkout: function () {
-              currentWorkout = currentWorkout || amplify.store("currentworkout");
+              currentWorkout = currentWorkout || Amplify.store("currentworkout");
               return currentWorkout;
           },
 
           getRoutineDetails: function () {
-                  return amplify.store("routineDetails");
+                  return Amplify.store("routineDetails");
 
           },
 
           setRoutineDetails: function(rtnDetails){
-              amplify.store("routineDetails", rtnDetails);
+              Amplify.store("routineDetails", rtnDetails);
 
           },
 
           setTrainingSession: function (ts) {
-              amplify.store("session", ts);
+              Amplify.store("session", ts);
               session = ts;
           },
           getTrainingSession: function () {
-              session = session || amplify.store("session");
+              session = session || Amplify.store("session");
               return session;
           },
 
           setSettings: function (st) {
-              amplify.store("settings", st);
+              Amplify.store("settings", st);
               settings = st;
           },
           getSettings: function () {
-              settings =  settings || amplify.store("settings");
+              settings =  settings || Amplify.store("settings");
               return settings;
           },
 
           //setAllExercises: function (exs) {
-          //    amplify.store("allexercises", exs);
+          //    Amplify.store("allexercises", exs);
           //    allExercises = exs;
           //},
           //getAllExercises: function () {
-          //    return allExercises || amplify.store("allexercises");
+          //    return allExercises || Amplify.store("allexercises");
           //},
           setExercises: function (bodyPart, exs) {
-              amplify.store(bodyPart + "-exercises", exs);
+              Amplify.store(bodyPart + "-exercises", exs);
           },
           getExercises: function (bodyPart) {
-              return amplify.store(bodyPart + "-exercises");
+              return Amplify.store(bodyPart + "-exercises");
           }
 
       };

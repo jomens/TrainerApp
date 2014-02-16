@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('UserprofileCtrl', function ($scope, $routeParams, AccountService) {
+  .controller('UserprofileCtrl', function ($scope, $routeParams, UserService) {
       init();
 
       function init() {
 
           var userId = $routeParams.id;
 
-          AccountService.getUserById(userId, function (user) { 
+          UserService.getUserById(userId, function (user) { 
               $scope.user = user;
           });
       }

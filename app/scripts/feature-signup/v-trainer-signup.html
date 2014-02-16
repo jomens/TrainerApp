@@ -1,0 +1,51 @@
+<div class="row page">
+
+    <div class="row">
+        <div class="small-12 medium-8 columns">
+            <h3 class="page-title">Personal Trainer Sign up</h3>
+
+        </div>
+    </div>
+
+
+
+    <div class="page-content">
+
+            <form data-abide ng-submit="trainerSignUp()" ng-model="trainer">
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>First Name</label>
+                        <input type="text" placeholder="First Name" ng-model="trainer.firstName" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Last Name" ng-model="trainer.lastName" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Email</label>
+                        <input type="email" placeholder="Email" ng-model="trainer.email" required />
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Cell Phone:</label>
+                        <input type="tel" placeholder="Phone" ng-model="trainer.phone" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-12 columns">
+                        <input class="button" type="submit" value="Sign up" />
+                    </div>
+                </div>
+            </form>
+
+    </div>
+</div>

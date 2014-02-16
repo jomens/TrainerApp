@@ -1,0 +1,124 @@
+<div class="row page">
+
+    <div class="row">
+        <div class="small-12 medium-8 columns">
+            <h3 class="page-title">New User Sign up</h3>
+
+        </div>
+    </div>
+
+
+
+    <div class="page-content">
+
+        <div class="row log-in-btns" ng-hide="user">
+            <div class="small-12 medium-6 columns">
+                <h4>Got one of these accounts?</h4>
+                <p>Log in with Facebook, Google, Microsoft or Twitter</p>
+                <ul class="small-block-grid-4">
+                    <li>
+                        <a class="button" ng-click="login('facebook')"><span class="fi-social-facebook"></span></a>
+                    </li>
+                    <li>
+                        <a class="button warning" ng-click="login('google')"><span class="fi-social-google-plus"></span></a>
+                    </li>
+                    <li>
+                        <a class="ms-glyph" ng-click="login('microsoftaccount')">
+                            <!--<span class="fi-social-windows"></span>-->
+                            <img class="ad_glyph" src="https://secure.aadcdn.microsoftonline-p.com/aad/18.0.18781/images/MSA_Glyph.png" alt="Icon for Microsoft account">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="button" ng-click="login('twitter')"><span class="fi-social-twitter"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="div">
+            <form data-abide ng-submit="addUser()" ng-model="user" xng-show="user">
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Select account type</label>
+                        <select ng-model="user.userType" required>
+                            <option value="{{type.key}}" ng-repeat="type in userTypes">{{type.value}}</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>First Name:</label>
+                        <input type="text" placeholder="First Name" ng-model="user.firstName" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Last Name:</label>
+                        <input type="text" placeholder="Last Name" ng-model="user.lastName" required />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Email</label>
+                        <input type="email" placeholder="Email" ng-model="user.email" required />
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Cell Phone:</label>
+                        <input type="tel" placeholder="Phone" ng-model="user.phone" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-12 columns">
+                        <input class="button" type="submit" value="Sign up" />
+                    </div>
+                </div>
+            </form>
+
+
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <h4>Rendered HTML</h4>
+                    <a class="small button" data-orbit-link="headline-1">I'm a Personal Trainer</a>
+                    <a class="small button" data-orbit-link="headline-2">I'm a regular User</a>
+                    <a class="small button active" data-orbit-link="headline-3">Goto Slide 3</a>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-5">
+                    <ul class="example-orbit" data-orbit>
+                        <li data-orbit-slide="headline-1">
+                            <h1>
+                                Trainer signup
+                            </h1>
+                        </li>
+                        <li data-orbit-slide="headline-2">
+                            <h1>
+                                User signup
+                            </h1>
+                        </li>
+                        <li data-orbit-slide="headline-3">
+                            <h1>
+                                another slide
+                            </h1>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

@@ -1,25 +1,9 @@
 'use strict';
 
 angular.module('TrainerApp')
- .factory("Signup", function (Models, Azure, Notifier, $location, LocalStorage, Identity) {
+ .factory("SignupService", function (Models, Azure, Notifier, $location, LocalStorage, Identity) {
 
          return {
-             addUser: function (user, callback) {
-
-                 Notifier.busy(true);
-
-                 Azure.UserResource().save(user, function (savedUser) {
-
-                     Notifier.done("Success. account created", true);
-
-                     if (callback) {
-                         callback(savedUser);
-                     }
-
-                     $location.path("/dashboard");
-
-                 }, Notifier.errorHandler);
-             },
              addFitnessChain: function (chain, admin) {
 
                  var that = this;

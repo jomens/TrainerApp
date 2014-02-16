@@ -1,0 +1,13 @@
+﻿TestHelper.setupModule();
+
+TestHelper.setupModule([
+        { name: "Service1", mock: Service1 },
+]);
+
+TestHelper.setupModule([
+        { name: "Service1", mock: Service1 },
+        { name: "Service2", mock: Service2 },
+]);
+
+
+//jasmine matches

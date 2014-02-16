@@ -34,17 +34,83 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
     <!-- Add your site or application content here -->
-   
-
     <!-- off canvas -->
 
     <div class="off-canvas-wrap">
         <div class="inner-wrap">
-            <nav class="tab-bar">
-                <!--<section class="left-small">
-                    <a class="left-off-canvas-toggle menu-icon"><span></span></a>
-                </section>-->
+            <!--<nav class="top-bar" data-topbar="">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1>
+                            <a href="#/">
+                                <h1 class="title" ng-hide="title">
+                                    FIO<span class="metro">TRAINER</span><span>
+                                        <div class="progress-bar">
+                                            <div id="circularG">
+                                                <div id="circularG_1" class="circularG">
+                                                </div>
+                                                <div id="circularG_2" class="circularG">
+                                                </div>
+                                                <div id="circularG_3" class="circularG">
+                                                </div>
+                                                <div id="circularG_4" class="circularG">
+                                                </div>
+                                                <div id="circularG_5" class="circularG">
+                                                </div>
+                                                <div id="circularG_6" class="circularG">
+                                                </div>
+                                                <div id="circularG_7" class="circularG">
+                                                </div>
+                                                <div id="circularG_8" class="circularG">
+                                                </div>
+                                            </div>
 
+                                        </div>
+                                    </span>
+                                </h1>
+                                <h1 class="title" ng-show="title">
+                                    {{title}}<span class="metro">{{subTitle}}</span>
+                                </h1>
+                            </a>
+                        </h1>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+                </ul>
+
+
+                <section class="top-bar-section">
+                    <ul class="right">
+                        <li class="divider"></li>
+                        <li class="">
+                            <a href="#">Main</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="">
+                            <a href="#">Main</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="">
+                            <a href="#">Main</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="fi-home nav-icon" href="#/">
+                                <span></span>
+
+                            </a>
+
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="right-off-canvas-toggle menu-icon"><span></span></a>
+
+                        </li>
+                    </ul>
+                </section>
+            </nav>-->
+
+
+            <nav class="tab-bar">
                 <section class="middle tab-bar-section">
                     <a href="#/">
                         <h1 class="title" ng-hide="title">
@@ -73,35 +139,25 @@
                             </span>
                         </h1>
                         <h1 class="title" ng-show="title">
-                            {{title}}<span class="metro">{{subTitle}}</span> 
+                            {{title}}<span class="metro">{{subTitle}}</span>
                         </h1>
                     </a>
 
                 </section>
 
-              <section class="right-small top-a">
+                <section class="right-small top-a">
                     <a class="fi-home nav-icon" href="#/">
                         <span></span>
 
                         <!--<span class="label alert notify">3</span>-->
                     </a>
 
-                </section>  
-                <!--<section class="right-small top-a">
-                    <a class="fi-torsos-male-female nav-icon" href="#/trainer/"><span></span></a>
-                </section>-->
-
+                </section>
                 <section class="right-small">
                     <a class="right-off-canvas-toggle menu-icon"><span></span></a>
                 </section>
             </nav>
 
-            <!--<aside class="left-off-canvas-menu">
-                <ul class="off-canvas-list">
-                    <li><label>Foundation</label></li>
-                    <li><a href="#/trainer" class="button primary">Trainer portal</a></li>
-                </ul>
-            </aside>-->
 
             <aside class="right-off-canvas-menu">
                 <ul class="off-canvas-list">
@@ -125,29 +181,29 @@
 
             <section class="main-section">
                 <div class="big-hero" ng-show="heroOn">
-<!--                <img src="images/fio1.jpg" alt="" class="big-hero-img">-->
-                <img class="big-hero-img" data-interchange="[images/fio1.jpg, (default)], [images/fio1_phone.jpg, (small)],  [images/fio1_tablet.jpg, (medium)], [images/fio1.jpg, (large)]">
-                
+                    <!--                <img src="images/fio1.jpg" alt="" class="big-hero-img">-->
+                    <img class="big-hero-img" data-interchange="[images/fio1.jpg, (default)], [images/fio1_phone.jpg, (small)],  [images/fio1_tablet.jpg, (medium)], [images/fio1.jpg, (large)]">
+
                     <div class="row-wrapper">
-                    <div class="row">
-                        <div class="hero-text">
-                            <div class="row">
-                                <div class="small-12 large-8 columns">
-                                    <h1 ng-show="loggedInUser">Welcome, {{loggedInUser.firstName}}</h1>
-                                    <h4>"{{quote.quote}}" <span class="subheader"> {{quote.author}}</span></h4>
-<!--                                    <a href="#/" class="button">Lets go!</a>-->
+                        <div class="row">
+                            <div class="hero-text">
+                                <div class="row">
+                                    <div class="small-12 large-8 columns">
+                                        <h1 ng-show="loggedInUser">Welcome, {{loggedInUser.firstName}}</h1>
+                                        <h4>"{{quote.quote}}" <span class="subheader"> {{quote.author}}</span></h4>
+                                        <!--                                    <a href="#/" class="button">Lets go!</a>-->
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
+
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
-                
-                
+
                 <div class="container" ng-view=""></div>
             </section>
 
@@ -170,49 +226,47 @@
         ga('send', 'pageview');
     </script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/js/vendor/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/js/foundation.min.js"></script>
 
     <!--<script src="foundation-5.0.2/js/jquery.js"></script>
     <script src="foundation-5.0.2/js/foundation.min.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/js/vendor/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/js/foundation.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
     <!--<script src="https://trainerapp.azure-mobile.net/client/MobileServices.Web-1.0.3.min.js"></script>-->
     <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.0.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/amplifyjs/1.1.0/amplify.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
     <script src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
-   
 
-   <!-- build:js scripts/modules.js -->
-      <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
+
+    <!-- build:js scripts/modules.js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbuild -->
     <!--***** GETTING FROM CDN *********** -->
-<!--    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-resource.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-cookies.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-sanitize.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-animate.js"></script>-->
-    
+
+    <!--    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-resource.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-cookies.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-sanitize.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-animate.js"></script>-->
     <!-- ************* END CDN ********** -->
     <script>
-       $(document).foundation();
 
-       angular.element(".off-canvas-list li a").click(function () {
-           angular.element(".exit-off-canvas").click();
-       });
-   </script>  
-    
+        angular.element(".off-canvas-list li a").click(function () {
+            angular.element(".exit-off-canvas").click();
+        });
+    </script>
+
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers\main.js"></script>
     <script src="scripts/controllers\dashboard.js"></script>
-    <script src="scripts/common\AzureService.js"></script>
     <script src="scripts/common\Notifier.js"></script>
     <script src="scripts/common\Environment.js"></script>
     <script src="scripts/common\Models.js"></script>
@@ -222,12 +276,10 @@
     <script src="scripts/controllers\admin.js"></script>
     <script src="scripts/controllers\superadmin.js"></script>
     <script src="scripts/common\Settings.js"></script>
-    <script src="scripts/feature-training\RoutineService.js"></script>
-    <script src="scripts/feature-training\ExerciseService.js"></script>
     <script src="scripts/feature-training\Ctrl-Trainer.js"></script>
     <script src="scripts/feature-training\Ctrl-CreateRoutine.js"></script>
     <script src="scripts/feature-training\Ctrl-CreateRoutineAssignments.js"></script>
-    <script src="scripts/feature-training\TrainerService.js"></script>
+    <script src="scripts/services\TrainerService.js"></script>
     <script src="scripts/feature-training\Ctrl-MyRoutines.js"></script>
     <script src="scripts/feature-training\Ctrl-RoutineDetails.js"></script>
     <script src="scripts/feature-training\Ctrl-SelectRoutine.js"></script>
@@ -240,17 +292,20 @@
     <script src="scripts/feature-acct-mgmt\Ctrl-AddClient.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-EditClient.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-AddTrainer.js"></script>
-    <script src="scripts/feature-acct-mgmt\Ctrl-Signup.js"></script>
+    <script src="scripts/feature-signup\Ctrl-Signup.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-MyClients.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-MyTrainers.js"></script>
-    <script src="scripts/feature-acct-mgmt\Signup.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-PinReset.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-AddFitnessChain.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-AddFitnessCenter.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-UserPortal.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-FitnessChainPortal.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-FitnessCenterPortal.js"></script>
-    <script src="scripts/feature-acct-mgmt\AccountService.js"></script>
+    <script src="scripts/services\AzureService.js"></script>
+    <script src="scripts/services\RoutineService.js"></script>
+    <script src="scripts/services\ExerciseService.js"></script>
+    <script src="scripts/services\SignupService.js"></script>
+    <script src="scripts/services\UserService.js"></script>
     <script src="scripts/feature-user-profiles\Ctrl-UserProfile.js"></script>
     <script src="vendor/ng-google-chart.js"></script>
     <script src="scripts/controllers/progress-chart.js"></script>

@@ -27,7 +27,8 @@ angular.module('TrainerApp')
                 return $rootScope.loggedInUser;
             }
 
-            var user = LocalStorage.getLoggedInUser();
+            //var user = LocalStorage.getLoggedInUser();
+            var user = LocalStorage.loggedInUser().get();
 
             if (user) {
                 $rootScope.loggedInUser = user;
@@ -36,7 +37,8 @@ angular.module('TrainerApp')
         },
         setLoggedInUser: function(user){
             this.setPermissions(user);
-            LocalStorage.setLoggedInUser(user);
+            //LocalStorage.setLoggedInUser(user);
+            LocalStorage.loggedInUser().set(user);
             $rootScope.loggedInUser = user;
         },
         logout: function () {
@@ -54,12 +56,19 @@ angular.module('TrainerApp')
 
                 var that = this;
 
-            Azure.Client().login(authService).then(function () {               
+                Azure.Client().login(authService).then(function () {
+                    console.log("after login");
+                    console.log(Azure.Client());
+                    console.log(Azure.Client().currentUser);
+
                     Azure.table("users").read({
                         where: {
                             auth_userId: Azure.Client().currentUser.userId
                         },
                         success: function (results) {
+
+                            console.log("***table where success");
+
                             if (results && results[0]) {
                                 var userObject = results[0];
                                 console.log("user found");
@@ -72,6 +81,9 @@ angular.module('TrainerApp')
                                 Notifier.error("User  not found", true);
                                 error();
                             }
+                        },
+                        error: function (e) {
+                            console.log(e);
                         }
                     });
                 
@@ -82,7 +94,8 @@ angular.module('TrainerApp')
             Azure.invokeApi({
                 api: "getuser", success: function (data) {
                     success(parseUserObject(data.result.myresult));
-                }
+                },
+                error: error
             });
 
             function parseUserObject(obj) {
@@ -124,38 +137,5 @@ angular.module('TrainerApp')
             }
         }
     }
-
-    ////PIN
-    //this.updatePin = function (user, success) {
-    //    if (user.pin != user.pinconfirm) {
-    //        Notifier.error("PIN numbers do not match", true);
-    //        return;
-    //    }
-
-    //    delete user.pinconfirm;
-    //    Notifier.busy(true);
-
-    //    var that = this;
-    //    var usersTable = Azure.getTable("users");
-    //    usersTable.update(user).done(function (data) {
-    //        Notifier.done("pin updated");
-    //        that.setActiveUser(data);
-    //        success(data.id);
-    //    }, Notifier.errorHandler)
-    //}
-
-    //this.validatePin = function (user) {
-    //    if (user) {
-    //        if (user.pin == "0000") {
-    //            //force the user to setup a pin
-    //            $location.path("/pin");
-    //        }
-    //    }
-    //    else {
-    //        //new user
-    //        $location.path("/signup");
-    //    }
-    //}
-
 
 });

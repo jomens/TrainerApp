@@ -364,7 +364,7 @@ section.padded {
 .row {
   max-width: 1180px;
 }
-.top-bar .name h1 a {
+.tab-bar .name h1 a {
   padding-left: 0;
 }
 ul.off-canvas-list li:first-child label {
@@ -505,17 +505,6 @@ a.panel {
 .client-info .package {
   margin-bottom: 0;
 }
-/*html, body, .off-canvas-wrap, .inner-wrap{
-    height: 100%;
-}
-
-.off-canvas-wrap {
-overflow: hidden;
-overflow-y: scroll;
-}
-.off-canvas-wrap.move-left {
-overflow-y: hidden;
-}*/
 .card {
   margin-bottom: 0;
   padding: .8rem;

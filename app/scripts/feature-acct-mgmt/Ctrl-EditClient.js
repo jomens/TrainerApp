@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('EditClientCtrl', function ($scope, AccountService, $routeParams, $location) {
+  .controller('EditClientCtrl', function ($scope, UserService, $routeParams, $location) {
 
       init();
 
       function init() {
           //$scope.client = Models.User();
-          AccountService.getUserById($routeParams.id, function (user) {
+          UserService.getUserById($routeParams.id, function (user) {
               $scope.client = user;
           })
           
@@ -15,7 +15,7 @@ angular.module('TrainerApp')
 
       $scope.update = function () {
 
-          AccountService.updateUser($scope.client, function (user) {
+          UserService.updateUser($scope.client, function (user) {
               $location.path("/userProfile/" + user.id);
           })
 

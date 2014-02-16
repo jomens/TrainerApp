@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('AddfitnesschainCtrl', function ($scope, Signup, Models) {
+  .controller('AddfitnesschainCtrl', function ($scope, SignupService, Models) {
 
       init();
 
@@ -15,7 +15,7 @@ angular.module('TrainerApp')
 
       //create a function that your form submission will data bind to
       $scope.addChain = function () {
-          Signup.addFitnessChain($scope.chain, $scope.admin);
+          SignupService.addFitnessChain($scope.chain, $scope.admin);
 
       }
   });

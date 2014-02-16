@@ -3,56 +3,13 @@
 angular.module('TrainerApp')
 .factory("Models", ["Environment", function (Environment) {
 
-    function getDummyData(obj) {
-        var x = Math.floor((Math.random() * 50) + 1);
-        for (var key in obj) {
-            if (key == "id" || key == "status" || key == "pin" || key == "isAdmin" || key.toLowerCase().indexOf("usertype") != -1 || key.toLowerCase().indexOf("id") != -1) {
-                continue;
-            }
-            else if (key.toLowerCase().indexOf("email") != -1) {
-                //obj[key] = "email" + x + "@email.com";
-            }
-            else if (key.toLowerCase().indexOf("state") != -1) {
-                obj[key] = "WA";
-            }
-            else if (key.toLowerCase().indexOf("city") != -1) {
-                obj[key] = "Seattle";
-            }
-            else if (key.toLowerCase().indexOf("zip") != -1) {
-                obj[key] = "58585";
-            }
-            else if (key.toLowerCase().indexOf("phone") != -1) {
-                obj[key] = "555555555";
-            }
-            else if (key.toLowerCase().indexOf("firstname") != -1) {
-               // obj[key] = "John" + x;
-            }
-            else if (key.toLowerCase().indexOf("lastname") != -1) {
-                //obj[key] = "Doe" + x;
-            }
-            else if (key.toLowerCase().indexOf("name") != -1) {
-                obj[key] = "Company" + x;
-            }
-            else if (key.toLowerCase().indexOf("imageurl") != -1) {
-                obj[key] = getImage();
-            }
-            else {
-                obj[key] = "Lorem" + x;
-            }
-
-            //x++;
-        }
-
-        function getImage () {
+    function getImage() {
 
             var baseUrl = "http://api.randomuser.me/0.2/portraits/";
             var gender = ["men", "women"];
 
             return baseUrl + gender[Math.floor(Math.random() * 2)] + "/" + Math.ceil(Math.random() * 20) + ".jpg";
         }
-
-        return obj;
-    }
 
     var BodyParts = {
         chest: "Chest",
@@ -80,33 +37,28 @@ angular.module('TrainerApp')
         };
     
     var Account = function () { //you get an account only if you're independent
-        //id
         this.name = ""; //24 HR Fitness? John Doe independent trainer
         this.accountType = ""; //business, trainer, individual
         
     }
 
-    var FitnessChain = function () {
-        //this.id
+    var FitnessChain = function () { //TODO RENAME TO FITNESS ORG
         this.name = "";
         this.email = "";
         this.addressId = "";        
-        //this.gyms = [];
     }
 
     var FitnessCenter = function () {
-        //this.id
         this.fitnessChainId = "";
         this.name = "";
         this.location = "";
         this.addressId = "";
-        //this.users = []; //trainers and users
     }
 
     var AccountType = {
         //business: "Fitness Center",
         trainer: "Personal Trainer",
-        individual: "Individual"
+        individual: "Individual" 
     };
 
     var UserType = { //a user can be trainer, a client or gymadmin
@@ -115,18 +67,7 @@ angular.module('TrainerApp')
        // fitnesschainadmin: "Fitness Chain Admin",
         //admin: "gymadmin"
     }
-
-    //var Gym = function () {
-    //    this.name = "";
-    //    this.accountType = "";
-    //    this.phone = "";
-    //    this.email = "";
-    //    this.mainContact = "";
-    //    this.mainContactEmail = "";
-    //    // this.addressId = "";
-    //    //this.mainContactId = "";
-    //}
-
+  
     //var Address = function () {
     //    this.address = "";
     //    this.address2 = "";
@@ -141,11 +82,13 @@ angular.module('TrainerApp')
         this.auth_userId = "";
         this.firstName = "";
         this.lastName = "";
+        this.auth_userId = "";
         this.email = "";
         this.phone = "";
         this.userType = ""
-        this.trainerId = "-1";
-        this.fitnessCenterId = "-1";
+        this.trainerId = "";
+        this.fitnessCenterId = "";
+        this.fitnessOrgId = "";
         this.fitnessChainId = "-1";
         this.isAdmin = false;
         this.isRemote = false;
@@ -237,39 +180,13 @@ angular.module('TrainerApp')
         this.routineId = -1;
     }
 
-
-    function getModel(model) {
-
-        if (Environment == "PROD") {
-            switch (model) {
-                case "user": return new User();
-                case "fitnesscenter": return new FitnessCenter();
-                case "exercise": return new Exercise();
-                case "routine": return new Routine();
-                case "fitnesschain": return new FitnessChain();
-                case "gym": return new Gym();
-                    // case "individual": return { firstName: "", lastName: "" };
-            }
-
-        }
-        else {
-            switch (model) {
-                case "user": return getDummyData(new User());
-                case "fitnesscenter": return getDummyData(new FitnessCenter());
-                case "exercise": return getDummyData(new Exercise());
-                case "routine": return getDummyData(new Routine());
-                case "fitnesschain": return getDummyData(new FitnessChain());
-                case "gym": return getDummyData(new Gym());
-                    // case "punch": return new Punch();
-                    //case "job": return getDummyData(new Job());
-                    //  case "individual": return getDummyData({ firstName: "", lastName: "" });
-
-            }
-        }
-    }
-
     return {
         User: function () { return new User(); },
+        Trainer: function () {
+            var trainer = new User();
+            trainer.userType = 'trainer';
+            return trainer;
+        },
         Routine: function () { return new Routine(); },
         FitnessChain: function () { return new FitnessChain(); },
         FitnessCenter: function () { return new FitnessCenter(); },
@@ -282,7 +199,6 @@ angular.module('TrainerApp')
         Set: function () { return new Set(); },
         UserType: function () { return UserType; },
         RoutineAssignment: function () { return new RoutineAssignment();}
-        //Individual: function () { return getModel("individual"); },
 
     }
 
