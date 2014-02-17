@@ -1,17 +1,19 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MainCtrl', function ($scope, $rootScope) {
+  .controller('MainCtrl', function ($scope, $timeout) {
       init();
       
       function init() {
+
+          angular.element("body").addClass("show-image");
+
           setupQuote();
         
                
       }
       
       function setupQuote() {
-          $rootScope.heroOn = true;
           var quotes = [
               { quote: "What counts is not the number of hours you put in but how much you put into those hours.", author: "" },
               { quote: "The quest for excellence is a lifelong process.", author: "" },
@@ -34,12 +36,12 @@ angular.module('TrainerApp')
               { quote: "Win If You Can, Lose If You Must, But NEVER QUIT!", author: "Cameron Trammell" },
               { quote: "You miss 100 percent of the shots you don't take.", author: "Wayne Gretzky" }
           ];
-
-          $rootScope.quote = quotes[Math.floor(Math.random() * quotes.length)];
+          $scope.quote = quotes[Math.floor(Math.random() * quotes.length)];
+         
       }
 
       $scope.$on('$locationChangeStart', function (event, next, current) {
-          $rootScope.heroOn = false;
+          angular.element("body").removeClass("show-image");
 
       });
      

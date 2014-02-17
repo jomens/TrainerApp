@@ -41,7 +41,7 @@ angular.module('TrainerApp')
             LocalStorage.loggedInUser().set(user);
             $rootScope.loggedInUser = user;
         },
-        logout: function () {
+        logout: function (callback) {
             Azure.Client().logout();
             LocalStorage.setCurrentClient(null);
             LocalStorage.setCurrentRoutine(null);
@@ -50,6 +50,10 @@ angular.module('TrainerApp')
             LocalStorage.setTrainingSession(null);
             LocalStorage.setLoggedInUser(null);
             $rootScope.loggedInUser = null;
+
+            if (callback) {
+                callback();
+            }
         },
   
         login: function (authService, success, error) { 
@@ -65,7 +69,6 @@ angular.module('TrainerApp')
                             
                             if (results && results[0]) {
                                 var userObject = results[0];
-                                console.log("user found");
 
                                 that.setLoggedInUser(userObject);
 

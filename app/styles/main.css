@@ -277,6 +277,9 @@ body {
   color: #666666;
   font-style: normal;
 }
+body.show-image {
+  background-image: url(../images/2k/fio1-2k-1k.jpg);
+}
 h1,
 h2,
 h3,
@@ -594,40 +597,23 @@ a.panel {
   padding: .3rem;
   border-radius: 100%;
 }
-@-webkit-keyframes move {
-  0% {
-    -webkit-transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(-50%);
-  }
-}
-.big-hero {
-  overflow: hidden;
-  position: relative;
-}
-.big-hero img {
-  max-width: inherit;
-}
-.big-hero .row-wrapper {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-.big-hero .row-wrapper .row {
-  position: relative;
-}
-.big-hero .row-wrapper .hero-text {
+.hero-text {
   position: fixed;
   left: 10%;
   bottom: 5%;
 }
-.big-hero .row-wrapper .hero-text h1,
-.big-hero .row-wrapper .hero-text h4,
-.big-hero .row-wrapper .hero-text .subheader {
+.hero-text h1,
+.hero-text h4,
+.hero-text .subheader {
   color: #fff;
 }
-.big-hero .row-wrapper .hero-text .subheader small {
+.hero-text .subheader small {
   color: #fff;
+}
+.hero-text .button {
+  margin-right: 15px;
+}
+.move-left a.exit-off-canvas {
+  box-shadow: none;
 }
 /*# sourceMappingURL=main.css.map */

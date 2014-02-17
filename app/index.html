@@ -179,41 +179,7 @@
                 </ul>
             </aside>
 
-            <section class="main-section">
-                <div class="big-hero" ng-show="heroOn">
-                    <img src="images/2k/fio1-2k-1k.jpg" alt="" class="big-hero-img">
-                    <!--<img class="big-hero-img" data-interchange="[images/fio1.jpg, (default)], [images/fio1_phone.jpg, (small)],  [images/fio1_tablet.jpg, (medium)], [images/2k/fio1-2k-1k.jpg, (large)]">-->
-
-                    <div class="row-wrapper">
-                        <div class="row">
-                            <div class="hero-text">
-                                <div class="row">
-                                    <div class="small-12 large-8 columns">
-                                        <h1 ng-show="loggedInUser">Welcome, {{loggedInUser.firstName}}</h1>
-                                        <h4>"{{quote.quote}}" <span class="subheader"> <small>{{quote.author}}</small></span></h4>
-                                        <!--                                    <a href="#/" class="button">Lets go!</a>-->
-                                    </div>
-
-                                  
-                                </div>
-                                <div class="row">
-                                    <div class="small-12 medium-6 large-4 columns">
-
-                                        <a class="button" ng-href="#/dashboard">Lets do this!</a>
-                                        <a class="button warning" ng-href="#/signup" ng-hide="loggedInUser">Sign up</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                          
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
+            <section class="main-section">            
                 <div class="container" ng-view=""></div>
             </section>
 

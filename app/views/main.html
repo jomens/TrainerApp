@@ -1,16 +1,30 @@
-<div class="row page">
+<img src="../images/2k/slice.png" style="visibility: hidden;" />
+    
+    <div class="hero-text">
 
-
-    <div class="page-content">
-        <!--<div class="row" ng-show="loggedInUser.isTrainer">
-            <div class="small-6 medium-8 columns">
-                <h2><i class="step fi-calendar size-72"></i> <span>My Appointments</span></h2>
-
+        <div class="row">
+            <div class="small-12 large-8 columns">
+                <h1 ng-show="loggedInUser">Welcome, {{loggedInUser.firstName}}</h1>
+                <h4>"{{quote.quote}}" <span class="subheader"> <small>{{quote.author}}</small></span></h4>
+                <!--                                    <a href="#/" class="button">Lets go!</a>-->
             </div>
 
 
-        </div>-->
+        </div>
+        <div class="row">
+            <div class="small-12">
+                <img src="../images/2k/slicex.png" style="visibility: hidden;" />
 
-      
- </div>
-</div>
+            </div>
+
+            <div class="small-12 medium-6 large-5 columns">
+                <a class="button" ng-href="#/dashboard">Lets do this!</a>
+                <a class="button warning" ng-href="#/signup" ng-hide="loggedInUser">New user? Sign up</a>
+
+
+            </div>
+        </div>
+    </div>
+                    
+
+

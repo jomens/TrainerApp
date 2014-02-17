@@ -16,6 +16,11 @@ body {
 font-style: normal; 
 }   
 
+body.show-image{
+        background-image: url(../images/2k/fio1-2k-1k.jpg);
+
+}
+
 h1, h2, h3, h4, h5, h6{
      font-family:"Open Sans";  
      font-weight: 300;
@@ -377,41 +382,12 @@ padding: .3rem;
 border-radius: 100%;
 }
 
-@-webkit-keyframes move {
-    0% {
-        -webkit-transform: translateX(0);
-    }
-    
-    100% {
-         -webkit-transform: translateX(-50%);
-    }
-}
 
-.big-hero{
-     overflow: hidden;
-  position: relative;
-
-  img {
-      max-width: inherit;
-      //-webkit-animation: move 60s 2s alternate infinite;
-  }
-
-.row-wrapper {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  
-
-      .row {
-          position: relative;
-      }
       .hero-text{
           //position: absolute;
           position: fixed;
           left: 10%;
           bottom: 5%;
-          //bottom: 20px;
-         // left: 15px;
 
           h1, h4, .subheader {
           color: #fff;
@@ -420,6 +396,13 @@ border-radius: 100%;
           .subheader small{
               color: #fff;
           }
+
+          .button{
+              margin-right: 15px;
+          }
       }
-    }
-} 
+
+
+.move-left a.exit-off-canvas {
+    box-shadow: none;
+}
