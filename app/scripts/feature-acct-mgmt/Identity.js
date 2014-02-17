@@ -57,18 +57,12 @@ angular.module('TrainerApp')
                 var that = this;
 
                 Azure.Client().login(authService).then(function () {
-                    console.log("after login");
-                    console.log(Azure.Client());
-                    console.log(Azure.Client().currentUser);
-
                     Azure.table("users").read({
                         where: {
                             auth_userId: Azure.Client().currentUser.userId
                         },
                         success: function (results) {
-
-                            console.log("***table where success");
-
+                            
                             if (results && results[0]) {
                                 var userObject = results[0];
                                 console.log("user found");
@@ -82,9 +76,7 @@ angular.module('TrainerApp')
                                 error();
                             }
                         },
-                        error: function (e) {
-                            console.log(e);
-                        }
+                        error: error
                     });
                 
 

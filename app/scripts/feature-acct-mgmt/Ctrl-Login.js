@@ -41,7 +41,7 @@ angular.module('TrainerApp')
               $location.path("/dashboard");
               $scope.$apply();
           }, function (e) {
-              console.log("error block called?");
+              console.log("error block called? take user to signup");
 
               $location.path("/signup");
               $scope.$apply();

@@ -97,7 +97,7 @@ angular.module('TrainerApp', [
         var user = Identity.getLoggedInUser();
 
         if (!(user && user.auth_userId)) {
-            if (next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-signup.html") {
+            if (next.templateUrl == "views/main.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-signup.html") {
 
             } else {
                 $location.path("/login");

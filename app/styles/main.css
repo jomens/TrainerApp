@@ -594,9 +594,20 @@ a.panel {
   padding: .3rem;
   border-radius: 100%;
 }
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+  }
+}
 .big-hero {
   overflow: hidden;
   position: relative;
+}
+.big-hero img {
+  max-width: inherit;
 }
 .big-hero .row-wrapper {
   position: absolute;
@@ -607,16 +618,16 @@ a.panel {
   position: relative;
 }
 .big-hero .row-wrapper .hero-text {
-  position: absolute;
-  bottom: 20px;
-  left: 15px;
+  position: fixed;
+  left: 10%;
+  bottom: 5%;
 }
 .big-hero .row-wrapper .hero-text h1,
 .big-hero .row-wrapper .hero-text h4,
 .big-hero .row-wrapper .hero-text .subheader {
   color: #fff;
 }
-.big-hero .row-wrapper .hero-text .subheader {
-  font-style: italic;
+.big-hero .row-wrapper .hero-text .subheader small {
+  color: #fff;
 }
 /*# sourceMappingURL=main.css.map */
