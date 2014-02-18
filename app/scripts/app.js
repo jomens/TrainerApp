@@ -90,20 +90,46 @@ angular.module('TrainerApp', [
           redirectTo: '/'
       });
 })
-.run(function ($rootScope, $location, Identity, $timeout) {
+.run(function ($rootScope, $location, Identity, $timeout, Azure) {
 
     $rootScope.$on('$routeChangeStart', function (evt, next, current) {
 
         var user = Identity.getLoggedInUser();
+        if (user) {
+            if (!user.auth_userId) {
+                Identity.loggedOut(function () {
+                    $location.path("/signup");
+                })
+            }
+        }
 
-        if (next.templateUrl == "views/main.html") {
+        var authedUser = Azure.Client().currentUser;
+       
 
-        } else if (!(user && user.auth_userId)) {
-            if (next.templateUrl == "views/main.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-signup.html") {
+        //if you're not authneticated: main, login
+        if (!user && !authedUser) {
+            if (next.templateUrl == "views/main.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ) {
 
-            } else {
+            }
+            else {
                 $location.path("/login");
             }
+        } else if (!user && authedUser) {
+            ////if you're authenticated - wit no account: main, login, signup, trainer-singup
+
+            if (next.templateUrl == "views/main.html" || 
+                next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ||
+                next.templateUrl == "scripts/feature-signup/v-signup.html" ||
+                next.templateUrl == "scripts/feature-signup/v-trainer-signup.html") {
+
+            }
+            else {
+                $location.path("/signup");
+            }
+        }else{
+            if (user && authedUser) {
+            }
+
         }
     });
 

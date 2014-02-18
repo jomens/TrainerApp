@@ -61,6 +61,8 @@ angular.module('TrainerApp')
                 var that = this;
 
                 Azure.Client().login(authService).then(function () {
+
+
                     Azure.table("users").read({
                         where: {
                             auth_userId: Azure.Client().currentUser.userId
@@ -75,7 +77,9 @@ angular.module('TrainerApp')
                                 success(Azure.Client().currentUser);
 
                             } else {
-                                Notifier.error("User  not found", true);
+                                console.log("Auth service: " + authService)
+                               console.log(Azure.Client().currentUser)
+                                Notifier.error("Account not found. Please sign up", true);
                                 error();
                             }
                         },
@@ -85,7 +89,7 @@ angular.module('TrainerApp')
 
             }, Notifier.error);
         },
-        getAuthServiceData: function (success) {
+        getAuthServiceData: function (success, error) {
             Azure.invokeApi({
                 api: "getuser", success: function (data) {
                     success(parseUserObject(data.result.myresult));

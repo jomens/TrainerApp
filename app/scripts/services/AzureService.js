@@ -55,7 +55,7 @@ angular.module('TrainerApp')
         },
         invokeApi: function (options) {
             Notifier.busy();
-            azureClient.invokeApi(options.api, { body: options.body || null, method: options.method || "get" })
+            AzureClient.invokeApi(options.api, { body: options.body || null, method: options.method || "get" })
             .done(function (results) {
                 if (options.success) {
                     options.success(results);

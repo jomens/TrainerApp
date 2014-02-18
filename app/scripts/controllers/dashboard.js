@@ -31,8 +31,15 @@ angular.module('TrainerApp')
           TrainerService.getNonRemoteClients(function (clients) {
               $scope.clients = clients;
               $scope.$apply();
-              
+
+              if (clients && clients.length > 0) {
                   getUserRoutines($scope.clients);
+
+              }
+              else {
+                  $scope.showNoClients = true;
+              }
+              
 
           });
 
@@ -40,7 +47,13 @@ angular.module('TrainerApp')
               $scope.remoteClients = remoteClients;
               $scope.$apply();
               
-              getUserRoutines($scope.remoteClients);
+              if (remoteClients && remoteClients.length > 0) {
+                  getUserRoutines($scope.remoteClients);
+
+              }
+              else {
+                  $scope.showNoRemoteClients = true;
+              }
           });
       }
 

@@ -30,7 +30,11 @@
                     <h3 ng-show="loggedInUser.isTrainer"><i class="step fi-calendar size-72"></i> <span>My appointments</span> <span> | <small><a href="#/myClients">See all</a></small></span></h3>
 
                     <ul class="small-block-grid-1 medium-block-grid-1">
-
+                        <li ng-show="showNoClients">
+                            <div class="panel">
+                               <p>You have no clients. <span><a ng-href="#/addClient">Add some clients</a></span></p> 
+                            </div>
+                        </li>
                         <li ng-repeat="client in clients" class="xxboom">
                             <a href="" ng-click="clientSelected(client)" class="card">
                                 <div class="row">

@@ -7,7 +7,12 @@ angular.module('TrainerApp')
       init();
 
       function init() {
-          $scope.trainer = Models.Trainer();
+          var trainer = Models.Trainer();
+          if (Azure.Client().currentUser) {
+            trainer.auth_userId = Azure.Client().currentUser.userId;
+            $scope.trainer = trainer;
+            getAuth($scope.trainer);
+          }
       }
 
       //$scope.login = function (authService) {
@@ -20,20 +25,18 @@ angular.module('TrainerApp')
       //    })
       //}
 
-      //function getAuth() {
-      //    Identity.getAuthServiceData(function (data) {
-      //        var user = Models.User();
-      //        user.auth_userId = data.auth_userId;
-      //        user.firstName = data.firstName;
-      //        user.lastName = data.lastName;
-      //        user.gender = data.gender;
+      function getAuth(user) {
+          Identity.getAuthServiceData(function (data) {
+              user.auth_userId = data.auth_userId;
+              user.firstName = data.firstName;
+              user.lastName = data.lastName;
+              user.gender = data.gender;
 
-      //        $scope.user = user;
-      //        $scope.$apply();
+              $scope.$apply();
 
-      //    });
+          });
 
-      //}
+      }
 
       $scope.trainerSignUp = function () {
 
