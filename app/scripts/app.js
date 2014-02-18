@@ -95,42 +95,42 @@ angular.module('TrainerApp', [
     $rootScope.$on('$routeChangeStart', function (evt, next, current) {
 
         var user = Identity.getLoggedInUser();
+        var authedUser = Azure.Client().currentUser;
+
         if (user) {
             if (!user.auth_userId) {
                 Identity.loggedOut(function () {
                     $location.path("/signup");
                 })
             }
+        } else {
+
+            if (!authedUser) {
+                if (next.templateUrl == "views/main.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ) {
+
+                }
+                else {
+                    $location.path("/login");
+                }
+            } else if (authedUser) {
+                ////if you're authenticated - wit no account: main, login, signup, trainer-singup
+
+                if (next.templateUrl == "views/main.html" || 
+                    next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ||
+                    next.templateUrl == "scripts/feature-signup/v-signup.html" ||
+                    next.templateUrl == "scripts/feature-signup/v-trainer-signup.html") {
+
+                }
+                else {
+                    $location.path("/signup");
+                }
+            }
+
         }
 
-        var authedUser = Azure.Client().currentUser;
        
 
         //if you're not authneticated: main, login
-        if (!user && !authedUser) {
-            if (next.templateUrl == "views/main.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ) {
-
-            }
-            else {
-                $location.path("/login");
-            }
-        } else if (!user && authedUser) {
-            ////if you're authenticated - wit no account: main, login, signup, trainer-singup
-
-            if (next.templateUrl == "views/main.html" || 
-                next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ||
-                next.templateUrl == "scripts/feature-signup/v-signup.html" ||
-                next.templateUrl == "scripts/feature-signup/v-trainer-signup.html") {
-
-            }
-            else {
-                $location.path("/signup");
-            }
-        }else{
-            if (user && authedUser) {
-            }
-
-        }
     });
 
     $rootScope.$on('$viewContentLoaded', function () {
