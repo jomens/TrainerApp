@@ -277,25 +277,49 @@ body {
   color: #666666;
   font-style: normal;
 }
-body.show-image {
-  background-image: url(../images/2k/fio-trees-dark.jpg);
+body.show-image .panorama {
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: none;
   -webkit-animation: bgmove 140s alternate infinite;
+  -moz-animation: bgmove 140s alternate infinite;
+  -o-animation: bgmove 140s alternate infinite;
   animation: bgmove 140s alternate infinite;
 }
+body.show-image .tab-bar {
+  display: none;
+}
 @-webkit-keyframes bgmove {
-  0% {
-    background-position: 0;
+  from {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
   }
-  100% {
-    background-position: 100%;
+  to {
+    -webkit-transform: translateX(-1850px);
+    -moz-transform: translateX(-1850px);
+    -ms-transform: translateX(-1850px);
+    -o-transform: translateX(-1850px);
+    transform: translateX(-1850px);
   }
 }
 @keyframes bgmove {
-  0% {
-    background-position: 0;
+  from {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
   }
-  100% {
-    background-position: 100%;
+  to {
+    -webkit-transform: translateX(-1850px);
+    -moz-transform: translateX(-1850px);
+    -ms-transform: translateX(-1850px);
+    -o-transform: translateX(-1850px);
+    transform: translateX(-1850px);
   }
 }
 h1,
@@ -572,6 +596,8 @@ a.panel {
   color: #333;
 }
 .card .main-content {
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -647,6 +673,7 @@ a.panel {
   bottom: 5%;
 }
 .hero-text h1,
+.hero-text h2,
 .hero-text h4,
 .hero-text .subheader {
   color: #fff;
