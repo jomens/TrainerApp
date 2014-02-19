@@ -289,8 +289,13 @@ h6 {
   font-family: "Open Sans";
   font-weight: 300;
 }
+nav.tab-bar {
+  background: #d2d2d2;
+  color: #333;
+}
 nav.tab-bar h1 {
   font-weight: normal;
+  color: #333;
 }
 .xxboom {
   -webkit-transition: 0.6s transform;
@@ -382,12 +387,19 @@ section.right-small.top-b {
 section.right-small.top-c {
   right: 8.4375rem;
 }
+section.right-small {
+  border-left: solid 1px #969696;
+  box-shadow: none;
+}
+a.menu-icon {
+  color: #969696;
+}
 a.nav-icon {
   width: 2.8125rem;
   height: 2.8125rem;
   display: block;
   padding: 0;
-  color: #fff;
+  color: #969696;
   position: relative;
   font-size: 165%;
   text-align: center;
@@ -623,5 +635,11 @@ a.panel {
 }
 .move-left a.exit-off-canvas {
   box-shadow: none;
+}
+.main-section {
+  min-height: 500px;
+}
+.right-off-canvas-menu {
+  min-height: 500px;
 }
 /*# sourceMappingURL=main.css.map */

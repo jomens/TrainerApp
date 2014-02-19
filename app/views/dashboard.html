@@ -1,4 +1,18 @@
 <div class="row page">
+    <div class="page-header">
+        <div class="row">
+            <div class="small-6 medium-8 columns">
+                <h3 class="page-title">Tracker Today</h3>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+                <a href="" class="icon-link link" ng-click="gotoUserPortal()" ng-show="loggedInUser"><i class="fi-torso-business size-72"></i><span>Trainer portal</span></a>
+            </div>
+        </div>
+    </div>
+
+
   <!--  <div class="page-header">
         <div class="row">
             <div class="small-7 medium-8 columns">
@@ -45,9 +59,10 @@
                                     </div>-->
 
                                     <div class="small-3 columns">
-                                        <div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">
-                                            <img ng-src="{{client.imageUrl}}" alt="" />
-                                        </div>
+                                        <!--<div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">-->
+                                            <div class="avatar-wrapper " ng-class="{true:'training'} [client.trainingxx]">
+                                                <img ng-src="{{client.imageUrl}}" alt="" />
+                                            </div>
                                     </div>
 
                                     <div class="small-9 columns">
@@ -117,14 +132,15 @@
 
                                     <div class="small-3 columns">
                                         <div class="avatar-wrapper " ng-class="{true:'training'} [client.training]">
-                                            <img ng-src="{{client.imageUrl}}" alt="" />
-                                        </div>
+                                                <img ng-src="{{client.imageUrl}}" alt="" />
+                                            </div>
                                     </div>
 
                                     <div class="small-9 columns">
                                         <div class="row">
                                             <div class="small-6 columns">
-                                                <h4><span>{{client.firstName | uppercase}}</span> <span><a href="" ng-click="reveal(client)" class="send-note" ng-show="client.training"><i class="fi-comment size-72"> </i></a></span></h4>
+                                                <!--<h4><span>{{client.firstName | uppercase}}</span> <span><a href="" ng-click="reveal(client)" class="send-note" ng-show="client.training"><i class="fi-comment size-72"> </i></a></span></h4>-->
+                                                <h4><span>{{client.firstName | uppercase}}</span> <span><a href="" ng-click="reveal(client)" class="send-note" ng-show="{{$index % 3}}"><i class="fi-comment size-72"> </i></a></span></h4>
                                             </div>
                                             <div class="small-6 columns">
                                                 <p class="top-right"><i class="fi-marker size-72"> </i><span>{{getCity($index)}}</span></p>
