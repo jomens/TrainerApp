@@ -278,7 +278,25 @@ body {
   font-style: normal;
 }
 body.show-image {
-  background-image: url(../images/2k/fio1-2k-1k.jpg);
+  background-image: url(../images/2k/fio-trees-dark.jpg);
+  -webkit-animation: bgmove 140s alternate infinite;
+  animation: bgmove 140s alternate infinite;
+}
+@-webkit-keyframes bgmove {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+@keyframes bgmove {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 100%;
+  }
 }
 h1,
 h2,
@@ -394,7 +412,8 @@ section.right-small {
 a.menu-icon {
   color: #969696;
 }
-a.nav-icon {
+a.nav-icon,
+.fi-list {
   width: 2.8125rem;
   height: 2.8125rem;
   display: block;
@@ -615,6 +634,11 @@ a.panel {
   top: 5%;
 }
 .main-title h1 {
+  color: #fff;
+  border-bottom: #fff solid 1px;
+}
+.main-title h5,
+.main-title p {
   color: #fff;
 }
 .hero-text {
