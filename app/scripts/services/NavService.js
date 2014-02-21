@@ -11,7 +11,16 @@ angular.module('TrainerApp')
       home: function () {
           go();
       },
-      login: function () { go("login");},
+      login: function () {
+          go("login");
+      },
+      //Users
+      trainers: function () {
+          go("mytrainers");
+      },
+      clients: function () {
+          go("myclients");
+      },
       portal: function () {
 
           var user = $rootScope.loggedInUser;

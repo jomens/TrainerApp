@@ -15,6 +15,12 @@
 
     <div class="page-content">
         <div class="row">
+            <div class="small-12 medium-6 columns" ng-hide="clients.length">
+                <div class="panel">
+                    <h3><small>You have no clients in your account. <a ng-href="#/addClient">Add some clients</a></small></h3>
+                </div>
+            </div>
+
             <div class="small-12 columns">
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
                  
@@ -38,7 +44,7 @@
 
                     </li>
                     <!-- dummy data -->
-                    <li>
+                    <!--<li>
                         <div class="panel">
                             <div class="row">
                                 <div class="small-4 medium-5 large-4 columns">
@@ -113,7 +119,7 @@
 
                         </div>
 
-                    </li>
+                    </li>-->
 
                     <!-- end dummy data -->
 

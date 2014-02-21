@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('AddclientCtrl', function ($scope, UserService, Models, Identity) {
+  .controller('AddclientCtrl', function ($scope, UserService, Models, Identity, Nav) {
 
       init();
 
@@ -11,10 +11,10 @@ angular.module('TrainerApp')
       }
 
       $scope.addClient = function () {
-          $scope.client.trainerId = Identity.getLoggedInUser().id;
-              $scope.client.userType = "user";
-
-              UserService.addUser($scope.client);
+         
+          UserService.addUser($scope.client, function () {
+              Nav.clients();
+          });
 
           }
   });

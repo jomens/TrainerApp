@@ -26,8 +26,8 @@ angular.module('TrainerApp', [
             {
                 name: "feature-acct-mgmt",
                 simpleRoutes: ["Addclient", "AddTrainer", "Myclients", "Login", "Addfitnessorg",
-                "AddFitnessCenter", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal", "AllLocations"],
-                routesWithIds: ["EditClient", "Myclients", "MyTrainers"]
+                "AddFitnessCenter", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal", "AllLocations", "MyTrainers"],
+                routesWithIds: ["EditClient", "Myclients"]
             },
             {
                 name: "feature-training",

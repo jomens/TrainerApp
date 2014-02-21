@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MyTrainersCtrl', function ($scope, TrainerService) {
+  .controller('MyTrainersCtrl', function ($scope, TrainerService, Nav) {
 
       init();
 
@@ -12,6 +12,10 @@ angular.module('TrainerApp')
               $scope.$apply();
           });
           
+      }
+
+      $scope.goToPortal = function () {
+          Nav.portal();
       }
 
      

@@ -1,11 +1,27 @@
 <div class="row page">
-    <div class="row">
-        <div class="small-12 columns">
-            <h3 class="page-title">PERSONAL TRAINERS</h3>
+    <div class="page-header">
+        <div class="row">
+            <div class="small-6 medium-8 columns">
+                <h3 class="page-title">Personal Trainers</h3>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+                <a href="#/addTrainer" class="icon-link"><i class="fi-plus size-72"></i><span>add trainer</span></a>
+            </div>
         </div>
     </div>
+
+
     <div class="page-content">
         <div class="row">
+
+            <div class="small-12 medium-6 columns" ng-hide="trainers.length">
+                <div class="panel">
+                    <h3><small>You have no trainers in your account. <a ng-href="#/addTrainer">Add a trainer</a></small></h3>
+                </div>
+            </div>
+
             <div class="small-12 columns">
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
 
@@ -36,7 +52,7 @@
         </div>
         <div class="row">
             <div class="small-12 columns">
-                <a ng-href="#/fitnessCenterPortal" class="button primary">Back to Portal</a>
+                <a ng-click="goToPortal()" class="button primary">Back to Portal</a>
             </div>
         </div>
 

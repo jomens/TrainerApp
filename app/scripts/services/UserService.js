@@ -21,6 +21,11 @@ angular.module('TrainerApp')
 
                  Notifier.busy(true);
 
+                 user.trainerId = Identity.getLoggedInUser().id;
+                 user.fitnessCenterId = Identity.getLoggedInUser().fitnessCenterId;
+                 user.fitnessOrgId = Identity.getLoggedInUser().fitnessOrgId;
+                 user.pin = "0000";
+
                  Azure.UserResource().save(user, function (savedUser) {
 
                      Notifier.done("Success. account created", true);

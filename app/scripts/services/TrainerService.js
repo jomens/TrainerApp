@@ -10,9 +10,39 @@ angular.module('TrainerApp')
     return {
         getClients: function (callback) {
             Notifier.busy();
+
+            var fetchOptions = {};
             loggedInUser = Identity.getLoggedInUser();
+
+            if (Models.UserType().isOrgAdmin(loggedInUser.userType)) {
+                fetchOptions = {
+                    fn: function(id){
+                        return this.fitnessOrgId == id && 
+                            (this.userType == "user" || this.userType == "")
+                    },
+                    param: loggedInUser.fitnessOrgId
+                }
+            }
+
+            if (Models.UserType().isFitnessCenterAdmin(loggedInUser.userType)) {
+                fetchOptions = {
+                    fitnessCenterId: loggedInUser.fitnessCenterId,
+                    userType: "user"
+                }
+            }
+
+            if (Models.UserType().isTrainer(loggedInUser.userType)) {
+                fetchOptions = {
+                    fn: function(id){
+                        return this.trainerId == id && 
+                            (this.userType == "user" || this.userType == "")
+                    },
+                    param: loggedInUser.id
+                }
+            }
+
             Azure.table("users").read({
-                where: { trainerId : loggedInUser.id },
+                where: fetchOptions,
                 success: function (clients) {
                     callback(clients);
                 }
@@ -46,13 +76,27 @@ angular.module('TrainerApp')
             })
         },
         getTrainers: function (callback) {
+
+            var fetchOptions = {};
             Notifier.busy();
             loggedInUser = Identity.getLoggedInUser();
-            Azure.table("users").read({
-                where: {
+
+            if (Models.UserType().isOrgAdmin(loggedInUser.userType)) {
+                fetchOptions = {
+                    fitnessOrgId: loggedInUser.fitnessOrgId,
+                    userType: "trainer"
+                }
+            }
+
+            if (Models.UserType().isFitnessCenterAdmin(loggedInUser.userType)) {
+                fetchOptions = {
                     fitnessCenterId: loggedInUser.fitnessCenterId,
-                    userType : "trainer"
-                },
+                    userType: "trainer"
+                }
+            }
+
+            Azure.table("users").read({
+                where: fetchOptions,
                 success: function (trainers) {
                     callback(trainers);
                 }
