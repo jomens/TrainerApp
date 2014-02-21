@@ -6,7 +6,6 @@ angular.module('TrainerApp')
          return {
              addFitnessOrg: function (org, admins) {
 
-                 var that = this;
                  Notifier.busy(true);
                  //admin.isAdmin = true;
 
@@ -35,7 +34,7 @@ angular.module('TrainerApp')
 
                  Azure.FitnessCenterResource().save(fitnessCenter, function (savedGym) {
                      admin.fitnessCenterId = savedGym.id;
-                     that.addUser(admin);
+                     UserService.addUser(admin);
 
                  }, Notifier.errorHandler); 
              },
