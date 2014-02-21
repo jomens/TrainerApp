@@ -26,7 +26,7 @@ angular.module('TrainerApp', [
             {
                 name: "feature-acct-mgmt",
                 simpleRoutes: ["Addclient", "AddTrainer", "Myclients", "Login", "Addfitnessorg",
-                "AddFitnessCenter", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal"],
+                "AddFitnessCenter", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal", "AllLocations"],
                 routesWithIds: ["EditClient", "Myclients", "MyTrainers"]
             },
             {
@@ -90,6 +90,7 @@ angular.module('TrainerApp', [
           templateUrl: 'scripts/feature-signup/v-trainer-signup.html',
           controller: 'SignupCtrl'
       })
+
       .otherwise({
           redirectTo: '/'
       });

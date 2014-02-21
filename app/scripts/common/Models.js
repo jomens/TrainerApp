@@ -215,6 +215,11 @@ angular.module('TrainerApp')
             admin.userType = UserType.fitnessOrgAdmin();
             return admin;
         },
+        FitnessCenterAdmin: function () {
+            var admin = new User();
+            admin.userType = UserType.fitnessCenterAdmin();
+            return admin;
+        },
         Routine: function () { return new Routine(); },
         FitnessOrg: function () { return new FitnessOrg(); },
         FitnessCenter: function () { return new FitnessCenter(); },

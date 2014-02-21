@@ -24,17 +24,20 @@ angular.module('TrainerApp')
 
                  }, Notifier.errorHandler);
              },
-             addFitnessCenter: function (fitnessCenter, admin) {
+             addFitnessCenter: function (fitnessCenter, admin, success) {
 
                  var that = this;
                  Notifier.busy(true); 
-                 admin.isAdmin = true;
-                 admin.userType = "fitnesscenteradmin";
                  fitnessCenter.fitnessOrgId = Identity.getLoggedInUser().fitnessOrgId;
 
                  Azure.FitnessCenterResource().save(fitnessCenter, function (savedGym) {
+                     admin.isAdmin = true;
+                     admin.pin = "0000";
                      admin.fitnessCenterId = savedGym.id;
+                     admin.fitnessOrgId = Identity.getLoggedInUser().fitnessOrgId;
                      UserService.addUser(admin);
+
+                     success();
 
                  }, Notifier.errorHandler); 
              },

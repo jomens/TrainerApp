@@ -12,12 +12,7 @@ angular.module('TrainerApp')
             Notifier.busy();
             loggedInUser = Identity.getLoggedInUser();
             Azure.table("users").read({
-                where: {
-                    fn: function (trId) {
-                        return this.trainerId == trId;
-                    },
-                    param: loggedInUser.id
-                },
+                where: { trainerId : loggedInUser.id },
                 success: function (clients) {
                     callback(clients);
                 }
