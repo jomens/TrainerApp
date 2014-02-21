@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('FitnesschainportalCtrl', function ($scope) {
+  .controller('FitnessorgportalCtrl', function ($scope) {
 
       init();
 

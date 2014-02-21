@@ -10,8 +10,8 @@ angular.module('TrainerApp')
                 case "trainer":
                     user.isTrainer = true;
                     break;
-                case "fitnesschainadmin":
-                    user.isFitnessChainAdmin = true;
+                case "fitnessorgadmin":
+                    user.isFitnessOrgAdmin = true;
                     break;
                 case "fitnesscenteradmin":
                     user.isFitnessCenterAdmin = true;
@@ -42,7 +42,7 @@ angular.module('TrainerApp')
             $rootScope.loggedInUser = user;
         },
         logout: function (callback) {
-            Azure.Client().logout();
+            //Azure.Client().logout();
             LocalStorage.setCurrentClient(null);
             LocalStorage.setCurrentRoutine(null);
             LocalStorage.setCurrentWorkout(null);
@@ -55,7 +55,35 @@ angular.module('TrainerApp')
                 callback();
             }
         },
-  
+        loginWithPin: function(logon, success, error){
+            var that = this;
+
+                Azure.table("users").read({
+                    where: {
+                        email: logon.email,
+                        pin: logon.pin
+                    },
+                    success: function (results) {
+
+                        if (results && results[0]) {
+                            var userObject = results[0];
+
+                            that.setLoggedInUser(userObject);
+
+                            success(userObject);
+
+                        } else {
+                            //console.log("Auth service: " + authService)
+                            //console.log(Azure.Client().currentUser)
+                            Notifier.error("User email/pin does not match", true);
+                            //if (error) {
+                              //  error();
+                            //}
+                        }
+                    },
+                    error: error
+                });
+        },
         login: function (authService, success, error) { 
 
                 var that = this;
@@ -77,9 +105,9 @@ angular.module('TrainerApp')
                                 success(Azure.Client().currentUser);
 
                             } else {
-                                console.log("Auth service: " + authService)
-                               console.log(Azure.Client().currentUser)
-                                Notifier.error("Account not found. Please sign up", true);
+                                //console.log("Auth service: " + authService)
+                               //console.log(Azure.Client().currentUser)
+                                //Notifier.error("Account not found. Please sign up", true);
                                 error();
                             }
                         },

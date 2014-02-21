@@ -3,7 +3,7 @@
 
 
 angular.module('TrainerApp')
-  .controller('DashboardCtrl', function ($scope, Identity, $location, TrainerService, RoutineService, Settings) {
+  .controller('DashboardCtrl', function ($scope, Identity, $location, TrainerService, RoutineService, Settings, Models) {
       init();
       
       function init() {
@@ -12,12 +12,12 @@ angular.module('TrainerApp')
 
        var  user =  Identity.getLoggedInUser();
        if (user) {
-           if (user.isTrainer) {
+           if (Models.UserType().isTrainer(user.userType)) {
                  loadTrainerData();
              }
 
-           if (user.isUser) {
-                 loadUserData();
+           if (Models.UserType().isUser(user.userType)) {
+               loadUserData();
              }
          }
          else {
@@ -101,8 +101,8 @@ angular.module('TrainerApp')
               case "trainer":
                   $location.path("/trainer");
                   break;
-              case "fitnesschainadmin":
-                  $location.path("/fitnessChainPortal");
+              case "fitnessorgadmin":
+                  $location.path("/fitnessOrgPortal");
                   break;
               case "fitnesscenteradmin":
                   $location.path("/fitnessCenterPortal");

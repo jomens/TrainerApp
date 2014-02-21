@@ -29,8 +29,6 @@ angular.module('TrainerApp')
                          callback(savedUser);
                      }
 
-                     $location.path("/dashboard");
-
                  }, Notifier.errorHandler);
              },
              updateUser: function (user, callback) {

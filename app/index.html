@@ -110,7 +110,7 @@
             </nav>-->
 
 
-            <nav class="tab-bar" ng-show="loggedInUser">
+            <nav class="tab-bar">
                 <section class="middle tab-bar-section">
                     <a href="#/">
                         <h1 class="title" ng-hide="title">
@@ -174,7 +174,7 @@
                     <li><a ng-href="#/addFitnessCenter/" class="">Add Fitness Center</a></li>
 
                     <li><label>SUPER ADMIN</label></li>
-                    <li><a ng-href="#/addFitnessChain/" class="">Add Fitness Chain</a></li>-->
+                    <li><a ng-href="#/addFitnessOrg/" class="">Add Fitness Org</a></li>-->
 
                 </ul>
             </aside>
@@ -268,13 +268,14 @@
     <script src="scripts/feature-acct-mgmt\Ctrl-EditClient.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-AddTrainer.js"></script>
     <script src="scripts/feature-signup\Ctrl-Signup.js"></script>
+    <script src="scripts/feature-signup\Ctrl-Signup-FitnessOrg.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-MyClients.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-MyTrainers.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-PinReset.js"></script>
-    <script src="scripts/feature-acct-mgmt\Ctrl-AddFitnessChain.js"></script>
+    <script src="scripts/feature-acct-mgmt\Ctrl-AddFitnessOrg.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-AddFitnessCenter.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-UserPortal.js"></script>
-    <script src="scripts/feature-acct-mgmt\Ctrl-FitnessChainPortal.js"></script>
+    <script src="scripts/feature-acct-mgmt\Ctrl-FitnessOrgPortal.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-FitnessCenterPortal.js"></script>
     <script src="scripts/services\IdentityService.js"></script>
     <script src="scripts/services\AzureService.js"></script>
@@ -286,6 +287,7 @@
     <script src="vendor/ng-google-chart.js"></script>
     <script src="scripts/controllers/progress-chart.js"></script>
     <script src="scripts/controllers\welcome.js"></script>
+    <script src="scripts/services/NavService.js"></script>
     <!-- endbuild -->
 </body>
 </html>

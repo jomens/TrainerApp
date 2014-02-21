@@ -7,13 +7,26 @@ angular.module('TrainerApp')
       init();
 
       function init() {
+         
+          setupTrainerSignup();
+          setupFitnessOrgsignup();
+      }
+
+      function setupTrainerSignup() {
           var trainer = Models.Trainer();
           if (Azure.Client().currentUser) {
-            trainer.auth_userId = Azure.Client().currentUser.userId;
-            $scope.trainer = trainer;
-            getAuth($scope.trainer);
+              trainer.auth_userId = Azure.Client().currentUser.userId;
+              $scope.trainer = trainer;
+              getAuth($scope.trainer);
           }
+
       }
+
+
+      function setupFitnessOrgsignup() {
+
+      }
+
 
       //$scope.login = function (authService) {
 

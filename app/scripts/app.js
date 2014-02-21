@@ -25,8 +25,8 @@ angular.module('TrainerApp', [
             },
             {
                 name: "feature-acct-mgmt",
-                simpleRoutes: ["Addclient", "AddTrainer", "Myclients", "Login", "Addfitnesschain",
-                "AddFitnessCenter", "Pinreset", "Userportal", "Fitnesschainportal", "Fitnesscenterportal"],
+                simpleRoutes: ["Addclient", "AddTrainer", "Myclients", "Login", "Addfitnessorg",
+                "AddFitnessCenter", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal"],
                 routesWithIds: ["EditClient", "Myclients", "MyTrainers"]
             },
             {
@@ -82,6 +82,10 @@ angular.module('TrainerApp', [
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
       })
+      .when('/fitness-org-signup', {
+          templateUrl: 'scripts/feature-signup/v-fitness-org-signup.html',
+          controller: 'SignupFitnessOrgCtrl'
+      })
       .when('/trainer-signup', {
           templateUrl: 'scripts/feature-signup/v-trainer-signup.html',
           controller: 'SignupCtrl'
@@ -94,39 +98,39 @@ angular.module('TrainerApp', [
 
     $rootScope.$on('$routeChangeStart', function (evt, next, current) {
 
-        var user = Identity.getLoggedInUser();
-        var authedUser = Azure.Client().currentUser;
+        //var user = Identity.getLoggedInUser();
+        //var authedUser = Azure.Client().currentUser;
 
-        if (user) {
-            if (!user.auth_userId) {
-                Identity.loggedOut(function () {
-                    $location.path("/signup");
-                })
-            }
-        } else {
+        //if (user) {
+        //    if (!user.auth_userId) {
+        //        Identity.loggedOut(function () {
+        //            $location.path("/signup");
+        //        })
+        //    }
+        //} else {
 
-            if (!authedUser) {
-                if (next.templateUrl == "views/main.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ) {
+        //    if (!authedUser) {
+        //        if (next.templateUrl == "views/main.html" || next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ) {
 
-                }
-                else {
-                    $location.path("/login");
-                }
-            } else if (authedUser) {
-                ////if you're authenticated - wit no account: main, login, signup, trainer-singup
+        //        }
+        //        else {
+        //            $location.path("/login");
+        //        }
+        //    } else if (authedUser) {
+        //        ////if you're authenticated - wit no account: main, login, signup, trainer-singup
 
-                if (next.templateUrl == "views/main.html" || 
-                    next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ||
-                    next.templateUrl == "scripts/feature-signup/v-signup.html" ||
-                    next.templateUrl == "scripts/feature-signup/v-trainer-signup.html") {
+        //        if (next.templateUrl == "views/main.html" || 
+        //            next.templateUrl == "scripts/feature-acct-mgmt/v-login.html" ||
+        //            next.templateUrl == "scripts/feature-signup/v-signup.html" ||
+        //            next.templateUrl == "scripts/feature-signup/v-trainer-signup.html") {
 
-                }
-                else {
-                    $location.path("/signup");
-                }
-            }
+        //        }
+        //        else {
+        //            $location.path("/signup");
+        //        }
+        //    }
 
-        }
+        //}
 
        
 

@@ -42,29 +42,51 @@ angular.module('TrainerApp')
         
     }
 
-    var FitnessChain = function () { //TODO RENAME TO FITNESS ORG
+    var FitnessOrg = function () { //TODO RENAME TO FITNESS ORG
         this.name = "";
+        this.location = "";
         this.email = "";
-        this.addressId = "";        
+        this.addressId = "";         
     }
 
     var FitnessCenter = function () {
-        this.fitnessChainId = "";
+        this.fitnessOrgId = "";
         this.name = "";
         this.location = "";
         this.addressId = "";
     }
 
     var AccountType = {
-        //business: "Fitness Center",
         trainer: "Personal Trainer",
         individual: "Individual" 
     };
 
-    var UserType = { //a user can be trainer, a client or gymadmin
-        trainer: "Personal Trainer",
-        user: "A regular user",
-       // fitnesschainadmin: "Fitness Chain Admin",
+    var UserType = { 
+        fitnessOrgAdmin: function () {
+            return "fitnessorgadmin";
+        },
+        isOrgAdmin: function (userType) {
+            return userType == "fitnessorgadmin";
+        },
+        fitnessCenterAdmin: function () {
+            return "fitnesscenteradmin";
+        },
+        isFitnessCenterAdmin: function (userType) {
+            return userType == "fitnesscenteradmin";
+        },
+        trainer: function () {
+            return "trainer";
+        },
+        isTrainer: function(userType){
+            return userType == "trainer";
+        },
+        user: function () {
+            return "user";
+        },
+        isUser: function(userType){
+            return userType == "user" || userType == "";
+        },
+        // fitnessorgadmin: "Fitness Org Admin",
         //admin: "gymadmin"
     }
   
@@ -84,12 +106,12 @@ angular.module('TrainerApp')
         this.lastName = "";
         this.auth_userId = "";
         this.email = "";
+        this.pin = "";
         this.phone = "";
         this.userType = ""
         this.trainerId = "";
         this.fitnessCenterId = "";
         this.fitnessOrgId = "";
-        this.fitnessChainId = "-1";
         this.isAdmin = false;
         this.isRemote = false;
         //this.imageUrl = "";
@@ -185,11 +207,16 @@ angular.module('TrainerApp')
         User: function () { return new User(); },
         Trainer: function () {
             var trainer = new User();
-            trainer.userType = 'trainer';
+            trainer.userType = UserType.trainer();
             return trainer;
         },
+        FitnessOrgAdmin: function () {
+            var admin = new User();
+            admin.userType = UserType.fitnessOrgAdmin();
+            return admin;
+        },
         Routine: function () { return new Routine(); },
-        FitnessChain: function () { return new FitnessChain(); },
+        FitnessOrg: function () { return new FitnessOrg(); },
         FitnessCenter: function () { return new FitnessCenter(); },
         Tags: function () { return Tags; },
         BodyParts: function () { return BodyParts; },

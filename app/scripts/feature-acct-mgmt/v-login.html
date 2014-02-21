@@ -9,12 +9,12 @@
 
     <div class="page-content">
 
-        <form data-abide ng-submit="login()" ng-model="login">
+        <form data-abide ng-submit="login()" ng-model="logon">
 
-            <!--<div class="row">
+            <div class="row">
                 <div class="small-12 medium-6 columns">
                     <label>Email</label>
-                    <input type="email" placeholder="Email" ng-model="login.email" required />
+                    <input type="email" placeholder="Email" ng-model="logon.email" required />
                 </div>
 
             </div>
@@ -22,16 +22,16 @@
             <div class="row">
                 <div class="small-12 medium-6 columns">
                     <label>PIN Number:</label>
-                    <input type="password" placeholder="1234" ng-model="login.pin" required maxlength="4" />
+                    <input type="password" placeholder="1234" ng-model="logon.pin" required maxlength="4" />
                 </div>
-            </div>-->
-            <!--<div class="row">
+            </div>
+          <div class="row">
                 <div class="small-12 columns">
                     <input class="button" type="submit" value="Login" />
                 </div>
-            </div>-->
+            </div>
 
-            <div class="row log-in-btns" ng-hide="user">
+            <!--<div class="row log-in-btns" ng-hide="user">
                 <div class="small-12 medium-6 columns">
                     <p>Log in with Facebook, Google, Microsoft or Twitter</p>
                     <ul class="small-block-grid-4">
@@ -43,7 +43,6 @@
                         </li>
                         <li>
                             <a class="ms-glyph" ng-click="login('microsoftaccount')">
-                                <!--<span class="fi-social-windows"></span>-->
                                 <img class="ad_glyph" src="https://secure.aadcdn.microsoftonline-p.com/aad/18.0.18781/images/MSA_Glyph.png" alt="Icon for Microsoft account">
                             </a>
                         </li>
@@ -52,7 +51,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div>-->
 
         </form>
 

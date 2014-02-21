@@ -94,8 +94,8 @@ function ($resource, Environment, Notifier, AzureTable) {
         return $resource(url.replace("tableName", tableName), { id: '@id' }, { "update": { method: "PATCH", isArray: false } });
     }
     return {
-        FitnessChainResource: function () {
-            return getResource("fitnesschains");
+        FitnessOrgResource: function () {
+            return getResource("fitnessorgs");
         },
         FitnessCenterResource: function () {
             return getResource("fitnesscenters");
