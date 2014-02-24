@@ -75,7 +75,7 @@ angular.module('TrainerApp', [
         })
     }
 
-    setupRoutes();
+    setupRoutes(); 
 
     $routeProvider
       .when('/', {
@@ -99,7 +99,12 @@ angular.module('TrainerApp', [
           redirectTo: '/'
       });
 })
-.run(function ($rootScope, $location, Identity, $timeout, Azure) {
+.run(function ($rootScope, $location, Identity, $timeout, Azure, Settings) {
+
+    Settings.init();
+
+    Settings.checkForUpdate();
+
 
     $rootScope.$on('$routeChangeStart', function (evt, next, current) {
 

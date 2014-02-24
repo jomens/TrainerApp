@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('MyTrainersCtrl', function ($scope, TrainerService, Nav) {
+  .controller('MyTrainersCtrl', function ($scope, TrainerService, Nav, $location) {
 
       init();
 
@@ -18,5 +18,16 @@ angular.module('TrainerApp')
           Nav.portal();
       }
 
-     
+      $scope.trainerSelected = function (trainer) {
+          var locationParams = $location.search();
+
+          if (locationParams && locationParams.dest) {
+              $location.path("/" + locationParams.dest + "/" + trainer[locationParams.param]).search({});
+          } else {
+              //TrainerService.setCurrentClient(client);
+              $location.path("/userProfile/" + trainer.id);
+
+          }
+
+      }
   });

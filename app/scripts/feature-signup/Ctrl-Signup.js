@@ -14,11 +14,11 @@ angular.module('TrainerApp')
 
       function setupTrainerSignup() {
           var trainer = Models.Trainer();
-          if (Azure.Client().currentUser) {
-              trainer.auth_userId = Azure.Client().currentUser.userId;
+          //if (Azure.Client().currentUser) {
+           //   trainer.auth_userId = Azure.Client().currentUser.userId;
               $scope.trainer = trainer;
-              getAuth($scope.trainer);
-          }
+              //getAuth($scope.trainer);
+         // }
 
       }
 

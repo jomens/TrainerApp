@@ -7,9 +7,7 @@ angular.module('TrainerApp')
       init();
       
       function init() {
-
-          Settings.init();
-
+          
        var  user =  Identity.getLoggedInUser();
        if (user) {
            if (Models.UserType().isTrainer(user.userType)) {

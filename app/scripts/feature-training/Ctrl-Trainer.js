@@ -6,7 +6,6 @@ angular.module('TrainerApp')
       init();
 
       function init() {
-          Settings.init();
           $scope.trainer = Identity.getLoggedInUser();
 
          // $(document).foundation();

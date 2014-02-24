@@ -26,7 +26,7 @@
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
 
                     <li ng-repeat="trainer in trainers">
-                        <div class="panel trainer-card">
+                        <a class="panel trainer-card block-panel" ng-click="trainerSelected(trainer)">
                             <div class="row">
                                 <div class="small-4 medium-5 large-4 columns">
                                     <div class="avatar-wrapper">
@@ -37,11 +37,11 @@
                                 <div class="small-8 medium-7 large-8 columns client-info">
                                     <h3 class="name"><small><span>{{trainer.firstName}}</span> <span class="show-for-large-up">{{trainer.lastName}}</span></small></h3>
                                     <!--<p class="package">EXP: <span>3 years</span></p>-->
-                                    <span class="label warning">ISSA CERTIFIED</span>
+                                    <span class="label warning">CERTIFIED</span>
                                 </div>
                             </div>
 
-                        </div>
+                        </a>
 
                     </li>
 

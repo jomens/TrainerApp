@@ -82,6 +82,15 @@ angular.module('TrainerApp')
               Amplify.store("routineDetails", rtnDetails);
 
           },
+          getVersion: function () {
+              return Amplify.store("version");
+
+          },
+
+          setVersion: function(version){
+              Amplify.store("version", version);
+
+          },
 
           setTrainingSession: function (ts) {
               Amplify.store("session", ts);

@@ -337,37 +337,55 @@ h6 {
 .btn-logout {
   color: #ea2f10 !important;
 }
-/*
-nav.top-bar {
-    background: #d2d2d2;
-    color: #333;
-
-    h1 {
-        font-weight: normal;
-        color: #333;
-    }
+nav.top-bar,
+nav.top-bar.expanded {
+  background: #d2d2d2;
+  color: #333;
+}
+nav.top-bar h1,
+nav.top-bar.expanded h1 {
+  font-weight: normal;
+  color: #333;
+}
+nav.top-bar .title-area,
+nav.top-bar.expanded .title-area {
+  background: #d2d2d2;
+}
+nav.top-bar .top-bar-section ul,
+nav.top-bar.expanded .top-bar-section ul {
+  background: #d2d2d2;
+}
+nav.top-bar .top-bar-section ul .divider,
+nav.top-bar.expanded .top-bar-section ul .divider,
+nav.top-bar .top-bar-section ul .top-bar-section [role="separator"],
+nav.top-bar.expanded .top-bar-section ul .top-bar-section [role="separator"] {
+  border-top: solid 1px #aaa;
+}
+.top-bar .toggle-topbar.menu-icon a {
+  color: #333;
+}
+.top-bar .toggle-topbar.menu-icon a::after {
+  -webkit-box-shadow: 0 10px 0 1px #333,0 16px 0 1px #333,0 22px 0 1px #333;
+  box-shadow: 0 10px 0 1px #333,0 16px 0 1px #333,0 22px 0 1px #333;
 }
 .top-bar-section ul li > a {
-    background: none;
+  background: none;
+  color: #333;
 }
 @media only screen and (min-width: 40.063em) {
-    .top-bar-section li:not(.has-form) a:not(.button) {
-        background: #d2d2d2;
-    }
-    .top-bar-section ul {
-        background: none;
-    }
-    .top-bar-section ul li>a {
-        color: #333;
-    }
-    .top-bar-section>ul>.divider, .top-bar-section>ul>[role="separator"] {
-        border-right: solid 1px #aaa;
-
-    }
-}
-    */
-.top-bar .name h1 {
-  color: #fff;
+  .top-bar-section li:not(.has-form) a:not(.button) {
+    background: #d2d2d2;
+  }
+  .top-bar-section ul {
+    background: none;
+  }
+  .top-bar-section ul li > a {
+    color: #333;
+  }
+  .top-bar-section > ul > .divider,
+  .top-bar-section > ul > [role="separator"] {
+    border-right: solid 1px #aaa;
+  }
 }
 .top-bar.expanded .toggle-topbar a span {
   box-shadow: none;
@@ -547,7 +565,7 @@ ul.menu-list li a {
 }
 .page,
 .page-content {
-  margin-top: 10px;
+  margin-top: 2.5%;
 }
 .block-panel {
   margin-bottom: 1rem;

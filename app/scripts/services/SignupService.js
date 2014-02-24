@@ -4,7 +4,7 @@ angular.module('TrainerApp')
  .factory("SignupService", function (Models, Azure, Notifier, $location, LocalStorage, Identity, UserService) {
 
          return {
-             addFitnessOrg: function (org, admins) {
+             addFitnessOrg: function (org, admins, callback) {
 
                  Notifier.busy(true);
                  //admin.isAdmin = true;
@@ -17,7 +17,15 @@ angular.module('TrainerApp')
                         admin.pin = "0000";
 
                         if (admin.email) {
-                            UserService.addUser(admin);
+                            Azure.UserResource().save(admin, function (savedUser) {
+
+                               // Notifier.done("Success. account created", true);
+
+                                if (callback) {
+                                    callback(savedUser);
+                                }
+
+                            }, Notifier.errorHandler);
                         }
 
                      })

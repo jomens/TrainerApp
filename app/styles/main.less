@@ -85,8 +85,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/*
-nav.top-bar {
+
+nav.top-bar, nav.top-bar.expanded {
     background: #d2d2d2;
     color: #333;
 
@@ -94,9 +94,32 @@ nav.top-bar {
         font-weight: normal;
         color: #333;
     }
+
+    .title-area {
+        background: #d2d2d2;
+    }
+
+    .top-bar-section ul {
+        background: #d2d2d2;
+
+        .divider, .top-bar-section [role="separator"] {
+            border-top: solid 1px #aaa;
+        }
+    }
 }
+
+.top-bar .toggle-topbar.menu-icon a {
+
+color: #333;
+&::after{
+    -webkit-box-shadow: 0 10px 0 1px #333,0 16px 0 1px #333,0 22px 0 1px #333;
+box-shadow: 0 10px 0 1px #333,0 16px 0 1px #333,0 22px 0 1px #333;
+}
+}
+
 .top-bar-section ul li > a {
     background: none;
+    color: #333;
 }
 @media only screen and (min-width: 40.063em) {
     .top-bar-section li:not(.has-form) a:not(.button) {
@@ -113,10 +136,8 @@ nav.top-bar {
 
     }
 }
-    */
-.top-bar .name h1 {
-color: #fff;
-}
+    
+
 .top-bar.expanded .toggle-topbar a span {
     box-shadow: none;
 }
@@ -329,7 +350,7 @@ ul.menu-list {
     }
 
 .page, .page-content {
-    margin-top: 10px;
+    margin-top: 2.5%;
 }
 
 .block-panel {

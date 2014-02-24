@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .factory('Settings', function (LocalStorage, ExerciseService) {
-   
+  .factory('Settings', function (LocalStorage, ExerciseService, Identity, Nav) {
+      var dataVersion = 1;
     
     return {
         init: function () {
@@ -10,6 +10,15 @@ angular.module('TrainerApp')
           if (!settings) {
               ExerciseService.fetchAllExercises();
           }
-      }
+        },
+        checkForUpdate: function () {
+            var version = LocalStorage.getVersion();
+            if (!version || version.dataVersion != dataVersion) {
+                Identity.logout(function () {
+                    LocalStorage.setVersion({ dataVersion: dataVersion })
+                    Nav.login();
+                });
+            }
+        }
     };
   });
