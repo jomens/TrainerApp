@@ -61,7 +61,7 @@ angular.module('TrainerApp')
                 Azure.table("users").read({
                     where: {
                         email: logon.email,
-                        pin: logon.pin
+                        //pin: logon.pin
                     },
                     success: function (results) {
 

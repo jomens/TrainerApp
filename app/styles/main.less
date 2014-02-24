@@ -31,7 +31,7 @@ body {
             animation: bgmove 140s alternate infinite;
         }
 
-        .tab-bar {
+        .top-bar {
             display: none;
         }
     }
@@ -77,7 +77,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
 
-nav.tab-bar {
+.btn-login{
+    color: #7fba00 !important;
+}
+.btn-logout{
+     color: #ea2f10 !important;
+}
+
+
+/*
+nav.top-bar {
     background: #d2d2d2;
     color: #333;
 
@@ -85,6 +94,31 @@ nav.tab-bar {
         font-weight: normal;
         color: #333;
     }
+}
+.top-bar-section ul li > a {
+    background: none;
+}
+@media only screen and (min-width: 40.063em) {
+    .top-bar-section li:not(.has-form) a:not(.button) {
+        background: #d2d2d2;
+    }
+    .top-bar-section ul {
+        background: none;
+    }
+    .top-bar-section ul li>a {
+        color: #333;
+    }
+    .top-bar-section>ul>.divider, .top-bar-section>ul>[role="separator"] {
+        border-right: solid 1px #aaa;
+
+    }
+}
+    */
+.top-bar .name h1 {
+color: #fff;
+}
+.top-bar.expanded .toggle-topbar a span {
+    box-shadow: none;
 }
 
 .xxboom {
@@ -176,17 +210,6 @@ ul.off-canvas-list li:first-child label {
     padding: 0.7rem 0.9375rem;
 }
 
-section.right-small.top-a {
-    right: 2.8125rem;
-}
-
-section.right-small.top-b {
-    right: 2.8125rem * 2;
-}
-
-section.right-small.top-c {
-    right: 2.8125rem * 3;
-}
 
 section.right-small {
     border-left: solid 1px #969696;

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
- .factory("UserService", function (Models, Azure, Notifier, $location, LocalStorage, Identity) {
+ .factory("UserService", function (Models, Azure, Notifier, $location, LocalStorage, Identity, Nav) {
 
          return {
              getUserById: function (id, callback) {
@@ -52,7 +52,25 @@ angular.module('TrainerApp')
                      }
 
                  }, Notifier.errorHandler);
-            },
+             },
+
+             deleteUser: function (user, callback) {
+
+                 Notifier.busy(true);
+
+                 Azure.UserResource().delete({ id: user.id }, function () {
+
+                     Notifier.done("", true);
+
+                     if (callback) {
+                         callback();
+                     }
+                     else {
+                         Nav.dashboard()
+                     }
+
+                 }, Notifier.errorHandler);
+             },
 
          }
      })

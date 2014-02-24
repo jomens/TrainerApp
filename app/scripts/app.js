@@ -26,7 +26,7 @@ angular.module('TrainerApp', [
             {
                 name: "feature-acct-mgmt",
                 simpleRoutes: ["Addclient", "AddTrainer", "Myclients", "Login", "Addfitnessorg",
-                "AddFitnessCenter", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal", "AllLocations", "MyTrainers"],
+                "AddFitnessCenter", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal", "AllLocations", "MyTrainers", "DeleteClient"],
                 routesWithIds: ["EditClient", "Myclients"]
             },
             {
@@ -91,6 +91,10 @@ angular.module('TrainerApp', [
           controller: 'SignupCtrl'
       })
 
+      .when('/deleteClient', {
+        templateUrl: 'views/deleteclient.html',
+        controller: 'DeleteclientCtrl'
+      })
       .otherwise({
           redirectTo: '/'
       });

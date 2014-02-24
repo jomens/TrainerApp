@@ -36,15 +36,14 @@
     <!-- Add your site or application content here -->
     <!-- off canvas -->
 
-    <div class="off-canvas-wrap">
-        <div class="inner-wrap">
-            <!--<nav class="top-bar" data-topbar="">
+   
+            <nav class="top-bar" data-topbar="">
                 <ul class="title-area">
                     <li class="name">
                         <h1>
                             <a href="#/">
                                 <h1 class="title" ng-hide="title">
-                                    FIO<span class="metro">TRAINER</span><span>
+                                    TRACKER <span class="metro">METRO</span><span>
                                         <div class="progress-bar">
                                             <div id="circularG">
                                                 <div id="circularG_1" class="circularG">
@@ -74,25 +73,31 @@
                             </a>
                         </h1>
                     </li>
-                    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+                    <li class="toggle-topbar menu-icon"><a href=""><span>menu</span></a></li>
                 </ul>
 
 
                 <section class="top-bar-section">
                     <ul class="right">
                         <li class="divider"></li>
+
                         <li class="">
-                            <a href="#">Main</a>
+                            <a href="#/dashboard">HOME</a>
                         </li>
                         <li class="divider"></li>
-                        <li class="">
-                            <a href="#">Main</a>
-                        </li>
+                        <li><a ng-click="gotoUserPortal()" class="">MY PORTAL</a></li>
                         <li class="divider"></li>
-                        <li class="">
-                            <a href="#">Main</a>
-                        </li>
+
+                     <li><a ng-href="#/myRoutines/" class="">ROUTINES</a></li>
                         <li class="divider"></li>
+                        <li><a ng-href="#/myClients/" class="">CLIENTS</a></li>
+                        <li class="divider"></li>
+                       
+                        <li ng-controller="LoginCtrl">
+                            <a ng-href="#/login" class="btn-login" ng-hide="loggedInUser">LOG IN</a>
+                            <a ng-href="" ng-click="logout()" class="btn-logout" ng-show="loggedInUser">LOG OUT</a>
+                        </li>
+                        <!--<li class="divider"></li>
                         <li>
                             <a class="fi-home nav-icon" href="#/">
                                 <span></span>
@@ -104,13 +109,13 @@
                         <li>
                             <a class="right-off-canvas-toggle menu-icon"><span></span></a>
 
-                        </li>
+                        </li>-->
                     </ul>
                 </section>
-            </nav>-->
+            </nav>
 
 
-            <nav class="tab-bar">
+            <!--<nav class="tab-bar">
                 <section class="middle tab-bar-section">
                     <a href="#/">
                         <h1 class="title" ng-hide="title">
@@ -138,55 +143,30 @@
                                 </div>
                             </span>
                         </h1>
-                        <!--<h1 class="title" ng-show="title">
-                            {{title}}<span class="metro">{{subTitle}}</span>
-                        </h1>-->
+                       
                     </a>
 
                 </section>
 
-                <section class="right-small top-a">
+               <section class="right-small top-a">
                     <a class="fi-home nav-icon" href="#/dashboard">
                         <span></span>
 
-                        <!--<span class="label alert notify">3</span>-->
                     </a>
 
                 </section>
                 <section class="right-small">
                     <a class="right-off-canvas-toggle fi-list" ><span></span></a>
                 </section>
-            </nav>
+
+            </nav>-->
 
 
-            <aside class="right-off-canvas-menu">
-                <ul class="off-canvas-list">
-                    <li ng-controller="LoginCtrl">
-                        <a ng-href="#/login" ng-click="login()" class="button success" ng-hide="loggedInUser">LOG IN</a>
-                        <a ng-href="" ng-click="logout()" class="button alert" ng-show="loggedInUser">LOG OUT</a>
-                    </li>
-                    <li><label>MENU</label></li>
-                    <li><a ng-href="#/myRoutines/" class="">My Routines</a></li>
-                    <li><a ng-href="#/myClients/" class="">My Clients</a></li>
-                    <li><a ng-href="#/trainer" class="">Trainer portal</a></li>
-
-                    <!--<li><label>GYM ADMIN</label></li>
-                    <li><a ng-href="#/addFitnessCenter/" class="">Add Fitness Center</a></li>
-
-                    <li><label>SUPER ADMIN</label></li>
-                    <li><a ng-href="#/addFitnessOrg/" class="">Add Fitness Org</a></li>-->
-
-                </ul>
-            </aside>
 
             <section class="main-section">            
                 <div class="container" ng-view=""></div>
             </section>
 
-            <a class="exit-off-canvas"></a>
-
-        </div>
-    </div>
 
 
 
@@ -278,6 +258,7 @@
     <script src="scripts/feature-acct-mgmt\Ctrl-FitnessOrgPortal.js"></script>
     <script src="scripts/feature-acct-mgmt\Ctrl-FitnessCenterPortal.js"></script>
     <script src="scripts/feature-acct-mgmt/Ctrl-AllLocations.js"></script>
+    <script src="scripts/feature-acct-mgmt/Ctrl-DeleteClient.js"></script>
     <script src="scripts/services\IdentityService.js"></script>
     <script src="scripts/services\AzureService.js"></script>
     <script src="scripts/services\RoutineService.js"></script>

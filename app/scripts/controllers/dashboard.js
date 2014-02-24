@@ -3,7 +3,7 @@
 
 
 angular.module('TrainerApp')
-  .controller('DashboardCtrl', function ($scope, Identity, $location, TrainerService, RoutineService, Settings, Models) {
+  .controller('DashboardCtrl', function ($scope, Identity, $location, TrainerService, RoutineService, Settings, Models, $rootScope, Nav) {
       init();
       
       function init() {
@@ -18,7 +18,12 @@ angular.module('TrainerApp')
 
            if (Models.UserType().isUser(user.userType)) {
                loadUserData();
-             }
+           }
+
+           //org admin
+           if (Models.UserType().isOrgAdmin(user.userType)) {
+               Nav.portal();
+           }
          }
          else {
              $location.path("/login");
@@ -93,7 +98,7 @@ angular.module('TrainerApp')
 
       }
    
-      $scope.gotoUserPortal = function () {
+      $rootScope.gotoUserPortal = function () {
          
           var user = $scope.loggedInUser;
 

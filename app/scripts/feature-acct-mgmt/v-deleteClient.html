@@ -1,0 +1,58 @@
+<div class="row page">
+    <div class="page-header">
+        <div class="row">
+            <div class="small-6 medium-8 columns">
+                <h3 class="page-title">Delete Clients</h3>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="page-content">
+
+        <div class="row">
+            <div class="small-12 medium-6 columns" ng-hide="clients.length">
+                <div class="panel">
+                    <h3><small>You have no clients in your account. <a ng-href="#/addClient">Add some clients</a></small></h3>
+                </div>
+            </div>
+
+            <div class="small-12 columns">
+                <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+
+                    <li ng-repeat="client in clients" class="xxboom">
+                        <div class="panel block-panel">
+                            <div class="row">
+                                <div class="small-4 medium-5 large-4 columns">
+                                    <div class="avatar-wrapper">
+                                        <img ng-src="{{client.imageUrl}}" alt="" />
+                                    </div>
+                                </div>
+
+                                <div class="small-8 medium-7 large-8 columns client-info">
+                                    <h3 class="name"><small><span>{{client.firstName}}</span> <span class="show-for-large-up">{{client.lastName}}</span></small></h3>
+                                    <br/>
+                                    <a ng-click="delete(client)" class="button danger">Delete</a>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -287,7 +287,7 @@ body.show-image .panorama {
   -o-animation: bgmove 140s alternate infinite;
   animation: bgmove 140s alternate infinite;
 }
-body.show-image .tab-bar {
+body.show-image .top-bar {
   display: none;
 }
 @-webkit-keyframes bgmove {
@@ -331,13 +331,46 @@ h6 {
   font-family: "Open Sans";
   font-weight: 300;
 }
-nav.tab-bar {
-  background: #d2d2d2;
-  color: #333;
+.btn-login {
+  color: #7fba00 !important;
 }
-nav.tab-bar h1 {
-  font-weight: normal;
-  color: #333;
+.btn-logout {
+  color: #ea2f10 !important;
+}
+/*
+nav.top-bar {
+    background: #d2d2d2;
+    color: #333;
+
+    h1 {
+        font-weight: normal;
+        color: #333;
+    }
+}
+.top-bar-section ul li > a {
+    background: none;
+}
+@media only screen and (min-width: 40.063em) {
+    .top-bar-section li:not(.has-form) a:not(.button) {
+        background: #d2d2d2;
+    }
+    .top-bar-section ul {
+        background: none;
+    }
+    .top-bar-section ul li>a {
+        color: #333;
+    }
+    .top-bar-section>ul>.divider, .top-bar-section>ul>[role="separator"] {
+        border-right: solid 1px #aaa;
+
+    }
+}
+    */
+.top-bar .name h1 {
+  color: #fff;
+}
+.top-bar.expanded .toggle-topbar a span {
+  box-shadow: none;
 }
 .xxboom {
   -webkit-transition: 0.6s transform;
@@ -419,15 +452,6 @@ section.padded {
 }
 ul.off-canvas-list li:first-child label {
   padding: 0.7rem 0.9375rem;
-}
-section.right-small.top-a {
-  right: 2.8125rem;
-}
-section.right-small.top-b {
-  right: 5.625rem;
-}
-section.right-small.top-c {
-  right: 8.4375rem;
 }
 section.right-small {
   border-left: solid 1px #969696;

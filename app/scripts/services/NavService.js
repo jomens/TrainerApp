@@ -8,10 +8,13 @@ angular.module('TrainerApp')
       }
 
     return {
-      home: function () {
-          go();
-      },
-      login: function () {
+        home: function () {
+            go();
+        },
+        dashboard: function () {
+            go("dashboard");
+        },
+        login: function () {
           go("login");
       },
       //Users

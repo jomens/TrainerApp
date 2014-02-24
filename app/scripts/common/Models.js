@@ -106,7 +106,7 @@ angular.module('TrainerApp')
         this.lastName = "";
         this.auth_userId = "";
         this.email = "";
-        this.pin = "";
+        this.pin = "";//0000
         this.phone = "";
         this.userType = "user"
         this.trainerId = "";
