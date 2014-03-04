@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('CreateRoutineAssignmentsCtrl', function ($scope, TrainerService, RoutineService) {
+  .controller('CreateRoutineAssignmentsCtrl', function ($scope, TrainerService, RoutineService, Nav) {
 
    
 
@@ -93,8 +93,9 @@ angular.module('TrainerApp')
               users: $scope.selectedClients,
               routine: $scope.routine,
               date: $scope.date,
-              callback: function () {
-                  reset();
+              callback: function (savedAssignment) {
+                  //Nav.setRoutineTargets(savedAssignment.id).search(savedAssignment);
+                  reset(); 
               }
           })
       }

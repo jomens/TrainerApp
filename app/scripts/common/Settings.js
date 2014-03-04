@@ -2,7 +2,7 @@
 
 angular.module('TrainerApp')
   .factory('Settings', function (LocalStorage, ExerciseService, Identity, Nav) {
-      var dataVersion = 1;
+      var dataVersion = 2;
     
     return {
         init: function () {

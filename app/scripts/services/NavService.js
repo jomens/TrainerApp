@@ -3,8 +3,13 @@
 angular.module('TrainerApp')
   .factory('Nav', function ($location, $rootScope) {
    
-      function go(path) {
+      function go(path, id) {
+          if (id){
+            return  $location.path("/" + path + "/" + id);
+          }else{
           $location.path("/" + path || "");
+
+          }
       }
 
     return {
@@ -14,9 +19,15 @@ angular.module('TrainerApp')
         dashboard: function () {
             go("dashboard");
         },
+        superadmin: function () {
+            go("superadmin");
+        },
         login: function () {
           go("login");
-      },
+        },
+        setRoutineTargets: function(rtnAssignmentId){
+            return go("createRoutineTargets", rtnAssignmentId);
+        },
       //Users
       trainers: function () {
           go("mytrainers");

@@ -22,7 +22,21 @@ angular.module('TrainerApp')
         core: "Core",
         arms: "Arms",
         cardio: "Cardio"
-        };
+    };
+
+    var MuscleGroups = [
+       { title: "Chest", name: "chest"},
+       { title: "Abs", name: "abs" },
+       { title: "Shoulders", name: "shoulders" },
+       { title: "Biceps", name: "biceps" },
+       { title: "Triceps", name: "triceps" },
+       { title: "Back", name: "back" },
+       { title: "Legs", name: "legs" },
+       { title: "Arms", name: "arms" },
+       { title: "Cardio", name: "cardio" },
+       { title: "Core", name: "core" },
+    ];
+
 
     var Tags = {
         fw: "Free weights",
@@ -34,7 +48,19 @@ angular.module('TrainerApp')
         rb: "Resistance bands",
         cardio: "Cardio",
         warmup: "Warm up"
-        };
+    };
+
+    var ExerciseCategory = [
+        { name: "Free weights", tag: "fw"},
+        { name: "Free motion", tag: "fm"},
+        { name: "Bar bells", tag: "bb"},
+        { name: "Machine", tag: "bc"},
+        { name: "Dumb bells", tag: "db"},
+        { name: "Cables", tag: "cb"},
+        { name: "Resistance bands", tag: "rb"},
+        { name: "Cardio", tag: "cardio"},
+        { name: "Warm up", tag: "warmup"},
+    ];
     
     var Account = function () { //you get an account only if you're independent
         this.name = ""; //24 HR Fitness? John Doe independent trainer
@@ -180,9 +206,10 @@ angular.module('TrainerApp')
         this.createdBy = "";
         this.name = ""; //Chest and tris?
          this.descriptions = "";
-      // this.exercises = [];
-        this.expectedSets = 3;
+        // this.exercises = [];
     }
+
+   
 
     //ROUTINE ASSIGNMENTS
     //routineId & assignedTo (user), assignedBy, assignmentDate? routineCompleted?
@@ -193,8 +220,22 @@ angular.module('TrainerApp')
         this.assignedBy = "";
         this.date = "";
         this.completed = false;
+        //this.routineTargets = []; //WorkoutTarget
     }
 
+ var WorkoutTarget = function () {
+        //id
+     //this.routineId
+     //this.routineAssignmentId??
+        this.exerciseId = "";
+        this.expectedSets = 3;
+        this.targetWeights = []; //RoutineTargets
+    }
+
+    var TargetWeight = function () {
+        this.targetWeight = 0;
+        this.targetReps = 10;
+    }
     //i meet Joe, on Monday, we're doing template X. 
     var TrainingPlan = function () {
         this.trainerId = -1;
@@ -220,11 +261,17 @@ angular.module('TrainerApp')
             admin.userType = UserType.fitnessCenterAdmin();
             return admin;
         },
+        Exercise: function () { return new Exercise(); },
         Routine: function () { return new Routine(); },
+        RoutineActivity: function () { return new RoutineActivity(); },
+        WorkoutTarget: function () { return new WorkoutTarget(); },
+        TargetWeight: function () { return new TargetWeight(); },
         FitnessOrg: function () { return new FitnessOrg(); },
         FitnessCenter: function () { return new FitnessCenter(); },
         Tags: function () { return Tags; },
         BodyParts: function () { return BodyParts; },
+        MuscleGroups: function () { return MuscleGroups; },
+        ExerciseCategory: function () { return ExerciseCategory; },
         CardioModes: function () { return CardioModes; },
         TrainingSession: function () { return new TrainingSession(); },
         Workout: function () { return new Workout(); },

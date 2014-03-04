@@ -12,8 +12,12 @@ angular.module('TrainerApp')
       }, 500);
 
       function init() {
-          // $scope.exTitle = "nothing selected";
           $scope.bodyParts = ExerciseService.getBodyParts();
+
+         // ExerciseService.getMuscleGroups(function (mgs) {
+            //  $scope.bodyParts = mgs;
+
+          //});
 
       }
 

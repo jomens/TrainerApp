@@ -106,6 +106,18 @@ function ($resource, Environment, Notifier, AzureTable) {
         ExerciseResource: function () {
             return getResource("exercises");
         },
+        ExerciseCategoryResource: function () {
+            return getResource("exercisecategories");
+        },
+        MuscleGroupResource: function () {
+            return getResource("musclegroups");
+        },
+        MuscleGroup_Exercises_Resource: function () {
+            return getResource("musclegroups_exercises");
+        },
+        Exercises_ExerciseCategory_Resource: function () {
+            return getResource("exercises_exercisecategories");
+        },
         RoutineResource: function () {
             return getResource("routines");
         },

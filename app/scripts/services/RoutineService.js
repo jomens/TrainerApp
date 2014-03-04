@@ -19,7 +19,7 @@ angular.module('TrainerApp')
                   that.addExerciseToRoutine(savedRoutine, exercises);
               }, Notifier.errorHandler)
           },
-          getRoutineExercises: function (routineId, callback) {
+          getRoutineExercises: function (routineId, callback) { //this pulls from local storage
               var cachedRoutineDetails = LocalStorage.getRoutineDetails();
               if (cachedRoutineDetails && routineId == cachedRoutineDetails.routine.id) {
                   console.log("getting from cache");
@@ -39,6 +39,56 @@ angular.module('TrainerApp')
                       callback(exs);
                   }
               })
+          },
+          getRoutineExercisesByRoutineId: function(routineId, callback){ //get from service
+              var that = this;
+              Notifier.busy(true);
+              
+
+              Azure.table("routine_exercises").read({
+                  where: {
+                      routineId: routineId
+                  },
+                  success: function (routineIds_exerciseIds) {
+                      that.getExercisesByExerciseIds(routineIds_exerciseIds, function (result) {
+                          callback(result);
+
+                      });
+                  }
+              })
+          },
+          getExercisesByExerciseIds: function (routineIds_exerciseIds, callback) {
+
+              var num = routineIds_exerciseIds.length;
+              var start = 0;
+              var exercises = [];
+
+              routineIds_exerciseIds.forEach(function (routine_exercise) {
+              
+
+                  Azure.table("exercises").read({
+                      where: {
+                          id: routine_exercise.exerciseId
+                      },
+                      success: function (ex) {
+                          start++;
+
+
+                          exercises.push(ex[0]);
+
+                          if (start == num) {
+
+                              callback(exercises);
+                              Notifier.done();
+                          }
+
+                      }
+                  })
+
+              })
+
+
+
           },
           getExercisesFromLocalStorage: function (listOfExercises) {
             
@@ -93,7 +143,7 @@ angular.module('TrainerApp')
 
                       if (counter == numUsers) {
                           Notifier.done("success", true);
-                          options.callback();
+                          options.callback(rtna);
                       }
 
                   }, Notifier.errorHandler)

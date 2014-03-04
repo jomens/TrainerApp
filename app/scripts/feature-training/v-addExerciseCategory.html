@@ -1,0 +1,30 @@
+<div class="row page">
+    <div class="page-header">
+        <div class="row">
+            <div class="small-6 medium-8 columns">
+                <h3 class="page-title">Add Exercise category</h3>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="page-content">
+
+        <form ng-submit="addExerciseCategory()" ng-model="category">
+
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <label for="">Category Name:</label>
+                    <input type="text" placeholder="free weights, cables, etc" ng-model="category.name" required />
+                </div>
+            </div>
+                                          
+            <div class="row"><div class="small-12 columns"><input class="button" type="submit" value="Submit" /></div></div>
+        </form>
+    </div>
+</div>

@@ -31,9 +31,9 @@ angular.module('TrainerApp', [
             },
             {
                 name: "feature-training",
-                simpleRoutes: ["Trainer", "Createroutine", "CreateRoutineAssignments", "Myroutines", "Selectclient",
+                simpleRoutes: ["Trainer", "Createroutine", "AddExercise", "AddMuscleGroup", "AddExerciseCategory", "CreateRoutineAssignments", "Myroutines", "Selectclient",
                 "Selectroutine", "Go", "Workout", "Summary", "Cardio"],
-                routesWithIds: ["Myroutines", "RoutineDetails", "Go"]
+                routesWithIds: ["Myroutines", "RoutineDetails", "Go", "CreateRoutineTargets"]
             },
             {
                 name: "feature-user-profiles",
