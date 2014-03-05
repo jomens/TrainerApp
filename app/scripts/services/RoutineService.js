@@ -11,7 +11,7 @@ angular.module('TrainerApp')
               var that = this;
               routine.createdBy = Identity.getLoggedInUser().id;
 
-              routine.bodyParts = this.stringifyBodyParts(exercises);
+             // routine.bodyParts = this.stringifyBodyParts(exercises);
               Notifier.busy(true);
               Azure.RoutineResource().save(routine, function (savedRoutine) {
                  // Notifier.done("Routine saved");
@@ -19,27 +19,27 @@ angular.module('TrainerApp')
                   that.addExerciseToRoutine(savedRoutine, exercises);
               }, Notifier.errorHandler)
           },
-          getRoutineExercises: function (routineId, callback) { //this pulls from local storage
-              var cachedRoutineDetails = LocalStorage.getRoutineDetails();
-              if (cachedRoutineDetails && routineId == cachedRoutineDetails.routine.id) {
-                  console.log("getting from cache");
-                  callback(cachedRoutineDetails, "cached");
-                  return;
-              }
-              console.log("no cache");
+          //getRoutineExercises: function (routineId, callback) { //this pulls from local storage
+          //    var cachedRoutineDetails = LocalStorage.getRoutineDetails();
+          //    if (cachedRoutineDetails && routineId == cachedRoutineDetails.routine.id) {
+          //        console.log("getting from cache");
+          //        callback(cachedRoutineDetails, "cached");
+          //        return;
+          //    }
+          //    console.log("no cache");
 
 
-              var that = this;
-              Notifier.busy(true);
-              Azure.table("routine_exercises").read({
-                  where: {
-                      routineId: routineId},
-                  success: function (listOfExercises) {
-                      var exs = that.getExercisesFromLocalStorage(listOfExercises);
-                      callback(exs);
-                  }
-              })
-          },
+          //    var that = this;
+          //    Notifier.busy(true);
+          //    Azure.table("routine_exercises").read({
+          //        where: {
+          //            routineId: routineId},
+          //        success: function (listOfExercises) {
+          //            var exs = that.getExercisesFromLocalStorage(listOfExercises);
+          //            callback(exs);
+          //        }
+          //    })
+          //},
           getRoutineExercisesByRoutineId: function(routineId, callback){ //get from service
               var that = this;
               Notifier.busy(true);
@@ -212,28 +212,28 @@ angular.module('TrainerApp')
                Notifier.done("Routine saved");
                $location.path("/trainer");
           },
-          stringifyBodyParts: function (listOfExercises) {
-              var parts = [];
+        //  stringifyBodyParts: function (listOfExercises) {
+        //      var parts = [];
 
-              listOfExercises.forEach(function (ex) {
-                  var bp = $.trim(ex.bodyPart);
-                  if ($.inArray(bp, parts) === -1) {
-                      parts.push(bp);
-                  }
+        //      listOfExercises.forEach(function (ex) {
+        //          var bp = $.trim(ex.bodyPart);
+        //          if ($.inArray(bp, parts) === -1) {
+        //              parts.push(bp);
+        //          }
 
-              })
+        //      })
 
-              return parts.join(", ");              
-          },
-          stringifyExerciseIds: function (listOfExercises) {
-              var exIds = [];
+        //      return parts.join(", ");              
+        //  },
+        //  stringifyExerciseIds: function (listOfExercises) {
+        //      var exIds = [];
 
-              listOfExercises.forEach(function (ex) {                  
-                  exIds.push(ex.id);
-              })
+        //      listOfExercises.forEach(function (ex) {                  
+        //          exIds.push(ex.id);
+        //      })
 
-              return exIds.join()
+        //      return exIds.join()
             
-          }
+        //  }
         };
   });

@@ -14,24 +14,22 @@ angular.module('TrainerApp')
           TrainerService.startTrainingSession();
 
           var routineId = $routeParams.id || routine.id;
+                  
 
-          RoutineService.getRoutineExercises(routineId, function (routineDetails, cached) {
-              $scope.routineDetails = routineDetails;
-
-              if (!cached) {
+          RoutineService.getRoutineExercisesByRoutineId(routineId, function (exercises) {
+              $scope.exercises = exercises;
               $scope.$apply();
 
-              }
           });
       }
 
       $scope.selectExercise = function (ex) {
           TrainerService.setCurrentWorkout(ex);
 
-          if (ex.tags.indexOf("cardio") != -1) {
-              $location.path("/cardio");
-          } else {
+         // if (ex.tags.indexOf("cardio") != -1) {
+         //     $location.path("/cardio");
+         // } else {
               $location.path("/workout");
-          }
+          //}
       }
   });

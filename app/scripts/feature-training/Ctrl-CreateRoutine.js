@@ -12,46 +12,45 @@ angular.module('TrainerApp')
       }, 500);
 
       function init() {
-          $scope.bodyParts = ExerciseService.getBodyParts();
+          //$scope.bodyParts = ExerciseService.getBodyParts();
 
-         // ExerciseService.getMuscleGroups(function (mgs) {
-            //  $scope.bodyParts = mgs;
+          ExerciseService.getMuscleGroups(function (mgs) {
+              $scope.bodyParts = mgs;
 
-          //});
-
-      }
-
-      function getExercises(bp) {
-          if (exercises[bp]) {
-              return exercises[bp];
-          }
-          else {
-              exercises[bp] = ExerciseService.getExercisesByBodyPart(bp);
-              return exercises[bp];
-          }
+          });
 
       }
 
-      $scope.selectBodypart = function (bp) {
-          $scope.exTitle = bp;// + " Exercises";
+      //function getExercises(bp) {
+      //    if (exercises[bp]) {
+      //        return exercises[bp];
+      //    }
+      //    else {
+      //        exercises[bp] = ExerciseService.getExercisesByBodyPart(bp);
+      //        return exercises[bp];
+      //    }
 
-          $scope.exercises = getExercises(bp);
+      //}
+
+      $scope.selectBodypart = function (mg) {
+          $scope.exTitle = mg.name;// + " Exercises";
+
+         // $scope.exercises = getExercises(bp);
+          ExerciseService.getExercisesByMuscleGroup(mg.id, function (exs) {
+              $scope.exercises = exs;
+              $scope.$apply();
+              console.log(exs);
           angular.element(".create-routine").removeClass("move-right");
+
+          });
 
       }
 
       $scope.addExercise = function (ex) {
           ex.selected = true;
           $scope.selectedExercises.push(ex);
-          //$scope.routineName = RoutineService.stringifyBodyParts($scope.selectedExercises);
       }
-
-      $scope.split = function (tags) {
-          return tags.split(",").map(function (tag) {
-              return Models.Tags()[$.trim(tag)];
-          })
-      }
-
+           
       $scope.saveRoutine = function () {
           if (!$scope.routineName) {
               toastr.error("Routine name required");

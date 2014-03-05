@@ -1,18 +1,17 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('RoutineDetailsCtrl', function ($scope, RoutineService, $routeParams) {
+  .controller('RoutineDetailsCtrl', function ($scope, RoutineService, $routeParams, $location) {
 
       init();
 
       function init() {
 
-          RoutineService.getRoutineExercises($routeParams.id,  function (routineDetails, cached) {
-              $scope.routineDetails = routineDetails;
-              if (!cached) {
+          $scope.routine = $location.search();
+          RoutineService.getRoutineExercisesByRoutineId($routeParams.id, function (exercises) {
+              $scope.exercises = exercises;
               $scope.$apply();
 
-              }
           });
 
       }

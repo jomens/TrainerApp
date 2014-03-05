@@ -2,14 +2,14 @@
 
 angular.module('TrainerApp')
   .factory('Settings', function (LocalStorage, ExerciseService, Identity, Nav) {
-      var dataVersion = 2;
+      var dataVersion = 3;
     
     return {
         init: function () {
             var settings = LocalStorage.getSettings();
-          if (!settings) {
-              ExerciseService.fetchAllExercises();
-          }
+          //if (!settings) {
+              //ExerciseService.fetchAllExercises();
+          //}
         },
         checkForUpdate: function () {
             var version = LocalStorage.getVersion();

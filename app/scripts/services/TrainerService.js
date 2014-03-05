@@ -210,7 +210,7 @@ angular.module('TrainerApp')
                 Notifier.done();
                 LocalStorage.setCurrentWorkout(null);
                 //console.log(savedWorkout);
-                removeExerciseFromRoutineDetails(workout.exerciseId);
+               // removeExerciseFromRoutineDetails(workout.exerciseId);
                 $location.path("/go/");
 
             }, Notifier.errorHandler);

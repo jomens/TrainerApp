@@ -2,7 +2,7 @@
     <div class="page-header">
         <div class="row">
             <div class="small-6 medium-8 columns">
-                <h3 class="page-title">Routine : {{routineDetails.routine.name}}</h3>
+                <h3 class="page-title">Routine : {{routine.name}}</h3>
 
             </div>
 
@@ -15,7 +15,7 @@
 
     <div class="page-content">
         <div class="row">
-            <div class="small-12 medium-6 columns" ng-hide="routineDetails.associatedExercises.length">
+            <div class="small-12 medium-6 columns" ng-hide="exercises.length">
                 <div class="panel">
                     <h3><small>You have no routines created. <a href="#/createRoutine" ng-href="#/createRoutine">Create a routine</a></small></h3>
                 </div>
@@ -26,7 +26,7 @@
                     <li>
                         <div class="panel callout radius">
                             <h5 class="icon-link"><i class="fi-comments size-72"></i><span>Notes</span></h5>
-                            <p class="italics">"{{routineDetails.routine.description}}"</p>
+                            <p class="italics">"{{routine.description}}"</p>
                         </div>
                     </li>
            
@@ -37,8 +37,8 @@
             <div class="small-12 columns">
 
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-                    <li ng-repeat="routine in routineDetails.associatedExercises">
-                        <div class="panel">{{routine.name}}</div>
+                    <li ng-repeat="ex in exercises">
+                        <div class="panel">{{ex.name}}</div>
 
                     </li>
 

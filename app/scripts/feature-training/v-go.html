@@ -16,7 +16,7 @@
                     <li>
                         <div class="panel  callout radius">
                             <h5 class="icon-link"><i class="fi-comments size-72"></i><span>Notes</span></h5>
-                            <p class="italics">"{{routineDetails.routine.description}}"</p>
+                            <p class="italics">"{{routine.description}}"</p>
                         </div>
                     </li>
 
@@ -26,7 +26,7 @@
 
             <div class="small-12 columns">
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-                    <li ng-repeat="ex in routineDetails.associatedExercises" class="xxboom"><a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn " ng-class="{true:'completed'} [ex.completed]">{{ex.name}}</a></li>
+                    <li ng-repeat="ex in exercises" class="xxboom"><a ng-href="" ng-click="selectExercise(ex)" class="block-panel rtn " ng-class="{true:'completed'} [ex.completed]">{{ex.name}}</a></li>
                 </ul>
 
             </div>
