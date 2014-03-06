@@ -36,83 +36,86 @@
     <!-- Add your site or application content here -->
     <!-- off canvas -->
 
-   
-            <nav class="top-bar" data-topbar="">
-                <ul class="title-area">
-                    <li class="name">
-                        <h1>
-                            <a href="#/">
-                                <h1 class="title" ng-hide="title"><span><img src="../images/pro-logo.png" /> </span>
-                                    TRACKER <span class="metro">METRO</span><span>
-                                        <div class="progress-bar">
-                                            <div id="circularG">
-                                                <div id="circularG_1" class="circularG">
-                                                </div>
-                                                <div id="circularG_2" class="circularG">
-                                                </div>
-                                                <div id="circularG_3" class="circularG">
-                                                </div>
-                                                <div id="circularG_4" class="circularG">
-                                                </div>
-                                                <div id="circularG_5" class="circularG">
-                                                </div>
-                                                <div id="circularG_6" class="circularG">
-                                                </div>
-                                                <div id="circularG_7" class="circularG">
-                                                </div>
-                                                <div id="circularG_8" class="circularG">
-                                                </div>
+    <div class="fixed">
+        <nav class="top-bar" data-topbar="">
+            <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a href="#/">
+                            <h1 class="title" ng-hide="title">
+                                <span><img src="../images/pro-logo.png" /> </span>
+                                TRACKER <span class="metro">METRO</span><span>
+                                    <div class="progress-bar">
+                                        <div id="circularG">
+                                            <div id="circularG_1" class="circularG">
                                             </div>
-
+                                            <div id="circularG_2" class="circularG">
+                                            </div>
+                                            <div id="circularG_3" class="circularG">
+                                            </div>
+                                            <div id="circularG_4" class="circularG">
+                                            </div>
+                                            <div id="circularG_5" class="circularG">
+                                            </div>
+                                            <div id="circularG_6" class="circularG">
+                                            </div>
+                                            <div id="circularG_7" class="circularG">
+                                            </div>
+                                            <div id="circularG_8" class="circularG">
+                                            </div>
                                         </div>
-                                    </span>
-                                </h1>
-                                <h1 class="title" ng-show="title">
-                                    {{title}}<span class="metro">{{subTitle}}</span>
-                                </h1>
-                            </a>
-                        </h1>
+
+                                    </div>
+                                </span>
+                            </h1>
+                            <h1 class="title" ng-show="title">
+                                {{title}}<span class="metro">{{subTitle}}</span>
+                            </h1>
+                        </a>
+                    </h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href=""><span>menu</span></a></li>
+            </ul>
+
+
+            <section class="top-bar-section">
+                <ul class="right">
+                    <li class="divider"></li>
+
+                    <li class="">
+                        <a href="#/dashboard">HOME</a>
                     </li>
-                    <li class="toggle-topbar menu-icon"><a href=""><span>menu</span></a></li>
+                    <li class="divider"></li>
+                    <li><a ng-click="gotoUserPortal()" class="">ADMIN</a></li>
+                    <li class="divider"></li>
+
+                    <li><a ng-href="#/myRoutines/" class="">ROUTINES</a></li>
+                    <li class="divider"></li>
+                    <li><a ng-href="#/myClients/" class="">CLIENTS</a></li>
+                    <li class="divider"></li>
+
+                    <li ng-controller="LoginCtrl">
+                        <a ng-href="#/login" class="btn-login" ng-hide="loggedInUser">LOG IN</a>
+                        <a ng-href="" ng-click="logout()" class="btn-logout" ng-show="loggedInUser">LOG OUT</a>
+                    </li>
+                    <!--<li class="divider"></li>
+                <li>
+                    <a class="fi-home nav-icon" href="#/">
+                        <span></span>
+
+                    </a>
+
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="right-off-canvas-toggle menu-icon"><span></span></a>
+
+                </li>-->
                 </ul>
+            </section>
+        </nav>
 
-
-                <section class="top-bar-section">
-                    <ul class="right">
-                        <li class="divider"></li>
-
-                        <li class="">
-                            <a href="#/dashboard">HOME</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a ng-click="gotoUserPortal()" class="">ADMIN</a></li>
-                        <li class="divider"></li>
-
-                     <li><a ng-href="#/myRoutines/" class="">ROUTINES</a></li>
-                        <li class="divider"></li>
-                        <li><a ng-href="#/myClients/" class="">CLIENTS</a></li>
-                        <li class="divider"></li>
-                       
-                        <li ng-controller="LoginCtrl">
-                            <a ng-href="#/login" class="btn-login" ng-hide="loggedInUser">LOG IN</a>
-                            <a ng-href="" ng-click="logout()" class="btn-logout" ng-show="loggedInUser">LOG OUT</a>
-                        </li>
-                        <!--<li class="divider"></li>
-                        <li>
-                            <a class="fi-home nav-icon" href="#/">
-                                <span></span>
-
-                            </a>
-
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="right-off-canvas-toggle menu-icon"><span></span></a>
-
-                        </li>-->
-                    </ul>
-                </section>
-            </nav>
+    </div>
 
 
             <!--<nav class="tab-bar">
@@ -194,6 +197,23 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
     <script src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
 
+    <!--Data models -->
+    <script src="scripts/common/models/Address.js"></script>
+    <script src="scripts/common/models/CardioModes.js"></script>
+    <script src="scripts/common/models/CardioWorkout.js"></script>
+    <script src="scripts/common/models/Exercise.js"></script>
+    <script src="scripts/common/models/FitnessCenter.js"></script>
+    <script src="scripts/common/models/FitnessOrg.js"></script>
+    <script src="scripts/common/models/Routine.js"></script>
+    <script src="scripts/common/models/RoutineAssignment.js"></script>
+    <script src="scripts/common/models/Set.js"></script>
+    <script src="scripts/common/models/TargetWeight.js"></script>
+    <script src="scripts/common/models/TrainingSession.js"></script>
+    <script src="scripts/common/models/User.js"></script>
+    <script src="scripts/common/models/UserTypes.js"></script>
+    <script src="scripts/common/models/Workout.js"></script>
+    <script src="scripts/common/models/WorkoutTarget.js"></script>
+    <!--End Data Models-->
 
     <!-- build:js scripts/modules.js -->
     <script src="bower_components/angular/angular.js"></script>

@@ -3,6 +3,30 @@
 angular.module('TrainerApp')
 .factory("DataImport", function () {
 
+    var MuscleGroups = [
+      { title: "Chest", name: "chest" },
+      { title: "Abs", name: "abs" },
+      { title: "Shoulders", name: "shoulders" },
+      { title: "Biceps", name: "biceps" },
+      { title: "Triceps", name: "triceps" },
+      { title: "Back", name: "back" },
+      { title: "Legs", name: "legs" },
+      { title: "Arms", name: "arms" },
+      { title: "Cardio", name: "cardio" },
+      { title: "Core", name: "core" },
+    ];
+
+    var ExerciseCategory = [
+        { name: "Free weights", tag: "fw" },
+        { name: "Free motion", tag: "fm" },
+        { name: "Bar bells", tag: "bb" },
+        { name: "Machine", tag: "bc" },
+        { name: "Dumb bells", tag: "db" },
+        { name: "Cables", tag: "cb" },
+        { name: "Resistance bands", tag: "rb" },
+        { name: "Cardio", tag: "cardio" },
+        { name: "Warm up", tag: "warmup" },
+    ];
 
     var listOfExercises = [
         { bodyPart: "Warmup", tags: "warmup", name: "Quick warm up" },
