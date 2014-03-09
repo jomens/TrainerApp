@@ -17,16 +17,16 @@ angular.module('TrainerApp')
             if (Models.UserType().isOrgAdmin(loggedInUser.userType)) {
                 fetchOptions = {
                     fn: function(id){
-                        return this.fitnessOrgId == id && 
+                        return this.institutionId == id && 
                             (this.userType == "user" || this.userType == "")
                     },
-                    param: loggedInUser.fitnessOrgId
+                    param: loggedInUser.institutionId
                 }
             }
 
-            if (Models.UserType().isFitnessCenterAdmin(loggedInUser.userType)) {
+            if (Models.UserType().isSiteAdmin(loggedInUser.userType)) {
                 fetchOptions = {
-                    fitnessCenterId: loggedInUser.fitnessCenterId,
+                    siteId: loggedInUser.siteId,
                     userType: "user"
                 }
             }
@@ -83,14 +83,14 @@ angular.module('TrainerApp')
 
             if (Models.UserType().isOrgAdmin(loggedInUser.userType)) {
                 fetchOptions = {
-                    fitnessOrgId: loggedInUser.fitnessOrgId,
+                    institutionId: loggedInUser.institutionId,
                     userType: "trainer"
                 }
             }
 
-            if (Models.UserType().isFitnessCenterAdmin(loggedInUser.userType)) {
+            if (Models.UserType().isSiteAdmin(loggedInUser.userType)) {
                 fetchOptions = {
-                    fitnessCenterId: loggedInUser.fitnessCenterId,
+                    siteId: loggedInUser.siteId,
                     userType: "trainer"
                 }
             }

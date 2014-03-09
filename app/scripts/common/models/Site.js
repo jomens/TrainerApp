@@ -1,8 +1,9 @@
 ﻿var DigitalFio = DigitalFio || {};
 
 (function () {
-    DigitalFio.FitnessCenter = function () {
-        this.fitnessOrgId = "";
+    DigitalFio.Site = function () {
+        //this.institutionId = ""; //deprecate
+        this.institutionId = "";
         this.name = "";
         this.location = "";
         this.addressId = "";

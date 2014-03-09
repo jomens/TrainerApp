@@ -8,10 +8,12 @@ angular.module('TrainerApp')
 
     function getTableByEnvironment(tb) {
 
-        if (Environment == "PROD") {
-            return tb;
-        }
-        return "TEST_" + tb;
+        return tb;
+
+        //if (Environment == "PROD") {
+       //     return tb;
+       // }
+       // return "TEST_" + tb;
     }
 
 
@@ -77,10 +79,12 @@ angular.module('TrainerApp')
 function ($resource, Environment, Notifier, AzureTable) {
     function getTableByEnvironment(tb) {
 
-        if (Environment == "PROD") {
-            return tb;
-        }
-        return "TEST_" + tb;
+        return tb;
+
+       // if (Environment == "PROD") {
+         //   return tb;
+       // }
+       // return "TEST_" + tb;
     }
 
 
@@ -94,11 +98,11 @@ function ($resource, Environment, Notifier, AzureTable) {
         return $resource(url.replace("tableName", tableName), { id: '@id' }, { "update": { method: "PATCH", isArray: false } });
     }
     return {
-        FitnessOrgResource: function () {
-            return getResource("fitnessorgs");
+        InstitutionResource: function () {
+            return getResource("institutions");
         },
-        FitnessCenterResource: function () {
-            return getResource("fitnesscenters");
+        SiteResource: function () {
+            return getResource("sites");
         },
         UserResource: function () {
             return getResource("users");
@@ -118,6 +122,9 @@ function ($resource, Environment, Notifier, AzureTable) {
         Exercises_ExerciseCategory_Resource: function () {
             return getResource("exercises_exercisecategories");
         },
+        RoleResource: function () {
+            return getResource("roles");
+        },
         RoutineResource: function () {
             return getResource("routines");
         },
@@ -134,7 +141,7 @@ function ($resource, Environment, Notifier, AzureTable) {
             return getResource("workouts");
         },
         CardioWorkoutResource: function () {
-            return getResource("workouts_cardio");
+            return getResource("cardio");
         },
         PersonalBestResource: function () {
             return getResource("personal_best");

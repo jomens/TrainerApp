@@ -11,23 +11,24 @@ angular.module('TrainerApp')
             trainer.userType = DigitalFio.UserType.trainer();
             return trainer;
         },
-        FitnessOrgAdmin: function () {
+        InstitutionAdmin: function () {
             var admin = new DigitalFio.User();
-            admin.userType = DigitalFio.UserType.fitnessOrgAdmin();
+            admin.userType = DigitalFio.UserType.institutionAdmin();
             return admin;
         },
-        FitnessCenterAdmin: function () {
+        SiteAdmin: function () {
             var admin = new DigitalFio.User();
-            admin.userType = DigitalFio.UserType.fitnessCenterAdmin();
+            admin.userType = DigitalFio.UserType.siteAdmin();
             return admin;
         },
+        Role: function () { return new DigitalFio.Role(); },
         Exercise: function () { return new DigitalFio.Exercise(); },
         Routine: function () { return new DigitalFio.Routine(); },
         RoutineActivity: function () { return new DigitalFio.RoutineActivity(); },
         WorkoutTarget: function () { return new DigitalFio.WorkoutTarget(); },
         TargetWeight: function () { return new DigitalFio.TargetWeight(); },
-        FitnessOrg: function () { return new DigitalFio.FitnessOrg(); },
-        FitnessCenter: function () { return new DigitalFio.FitnessCenter(); },
+        Institution: function () { return new DigitalFio.Institution(); },
+        Site: function () { return new DigitalFio.Site(); },
         Tags: function () { return DigitalFio.Tags; },
         BodyParts: function () { return DigitalFio.BodyParts; },
         MuscleGroups: function () { return DigitalFio.MuscleGroups; },

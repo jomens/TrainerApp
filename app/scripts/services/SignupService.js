@@ -4,15 +4,15 @@ angular.module('TrainerApp')
  .factory("SignupService", function (Models, Azure, Notifier, $location, LocalStorage, Identity, UserService) {
 
          return {
-             addFitnessOrg: function (org, admins, callback) {
+             addInstitution: function (org, admins, callback) {
 
                  Notifier.busy(true);
                  //admin.isAdmin = true;
 
-                 Azure.FitnessOrgResource().save(org, function (savedOrg) {
+                 Azure.InstitutionResource().save(org, function (savedOrg) {
 
                      admins.forEach(function (admin) {
-                        admin.fitnessOrgId = savedOrg.id;
+                        admin.institutionId = savedOrg.id;
                         admin.isAdmin = true;
                         admin.pin = "0000";
 
@@ -32,17 +32,17 @@ angular.module('TrainerApp')
 
                  }, Notifier.errorHandler);
              },
-             addFitnessCenter: function (fitnessCenter, admin, success) {
+             addSite: function (site, admin, success) {
 
                  var that = this;
                  Notifier.busy(true); 
-                 fitnessCenter.fitnessOrgId = Identity.getLoggedInUser().fitnessOrgId;
+                 site.institutionId = Identity.getLoggedInUser().institutionId;
 
-                 Azure.FitnessCenterResource().save(fitnessCenter, function (savedGym) {
+                 Azure.SiteResource().save(site, function (savedGym) {
                      admin.isAdmin = true;
                      admin.pin = "0000";
-                     admin.fitnessCenterId = savedGym.id;
-                     admin.fitnessOrgId = Identity.getLoggedInUser().fitnessOrgId;
+                     admin.siteId = savedGym.id;
+                     admin.institutionId = Identity.getLoggedInUser().institutionId;
                      UserService.addUser(admin);
 
                      success();

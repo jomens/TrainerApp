@@ -39,7 +39,6 @@ angular.module('TrainerApp')
           ExerciseService.getExercisesByMuscleGroup(mg.id, function (exs) {
               $scope.exercises = exs;
               $scope.$apply();
-              console.log(exs);
           angular.element(".create-routine").removeClass("move-right");
 
           });

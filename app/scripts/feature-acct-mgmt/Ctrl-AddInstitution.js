@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('AddfitnessorgCtrl', function ($scope, SignupService, Models) {
+  .controller('AddinstitutionCtrl', function ($scope, SignupService, Models) {
 
       init();
 
       function init() {
-          $scope.org = Models.FitnessOrg();
+          $scope.org = Models.Institution();
           var admin = Models.User();
 
             $scope.admin = admin;
@@ -15,7 +15,7 @@ angular.module('TrainerApp')
 
       //create a function that your form submission will data bind to
       $scope.addOrg = function () {
-          SignupService.addFitnessOrg($scope.org, $scope.admin);
+          SignupService.addInstitution($scope.org, $scope.admin);
          
       }
   });

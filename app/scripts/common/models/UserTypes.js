@@ -2,17 +2,17 @@
 
 (function () {
     DigitalFio.UserType = {
-        fitnessOrgAdmin: function () {
-            return "fitnessorgadmin";
+        institutionAdmin: function () {
+            return "institutionadmin";
         },
         isOrgAdmin: function (userType) {
-            return userType == "fitnessorgadmin";
+            return userType == "institutionadmin";
         },
-        fitnessCenterAdmin: function () {
-            return "fitnesscenteradmin";
+        siteAdmin: function () {
+            return "siteadmin";
         },
-        isFitnessCenterAdmin: function (userType) {
-            return userType == "fitnesscenteradmin";
+        isSiteAdmin: function (userType) {
+            return userType == "siteadmin";
         },
         trainer: function () {
             return "trainer";
@@ -26,7 +26,7 @@
         isUser: function (userType) {
             return userType == "user" || userType == "";
         },
-        // fitnessorgadmin: "Fitness Org Admin",
+        // institutionadmin: "Fitness Org Admin",
         //admin: "gymadmin"
     }
 

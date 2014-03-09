@@ -3,9 +3,9 @@
 (function () {
     DigitalFio.TrainingSession = function () {
         this.date = "";
-        this.userId = -1;
-        this.trainerId = -1;
-        this.routineId = -1;
+        this.userId = "";
+        this.trainerId = "";
+        this.routineId = "";
         //this.workouts = [];
     }
 

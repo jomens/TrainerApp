@@ -104,11 +104,11 @@ angular.module('TrainerApp')
               case "trainer":
                   $location.path("/trainer");
                   break;
-              case "fitnessorgadmin":
-                  $location.path("/fitnessOrgPortal");
+              case "institutionadmin":
+                  $location.path("/institutionPortal");
                   break;
-              case "fitnesscenteradmin":
-                  $location.path("/fitnessCenterPortal");
+              case "siteadmin":
+                  $location.path("/sitePortal");
                   break;
               case "user":
                   $location.path("/userPortal");

@@ -1,20 +1,20 @@
 'use strict';
 
 angular.module('TrainerApp')
-  .controller('SignupFitnessOrgCtrl', function ($scope, Models, Nav, SignupService) {
+  .controller('SignupInstitutionCtrl', function ($scope, Models, Nav, SignupService) {
      
 
       init();
 
       function init() {
-          setupFitnessOrgsignup();
+          setupInstitutionsignup();
       }
 
-      function setupFitnessOrgsignup() {
-          var org = Models.FitnessOrg();
+      function setupInstitutionsignup() {
+          var org = Models.Institution();
           $scope.org = org;
 
-          var admin = Models.FitnessOrgAdmin();
+          var admin = Models.InstitutionAdmin();
           $scope.admins = [admin];
 
           //if (Azure.Client().currentUser) {
@@ -26,7 +26,7 @@ angular.module('TrainerApp')
       }
 
       $scope.addAnotherAdmin = function () {
-          $scope.admins.push(Models.FitnessOrgAdmin());
+          $scope.admins.push(Models.InstitutionAdmin());
       }
 
       //$scope.trainerSignUp = function () {
@@ -38,7 +38,7 @@ angular.module('TrainerApp')
       //}
 
       $scope.saveOrg = function () {
-          SignupService.addFitnessOrg($scope.org, $scope.admins, function () {
+          SignupService.addInstitution($scope.org, $scope.admins, function () {
               Nav.login();
               $scope.$apply();
           });

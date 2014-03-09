@@ -11,8 +11,8 @@ angular.module('TrainerApp')
       }
 
       $scope.addTrainer = function () {
-          $scope.trainer.fitnessCenterId = Identity.getLoggedInUser().fitnessCenterId;
-          $scope.trainer.fitnessOrgId = Identity.getLoggedInUser().fitnessOrgId;
+          $scope.trainer.siteId = Identity.getLoggedInUser().siteId;
+          $scope.trainer.institutionId = Identity.getLoggedInUser().institutionId;
 
           UserService.addUser($scope.trainer, function () {
               Nav.trainers();

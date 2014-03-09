@@ -22,8 +22,8 @@ angular.module('TrainerApp')
                  Notifier.busy(true);
 
                  user.trainerId = Identity.getLoggedInUser().id;
-                 user.fitnessCenterId = Identity.getLoggedInUser().fitnessCenterId;
-                 user.fitnessOrgId = Identity.getLoggedInUser().fitnessOrgId;
+                 user.siteId = Identity.getLoggedInUser().siteId;
+                 user.institutionId = Identity.getLoggedInUser().institutionId;
                  user.pin = "0000";
 
                  Azure.UserResource().save(user, function (savedUser) {

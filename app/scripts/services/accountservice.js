@@ -7,7 +7,7 @@ angular.module('TrainerApp')
     return {
         getLocations: function (success, error) {
             Notifier.busy();
-            Azure.FitnessCenterResource().query({ fitnessOrgId: Identity.getLoggedInUser().fitnessOrgId },
+            Azure.SiteResource().query({ institutionId: Identity.getLoggedInUser().institutionId },
                 function (data) {
                 Notifier.done();
 

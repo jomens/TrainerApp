@@ -1,7 +1,7 @@
 ﻿var DigitalFio = DigitalFio || {};
 
 (function () {
-    DigitalFio.FitnessOrg = function () {
+    DigitalFio.Institution = function () {
         this.name = "";
         this.location = "";
         this.email = "";

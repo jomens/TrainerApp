@@ -43,11 +43,11 @@ angular.module('TrainerApp')
               case "trainer":
                   go("trainer");
                   break;
-              case "fitnessorgadmin":
-                  go("fitnessOrgPortal");
+              case "institutionadmin":
+                  go("institutionPortal");
                   break;
-              case "fitnesscenteradmin":
-                  go("fitnessCenterPortal");
+              case "siteadmin":
+                  go("sitePortal");
                   break;
               case "user":
                   go("userPortal");

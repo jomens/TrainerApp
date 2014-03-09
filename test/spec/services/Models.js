@@ -26,8 +26,8 @@ describe('Service: Models', function () {
           expect(user.phone).toBe("");
           expect(user.userType).toBe("");
           expect(user.trainerId).toBe("");
-          expect(user.fitnessOrgId).toBe("");
-          expect(user.fitnessCenterId).toBe("");
+          expect(user.institutionId).toBe("");
+          expect(user.siteId).toBe("");
       });
 
       describe("and the user is a trainer", function () {
@@ -44,22 +44,22 @@ describe('Service: Models', function () {
       //describe("and the user is a fitness Org Admin", function () {
 
       //    beforeEach(function () {
-      //        user = Models.FitnessOrgAdmin();
+      //        user = Models.InstitutionAdmin();
       //    });
 
-      //    it("should have role fitnessorgadmin", function () {
-      //        expect(user.role).toBe("fitnessorgadmin");
+      //    it("should have role institutionadmin", function () {
+      //        expect(user.role).toBe("institutionadmin");
       //    });
       //});
 
       //describe("and the user is a fitness center admin", function () {
 
       //    beforeEach(function () {
-      //        user = Models.FitnessCenterAdmin();
+      //        user = Models.SiteAdmin();
       //    });
 
-      //    it("should have role fitnesscenteradmin", function () {
-      //        expect(user.role).toBe("fitnesscenteradmin");
+      //    it("should have role siteadmin", function () {
+      //        expect(user.role).toBe("siteadmin");
       //    });
       //});
 

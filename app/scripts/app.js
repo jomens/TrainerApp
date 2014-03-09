@@ -25,8 +25,8 @@ angular.module('TrainerApp', [
             },
             {
                 name: "feature-acct-mgmt",
-                simpleRoutes: ["Addclient", "AddTrainer", "Myclients", "Login", "Addfitnessorg",
-                "AddFitnessCenter", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal", "AllLocations", "MyTrainers", "DeleteClient"],
+                simpleRoutes: ["Addclient", "AddTrainer", "Myclients", "Login", "Addinstitution",
+                "AddSite", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal", "AllLocations", "MyTrainers", "DeleteClient"],
                 routesWithIds: ["EditClient", "Myclients"]
             },
             {
@@ -84,7 +84,7 @@ angular.module('TrainerApp', [
       })
       .when('/fitness-org-signup', {
           templateUrl: 'scripts/feature-signup/v-fitness-org-signup.html',
-          controller: 'SignupFitnessOrgCtrl'
+          controller: 'SignupInstitutionCtrl'
       })
       .when('/trainer-signup', {
           templateUrl: 'scripts/feature-signup/v-trainer-signup.html',
@@ -108,7 +108,7 @@ angular.module('TrainerApp', [
 
     $rootScope.$on('$routeChangeStart', function (evt, next, current) {
 
-        //var user = Identity.getLoggedInUser();
+        var user = Identity.getLoggedInUser();
         //var authedUser = Azure.Client().currentUser;
 
         //if (user) {

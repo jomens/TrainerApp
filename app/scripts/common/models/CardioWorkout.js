@@ -2,12 +2,11 @@
 
 (function () {
     DigitalFio.CardioWorkout = function () { //TODO: add cardio
-        this.trainingSessionId = -1;
+        this.trainingSessionId = "";
         this.userId = "";
-        this.exerciseId = -1;
+        this.exerciseId = "";
         this.exerciseName = "";
         this.workoutType = "cardio";
-
         this.mode = "";
         this.intensity = "";
         this.resistance = "";

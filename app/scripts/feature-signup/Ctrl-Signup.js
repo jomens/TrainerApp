@@ -9,7 +9,7 @@ angular.module('TrainerApp')
       function init() {
          
           setupTrainerSignup();
-          setupFitnessOrgsignup();
+          setupInstitutionsignup();
       }
 
       function setupTrainerSignup() {
@@ -23,7 +23,7 @@ angular.module('TrainerApp')
       }
 
 
-      function setupFitnessOrgsignup() {
+      function setupInstitutionsignup() {
 
       }
 

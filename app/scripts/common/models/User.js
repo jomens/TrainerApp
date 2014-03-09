@@ -19,8 +19,10 @@
         this.phone = "";
         this.userType = "user"
         this.trainerId = "";
-        this.fitnessCenterId = "";
-        this.fitnessOrgId = "";
+        this.siteId = "";//deprecate
+       // this.institutionId = ""; //deprecate
+        this.siteId = "";
+        this.institutionId = "";
         this.isAdmin = false;
         this.isRemote = false;
         this.imageUrl = getImage();

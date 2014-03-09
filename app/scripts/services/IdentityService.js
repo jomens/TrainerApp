@@ -10,11 +10,11 @@ angular.module('TrainerApp')
                 case "trainer":
                     user.isTrainer = true;
                     break;
-                case "fitnessorgadmin":
-                    user.isFitnessOrgAdmin = true;
+                case "institutionadmin":
+                    user.isInstitutionAdmin = true;
                     break;
-                case "fitnesscenteradmin":
-                    user.isFitnessCenterAdmin = true;
+                case "siteadmin":
+                    user.isSiteAdmin = true;
                     break;
                 case "user":
                     user.isUser = true;
