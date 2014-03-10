@@ -11,10 +11,10 @@ angular.module('TrainerApp')
               $scope.muscleGroups = mgs;
 
           });
-          ExerciseService.getExerciseCategories(function (excats) {
-              $scope.categories = excats;
+         // ExerciseService.getExerciseCategories(function (excats) {
+          //    $scope.categories = excats;
 
-          });
+          //});
           
           //$scope.muscleGroups = Models.MuscleGroups();
          // $scope.categories = Models.ExerciseCategory();
@@ -30,7 +30,7 @@ angular.module('TrainerApp')
           var options = {};
           options.exerciseName = $scope.exercise.name;
           options.muscleGroups = $scope.selectedMuscleGroups;
-          options.exerciseCategories = $scope.selectedCategories
+          //options.exerciseCategories = $scope.selectedCategories
 
           ExerciseService.addExercise(options, function (ex) {
               //console.log(ex);

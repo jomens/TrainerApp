@@ -66,11 +66,10 @@
                                         </div>
 
                                     </div>
-                                </span>
+                                </span> <span class="logged-in-user">{{loggedInUser.firstName}} {{loggedInUser.lastName}}</span>
+                                                               
                             </h1>
-                            <h1 class="title" ng-show="title">
-                                {{title}}<span class="metro">{{subTitle}}</span>
-                            </h1>
+                           
                         </a>
                     </h1>
                 </li>
@@ -95,8 +94,10 @@
                     <li class="divider"></li>
 
                     <li ng-controller="LoginCtrl">
-                        <a ng-href="#/login" class="btn-login" ng-hide="loggedInUser">LOG IN</a>
+                      <a ng-href="#/login" class="btn-login" ng-hide="loggedInUser">LOG IN</a>
                         <a ng-href="" ng-click="logout()" class="btn-logout" ng-show="loggedInUser">LOG OUT</a>
+
+                      
                     </li>
                     <!--<li class="divider"></li>
                 <li>

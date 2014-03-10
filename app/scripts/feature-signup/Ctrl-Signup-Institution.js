@@ -40,7 +40,7 @@ angular.module('TrainerApp')
       $scope.saveOrg = function () {
           SignupService.addInstitution($scope.org, $scope.admins, function () {
               Nav.login();
-              $scope.$apply();
+              //$scope.$apply();
           });
           //Nav.home();
       }

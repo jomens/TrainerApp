@@ -26,7 +26,7 @@ angular.module('TrainerApp', [
             {
                 name: "feature-acct-mgmt",
                 simpleRoutes: ["Addclient", "AddTrainer", "Myclients", "Login", "Addinstitution",
-                "AddSite", "Pinreset", "Userportal", "Fitnessorgportal", "Fitnesscenterportal", "AllLocations", "MyTrainers", "DeleteClient"],
+                "AddSite", "Pinreset", "Userportal", "Institutionportal", "Siteportal", "AllLocations", "MyTrainers", "DeleteClient"],
                 routesWithIds: ["EditClient", "Myclients"]
             },
             {
@@ -82,8 +82,8 @@ angular.module('TrainerApp', [
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
       })
-      .when('/fitness-org-signup', {
-          templateUrl: 'scripts/feature-signup/v-fitness-org-signup.html',
+      .when('/institution-signup', {
+          templateUrl: 'scripts/feature-signup/v-institution-signup.html',
           controller: 'SignupInstitutionCtrl'
       })
       .when('/trainer-signup', {

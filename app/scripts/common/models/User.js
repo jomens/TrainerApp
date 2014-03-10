@@ -13,14 +13,12 @@
         this.auth_userId = "";
         this.firstName = "";
         this.lastName = "";
-        this.auth_userId = "";
         this.email = "";
+        this.gender = "";
         this.pin = "";//0000
         this.phone = "";
         this.userType = "user"
         this.trainerId = "";
-        this.siteId = "";//deprecate
-       // this.institutionId = ""; //deprecate
         this.siteId = "";
         this.institutionId = "";
         this.isAdmin = false;

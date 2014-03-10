@@ -4,7 +4,7 @@
     DigitalFio.Routine = function () {
         this.createdBy = "";
         this.name = ""; //Chest and tris?
-        this.descriptions = "";
+        this.description = "";
         // this.exercises = [];
     }
 
